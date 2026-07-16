@@ -179,7 +179,7 @@ a:hover { text-decoration: underline; }
   line-height: 1.4;
 }
 
-input[type="text"], select {
+input[type="text"] {
   width: 100%;
   padding: 0.7rem 0.85rem;
   font-size: 1rem;
@@ -191,26 +191,119 @@ input[type="text"], select {
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 input[type="text"]::placeholder { color: var(--text-faint); }
-input[type="text"]:focus, select:focus {
+input[type="text"]:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
 }
 
-.select-wrap { position: relative; }
-.select-wrap::after {
-  content: "";
-  position: absolute;
-  right: 0.9rem;
-  top: 50%;
-  width: 0.5rem;
-  height: 0.5rem;
-  border-right: 2px solid var(--text-faint);
-  border-bottom: 2px solid var(--text-faint);
-  transform: translateY(-65%) rotate(45deg);
-  pointer-events: none;
+/* ------------------------------------------------------------------ */
+/* Custom dropdown / combobox (behaviour in assets/js/lib/dropdown.ts) */
+/* ------------------------------------------------------------------ */
+.dd { position: relative; }
+.dd__control {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 46px;
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  cursor: pointer;
 }
-select { appearance: none; -webkit-appearance: none; padding-right: 2rem; }
+.dd--combobox .dd__control { cursor: text; }
+.dd__control:focus-within,
+.dd__trigger:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+/* The inner text field is borderless; the border + focus ring belong to
+   .dd__control. Selector is specific enough to beat `input[type="text"]`. */
+.dd .dd__input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.7rem 0.4rem 0.7rem 0.85rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text);
+}
+.dd .dd__input:focus { outline: none; box-shadow: none; }
+
+.dd__trigger {
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.7rem 0.55rem 0.7rem 0.85rem;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  text-align: left;
+}
+.dd__trigger.is-placeholder .dd__value { color: var(--text-faint); }
+.dd__value {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dd__chev {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+  width: 2.2rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-faint);
+  cursor: pointer;
+}
+.dd__chev-icon { transition: transform 0.18s ease; }
+.dd[data-open="true"] .dd__chev { color: var(--accent); }
+.dd[data-open="true"] .dd__chev-icon { transform: rotate(180deg); }
+
+.dd__list {
+  position: absolute;
+  z-index: 40;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0.3rem;
+  list-style: none;
+  max-height: 15.5rem;
+  overflow-y: auto;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+}
+.dd__option {
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  color: var(--text);
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dd__option.is-active { background: var(--bg-sunken); }
+.dd__option[aria-selected="true"] { color: var(--accent); font-weight: 600; }
+.dd__option[aria-selected="true"].is-active { background: var(--accent-soft); }
+.dd__empty {
+  padding: 0.6rem 0.7rem;
+  color: var(--text-faint);
+  font-size: 0.9rem;
+}
 
 .segmented {
   display: flex;
@@ -272,7 +365,7 @@ select { appearance: none; -webkit-appearance: none; padding-right: 2rem; }
 
 .results__summary {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
@@ -282,9 +375,14 @@ select { appearance: none; -webkit-appearance: none; padding-right: 2rem; }
 }
 .results__area { display: block; font-size: 1.2rem; font-weight: 700; }
 .results__geo { display: block; color: var(--text-muted); font-size: 0.9rem; }
-.results__meta { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
-.results__sort { color: var(--text-faint); font-size: 0.85rem; }
+.results__meta { display: flex; align-items: center; gap: 0.5rem 0.65rem; flex-wrap: wrap; }
 .results__nowage { color: var(--warn); font-size: 0.9rem; margin: -0.3rem 0 1rem; }
+
+.sort-field { display: inline-flex; align-items: center; gap: 0.45rem; }
+.sort-field__label { color: var(--text-faint); font-size: 0.82rem; font-weight: 600; white-space: nowrap; }
+.sort-field .dd { min-width: 13.5rem; }
+.sort-field .dd__control { min-height: 38px; }
+.sort-field .dd__trigger { padding-block: 0.42rem; font-size: 0.9rem; }
 
 .pill {
   display: inline-block;
@@ -299,6 +397,41 @@ select { appearance: none; -webkit-appearance: none; padding-right: 2rem; }
 
 .results__list { display: flex; flex-direction: column; gap: 1rem; }
 
+/* Aggregated job description */
+.aggregate {
+  margin-bottom: 1.1rem;
+  padding: 1rem 1.15rem;
+  background: var(--bg-elevated);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+}
+.aggregate.is-active {
+  border-style: solid;
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+.aggregate__empty { margin: 0; color: var(--text-faint); font-size: 0.92rem; }
+.aggregate__head { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.85rem; }
+.aggregate__title { margin: 0; font-size: 1.05rem; font-weight: 700; }
+.aggregate__count { color: var(--text-muted); font-size: 0.85rem; }
+.aggregate__copy {
+  margin-left: auto;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.aggregate__copy:hover { border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+.aggregate__body { display: flex; flex-direction: column; gap: 0.85rem; }
+.aggregate__role-title { margin: 0 0 0.2rem; font-size: 0.9rem; font-weight: 700; color: var(--text); }
+.aggregate__role-desc { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
+
 /* Cards */
 .card {
   background: var(--bg-elevated);
@@ -310,6 +443,39 @@ select { appearance: none; -webkit-appearance: none; padding-right: 2rem; }
 }
 .card:hover { box-shadow: var(--shadow-md); border-color: var(--border-strong); }
 .card--nowage { opacity: 0.82; }
+.card.is-selected { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--shadow-sm); }
+
+/* Selection checkbox */
+.card__row { display: flex; align-items: flex-start; gap: 0.85rem; }
+.card__main { flex: 1; min-width: 0; }
+.card__select { position: relative; display: inline-flex; align-items: center; margin-top: 0.15rem; flex-shrink: 0; cursor: pointer; }
+.card__select-input { position: absolute; top: 0; left: 0; width: 22px; height: 22px; margin: 0; opacity: 0; cursor: pointer; }
+.card__select-box {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 6px;
+  background: var(--bg);
+  transition: background 0.15s, border-color 0.15s;
+}
+.card__select-box::after {
+  content: "";
+  width: 11px;
+  height: 6px;
+  border-left: 2.5px solid var(--accent-contrast);
+  border-bottom: 2.5px solid var(--accent-contrast);
+  transform: translateY(-1px) rotate(-45deg);
+  opacity: 0;
+  transition: opacity 0.12s;
+}
+.card__select-input:checked + .card__select-box { background: var(--accent); border-color: var(--accent); }
+.card__select-input:checked + .card__select-box::after { opacity: 1; }
+.card__select-input:focus-visible + .card__select-box {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
+}
 
 .card__head {
   display: flex;

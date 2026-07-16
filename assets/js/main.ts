@@ -2,19 +2,15 @@ import { loadYears, loadYearData, loadWages, type YearData } from "./lib/dataLoa
 import { resolveArea } from "./lib/geography";
 import { parseKeywords, matchKeywords } from "./lib/match";
 import { buildRows } from "./lib/pipeline";
+import { Dropdown, type DropdownOption } from "./lib/dropdown";
 import type { YearInfo, WageTable, ResultRow } from "./lib/types";
 
 const DESC_CLAMP_CHARS = 260;
 
 const els = {
   form: document.getElementById("search-form") as HTMLFormElement,
-  year: document.getElementById("year") as HTMLSelectElement,
   tableToggle: document.getElementById("table-toggle") as HTMLElement,
   keyword: document.getElementById("keyword") as HTMLInputElement,
-  state: document.getElementById("state") as HTMLInputElement,
-  county: document.getElementById("county") as HTMLInputElement,
-  stateList: document.getElementById("state-list") as HTMLDataListElement,
-  countyList: document.getElementById("county-list") as HTMLDataListElement,
   searchBtn: document.getElementById("search-btn") as HTMLButtonElement,
   hint: document.getElementById("form-hint") as HTMLParagraphElement,
   results: document.getElementById("results") as HTMLElement,
@@ -25,6 +21,68 @@ const els = {
 
 let years: YearInfo[] = [];
 let table: WageTable = "alc";
+
+let stateDd: Dropdown;
+let countyDd: Dropdown;
+let yearDd: Dropdown;
+
+// ---------------------------------------------------------------------------
+// Sorting
+// ---------------------------------------------------------------------------
+
+type SortMode = "avg-asc" | "avg-desc" | "entry-asc" | "entry-desc" | "title-az" | "keyword-az";
+
+const SORT_OPTIONS: DropdownOption[] = [
+  { value: "avg-asc", label: "Average wage (low to high)" },
+  { value: "avg-desc", label: "Average wage (high to low)" },
+  { value: "entry-asc", label: "Entry wage (low to high)" },
+  { value: "entry-desc", label: "Entry wage (high to low)" },
+  { value: "title-az", label: "Occupation (A–Z)" },
+  { value: "keyword-az", label: "Keyword (A–Z)" },
+];
+
+const DEFAULT_SORT: SortMode = "avg-asc";
+
+function alphaFirstKeyword(row: ResultRow): string {
+  if (row.matchedKeywords.length === 0) return "";
+  return row.matchedKeywords
+    .reduce((a, b) => (a.toLowerCase() <= b.toLowerCase() ? a : b))
+    .toLowerCase();
+}
+
+function sortRows(rows: ResultRow[], mode: SortMode): ResultRow[] {
+  const out = rows.slice();
+  // Rows without a published wage always sink to the end of numeric sorts.
+  const byNumber = (key: "avg" | "l1", dir: 1 | -1) => (a: ResultRow, b: ResultRow) => {
+    const av = a[key];
+    const bv = b[key];
+    const aNull = av === null;
+    const bNull = bv === null;
+    if (aNull !== bNull) return aNull ? 1 : -1;
+    return dir * ((av ?? 0) - (bv ?? 0));
+  };
+  switch (mode) {
+    case "avg-asc":
+      out.sort(byNumber("avg", 1));
+      break;
+    case "avg-desc":
+      out.sort(byNumber("avg", -1));
+      break;
+    case "entry-asc":
+      out.sort(byNumber("l1", 1));
+      break;
+    case "entry-desc":
+      out.sort(byNumber("l1", -1));
+      break;
+    case "title-az":
+      out.sort((a, b) => a.title.localeCompare(b.title));
+      break;
+    case "keyword-az":
+      out.sort((a, b) => alphaFirstKeyword(a).localeCompare(alphaFirstKeyword(b)) || a.title.localeCompare(b.title));
+      break;
+  }
+  return out;
+}
 
 // ---------------------------------------------------------------------------
 // Theme
@@ -52,42 +110,49 @@ function formatUSD(value: number | null): string {
   return "$" + Math.round(value).toLocaleString("en-US");
 }
 
-function escapeAttr(value: string): string {
-  return value.replace(/"/g, "&quot;");
-}
-
 // ---------------------------------------------------------------------------
-// Datalists
+// Dropdown option sources
 // ---------------------------------------------------------------------------
 
-function populateStateList(data: YearData): void {
+function statesFromData(data: YearData): DropdownOption[] {
   const names = new Set<string>();
-  for (const row of data.geo) {
-    if (row.state) names.add(row.state);
-  }
-  const sorted = Array.from(names).sort((a, b) => a.localeCompare(b));
-  els.stateList.innerHTML = sorted
-    .map((n) => `<option value="${escapeAttr(n)}"></option>`)
-    .join("");
+  for (const row of data.geo) if (row.state) names.add(row.state);
+  return Array.from(names)
+    .sort((a, b) => a.localeCompare(b))
+    .map((n) => ({ value: n, label: n }));
 }
 
-function populateCountyList(data: YearData, stateInput: string): void {
+function countiesFor(data: YearData, stateInput: string): DropdownOption[] {
   const q = stateInput.trim().toLowerCase();
-  if (!q) {
-    els.countyList.innerHTML = "";
-    return;
-  }
+  if (!q) return [];
   const counties = new Set<string>();
   for (const row of data.geo) {
     if (row.state.toLowerCase() === q || row.stateAb.toLowerCase() === q) {
       if (row.county) counties.add(row.county);
     }
   }
-  const sorted = Array.from(counties).sort((a, b) => a.localeCompare(b));
-  els.countyList.innerHTML = sorted
-    .map((c) => `<option value="${escapeAttr(c)}"></option>`)
-    .join("");
+  return Array.from(counties)
+    .sort((a, b) => a.localeCompare(b))
+    .map((c) => ({ value: c, label: c }));
 }
+
+function refreshCountyOptions(): void {
+  const data = yearDataFor(yearDd.value);
+  countyDd.setOptions(data ? countiesFor(data, stateDd.value) : []);
+}
+
+// ---------------------------------------------------------------------------
+// Result state
+// ---------------------------------------------------------------------------
+
+let currentRows: ResultRow[] = [];
+let currentKeywords: string[] = [];
+let sortMode: SortMode = DEFAULT_SORT;
+const selected = new Set<string>();
+
+let sortDd: Dropdown | null = null;
+let listEl: HTMLElement | null = null;
+let aggregateEl: HTMLElement | null = null;
 
 // ---------------------------------------------------------------------------
 // Result rendering
@@ -125,28 +190,68 @@ function renderResults(
   geoDetail: string,
   keywords: string[],
 ): void {
+  currentRows = rows;
+  currentKeywords = keywords;
+  selected.clear();
+
   const activeSeg = els.tableToggle.querySelector<HTMLElement>(".seg.is-active");
   const tableName = (activeSeg?.textContent ?? "").trim();
   const withWage = rows.filter((r) => r.hasWage && r.avg !== null).length;
-  const showKeywords = keywords.length > 1;
 
-  const summary = `<div class="results__summary">
-      <div>
-        <span class="results__area">${areaName}</span>
-        <span class="results__geo">${geoDetail}</span>
-      </div>
-      <div class="results__meta">
-        <span class="pill">${rows.length} match${rows.length === 1 ? "" : "es"}</span>
-        <span class="pill pill--muted">${tableName}</span>
-        <span class="results__sort">Sorted by annual average, low &rarr; high</span>
-      </div>
-    </div>`;
+  els.results.textContent = "";
 
-  const list = document.createElement("div");
-  list.className = "results__list";
-  for (const row of rows) list.appendChild(renderCard(row, showKeywords));
+  // --- summary bar (area, counts, sort control) ---
+  const summary = document.createElement("div");
+  summary.className = "results__summary";
 
-  setResultsHTML(summary);
+  const heading = document.createElement("div");
+  const area = document.createElement("span");
+  area.className = "results__area";
+  area.textContent = areaName;
+  const geo = document.createElement("span");
+  geo.className = "results__geo";
+  geo.textContent = geoDetail;
+  heading.append(area, geo);
+
+  const meta = document.createElement("div");
+  meta.className = "results__meta";
+  const countPill = document.createElement("span");
+  countPill.className = "pill";
+  countPill.textContent = `${rows.length} match${rows.length === 1 ? "" : "es"}`;
+  const tablePill = document.createElement("span");
+  tablePill.className = "pill pill--muted";
+  tablePill.textContent = tableName;
+
+  const sortField = document.createElement("div");
+  sortField.className = "sort-field";
+  const sortLabel = document.createElement("span");
+  sortLabel.className = "sort-field__label";
+  sortLabel.id = "sort-label";
+  sortLabel.textContent = "Sort by";
+  const sortMount = document.createElement("div");
+  sortField.append(sortLabel, sortMount);
+
+  meta.append(countPill, tablePill, sortField);
+  summary.append(heading, meta);
+  els.results.appendChild(summary);
+
+  sortDd = new Dropdown(sortMount, {
+    mode: "select",
+    options: SORT_OPTIONS,
+    value: sortMode,
+    labelledBy: "sort-label",
+    onChange: (v) => {
+      sortMode = v as SortMode;
+      renderList();
+    },
+  });
+
+  // --- aggregated job description panel ---
+  aggregateEl = document.createElement("section");
+  aggregateEl.className = "aggregate";
+  aggregateEl.setAttribute("aria-live", "polite");
+  els.results.appendChild(aggregateEl);
+
   if (withWage === 0) {
     const note = document.createElement("p");
     note.className = "results__nowage";
@@ -154,12 +259,103 @@ function renderResults(
       "No wage figures are published for these occupations in this area. They are listed below for reference.";
     els.results.appendChild(note);
   }
-  els.results.appendChild(list);
+
+  // --- results list (re-rendered on sort, selections preserved) ---
+  listEl = document.createElement("div");
+  listEl.className = "results__list";
+  els.results.appendChild(listEl);
+
+  renderList();
+}
+
+function renderList(): void {
+  if (!listEl) return;
+  const sorted = sortRows(currentRows, sortMode);
+  const showKeywords = currentKeywords.length > 1;
+  listEl.textContent = "";
+  for (const row of sorted) listEl.appendChild(renderCard(row, showKeywords));
+  updateAggregate();
+}
+
+function updateAggregate(): void {
+  if (!aggregateEl) return;
+  const chosen = sortRows(currentRows, sortMode).filter((r) => selected.has(r.soccode));
+  aggregateEl.textContent = "";
+
+  if (chosen.length === 0) {
+    aggregateEl.classList.remove("is-active");
+    const empty = document.createElement("p");
+    empty.className = "aggregate__empty";
+    empty.textContent = "Tick the box on any roles below to build a combined job description here.";
+    aggregateEl.appendChild(empty);
+    return;
+  }
+
+  aggregateEl.classList.add("is-active");
+
+  const head = document.createElement("div");
+  head.className = "aggregate__head";
+  const title = document.createElement("h3");
+  title.className = "aggregate__title";
+  title.textContent = "Aggregated job description";
+  const count = document.createElement("span");
+  count.className = "aggregate__count";
+  count.textContent = `${chosen.length} role${chosen.length === 1 ? "" : "s"} selected`;
+  const copyBtn = document.createElement("button");
+  copyBtn.type = "button";
+  copyBtn.className = "aggregate__copy";
+  copyBtn.textContent = "Copy";
+  copyBtn.addEventListener("click", () => void copyAggregate(chosen, copyBtn));
+  head.append(title, count, copyBtn);
+  aggregateEl.appendChild(head);
+
+  const body = document.createElement("div");
+  body.className = "aggregate__body";
+  for (const r of chosen) {
+    const role = document.createElement("div");
+    role.className = "aggregate__role";
+    const roleTitle = document.createElement("h4");
+    roleTitle.className = "aggregate__role-title";
+    roleTitle.textContent = `${r.title} · ${r.soccode}`;
+    const roleDesc = document.createElement("p");
+    roleDesc.className = "aggregate__role-desc";
+    roleDesc.textContent = r.description || "No description available.";
+    role.append(roleTitle, roleDesc);
+    body.appendChild(role);
+  }
+  aggregateEl.appendChild(body);
+}
+
+async function copyAggregate(rows: ResultRow[], btn: HTMLButtonElement): Promise<void> {
+  const text = rows
+    .map((r) => `${r.title} (${r.soccode})\n${r.description || "No description available."}`)
+    .join("\n\n");
+  try {
+    await navigator.clipboard.writeText(text);
+    btn.textContent = "Copied";
+  } catch (e) {
+    btn.textContent = "Press Ctrl+C";
+  }
+  window.setTimeout(() => {
+    btn.textContent = "Copy";
+  }, 1600);
 }
 
 function renderCard(row: ResultRow, showKeywords: boolean): HTMLElement {
   const node = els.cardTpl.content.firstElementChild!.cloneNode(true) as HTMLElement;
+  node.dataset.soc = row.soccode;
   if (!row.hasWage || row.avg === null) node.classList.add("card--nowage");
+
+  const checkbox = node.querySelector(".card__select-input") as HTMLInputElement;
+  checkbox.checked = selected.has(row.soccode);
+  checkbox.setAttribute("aria-label", `Add ${row.title} to the aggregated job description`);
+  if (checkbox.checked) node.classList.add("is-selected");
+  checkbox.addEventListener("change", () => {
+    if (checkbox.checked) selected.add(row.soccode);
+    else selected.delete(row.soccode);
+    node.classList.toggle("is-selected", checkbox.checked);
+    updateAggregate();
+  });
 
   (node.querySelector(".card__title") as HTMLElement).textContent = row.title;
   (node.querySelector(".chip--soc") as HTMLElement).textContent = row.soccode;
@@ -226,9 +422,9 @@ async function runSearch(): Promise<void> {
   if (searching) return;
 
   const keywords = parseKeywords(els.keyword.value);
-  const state = els.state.value.trim();
-  const county = els.county.value.trim();
-  const year = els.year.value;
+  const state = stateDd.value.trim();
+  const county = countyDd.value.trim();
+  const year = yearDd.value;
 
   const missing: string[] = [];
   if (keywords.length === 0) missing.push("a job keyword");
@@ -314,17 +510,33 @@ async function init(): Promise<void> {
   initTheme();
   initTableToggle();
 
+  stateDd = new Dropdown(document.getElementById("state-dd") as HTMLElement, {
+    mode: "combobox",
+    inputId: "state",
+    labelledBy: "state-label",
+    emptyText: "No matching state",
+    onChange: () => refreshCountyOptions(),
+    onType: () => refreshCountyOptions(),
+  });
+  countyDd = new Dropdown(document.getElementById("county-dd") as HTMLElement, {
+    mode: "combobox",
+    inputId: "county",
+    labelledBy: "county-label",
+    emptyText: "Choose a state to list its counties",
+  });
+  yearDd = new Dropdown(document.getElementById("year-dd") as HTMLElement, {
+    mode: "select",
+    labelledBy: "year-label",
+    placeholder: "Select year",
+    onChange: (v) => {
+      setFooterNote(v);
+      void refreshYear(v);
+    },
+  });
+
   els.form.addEventListener("submit", (e) => {
     e.preventDefault();
     void runSearch();
-  });
-  els.state.addEventListener("change", () => {
-    const data = yearDataFor(els.year.value);
-    if (data) populateCountyList(data, els.state.value);
-  });
-  els.year.addEventListener("change", () => {
-    setFooterNote(els.year.value);
-    void refreshYear(els.year.value);
   });
 
   renderMessage(
@@ -336,10 +548,8 @@ async function init(): Promise<void> {
   try {
     const yearsFile = await loadYears();
     years = yearsFile.years;
-    els.year.innerHTML = years
-      .map((y) => `<option value="${escapeAttr(y.id)}">${y.label}</option>`)
-      .join("");
-    els.year.value = yearsFile.default;
+    yearDd.setOptions(years.map((y) => ({ value: y.id, label: y.label })));
+    yearDd.value = yearsFile.default;
     setFooterNote(yearsFile.default);
     await refreshYear(yearsFile.default);
   } catch (err) {
@@ -356,8 +566,8 @@ function yearDataFor(year: string): YearData | undefined {
 async function refreshYear(year: string): Promise<void> {
   const data = await loadYearData(year);
   loadedYearData.set(year, data);
-  populateStateList(data);
-  populateCountyList(data, els.state.value);
+  stateDd.setOptions(statesFromData(data));
+  refreshCountyOptions();
 }
 
 if (document.readyState === "loading") {
