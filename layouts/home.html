@@ -86,7 +86,16 @@
 
         <div class="card__desc">
           <p class="card__desc-text"></p>
-          <button type="button" class="link-btn card__desc-toggle" hidden>Show more</button>
+        </div>
+
+        <div class="card__detail">
+          <button type="button" class="card__detail-toggle" aria-expanded="false">
+            <svg class="card__detail-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="card__detail-label">Show O*NET details</span>
+          </button>
+          <div class="card__onet" hidden></div>
         </div>
       </div>
     </div>

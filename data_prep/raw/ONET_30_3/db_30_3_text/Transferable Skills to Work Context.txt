@@ -1,0 +1,58 @@
+Transferable Skills Element ID	Transferable Skills Element Name	Work Context Element ID	Work Context Element Name
+2.B.1.a	Social Perceptiveness	4.C.1.a.2.c	Public Speaking
+2.B.1.a	Social Perceptiveness	4.C.1.a.2.f	Telephone Conversations
+2.B.1.a	Social Perceptiveness	4.C.1.a.2.l	Face-to-Face Discussions with Individuals and Within Teams
+2.B.1.a	Social Perceptiveness	4.C.1.a.4	Contact With Others
+2.B.1.a	Social Perceptiveness	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+2.B.1.a	Social Perceptiveness	4.C.1.b.1.f	Deal With External Customers or the Public in General
+2.B.1.a	Social Perceptiveness	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+2.B.1.a	Social Perceptiveness	4.C.1.d.1	Conflict Situations
+2.B.1.a	Social Perceptiveness	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+2.B.1.a	Social Perceptiveness	4.C.1.d.3	Dealing with Violent or Physically Aggressive People
+2.B.1.a	Social Perceptiveness	4.C.2.a.3	Physical Proximity
+2.B.1.a	Social Perceptiveness	4.C.3.c.1	Level of Competition
+2.B.1.b	Coordination	4.C.1.a.2.l	Face-to-Face Discussions with Individuals and Within Teams
+2.B.1.b	Coordination	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+2.B.1.b	Coordination	4.C.1.b.1.f	Deal With External Customers or the Public in General
+2.B.1.b	Coordination	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+2.B.1.b	Coordination	4.C.1.c.2	Work Outcomes and Results of Other Workers
+2.B.1.b	Coordination	4.C.1.d.1	Conflict Situations
+2.B.1.b	Coordination	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+2.B.1.b	Coordination	4.C.1.d.3	Dealing with Violent or Physically Aggressive People
+2.B.1.b	Coordination	4.C.3.c.1	Level of Competition
+2.B.1.c	Persuasion	4.C.1.a.2.l	Face-to-Face Discussions with Individuals and Within Teams
+2.B.1.c	Persuasion	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+2.B.1.c	Persuasion	4.C.1.b.1.f	Deal With External Customers or the Public in General
+2.B.1.c	Persuasion	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+2.B.1.c	Persuasion	4.C.1.d.1	Conflict Situations
+2.B.1.c	Persuasion	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+2.B.1.c	Persuasion	4.C.1.d.3	Dealing with Violent or Physically Aggressive People
+2.B.1.c	Persuasion	4.C.3.c.1	Level of Competition
+2.B.1.d	Negotiation	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+2.B.1.d	Negotiation	4.C.1.b.1.f	Deal With External Customers or the Public in General
+2.B.1.d	Negotiation	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+2.B.1.d	Negotiation	4.C.1.d.1	Conflict Situations
+2.B.1.d	Negotiation	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+2.B.1.d	Negotiation	4.C.1.d.3	Dealing with Violent or Physically Aggressive People
+2.B.1.d	Negotiation	4.C.3.c.1	Level of Competition
+2.B.1.e	Instructing	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+2.B.1.e	Instructing	4.C.1.c.2	Work Outcomes and Results of Other Workers
+2.B.1.f	Service Orientation	4.C.1.b.1.f	Deal With External Customers or the Public in General
+2.B.1.f	Service Orientation	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+2.B.1.f	Service Orientation	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+2.B.2.i	Complex Problem Solving	4.C.3.a.1	Consequence of Error
+2.B.2.i	Complex Problem Solving	4.C.3.a.2.a	Impact of Decisions on Co-workers or Company Results
+2.B.2.i	Complex Problem Solving	4.C.3.a.4	Freedom to Make Decisions
+2.B.3.g	Operations Monitoring	4.C.2.a.1.e	In an Open Vehicle or Operating Equipment
+2.B.3.g	Operations Monitoring	4.C.2.a.1.f	In an Enclosed Vehicle or Operate Enclosed Equipment
+2.B.3.h	Operation and Control	4.C.2.a.1.e	In an Open Vehicle or Operating Equipment
+2.B.3.h	Operation and Control	4.C.2.a.1.f	In an Enclosed Vehicle or Operate Enclosed Equipment
+2.B.4.e	Judgment and Decision Making	4.C.3.a.1	Consequence of Error
+2.B.4.e	Judgment and Decision Making	4.C.3.a.2.a	Impact of Decisions on Co-workers or Company Results
+2.B.4.e	Judgment and Decision Making	4.C.3.a.4	Freedom to Make Decisions
+2.B.5.a	Time Management	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+2.B.5.a	Time Management	4.C.1.c.2	Work Outcomes and Results of Other Workers
+2.B.5.a	Time Management	4.C.3.b.8	Determine Tasks, Priorities and Goals
+2.B.5.a	Time Management	4.C.3.d.1	Time Pressure
+2.B.5.d	Management of Personnel Resources	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+2.B.5.d	Management of Personnel Resources	4.C.1.c.2	Work Outcomes and Results of Other Workers

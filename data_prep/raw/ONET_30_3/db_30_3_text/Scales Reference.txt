@@ -1,0 +1,33 @@
+Scale ID	Scale Name	Minimum	Maximum
+AO	Automation	1	5
+CF	Frequency	1	5
+CN	Amount of Contact	1	5
+CT	Context	1	3
+CTP	Context (Categories 1-3)	0	100
+CX	Context	1	5
+CXP	Context (Categories 1-5)	0	100
+DR	Distinctiveness Rank	0	10
+DS	Summary Display Rank	0	100
+EX	Extent	1	7
+FM	Amount of Freedom	1	5
+FT	Frequency of Task (Categories 1-7)	0	100
+HW	Hours Per Week	1	3
+IH	Occupational Interest High-Point	0	6
+IJ	Importance	1	5
+IM	Importance	1	5
+IP	Impact of Decisions	1	5
+LC	Level of Competition	1	5
+LV	Level	0	7
+OI	Occupational Interests	1	7
+OJ	On-The-Job Training (Categories 1-9)	0	100
+PT	On-Site Or In-Plant Training (Categories 1-9)	0	100
+PX	Proximity	1	5
+RE	Responsibility	1	5
+RL	Required Level Of Education (Categories 1-12)	0	100
+RT	Relevance of Task	0	100
+RW	Related Work Experience (Categories 1-11)	0	100
+SR	How Serious	1	5
+TI	% Time	1	5
+VH	Work Value High-Point	1	6
+WI	Work Styles Impact	-3	3
+WS	Work Schedule	1	3

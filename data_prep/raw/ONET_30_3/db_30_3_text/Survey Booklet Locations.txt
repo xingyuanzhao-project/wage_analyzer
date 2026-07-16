@@ -1,0 +1,212 @@
+Element ID	Element Name	Survey Item Number	Scale ID
+2.C.1.a	Administration and Management	KN01	IM
+2.C.1.a	Administration and Management	KN01b	LV
+2.C.1.b	Administrative	KN02	IM
+2.C.1.b	Administrative	KN02b	LV
+2.C.1.c	Economics and Accounting	KN03	IM
+2.C.1.c	Economics and Accounting	KN03b	LV
+2.C.1.d	Sales and Marketing	KN04	IM
+2.C.1.d	Sales and Marketing	KN04b	LV
+2.C.1.e	Customer and Personal Service	KN05	IM
+2.C.1.e	Customer and Personal Service	KN05b	LV
+2.C.1.f	Personnel and Human Resources	KN06	IM
+2.C.1.f	Personnel and Human Resources	KN06b	LV
+2.C.2.a	Production and Processing	KN07	IM
+2.C.2.a	Production and Processing	KN07b	LV
+2.C.2.b	Food Production	KN08	IM
+2.C.2.b	Food Production	KN08b	LV
+2.C.3.a	Computers and Electronics	KN09	IM
+2.C.3.a	Computers and Electronics	KN09b	LV
+2.C.3.b	Engineering and Technology	KN10	IM
+2.C.3.b	Engineering and Technology	KN10b	LV
+2.C.3.c	Design	KN11	IM
+2.C.3.c	Design	KN11b	LV
+2.C.3.d	Building and Construction	KN12	IM
+2.C.3.d	Building and Construction	KN12b	LV
+2.C.3.e	Mechanical	KN13	IM
+2.C.3.e	Mechanical	KN13b	LV
+2.C.4.a	Mathematics	KN14	IM
+2.C.4.a	Mathematics	KN14b	LV
+2.C.4.b	Physics	KN15	IM
+2.C.4.b	Physics	KN15b	LV
+2.C.4.c	Chemistry	KN16	IM
+2.C.4.c	Chemistry	KN16b	LV
+2.C.4.d	Biology	KN17	IM
+2.C.4.d	Biology	KN17b	LV
+2.C.4.e	Psychology	KN18	IM
+2.C.4.e	Psychology	KN18b	LV
+2.C.4.f	Sociology and Anthropology	KN19	IM
+2.C.4.f	Sociology and Anthropology	KN19b	LV
+2.C.4.g	Geography	KN20	IM
+2.C.4.g	Geography	KN20b	LV
+2.C.5.a	Medicine and Dentistry	KN21	IM
+2.C.5.a	Medicine and Dentistry	KN21b	LV
+2.C.5.b	Therapy and Counseling	KN22	IM
+2.C.5.b	Therapy and Counseling	KN22b	LV
+2.C.6	Education and Training	KN23	IM
+2.C.6	Education and Training	KN23b	LV
+2.C.7.a	English Language	KN24	IM
+2.C.7.a	English Language	KN24b	LV
+2.C.7.b	Foreign Language	KN25	IM
+2.C.7.b	Foreign Language	KN25b	LV
+2.C.7.c	Fine Arts	KN26	IM
+2.C.7.c	Fine Arts	KN26b	LV
+2.C.7.d	History and Archeology	KN27	IM
+2.C.7.d	History and Archeology	KN27b	LV
+2.C.7.e	Philosophy and Theology	KN28	IM
+2.C.7.e	Philosophy and Theology	KN28b	LV
+2.C.8.a	Public Safety and Security	KN29	IM
+2.C.8.a	Public Safety and Security	KN29b	LV
+2.C.8.b	Law and Government	KN30	IM
+2.C.8.b	Law and Government	KN30b	LV
+2.C.9.a	Telecommunications	KN31	IM
+2.C.9.a	Telecommunications	KN31b	LV
+2.C.9.b	Communications and Media	KN32	IM
+2.C.9.b	Communications and Media	KN32b	LV
+2.C.10	Transportation	KN33	IM
+2.C.10	Transportation	KN33b	LV
+2.D.1	Required Level of Education	KN34	RL
+2.D.4.a	Job-Related Professional Certification	KN38a	IM
+3.A.1	Related Work Experience	KN35	RW
+3.A.2	On-Site or In-Plant Training	KN36	PT
+3.A.3	On-the-Job Training	KN37	OJ
+3.A.4.a	Job-related Apprenticeship	KN38b	IM
+4.A.1.a.1	Getting Information	GW01	IM
+4.A.1.a.1	Getting Information	GW01b	LV
+4.A.1.a.2	Monitoring Processes, Materials, or Surroundings	GW03	IM
+4.A.1.a.2	Monitoring Processes, Materials, or Surroundings	GW03b	LV
+4.A.1.b.1	Identifying Objects, Actions, and Events	GW02	IM
+4.A.1.b.1	Identifying Objects, Actions, and Events	GW02b	LV
+4.A.1.b.2	Inspecting Equipment, Structures, or Materials	GW04	IM
+4.A.1.b.2	Inspecting Equipment, Structures, or Materials	GW04b	LV
+4.A.1.b.3	Estimating the Quantifiable Characteristics of Products, Events, or Information	GW05	IM
+4.A.1.b.3	Estimating the Quantifiable Characteristics of Products, Events, or Information	GW05b	LV
+4.A.2.a.1	Judging the Qualities of Objects, Services, or People	GW06	IM
+4.A.2.a.1	Judging the Qualities of Objects, Services, or People	GW06b	LV
+4.A.2.a.2	Processing Information	GW08	IM
+4.A.2.a.2	Processing Information	GW08b	LV
+4.A.2.a.3	Evaluating Information to Determine Compliance with Standards	GW07	IM
+4.A.2.a.3	Evaluating Information to Determine Compliance with Standards	GW07b	LV
+4.A.2.a.4	Analyzing Data or Information	GW09	IM
+4.A.2.a.4	Analyzing Data or Information	GW09b	LV
+4.A.2.b.1	Making Decisions and Solving Problems	GW10	IM
+4.A.2.b.1	Making Decisions and Solving Problems	GW10b	LV
+4.A.2.b.2	Thinking Creatively	GW11	IM
+4.A.2.b.2	Thinking Creatively	GW11b	LV
+4.A.2.b.3	Updating and Using Relevant Knowledge	GW12	IM
+4.A.2.b.3	Updating and Using Relevant Knowledge	GW12b	LV
+4.A.2.b.4	Developing Objectives and Strategies	GW13	IM
+4.A.2.b.4	Developing Objectives and Strategies	GW13b	LV
+4.A.2.b.5	Scheduling Work and Activities	GW14	IM
+4.A.2.b.5	Scheduling Work and Activities	GW14b	LV
+4.A.2.b.6	Organizing, Planning, and Prioritizing Work	GW15	IM
+4.A.2.b.6	Organizing, Planning, and Prioritizing Work	GW15b	LV
+4.A.3.a.1	Performing General Physical Activities	GW16	IM
+4.A.3.a.1	Performing General Physical Activities	GW16b	LV
+4.A.3.a.2	Handling and Moving Objects	GW17	IM
+4.A.3.a.2	Handling and Moving Objects	GW17b	LV
+4.A.3.a.3	Controlling Machines and Processes	GW18	IM
+4.A.3.a.3	Controlling Machines and Processes	GW18b	LV
+4.A.3.a.4	Operating Vehicles, Mechanized Devices, or Equipment	GW20	IM
+4.A.3.a.4	Operating Vehicles, Mechanized Devices, or Equipment	GW20b	LV
+4.A.3.b.1	Working with Computers	GW19	IM
+4.A.3.b.1	Working with Computers	GW19b	LV
+4.A.3.b.2	Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment	GW21	IM
+4.A.3.b.2	Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment	GW21b	LV
+4.A.3.b.4	Repairing and Maintaining Mechanical Equipment	GW22	IM
+4.A.3.b.4	Repairing and Maintaining Mechanical Equipment	GW22b	LV
+4.A.3.b.5	Repairing and Maintaining Electronic Equipment	GW23	IM
+4.A.3.b.5	Repairing and Maintaining Electronic Equipment	GW23b	LV
+4.A.3.b.6	Documenting/Recording Information	GW24	IM
+4.A.3.b.6	Documenting/Recording Information	GW24b	LV
+4.A.4.a.1	Interpreting the Meaning of Information for Others	GW25	IM
+4.A.4.a.1	Interpreting the Meaning of Information for Others	GW25b	LV
+4.A.4.a.2	Communicating with Supervisors, Peers, or Subordinates	GW26	IM
+4.A.4.a.2	Communicating with Supervisors, Peers, or Subordinates	GW26b	LV
+4.A.4.a.3	Communicating with People Outside the Organization	GW27	IM
+4.A.4.a.3	Communicating with People Outside the Organization	GW27b	LV
+4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships	GW28	IM
+4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships	GW28b	LV
+4.A.4.a.5	Assisting and Caring for Others	GW29	IM
+4.A.4.a.5	Assisting and Caring for Others	GW29b	LV
+4.A.4.a.6	Selling or Influencing Others	GW30	IM
+4.A.4.a.6	Selling or Influencing Others	GW30b	LV
+4.A.4.a.7	Resolving Conflicts and Negotiating with Others	GW31	IM
+4.A.4.a.7	Resolving Conflicts and Negotiating with Others	GW31b	LV
+4.A.4.a.8	Performing for or Working Directly with the Public	GW32	IM
+4.A.4.a.8	Performing for or Working Directly with the Public	GW32b	LV
+4.A.4.b.1	Coordinating the Work and Activities of Others	GW33	IM
+4.A.4.b.1	Coordinating the Work and Activities of Others	GW33b	LV
+4.A.4.b.2	Developing and Building Teams	GW34	IM
+4.A.4.b.2	Developing and Building Teams	GW34b	LV
+4.A.4.b.3	Training and Teaching Others	GW35	IM
+4.A.4.b.3	Training and Teaching Others	GW35b	LV
+4.A.4.b.4	Guiding, Directing, and Motivating Subordinates	GW36	IM
+4.A.4.b.4	Guiding, Directing, and Motivating Subordinates	GW36b	LV
+4.A.4.b.5	Coaching and Developing Others	GW37	IM
+4.A.4.b.5	Coaching and Developing Others	GW37b	LV
+4.A.4.b.6	Providing Consultation and Advice to Others	GW38	IM
+4.A.4.b.6	Providing Consultation and Advice to Others	GW38b	LV
+4.A.4.c.1	Performing Administrative Activities	GW39	IM
+4.A.4.c.1	Performing Administrative Activities	GW39b	LV
+4.A.4.c.2	Staffing Organizational Units	GW40	IM
+4.A.4.c.2	Staffing Organizational Units	GW40b	LV
+4.A.4.c.3	Monitoring and Controlling Resources	GW41	IM
+4.A.4.c.3	Monitoring and Controlling Resources	GW41b	LV
+4.C.1.a.2.c	Public Speaking	WC01b	CF
+4.C.1.a.2.f	Telephone Conversations	WC01c	CF
+4.C.1.a.2.h	E-Mail	WC01d	CF
+4.C.1.a.2.j	Written Letters and Memos	WC01e	CF
+4.C.1.a.2.l	Face-to-Face Discussions with Individuals and Within Teams	WC01a	CF
+4.C.1.a.4	Contact With Others	WC02	CN
+4.C.1.b.1.e	Work With or Contribute to a Work Group or Team	WC03a	IJ
+4.C.1.b.1.f	Deal With External Customers or the Public in General	WC03b	IJ
+4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities	WC03c	IJ
+4.C.1.c.1	Health and Safety of Other Workers	WC04a	RE
+4.C.1.c.2	Work Outcomes and Results of Other Workers	WC04b	RE
+4.C.1.d.1	Conflict Situations	WC05a	CF
+4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People	WC05b	CF
+4.C.1.d.3	Dealing with Violent or Physically Aggressive People	WC05c	CF
+4.C.2.a.1.a	Indoors, Environmentally Controlled	WC06a	CF
+4.C.2.a.1.b	Indoors, Not Environmentally Controlled	WC06b	CF
+4.C.2.a.1.c	Outdoors, Exposed to All Weather Conditions	WC06c	CF
+4.C.2.a.1.d	Outdoors, Under Cover	WC06d	CF
+4.C.2.a.1.e	In an Open Vehicle or Operating Equipment	WC06e	CF
+4.C.2.a.1.f	In an Enclosed Vehicle or Operate Enclosed Equipment	WC06f	CF
+4.C.2.a.3	Physical Proximity	WC07	PX
+4.C.2.b.1.a	Exposed to Sounds, Noise Levels that are Distracting or Uncomfortable	WC08a	CF
+4.C.2.b.1.b	Exposed to Very Hot or Cold Temperatures	WC08b	CF
+4.C.2.b.1.c	Exposed to Extremely Bright or Inadequate Lighting Conditions	WC08c	CF
+4.C.2.b.1.d	Exposed to Contaminants	WC08d	CF
+4.C.2.b.1.e	Exposed to Cramped Work Space, Awkward Positions	WC08e	CF
+4.C.2.b.1.f	Exposed to Whole Body Vibration	WC08f	CF
+4.C.2.c.1.a	Exposed to Radiation	WC09a	CF
+4.C.2.c.1.b	Exposed to Disease or Infections	WC09b	CF
+4.C.2.c.1.c	Exposed to High Places	WC09c	CF
+4.C.2.c.1.d	Exposed to Hazardous Conditions	WC09d	CF
+4.C.2.c.1.e	Exposed to Hazardous Equipment	WC09e	CF
+4.C.2.c.1.f	Exposed to Minor Burns, Cuts, Bites, or Stings	WC09f	CF
+4.C.2.d.1.a	Spend Time Sitting	WC10a	TI
+4.C.2.d.1.b	Spend Time Standing	WC10b	TI
+4.C.2.d.1.c	Spend Time Climbing Ladders, Scaffolds, or Poles	WC10c	TI
+4.C.2.d.1.d	Spend Time Walking or Running	WC10d	TI
+4.C.2.d.1.e	Spend Time Kneeling, Crouching, Stooping, or Crawling	WC10e	TI
+4.C.2.d.1.f	Spend Time Keeping or Regaining Balance	WC11a	TI
+4.C.2.d.1.g	Spend Time Using Your Hands to Handle, Control, or Feel Objects, Tools, or Controls	WC11b	TI
+4.C.2.d.1.h	Spend Time Bending or Twisting Your Body	WC11c	TI
+4.C.2.d.1.i	Spend Time Making Repetitive Motions	WC11d	TI
+4.C.2.e.1.d	Wear Common Protective or Safety Equipment such as Safety Shoes, Glasses, Gloves, Hearing Protection, Hard Hats, or Life Jackets	WC12a	CF
+4.C.2.e.1.e	Wear Specialized Protective or Safety Equipment such as Breathing Apparatus, Safety Harness, Full Protection Suits, or Radiation Protection	WC12b	CF
+4.C.3.a.1	Consequence of Error	WC13	SR
+4.C.3.a.2.a	Impact of Decisions on Co-workers or Company Results	WC14	IP
+4.C.3.a.2.b	Frequency of Decision Making	WC15	CF
+4.C.3.a.4	Freedom to Make Decisions	WC16	FM
+4.C.3.b.2	Degree of Automation	WC17	AO
+4.C.3.b.4	Importance of Being Exact or Accurate	WC18	IJ
+4.C.3.b.7	Importance of Repeating Same Tasks	WC19	IJ
+4.C.3.b.8	Determine Tasks, Priorities and Goals	WC20	FM
+4.C.3.c.1	Level of Competition	WC21	LC
+4.C.3.d.1	Time Pressure	WC22	CF
+4.C.3.d.3	Pace Determined by Speed of Equipment	WC23	IJ
+4.C.3.d.4	Work Schedules	WC24	WS
+4.C.3.d.8	Duration of Typical Work Week	WC25	HW

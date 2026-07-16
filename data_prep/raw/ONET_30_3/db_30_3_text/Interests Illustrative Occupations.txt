@@ -1,0 +1,187 @@
+Element ID	Element Name	Interest Type	O*NET-SOC Code
+1.B.1.a	Realistic	Career Type	17-3024.01
+1.B.1.a	Realistic	Career Type	45-2091.00
+1.B.1.a	Realistic	Career Type	47-2031.00
+1.B.1.a	Realistic	Career Type	53-3052.00
+1.B.1.b	Investigative	Career Type	19-1029.04
+1.B.1.b	Investigative	Career Type	19-1042.00
+1.B.1.b	Investigative	Career Type	19-2031.00
+1.B.1.b	Investigative	Career Type	19-3041.00
+1.B.1.c	Artistic	Career Type	27-1012.00
+1.B.1.c	Artistic	Career Type	27-1013.00
+1.B.1.c	Artistic	Career Type	27-2011.00
+1.B.1.c	Artistic	Career Type	27-2042.00
+1.B.1.d	Social	Career Type	21-1012.00
+1.B.1.d	Social	Career Type	21-1021.00
+1.B.1.d	Social	Career Type	25-2021.00
+1.B.1.d	Social	Career Type	29-1141.00
+1.B.1.e	Enterprising	Career Type	11-2011.00
+1.B.1.e	Enterprising	Career Type	13-1161.01
+1.B.1.e	Enterprising	Career Type	23-1011.00
+1.B.1.e	Enterprising	Career Type	41-2031.00
+1.B.1.f	Conventional	Career Type	13-1041.01
+1.B.1.f	Conventional	Career Type	13-2061.00
+1.B.1.f	Conventional	Career Type	15-1242.00
+1.B.1.f	Conventional	Career Type	43-9061.00
+1.B.3.a	Mechanics/Electronics	Specific Area	17-3024.01
+1.B.3.a	Mechanics/Electronics	Specific Area	49-2092.00
+1.B.3.a	Mechanics/Electronics	Specific Area	49-2094.00
+1.B.3.a	Mechanics/Electronics	Specific Area	49-3011.00
+1.B.3.a	Mechanics/Electronics	Specific Area	49-9081.00
+1.B.3.b	Construction/Woodwork	Specific Area	47-2031.00
+1.B.3.b	Construction/Woodwork	Specific Area	51-7011.00
+1.B.3.b	Construction/Woodwork	Specific Area	51-7021.00
+1.B.3.b	Construction/Woodwork	Specific Area	51-7031.00
+1.B.3.b	Construction/Woodwork	Specific Area	51-7042.00
+1.B.3.c	Transportation/Machine Operation	Specific Area	53-3032.00
+1.B.3.c	Transportation/Machine Operation	Specific Area	53-3052.00
+1.B.3.c	Transportation/Machine Operation	Specific Area	53-3054.00
+1.B.3.c	Transportation/Machine Operation	Specific Area	53-4011.00
+1.B.3.c	Transportation/Machine Operation	Specific Area	53-7051.00
+1.B.3.d	Physical/Manual Labor	Specific Area	45-2041.00
+1.B.3.d	Physical/Manual Labor	Specific Area	47-2061.00
+1.B.3.d	Physical/Manual Labor	Specific Area	47-5081.00
+1.B.3.d	Physical/Manual Labor	Specific Area	53-7062.00
+1.B.3.e	Protective Service	Specific Area	33-3021.00
+1.B.3.e	Protective Service	Specific Area	33-3051.00
+1.B.3.e	Protective Service	Specific Area	33-3051.04
+1.B.3.e	Protective Service	Specific Area	33-9032.00
+1.B.3.f	Agriculture	Specific Area	11-9013.00
+1.B.3.f	Agriculture	Specific Area	19-1031.02
+1.B.3.f	Agriculture	Specific Area	45-1011.00
+1.B.3.f	Agriculture	Specific Area	45-2092.00
+1.B.3.g	Nature/Outdoors	Specific Area	19-1032.00
+1.B.3.g	Nature/Outdoors	Specific Area	19-2041.02
+1.B.3.g	Nature/Outdoors	Specific Area	19-4071.00
+1.B.3.g	Nature/Outdoors	Specific Area	37-3011.00
+1.B.3.h	Animal Service	Specific Area	29-1131.00
+1.B.3.h	Animal Service	Specific Area	33-9011.00
+1.B.3.h	Animal Service	Specific Area	39-2011.00
+1.B.3.h	Animal Service	Specific Area	39-2021.00
+1.B.3.i	Athletics	Specific Area	11-9179.01
+1.B.3.i	Athletics	Specific Area	27-2021.00
+1.B.3.i	Athletics	Specific Area	27-2022.00
+1.B.3.i	Athletics	Specific Area	27-2023.00
+1.B.3.i	Athletics	Specific Area	29-9091.00
+1.B.3.j	Engineering	Specific Area	17-2011.00
+1.B.3.j	Engineering	Specific Area	17-2051.00
+1.B.3.j	Engineering	Specific Area	17-2141.02
+1.B.3.j	Engineering	Specific Area	17-2199.11
+1.B.3.j	Engineering	Specific Area	17-3023.00
+1.B.3.j	Engineering	Specific Area	17-3027.00
+1.B.3.k	Physical Science	Specific Area	19-1013.00
+1.B.3.k	Physical Science	Specific Area	19-2011.00
+1.B.3.k	Physical Science	Specific Area	19-2012.00
+1.B.3.k	Physical Science	Specific Area	19-2021.00
+1.B.3.k	Physical Science	Specific Area	19-2031.00
+1.B.3.l	Life Science	Specific Area	19-1022.00
+1.B.3.l	Life Science	Specific Area	19-1023.00
+1.B.3.l	Life Science	Specific Area	19-1029.03
+1.B.3.l	Life Science	Specific Area	19-1029.04
+1.B.3.m	Medical Science	Specific Area	17-2031.00
+1.B.3.m	Medical Science	Specific Area	19-1029.02
+1.B.3.m	Medical Science	Specific Area	19-1041.00
+1.B.3.m	Medical Science	Specific Area	19-1042.00
+1.B.3.n	Social Science	Specific Area	19-3011.00
+1.B.3.n	Social Science	Specific Area	19-3033.00
+1.B.3.n	Social Science	Specific Area	19-3041.00
+1.B.3.n	Social Science	Specific Area	19-3094.00
+1.B.3.o	Humanities	Specific Area	19-3091.00
+1.B.3.o	Humanities	Specific Area	19-3093.00
+1.B.3.o	Humanities	Specific Area	25-1062.00
+1.B.3.o	Humanities	Specific Area	25-1123.00
+1.B.3.p	Mathematics/Statistics	Specific Area	15-2021.00
+1.B.3.p	Mathematics/Statistics	Specific Area	15-2041.00
+1.B.3.p	Mathematics/Statistics	Specific Area	15-2041.01
+1.B.3.p	Mathematics/Statistics	Specific Area	15-2051.00
+1.B.3.q	Information Technology	Specific Area	15-1212.00
+1.B.3.q	Information Technology	Specific Area	15-1242.00
+1.B.3.q	Information Technology	Specific Area	15-1251.00
+1.B.3.r	Visual Arts	Specific Area	27-1011.00
+1.B.3.r	Visual Arts	Specific Area	27-1013.00
+1.B.3.r	Visual Arts	Specific Area	27-1014.00
+1.B.3.r	Visual Arts	Specific Area	27-1024.00
+1.B.3.r	Visual Arts	Specific Area	27-4021.00
+1.B.3.r	Visual Arts	Specific Area	27-4032.00
+1.B.3.s	Applied Arts and Design	Specific Area	27-1012.00
+1.B.3.s	Applied Arts and Design	Specific Area	27-1021.00
+1.B.3.s	Applied Arts and Design	Specific Area	27-1025.00
+1.B.3.s	Applied Arts and Design	Specific Area	27-1027.00
+1.B.3.t	Performing Arts	Specific Area	27-2011.00
+1.B.3.t	Performing Arts	Specific Area	27-2031.00
+1.B.3.t	Performing Arts	Specific Area	27-2032.00
+1.B.3.u	Music	Specific Area	27-2041.00
+1.B.3.u	Music	Specific Area	27-2042.00
+1.B.3.v	Creative Writing	Specific Area	15-1255.01
+1.B.3.v	Creative Writing	Specific Area	27-3041.00
+1.B.3.v	Creative Writing	Specific Area	27-3043.00
+1.B.3.v	Creative Writing	Specific Area	27-3043.05
+1.B.3.w	Media	Specific Area	27-2012.00
+1.B.3.w	Media	Specific Area	27-3011.00
+1.B.3.w	Media	Specific Area	27-3023.00
+1.B.3.x	Culinary Art	Specific Area	35-1011.00
+1.B.3.x	Culinary Art	Specific Area	35-2013.00
+1.B.3.x	Culinary Art	Specific Area	35-2014.00
+1.B.3.x	Culinary Art	Specific Area	51-3011.00
+1.B.3.y	Teaching/Education	Specific Area	25-2011.00
+1.B.3.y	Teaching/Education	Specific Area	25-2012.00
+1.B.3.y	Teaching/Education	Specific Area	25-2021.00
+1.B.3.y	Teaching/Education	Specific Area	25-2022.00
+1.B.3.y	Teaching/Education	Specific Area	25-2031.00
+1.B.3.z	Social Service	Specific Area	21-1013.00
+1.B.3.z	Social Service	Specific Area	21-1014.00
+1.B.3.z	Social Service	Specific Area	21-1021.00
+1.B.3.z	Social Service	Specific Area	21-1094.00
+1.B.3.z	Social Service	Specific Area	31-1122.00
+1.B.3.aa	Health Care Service	Specific Area	29-1021.00
+1.B.3.aa	Health Care Service	Specific Area	29-1141.00
+1.B.3.aa	Health Care Service	Specific Area	29-1215.00
+1.B.3.aa	Health Care Service	Specific Area	29-2043.00
+1.B.3.aa	Health Care Service	Specific Area	31-9092.00
+1.B.3.ab	Religious Activities	Specific Area	21-2011.00
+1.B.3.ab	Religious Activities	Specific Area	21-2021.00
+1.B.3.ab	Religious Activities	Specific Area	25-1126.00
+1.B.3.ac	Personal Service	Specific Area	39-6012.00
+1.B.3.ac	Personal Service	Specific Area	39-7011.00
+1.B.3.ac	Personal Service	Specific Area	41-3041.00
+1.B.3.ad	Professional Advising	Specific Area	13-1011.00
+1.B.3.ad	Professional Advising	Specific Area	13-1151.00
+1.B.3.ad	Professional Advising	Specific Area	21-1012.00
+1.B.3.ae	Business Initiatives	Specific Area	11-1011.00
+1.B.3.ae	Business Initiatives	Specific Area	13-1022.00
+1.B.3.ae	Business Initiatives	Specific Area	13-1161.01
+1.B.3.af	Sales	Specific Area	41-2031.00
+1.B.3.af	Sales	Specific Area	41-3031.00
+1.B.3.af	Sales	Specific Area	41-4012.00
+1.B.3.af	Sales	Specific Area	41-9091.00
+1.B.3.ag	Marketing/Advertising	Specific Area	11-2011.00
+1.B.3.ag	Marketing/Advertising	Specific Area	11-2021.00
+1.B.3.ag	Marketing/Advertising	Specific Area	13-1161.00
+1.B.3.ag	Marketing/Advertising	Specific Area	27-3031.00
+1.B.3.ah	Finance	Specific Area	11-3031.00
+1.B.3.ah	Finance	Specific Area	11-3031.01
+1.B.3.ah	Finance	Specific Area	13-2051.00
+1.B.3.ah	Finance	Specific Area	13-2052.00
+1.B.3.ah	Finance	Specific Area	13-2061.00
+1.B.3.ai	Accounting	Specific Area	13-2011.00
+1.B.3.ai	Accounting	Specific Area	43-3021.00
+1.B.3.ai	Accounting	Specific Area	43-3031.00
+1.B.3.ai	Accounting	Specific Area	43-3051.00
+1.B.3.aj	Human Resources	Specific Area	11-3121.00
+1.B.3.aj	Human Resources	Specific Area	13-1071.00
+1.B.3.aj	Human Resources	Specific Area	13-1141.00
+1.B.3.aj	Human Resources	Specific Area	43-4161.00
+1.B.3.ak	Office Work	Specific Area	43-4071.00
+1.B.3.ak	Office Work	Specific Area	43-5051.00
+1.B.3.ak	Office Work	Specific Area	43-6014.00
+1.B.3.ak	Office Work	Specific Area	43-9061.00
+1.B.3.al	Management/Administration	Specific Area	11-1021.00
+1.B.3.al	Management/Administration	Specific Area	11-3012.00
+1.B.3.al	Management/Administration	Specific Area	11-9111.00
+1.B.3.am	Public Speaking	Specific Area	13-1131.00
+1.B.3.am	Public Speaking	Specific Area	25-1122.00
+1.B.3.an	Politics	Specific Area	11-1031.00
+1.B.3.ao	Law	Specific Area	23-1011.00
+1.B.3.ao	Law	Specific Area	23-1021.00
+1.B.3.ao	Law	Specific Area	23-1023.00
+1.B.3.ao	Law	Specific Area	23-2011.00

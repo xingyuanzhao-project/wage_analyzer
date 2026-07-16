@@ -1,0 +1,123 @@
+Transferable Skills Element ID	Transferable Skills Element Name	Work Activities Element ID	Work Activities Element Name
+2.B.1.a	Social Perceptiveness	4.A.4.a.1	Interpreting the Meaning of Information for Others
+2.B.1.a	Social Perceptiveness	4.A.4.a.3	Communicating with People Outside the Organization
+2.B.1.a	Social Perceptiveness	4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships
+2.B.1.a	Social Perceptiveness	4.A.4.a.5	Assisting and Caring for Others
+2.B.1.a	Social Perceptiveness	4.A.4.a.6	Selling or Influencing Others
+2.B.1.a	Social Perceptiveness	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+2.B.1.a	Social Perceptiveness	4.A.4.a.8	Performing for or Working Directly with the Public
+2.B.1.a	Social Perceptiveness	4.A.4.b.1	Coordinating the Work and Activities of Others
+2.B.1.a	Social Perceptiveness	4.A.4.b.2	Developing and Building Teams
+2.B.1.a	Social Perceptiveness	4.A.4.b.3	Training and Teaching Others
+2.B.1.a	Social Perceptiveness	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+2.B.1.a	Social Perceptiveness	4.A.4.b.5	Coaching and Developing Others
+2.B.1.a	Social Perceptiveness	4.A.4.b.6	Providing Consultation and Advice to Others
+2.B.1.a	Social Perceptiveness	4.A.4.c.2	Staffing Organizational Units
+2.B.1.b	Coordination	4.A.2.b.5	Scheduling Work and Activities
+2.B.1.b	Coordination	4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships
+2.B.1.b	Coordination	4.A.4.a.5	Assisting and Caring for Others
+2.B.1.b	Coordination	4.A.4.a.6	Selling or Influencing Others
+2.B.1.b	Coordination	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+2.B.1.b	Coordination	4.A.4.a.8	Performing for or Working Directly with the Public
+2.B.1.b	Coordination	4.A.4.b.1	Coordinating the Work and Activities of Others
+2.B.1.b	Coordination	4.A.4.b.2	Developing and Building Teams
+2.B.1.b	Coordination	4.A.4.b.3	Training and Teaching Others
+2.B.1.b	Coordination	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+2.B.1.b	Coordination	4.A.4.b.5	Coaching and Developing Others
+2.B.1.b	Coordination	4.A.4.b.6	Providing Consultation and Advice to Others
+2.B.1.c	Persuasion	4.A.4.a.3	Communicating with People Outside the Organization
+2.B.1.c	Persuasion	4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships
+2.B.1.c	Persuasion	4.A.4.a.6	Selling or Influencing Others
+2.B.1.c	Persuasion	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+2.B.1.c	Persuasion	4.A.4.b.1	Coordinating the Work and Activities of Others
+2.B.1.c	Persuasion	4.A.4.b.2	Developing and Building Teams
+2.B.1.c	Persuasion	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+2.B.1.c	Persuasion	4.A.4.b.5	Coaching and Developing Others
+2.B.1.c	Persuasion	4.A.4.b.6	Providing Consultation and Advice to Others
+2.B.1.c	Persuasion	4.A.4.c.2	Staffing Organizational Units
+2.B.1.d	Negotiation	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+2.B.1.d	Negotiation	4.A.4.b.1	Coordinating the Work and Activities of Others
+2.B.1.d	Negotiation	4.A.4.b.2	Developing and Building Teams
+2.B.1.d	Negotiation	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+2.B.1.d	Negotiation	4.A.4.c.2	Staffing Organizational Units
+2.B.1.e	Instructing	4.A.3.b.2	Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment
+2.B.1.e	Instructing	4.A.4.a.1	Interpreting the Meaning of Information for Others
+2.B.1.e	Instructing	4.A.4.b.3	Training and Teaching Others
+2.B.1.e	Instructing	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+2.B.1.e	Instructing	4.A.4.b.5	Coaching and Developing Others
+2.B.1.e	Instructing	4.A.4.b.6	Providing Consultation and Advice to Others
+2.B.1.f	Service Orientation	4.A.4.a.3	Communicating with People Outside the Organization
+2.B.1.f	Service Orientation	4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships
+2.B.1.f	Service Orientation	4.A.4.a.5	Assisting and Caring for Others
+2.B.1.f	Service Orientation	4.A.4.a.6	Selling or Influencing Others
+2.B.1.f	Service Orientation	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+2.B.1.f	Service Orientation	4.A.4.a.8	Performing for or Working Directly with the Public
+2.B.1.f	Service Orientation	4.A.4.b.1	Coordinating the Work and Activities of Others
+2.B.1.f	Service Orientation	4.A.4.b.2	Developing and Building Teams
+2.B.1.f	Service Orientation	4.A.4.b.3	Training and Teaching Others
+2.B.1.f	Service Orientation	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+2.B.1.f	Service Orientation	4.A.4.b.5	Coaching and Developing Others
+2.B.1.f	Service Orientation	4.A.4.b.6	Providing Consultation and Advice to Others
+2.B.2.i	Complex Problem Solving	4.A.2.b.1	Making Decisions and Solving Problems
+2.B.2.i	Complex Problem Solving	4.A.2.b.4	Developing Objectives and Strategies
+2.B.2.i	Complex Problem Solving	4.A.2.b.6	Organizing, Planning, and Prioritizing Work
+2.B.2.i	Complex Problem Solving	4.A.3.b.1	Working with Computers
+2.B.2.i	Complex Problem Solving	4.A.3.b.4	Repairing and Maintaining Mechanical Equipment
+2.B.2.i	Complex Problem Solving	4.A.3.b.5	Repairing and Maintaining Electronic Equipment
+2.B.2.i	Complex Problem Solving	4.A.4.b.6	Providing Consultation and Advice to Others
+2.B.2.i	Complex Problem Solving	4.A.4.c.3	Monitoring and Controlling Resources
+2.B.3.b	Technology Design	4.A.2.b.2	Thinking Creatively
+2.B.3.c	Equipment Selection	4.A.3.b.4	Repairing and Maintaining Mechanical Equipment
+2.B.3.c	Equipment Selection	4.A.3.b.5	Repairing and Maintaining Electronic Equipment
+2.B.3.e	Programming	4.A.3.b.1	Working with Computers
+2.B.3.g	Operations Monitoring	4.A.1.a.2	Monitoring Processes, Materials, or Surroundings
+2.B.3.g	Operations Monitoring	4.A.1.b.2	Inspecting Equipment, Structures, or Materials
+2.B.3.g	Operations Monitoring	4.A.3.a.3	Controlling Machines and Processes
+2.B.3.g	Operations Monitoring	4.A.3.a.4	Operating Vehicles, Mechanized Devices, or Equipment
+2.B.3.g	Operations Monitoring	4.A.3.b.4	Repairing and Maintaining Mechanical Equipment
+2.B.3.g	Operations Monitoring	4.A.3.b.5	Repairing and Maintaining Electronic Equipment
+2.B.3.h	Operation and Control	4.A.3.a.3	Controlling Machines and Processes
+2.B.3.h	Operation and Control	4.A.3.a.4	Operating Vehicles, Mechanized Devices, or Equipment
+2.B.3.j	Equipment Maintenance	4.A.3.b.4	Repairing and Maintaining Mechanical Equipment
+2.B.3.j	Equipment Maintenance	4.A.3.b.5	Repairing and Maintaining Electronic Equipment
+2.B.3.k	Troubleshooting	4.A.1.b.2	Inspecting Equipment, Structures, or Materials
+2.B.3.k	Troubleshooting	4.A.3.b.4	Repairing and Maintaining Mechanical Equipment
+2.B.3.k	Troubleshooting	4.A.3.b.5	Repairing and Maintaining Electronic Equipment
+2.B.3.l	Repairing	4.A.3.b.4	Repairing and Maintaining Mechanical Equipment
+2.B.3.l	Repairing	4.A.3.b.5	Repairing and Maintaining Electronic Equipment
+2.B.3.m	Quality Control Analysis	4.A.1.b.2	Inspecting Equipment, Structures, or Materials
+2.B.3.m	Quality Control Analysis	4.A.3.b.4	Repairing and Maintaining Mechanical Equipment
+2.B.3.m	Quality Control Analysis	4.A.3.b.5	Repairing and Maintaining Electronic Equipment
+2.B.4.e	Judgment and Decision Making	4.A.1.b.3	Estimating the Quantifiable Characteristics of Products, Events, or Information
+2.B.4.e	Judgment and Decision Making	4.A.2.b.1	Making Decisions and Solving Problems
+2.B.4.e	Judgment and Decision Making	4.A.2.b.4	Developing Objectives and Strategies
+2.B.4.e	Judgment and Decision Making	4.A.2.b.6	Organizing, Planning, and Prioritizing Work
+2.B.4.e	Judgment and Decision Making	4.A.4.b.3	Training and Teaching Others
+2.B.4.e	Judgment and Decision Making	4.A.4.b.6	Providing Consultation and Advice to Others
+2.B.4.e	Judgment and Decision Making	4.A.4.c.2	Staffing Organizational Units
+2.B.4.e	Judgment and Decision Making	4.A.4.c.3	Monitoring and Controlling Resources
+2.B.4.g	Systems Analysis	4.A.2.b.4	Developing Objectives and Strategies
+2.B.4.g	Systems Analysis	4.A.2.b.6	Organizing, Planning, and Prioritizing Work
+2.B.4.g	Systems Analysis	4.A.3.b.1	Working with Computers
+2.B.4.g	Systems Analysis	4.A.4.b.6	Providing Consultation and Advice to Others
+2.B.4.h	Systems Evaluation	4.A.2.b.1	Making Decisions and Solving Problems
+2.B.4.h	Systems Evaluation	4.A.2.b.4	Developing Objectives and Strategies
+2.B.4.h	Systems Evaluation	4.A.4.b.6	Providing Consultation and Advice to Others
+2.B.5.a	Time Management	4.A.2.b.3	Updating and Using Relevant Knowledge
+2.B.5.a	Time Management	4.A.2.b.5	Scheduling Work and Activities
+2.B.5.a	Time Management	4.A.2.b.6	Organizing, Planning, and Prioritizing Work
+2.B.5.a	Time Management	4.A.4.b.1	Coordinating the Work and Activities of Others
+2.B.5.a	Time Management	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+2.B.5.a	Time Management	4.A.4.c.1	Performing Administrative Activities
+2.B.5.b	Management of Financial Resources	4.A.1.b.3	Estimating the Quantifiable Characteristics of Products, Events, or Information
+2.B.5.b	Management of Financial Resources	4.A.4.c.3	Monitoring and Controlling Resources
+2.B.5.c	Management of Material Resources	4.A.1.b.3	Estimating the Quantifiable Characteristics of Products, Events, or Information
+2.B.5.c	Management of Material Resources	4.A.4.c.3	Monitoring and Controlling Resources
+2.B.5.d	Management of Personnel Resources	4.A.2.b.5	Scheduling Work and Activities
+2.B.5.d	Management of Personnel Resources	4.A.4.b.1	Coordinating the Work and Activities of Others
+2.B.5.d	Management of Personnel Resources	4.A.4.b.2	Developing and Building Teams
+2.B.5.d	Management of Personnel Resources	4.A.4.b.3	Training and Teaching Others
+2.B.5.d	Management of Personnel Resources	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+2.B.5.d	Management of Personnel Resources	4.A.4.b.5	Coaching and Developing Others
+2.B.5.d	Management of Personnel Resources	4.A.4.c.2	Staffing Organizational Units
+2.B.5.d	Management of Personnel Resources	4.A.4.c.3	Monitoring and Controlling Resources

@@ -1,9 +1,16 @@
-import { loadYears, loadYearData, loadWages, type YearData } from "./lib/dataLoader";
+import {
+  loadYears,
+  loadYearData,
+  loadWages,
+  loadOnet,
+  type YearData,
+} from "./lib/dataLoader";
 import { resolveArea } from "./lib/geography";
 import { parseKeywords, matchKeywords } from "./lib/match";
 import { buildRows } from "./lib/pipeline";
 import { Dropdown, type DropdownOption } from "./lib/dropdown";
-import type { YearInfo, WageTable, ResultRow } from "./lib/types";
+import { orderCodes, renderProfile, profileToText } from "./lib/onetView";
+import type { YearInfo, WageTable, ResultRow, OnetBundle } from "./lib/types";
 
 const DESC_CLAMP_CHARS = 260;
 
@@ -147,6 +154,7 @@ function refreshCountyOptions(): void {
 
 let currentRows: ResultRow[] = [];
 let currentKeywords: string[] = [];
+let currentYear = "";
 let sortMode: SortMode = DEFAULT_SORT;
 const selected = new Set<string>();
 
@@ -274,16 +282,22 @@ function renderList(): void {
   const showKeywords = currentKeywords.length > 1;
   listEl.textContent = "";
   for (const row of sorted) listEl.appendChild(renderCard(row, showKeywords));
-  updateAggregate();
+  void updateAggregate();
 }
 
-function updateAggregate(): void {
+// Each aggregate rebuild takes a token; async bundle loads that finish after a
+// newer selection change are dropped, so the panel always reflects the latest
+// set of ticked roles.
+let aggregateToken = 0;
+
+async function updateAggregate(): Promise<void> {
   if (!aggregateEl) return;
+  const token = ++aggregateToken;
   const chosen = sortRows(currentRows, sortMode).filter((r) => selected.has(r.soccode));
-  aggregateEl.textContent = "";
 
   if (chosen.length === 0) {
-    aggregateEl.classList.remove("is-active");
+    aggregateEl.textContent = "";
+    aggregateEl.classList.remove("is-active", "is-loading");
     const empty = document.createElement("p");
     empty.className = "aggregate__empty";
     empty.textContent = "Tick the box on any roles below to build a combined job description here.";
@@ -291,7 +305,13 @@ function updateAggregate(): void {
     return;
   }
 
-  aggregateEl.classList.add("is-active");
+  aggregateEl.classList.add("is-active", "is-loading");
+
+  const bundles = await Promise.all(chosen.map((r) => loadOnetSafe(r.soccode)));
+  if (token !== aggregateToken) return; // a newer selection superseded this build
+
+  aggregateEl.classList.remove("is-loading");
+  aggregateEl.textContent = "";
 
   const head = document.createElement("div");
   head.className = "aggregate__head";
@@ -305,33 +325,55 @@ function updateAggregate(): void {
   copyBtn.type = "button";
   copyBtn.className = "aggregate__copy";
   copyBtn.textContent = "Copy";
-  copyBtn.addEventListener("click", () => void copyAggregate(chosen, copyBtn));
+  copyBtn.addEventListener("click", () => void copyAggregate(chosen, bundles, copyBtn));
   head.append(title, count, copyBtn);
   aggregateEl.appendChild(head);
 
   const body = document.createElement("div");
   body.className = "aggregate__body";
-  for (const r of chosen) {
-    const role = document.createElement("div");
-    role.className = "aggregate__role";
-    const roleTitle = document.createElement("h4");
-    roleTitle.className = "aggregate__role-title";
-    roleTitle.textContent = `${r.title} · ${r.soccode}`;
-    const roleDesc = document.createElement("p");
-    roleDesc.className = "aggregate__role-desc";
-    roleDesc.textContent = r.description || "No description available.";
-    role.append(roleTitle, roleDesc);
-    body.appendChild(role);
-  }
+  chosen.forEach((r, i) => {
+    body.appendChild(renderAggregateRole(r, bundles[i]));
+  });
   aggregateEl.appendChild(body);
 }
 
-async function copyAggregate(rows: ResultRow[], btn: HTMLButtonElement): Promise<void> {
-  const text = rows
-    .map((r) => `${r.title} (${r.soccode})\n${r.description || "No description available."}`)
-    .join("\n\n");
+function renderAggregateRole(row: ResultRow, bundle: OnetBundle | null): HTMLElement {
+  const role = document.createElement("section");
+  role.className = "aggregate__role";
+
+  const header = document.createElement("div");
+  header.className = "aggregate__role-head";
+  header.appendChild(makeEl("h4", "aggregate__role-title", row.title));
+  header.appendChild(makeEl("span", "chip chip--soc", row.soccode));
+  const wage = makeEl("span", "aggregate__role-wage", `${formatUSD(row.avg)} avg / yr`);
+  header.appendChild(wage);
+  role.appendChild(header);
+
+  const matched = new Set(row.onetHits.map((h) => h.code));
+  appendOnetProfiles(role, bundle, matched, "aggregate__onet");
+  return role;
+}
+
+async function copyAggregate(
+  rows: ResultRow[],
+  bundles: (OnetBundle | null)[],
+  btn: HTMLButtonElement,
+): Promise<void> {
+  const blocks = rows.map((r, i) => {
+    const lines = [`## ${r.title} (${r.soccode}) — ${formatUSD(r.avg)} avg / yr`];
+    const bundle = bundles[i];
+    if (bundle) {
+      const matched = new Set(r.onetHits.map((h) => h.code));
+      for (const code of orderCodes(bundle, matched)) {
+        lines.push("", profileToText(bundle[code]));
+      }
+    } else if (r.description) {
+      lines.push("", r.description);
+    }
+    return lines.join("\n");
+  });
   try {
-    await navigator.clipboard.writeText(text);
+    await navigator.clipboard.writeText(blocks.join("\n\n"));
     btn.textContent = "Copied";
   } catch (e) {
     btn.textContent = "Press Ctrl+C";
@@ -339,6 +381,45 @@ async function copyAggregate(rows: ResultRow[], btn: HTMLButtonElement): Promise
   window.setTimeout(() => {
     btn.textContent = "Copy";
   }, 1600);
+}
+
+/** Fetch a SOC's O*NET bundle, resolving to null so one gap never breaks the UI. */
+async function loadOnetSafe(soccode: string): Promise<OnetBundle | null> {
+  try {
+    return await loadOnet(currentYear, soccode);
+  } catch (e) {
+    return null;
+  }
+}
+
+function makeEl(tag: string, className: string, text?: string): HTMLElement {
+  const node = document.createElement(tag);
+  node.className = className;
+  if (text !== undefined) node.textContent = text;
+  return node;
+}
+
+/**
+ * Render every O*NET child of a SOC (matched first) into a container. Every SOC
+ * that reaches here has a profile bundle; a null bundle means the fetch itself
+ * failed, so the message reflects a load error, not missing data.
+ */
+function appendOnetProfiles(
+  host: HTMLElement,
+  bundle: OnetBundle | null,
+  matched: Set<string>,
+  wrapClass: string,
+): void {
+  const wrap = makeEl("div", wrapClass);
+  if (!bundle) {
+    wrap.appendChild(makeEl("p", "onet__empty", "O*NET details couldn't be loaded. Reopen to try again."));
+    host.appendChild(wrap);
+    return;
+  }
+  for (const code of orderCodes(bundle, matched)) {
+    wrap.appendChild(renderProfile(bundle[code], matched.has(code)));
+  }
+  host.appendChild(wrap);
 }
 
 function renderCard(row: ResultRow, showKeywords: boolean): HTMLElement {
@@ -354,7 +435,7 @@ function renderCard(row: ResultRow, showKeywords: boolean): HTMLElement {
     if (checkbox.checked) selected.add(row.soccode);
     else selected.delete(row.soccode);
     node.classList.toggle("is-selected", checkbox.checked);
-    updateAggregate();
+    void updateAggregate();
   });
 
   (node.querySelector(".card__title") as HTMLElement).textContent = row.title;
@@ -372,10 +453,9 @@ function renderCard(row: ResultRow, showKeywords: boolean): HTMLElement {
   }
 
   const via = node.querySelector(".chip--via") as HTMLElement;
-  const uniqueOnet = Array.from(new Set(row.onetHits));
-  if (uniqueOnet.length) {
+  if (row.onetHits.length) {
     via.hidden = false;
-    via.textContent = "via " + uniqueOnet.join(", ");
+    via.textContent = "via " + row.onetHits.map((h) => h.title).join(", ");
     via.title = "Matched through an O*NET occupation in the crosswalk";
   }
 
@@ -398,18 +478,48 @@ function renderCard(row: ResultRow, showKeywords: boolean): HTMLElement {
   });
 
   const descText = node.querySelector(".card__desc-text") as HTMLElement;
-  const toggle = node.querySelector(".card__desc-toggle") as HTMLButtonElement;
   descText.textContent = row.description || "No description available.";
-  if ((row.description || "").length > DESC_CLAMP_CHARS) {
-    descText.classList.add("is-clamped");
-    toggle.hidden = false;
-    toggle.addEventListener("click", () => {
-      const clamped = descText.classList.toggle("is-clamped");
-      toggle.textContent = clamped ? "Show more" : "Show less";
-    });
-  }
+  const longDesc = (row.description || "").length > DESC_CLAMP_CHARS;
+  if (longDesc) descText.classList.add("is-clamped");
 
+  wireOnetToggle(node, row, descText, longDesc);
   return node;
+}
+
+/**
+ * Wire the "Show O*NET details" control. The DOL description is the collapsed
+ * preview; expanding lazily fetches the SOC's O*NET bundle (once), reveals the
+ * full description, and renders each O*NET child profile.
+ */
+function wireOnetToggle(
+  node: HTMLElement,
+  row: ResultRow,
+  descText: HTMLElement,
+  longDesc: boolean,
+): void {
+  const toggle = node.querySelector(".card__detail-toggle") as HTMLButtonElement;
+  const panel = node.querySelector(".card__onet") as HTMLElement;
+  const label = node.querySelector(".card__detail-label") as HTMLElement;
+  const matched = new Set(row.onetHits.map((h) => h.code));
+
+  let loaded = false;
+  let open = false;
+  toggle.addEventListener("click", async () => {
+    open = !open;
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    label.textContent = open ? "Hide O*NET details" : "Show O*NET details";
+    if (longDesc) descText.classList.toggle("is-clamped", !open);
+    panel.hidden = !open;
+
+    if (open && !loaded) {
+      panel.textContent = "";
+      panel.appendChild(makeEl("p", "onet__loading", "Loading O*NET profile…"));
+      const bundle = await loadOnetSafe(row.soccode);
+      loaded = bundle !== null; // keep the result cached; let a failed load retry
+      panel.textContent = "";
+      appendOnetProfiles(panel, bundle, matched, "card__onet-list");
+    }
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -467,6 +577,7 @@ async function runSearch(): Promise<void> {
 
     const wages = await loadWages(year, table, area.area);
     const rows = buildRows(matches, wages);
+    currentYear = year;
     renderResults(rows, area.areaName as string, area.detail, keywords);
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);

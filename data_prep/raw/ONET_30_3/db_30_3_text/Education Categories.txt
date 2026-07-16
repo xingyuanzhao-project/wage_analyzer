@@ -1,0 +1,13 @@
+Element ID	Element Name	Scale ID	Category	Category Description
+2.D.1	Required Level of Education	RL	1	Less than a High School Diploma
+2.D.1	Required Level of Education	RL	2	High School Diploma - or the equivalent (for example, GED)
+2.D.1	Required Level of Education	RL	3	Post-Secondary Certificate - awarded for training completed after high school (for example, in agriculture or natural resources, computer services, personal or culinary services, engineering technologies, healthcare, construction trades, mechanic and repair technologies, or precision production)
+2.D.1	Required Level of Education	RL	4	Some College Courses
+2.D.1	Required Level of Education	RL	5	Associate's Degree (or other 2-year degree)
+2.D.1	Required Level of Education	RL	6	Bachelor's Degree
+2.D.1	Required Level of Education	RL	7	Post-Baccalaureate Certificate - awarded for completion of an organized program of study; designed for people who have completed a Baccalaureate degree but do not meet the requirements of academic degrees carrying the title of Master.
+2.D.1	Required Level of Education	RL	8	Master's Degree
+2.D.1	Required Level of Education	RL	9	Post-Master's Certificate - awarded for completion of an organized program of study; designed for people who have completed a Master's degree but do not meet the requirements of academic degrees at the doctoral level.
+2.D.1	Required Level of Education	RL	10	First Professional Degree - awarded for completion of a program that: requires at least 2 years of college work before entrance into the program, includes a total of at least 6 academic years of work to complete, and provides all remaining academic requirements to begin practice in a profession.
+2.D.1	Required Level of Education	RL	11	Doctoral Degree
+2.D.1	Required Level of Education	RL	12	Post-Doctoral Training

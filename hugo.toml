@@ -11,6 +11,7 @@ disableKinds = ["taxonomy", "term"]
   tagline = "Find where demanding work meets the lowest prevailing wage."
   description = "Explore U.S. Department of Labor OFLC prevailing wages by job and location. Search a job keyword plus a state and county to see matching occupations, their four wage levels, and job descriptions, all annualized and sorted from lowest to highest."
   dataSource = "U.S. DOL Office of Foreign Labor Certification (OFLC), Prevailing Wage data"
+  onetSource = "O*NET 30.3 Database by USDOL/ETA, used under the CC BY 4.0 license. O*NET® is a trademark of USDOL/ETA."
 
 [build]
   # Fingerprinted assets are safe to cache aggressively.

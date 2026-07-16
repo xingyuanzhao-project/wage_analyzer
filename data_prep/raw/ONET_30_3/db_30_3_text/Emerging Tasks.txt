@@ -1,0 +1,329 @@
+O*NET-SOC Code	Task	Category	Original Task ID	Original Task	Date	Domain Source
+11-2022.00	Coach staff on sales tactics.	New	n/a	n/a	08/2025	Occupational Expert
+11-2022.00	Establish and monitor staff's sales goals.	New	n/a	n/a	08/2025	Occupational Expert
+11-2033.00	Manage stewardship activities to maintain connection with donors.	New	n/a	n/a	08/2025	Incumbent
+11-3013.00	Plan, create, and manage budgets for contracts, equipment, and supplies.	Revision	21280	Plan, administer, and control budgets for contracts, equipment, and supplies.	08/2024	Incumbent
+11-3013.00	Review and approve payroll for employees.	New	n/a	n/a	08/2024	Incumbent
+11-3051.02	Conduct employee safety training.	New	n/a	n/a	07/2011	Incumbent
+11-3051.06	Train employees in power plant operations.	New	n/a	n/a	07/2016	Incumbent
+11-3071.00	Direct the use of drones and autonomous vehicles for efficient and cost-effective delivery of goods and inventory management.	New	n/a	n/a	05/2025	AI/SME
+11-3131.00	Confer with management or stakeholders and conduct surveys to identify training needs based on projected production processes, changes, and other factors.	Revision	1012	Confer with management and conduct surveys to identify training needs based on projected production processes, changes, and other factors.	08/2024	Occupational Expert
+11-3131.00	Evaluate instructor performance and the effectiveness of training programs, providing data and recommendations for improvement.	Revision	1009	Evaluate instructor performance and the effectiveness of training programs, providing recommendations for improvement.	08/2024	Occupational Expert
+11-3131.00	Train instructors, supervisors, and other leaders in techniques and skills for training and interacting with employees.	Revision	1017	Train instructors and supervisors in techniques and skills for training and dealing with employees.	08/2024	Occupational Expert
+11-9021.00	Direct how drone technology is used for site inspections and progress monitoring, ensuring accurate and timely project completion.	New	n/a	n/a	05/2025	AI/SME
+11-9032.00	Supervise student pick-up or drop-off.	New	n/a	n/a	08/2025	Incumbent
+11-9071.00	Monitor the performance of the gaming floor, relocating games and installing new games as necessary.	New	n/a	n/a	08/2023	Incumbent
+11-9199.01	Develop and review regulatory strategies, development plans, and implementation plans for the preparation and submission of new products.	Revision	18026	Develop regulatory strategies and implementation plans for the preparation and submission of new products.	08/2024	Occupational Expert
+13-1032.00	Contact vendors to locate replacement parts for vehicles.	New	n/a	n/a	07/2016	Incumbent
+13-1032.00	Discuss insurance claims with customers or damage claimants.	New	n/a	n/a	07/2016	Incumbent
+13-1032.00	Review repair cost estimates and negotiate with automobile repair shops to secure agreement on cost of repairs.	Revision	7247	Review repair cost estimates with automobile repair shop to secure agreement on cost of repairs.	07/2016	Incumbent
+13-1041.03	Develop guidelines for nondiscriminatory employment practices, such as affirmative action plans and equal opportunity employment policies.	Revision	20722	Develop guidelines for nondiscriminatory employment practices.	07/2015	Incumbent
+13-1041.03	Train employees on equal opportunity laws, guidelines, or policies, such as discrimination, diversity, harassment, or affirmative action.	New	n/a	n/a	07/2015	Incumbent
+13-1041.04	Use emerging technologies, such as drones, for remote or automated inspections.	New	n/a	n/a	05/2025	AI/SME
+13-1041.06	Complete or review death certificates, including the assignment of cause and manner of death.	Revision	8915	Complete death certificates, including the assignment of cause and manner of death.	08/2024	Occupational Expert
+13-1041.06	Observe and record the positions and conditions of bodies and related evidence at the scene, through documentation or photographs.	Revision	8916	Observe and record the positions and conditions of bodies and related evidence.	08/2024	Occupational Expert
+13-1041.07	Develop regulatory strategies for products.	New	n/a	n/a	08/2019	Occupational Expert
+13-1051.00	Use remote sensing technologies or drones to evaluate site conditions when in-person visits are not feasible.	New	n/a	n/a	05/2025	AI/SME
+13-1081.01	Evaluate the use of technologies, such as global positioning systems (GPS), radio-frequency identification (RFID), route navigation software, drone or robotic technology, or satellite linkup systems, to improve transportation efficiency.	Revision	19998	Evaluate the use of technologies, such as global positioning systems (GPS), radio-frequency identification (RFID), route navigation software, or satellite linkup systems, to improve transportation efficiency.	05/2025	AI/SME
+13-1121.00	Contact potential clients, meet with professional and trade associations, and produce brochures and other publications to promote conference, convention, and trade show services.	Revision	1228	Promote conference, convention and trades show services by performing tasks such as meeting with professional and trade associations, and producing brochures and other publications.	07/2016	Incumbent
+13-1121.00	Plan and develop programs, agendas, budgets, menus, and services according to customer requirements.	Revision	1213	Plan and develop programs, agendas, budgets, and services according to customer requirements.	07/2016	Incumbent
+13-1199.05	Deliver sustainability training to employees.	New	n/a	n/a	08/2020	Occupational Expert
+13-1199.07	Prepare written reports or presentations on findings and recommendations.	New	n/a	n/a	08/2025	Occupational Expert
+13-1199.07	Train personnel and vendors in security procedures or use of security equipment.	Revision	21504	Train personnel in security procedures or use of security equipment.	08/2025	Occupational Expert
+13-2031.00	Communicate financial reports and budgets to stakeholders.	New	n/a	n/a	08/2024	Incumbent
+13-2031.00	Submit and monitor salary raises.	New	n/a	n/a	08/2024	Incumbent
+13-2053.00	Answer agents' questions about insurance coverage.	New	n/a	n/a	08/2018	Occupational Expert
+15-1211.00	Write code to perform desired actions.	New	n/a	n/a	08/2023	Incumbent
+15-2011.00	Analyze data to determine premium rates required and cash reserves and liabilities necessary to ensure payment of future benefits.	Revision	3500	Ascertain premium rates required and cash reserves and liabilities necessary to ensure payment of future benefits.	08/2023	Occupational Expert
+17-1011.00	Inspect the condition of structures.	New	n/a	n/a	08/2021	Occupational Expert
+17-1012.00	Develop and facilitate community engagement campaigns and workshops to better understand the community's needs.	New	n/a	n/a	08/2025	Occupational Expert
+17-1012.00	Prepare ecological restoration or mitigation design plans to enhance or restore habitats.	New	n/a	n/a	08/2025	Occupational Expert
+17-1012.00	Use drone technology to survey large areas and gather accurate topographical data.	New	n/a	n/a	05/2025	AI/SME
+17-1021.00	Estimate resources, such as production hours, required for projects.	New	n/a	n/a	08/2018	Incumbent
+17-1021.00	Use drone technology to capture high-resolution images and data for map creation and updating.	New	n/a	n/a	05/2025	AI/SME
+17-1022.01	Determine orientation of tracts of land, including position, boundaries, size, and shape, using theodolites, electronic distance-measuring equipment, satellite-based positioning equipment, drones, land information systems, or other geodetic survey equipment.	Revision	16301	Determine orientation of tracts of land, including position, boundaries, size, and shape, using theodolites, electronic distance-measuring equipment, satellite-based positioning equipment, land information systems, or other geodetic survey equipment.	05/2025	AI/SME
+17-2011.00	Develop and test autonomous systems for uncrewed aerospace vehicles.	New	n/a	n/a	05/2025	AI/SME
+17-2011.00	Develop software for aerospace systems.	New	n/a	n/a	07/2015	Incumbent
+17-2021.00	Communicate results in peer-reviewed research articles or at workshops or conferences.	New	n/a	n/a	08/2024	Occupational Expert
+17-2021.00	Use agricultural drones for crop monitoring, irrigation management, and pest control.	New	n/a	n/a	05/2025	AI/SME
+17-2041.00	Adapt processes to convert from small-scale laboratory operations to large-scale commercial production.	New	n/a	n/a	08/2025	Occupational Expert
+17-2041.00	Develop process flow diagrams or pipe and instrumentation diagrams.	New	n/a	n/a	08/2025	Occupational Expert
+17-2051.00	Use drone technology for site surveying, inspection, and monitoring of infrastructure projects.	New	n/a	n/a	05/2025	AI/SME
+17-2051.01	Develop plans for integration of drone technology into transportation systems for purposes such as delivery of goods or traffic monitoring.	New	n/a	n/a	05/2025	AI/SME
+17-2111.02	Develop or modify building codes and fire codes.	New	n/a	n/a	08/2025	Occupational Expert
+17-2111.02	Perform testing on fire protection equipment or building features, such as fire doors or smoke control systems.	New	n/a	n/a	08/2025	Occupational Expert
+17-2111.02	Review building plans to verify compliance with fire and building codes.	Revision	24004	Review building plans to verify compliance with fire code.	08/2025	Occupational Expert
+17-2112.01	Assess systems to identify and quantify risk factors.	New	n/a	n/a	08/2024	Occupational Expert
+17-2121.00	Develop plans for safely drydocking vessels, including structural integrity, block loading, and stability.	New	n/a	n/a	08/2025	Occupational Expert
+17-2141.00	Investigate equipment failures or diagnose faulty operations and recommend or perform remedial actions.	Revision	20734	Investigate equipment failures or difficulties to diagnose faulty operation and recommend remedial actions.	08/2024	Incumbent
+17-2151.00	Use drone technology for aerial surveys and inspections of mining sites to enhance safety and efficiency.	New	n/a	n/a	05/2025	AI/SME
+17-2161.00	Recommend preventive measures to be taken in handling nuclear technology based on data obtained from operations monitoring, systematic analysis, or evaluation of test results.	Revision	5386	Recommend preventive measures to be taken in the handling of nuclear technology, based on data obtained from operations monitoring or from evaluation of test results.	08/2024	Occupational Expert
+17-2171.00	Use drone technology for aerial surveying and monitoring of drilling sites.	New	n/a	n/a	05/2025	AI/SME
+17-2199.10	Analyze meteorological data.	New	n/a	n/a	07/2012	Incumbent
+17-2199.10	Design electrical interconnections.	New	n/a	n/a	07/2012	Incumbent
+17-2199.10	Design wind turbine components.	New	n/a	n/a	07/2012	Incumbent
+17-2199.10	Estimate energy production by analyzing wind data.	New	n/a	n/a	07/2012	Incumbent
+17-3011.00	Use drone technology to capture aerial views and topographical data for civil engineering projects.	New	n/a	n/a	05/2025	AI/SME
+17-3013.00	Create bills of materials.	New	n/a	n/a	07/2017	Incumbent
+17-3021.00	Operate, test, and troubleshoot uncrewed aerial systems, commonly known as drones, to ensure optimal performance.	New	n/a	n/a	05/2025	AI/SME
+17-3022.00	Operate drones for site surveying and inspection, providing detailed aerial views of project sites.	New	n/a	n/a	05/2025	AI/SME
+17-3024.00	Program and calibrate drones for specific missions or tasks, ensuring proper functionality and performance.	New	n/a	n/a	05/2025	AI/SME
+17-3029.01	Operate drones for remote inspection of large or hard-to-reach structures, such as wind turbines, bridges, or tall buildings.	New	n/a	n/a	05/2025	AI/SME
+17-3031.00	Use drone technology to capture aerial images or videos for creating detailed and accurate maps.	New	n/a	n/a	05/2025	AI/SME
+19-1012.00	Test processing equipment to ensure products are produced according to specifications.	New	n/a	n/a	08/2025	Occupational Expert
+19-1021.00	Analyze biochemical or biophysical data.	New	n/a	n/a	08/2020	Occupational Expert
+19-1022.00	Perform tests on water, food, and the environment to detect harmful microorganisms or to obtain information about sources of pollution, contamination, or infection and interpret the results.	Revision	15213	Monitor and perform tests on water, food, and the environment to detect harmful microorganisms or to obtain information about sources of pollution, contamination, or infection.	08/2024	Occupational Expert
+19-1023.00	Use advanced technologies, such as GIS, remote sensing, and drone technology, for wildlife tracking, habitat mapping, and population studies.	New	n/a	n/a	05/2025	AI/SME
+19-1029.04	Inventory and order lab supplies.	New	n/a	n/a	08/2025	Incumbent
+19-1031.02	Apply herbicide to eliminate harmful plants.	New	n/a	n/a	08/2020	Incumbent
+19-1031.03	Train staff and volunteers on park programs.	Revision	23959	Train staff on park programs.	08/2023	Incumbent
+19-1041.00	Teach epidemiology to students in public health programs.	New	n/a	n/a	08/2023	Occupational Expert
+19-2011.00	Write and review scientific proposals and research papers.	Revision	20049	Review scientific proposals and research papers.	08/2024	Occupational Expert
+19-2012.00	Perform peer reviews of scientific papers.	New	n/a	n/a	08/2020	Incumbent
+19-2032.00	Research or design methods of processing, forming, and firing materials to develop products, such as ceramic dental fillings, unbreakable dinner plates, and telescope lenses.	Revision	9094	Research methods of processing, forming, and firing materials to develop such products as ceramic dental fillings, unbreakable dinner plates, and telescope lenses.	08/2024	Occupational Expert
+19-2032.00	Review and select materials for products to meet product design and cost requirements.	New	n/a	n/a	08/2024	Occupational Expert
+19-2041.03	Conduct life cycle assessments of products.	New	n/a	n/a	08/2021	Occupational Expert
+19-2043.00	Prepare reports or presentations describing research results, using illustrations, maps, appendices, and other information.	Revision	18618	Prepare written and oral reports describing research results, using illustrations, maps, appendices, and other information.	08/2018	Occupational Expert
+19-2099.01	Develop protocols and procedures for planning and executing drone-based remote sensing missions to ensure they comply with standards and requirements.	New	n/a	n/a	05/2025	AI/SME
+19-3011.00	Construct and manage economic datasets.	New	n/a	n/a	08/2024	Occupational Expert
+19-3011.00	Present research at seminars and conferences.	New	n/a	n/a	08/2024	Occupational Expert
+19-3011.00	Review documents written by others, such as referee reports.	Revision	23988	Review documents written by others.	08/2024	Occupational Expert
+19-3032.00	Develop and administer surveys to employees of organizations.	New	n/a	n/a	08/2023	Occupational Expert
+19-3032.00	Teach industrial-organizational psychology courses to undergraduate or graduate students.	New	n/a	n/a	08/2023	Occupational Expert
+19-3039.03	Provide feedback to patients and their families on the results of neuropsychological evaluations and recommendations.	New	n/a	n/a	08/2024	Occupational Expert
+19-3041.00	Mentor sociology students.	New	n/a	n/a	08/2023	Occupational Expert
+19-3041.00	Review sociological research and articles.	New	n/a	n/a	08/2023	Occupational Expert
+19-3091.00	Write, present, and publish research findings for a variety of specialized and general audiences.	Revision	22234	Write about and present research findings for a variety of specialized and general audiences.	08/2024	Occupational Expert
+19-3093.00	Coordinate artifact donations on behalf of a museum.	New	n/a	n/a	08/2025	Incumbent
+19-3093.00	Create and revise scripts for the tour guides.	New	n/a	n/a	08/2025	Incumbent
+19-3093.00	Write policies and procedures for archival collection care and research protocols.	New	n/a	n/a	08/2025	Incumbent
+19-4012.01	Operate drone technology to capture aerial imagery and data for crop monitoring and analysis.	New	n/a	n/a	05/2025	AI/SME
+19-4051.02	Calibrate, maintain, and repair chemical instrumentation sensing elements and sampling system equipment, using calibration instruments and hand tools.	Revision	7608	Calibrate and maintain chemical instrumentation sensing elements and sampling system equipment, using calibration instruments and hand tools.	07/2014	Incumbent
+19-4051.02	Document results from radiation and contamination surveys.	New	n/a	n/a	07/2014	Incumbent
+19-4051.02	Inspect, test, and maintain respiratory protection equipment.	New	n/a	n/a	07/2014	Incumbent
+19-4051.02	Write radiological work permits.	New	n/a	n/a	07/2014	Incumbent
+19-4061.00	Write grant proposals.	New	n/a	n/a	08/2019	Incumbent
+19-4071.00	Develop contracts related to operations.	New	n/a	n/a	08/2018	Incumbent
+19-4071.00	Monitor environmental conditions such as temperature or humidity.	New	n/a	n/a	08/2018	Incumbent
+19-4071.00	Operate and manage drone technology for aerial surveys and mapping, wildlife monitoring, and forest health assessments.	New	n/a	n/a	05/2025	AI/SME
+19-4071.00	Write reports on forestry or conservation activities.	New	n/a	n/a	08/2018	Incumbent
+19-4092.00	Enter data into databases.	New	n/a	n/a	08/2023	Incumbent
+19-4092.00	Operate drones to capture aerial footage or photographs of crime scenes for further analysis.	New	n/a	n/a	05/2025	AI/SME
+19-4099.03	Operate remote sensing equipment on drones to collect data in areas that are difficult to access or require high-resolution imagery.	New	n/a	n/a	05/2025	AI/SME
+21-1013.00	Diagnose mental and emotional disorders in clients.	New	n/a	n/a	08/2020	Incumbent
+21-1014.00	Guide clients in the development of skills or strategies for dealing with their problems and coping with triggering factors.	Revision	1593	Guide clients in the development of skills or strategies for dealing with their problems.	08/2025	Occupational Expert
+21-1014.00	Respond to client communications by monitoring voicemail and email, returning phone calls, and making follow-up calls for missed appointments.	New	n/a	n/a	08/2025	Occupational Expert
+21-1022.00	Conduct psychological assessment of clients.	New	n/a	n/a	08/2021	Occupational Expert
+21-1093.00	Teach parenting techniques to family members.	New	n/a	n/a	08/2020	Incumbent
+23-1023.00	Issue search or arrest warrants.	Revision	21182	Issue arrest warrants.	08/2020	Incumbent
+23-2011.00	Manage attorneys' calendars and schedule meetings.	New	n/a	n/a	08/2024	Incumbent
+23-2011.00	Request, review, and summarize relevant records for the cases.	New	n/a	n/a	08/2024	Incumbent
+25-1022.00	Hire adjunct faculty.	New	n/a	n/a	08/2019	Incumbent
+25-1042.00	Write letters of recommendation for students.	New	n/a	n/a	08/2019	Incumbent
+25-1043.00	Monitor research program budgets.	New	n/a	n/a	08/2020	Incumbent
+25-1051.00	Prepare and deliver lectures to undergraduate or graduate students on topics such as structural geology, micrometeorology, atmospheric thermodynamics, and physics.	Revision	5849	Prepare and deliver lectures to undergraduate or graduate students on topics such as structural geology, micrometeorology, and atmospheric thermodynamics.	08/2019	Incumbent
+25-1054.00	Review articles to determine their suitability for publication.	New	n/a	n/a	08/2019	Incumbent
+25-1066.00	Mentor other faculty members.	New	n/a	n/a	08/2019	Incumbent
+25-1067.00	Give presentations to community groups.	New	n/a	n/a	08/2019	Incumbent
+25-1067.00	Review manuscripts.	New	n/a	n/a	08/2019	Incumbent
+25-1067.00	Write letters of recommendation for students.	New	n/a	n/a	08/2019	Incumbent
+25-1081.00	Deliver presentations at professional conferences.	New	n/a	n/a	08/2019	Incumbent
+25-1082.00	Serve as a mentor.	New	n/a	n/a	08/2019	Incumbent
+25-1121.00	Direct theater productions.	New	n/a	n/a	08/2019	Incumbent
+25-1121.00	Mentor students.	New	n/a	n/a	08/2019	Incumbent
+25-1125.00	Evaluate faculty members.	New	n/a	n/a	08/2019	Incumbent
+25-1193.00	Monitor department budgets.	New	n/a	n/a	08/2019	Incumbent
+25-2057.00	Track students' progress on computer-based programs, such as reading fluency and comprehension.	New	n/a	n/a	08/2025	Incumbent
+25-2058.00	Monitor students using personal electronics or school-issued technology.	New	n/a	n/a	08/2025	Incumbent
+25-2059.01	Discuss with education professionals the physical abilities or disabilities of students and the accommodations required to enhance their school performance.	Revision	17015	Advise education professionals of students' physical abilities or disabilities and the accommodations required to enhance their school performance.	08/2020	Occupational Expert
+25-3031.00	Provide teachers with notes summarizing the day's activities and feedback on any issues or events that occurred.	New	n/a	n/a	08/2025	Incumbent
+25-4011.00	Write grants and apply for funding to support archival work.	New	n/a	n/a	08/2024	Occupational Expert
+25-4031.00	Open and close the library.	New	n/a	n/a	07/2017	Incumbent
+25-9044.00	Correspond with students through email to address their questions and concerns.	New	n/a	n/a	07/2016	Incumbent
+27-1025.00	Review contractor bids to subcontract fabrication, installation, and arrangement of carpeting, fixtures, accessories, draperies, paint and wall coverings, art work, furniture, and related items.	Revision	1739	Subcontract fabrication, installation, and arrangement of carpeting, fixtures, accessories, draperies, paint and wall coverings, art work, furniture, and related items.	08/2024	Occupational Expert
+27-2012.05	Coordinate the use of drone technology for aerial filming and photography.	New	n/a	n/a	05/2025	AI/SME
+27-2032.00	Plan and direct rehearsals to instruct dancers in dance steps and in techniques to achieve desired effects.	Revision	11028	Direct rehearsals to instruct dancers in dance steps and in techniques to achieve desired effects.	08/2024	Occupational Expert
+27-3041.00	Respond to questions from the public.	New	n/a	n/a	07/2017	Incumbent
+27-3041.00	Write text, such as headlines, stories, articles, editorials, or newsletters.	Revision	21000	Write text, such as stories, articles, editorials, or newsletters.	07/2017	Incumbent
+27-3092.00	File exhibits.	New	n/a	n/a	08/2020	Incumbent
+27-3092.00	Perform secretarial tasks for the court.	New	n/a	n/a	08/2020	Incumbent
+27-3092.00	Swear in witnesses.	New	n/a	n/a	08/2020	Incumbent
+27-4011.00	Operate drones for aerial videography and photography during live events or for pre-recorded material.	New	n/a	n/a	05/2025	AI/SME
+27-4011.00	Purchase audio or video equipment.	New	n/a	n/a	08/2018	Incumbent
+27-4012.00	Develop budgets.	New	n/a	n/a	08/2019	Incumbent
+27-4021.00	Engage in research to learn technological developments and techniques or to develop new photographic procedures and materials.	Revision	9363	Engage in research to develop new photographic procedures and materials.	08/2021	Occupational Expert
+27-4021.00	Operate drones to capture aerial photographs and videos, following all regulatory guidelines.	New	n/a	n/a	05/2025	AI/SME
+27-4031.00	Operate drones to capture aerial or unique angle footage for film, television, or video productions.	New	n/a	n/a	05/2025	AI/SME
+27-4032.00	Write scripts.	New	n/a	n/a	08/2020	Incumbent
+29-1011.00	Provide guidance to patients on exercises they can perform to improve mobility.	New	n/a	n/a	07/2013	Incumbent
+29-1011.00	Take x-rays.	New	n/a	n/a	07/2013	Incumbent
+29-1022.00	Evaluate and treat problems related to the temperomandibular joint (TMJ).	New	n/a	n/a	07/2012	Incumbent
+29-1024.00	Consult with patients about treatment options.	New	n/a	n/a	08/2024	Incumbent
+29-1024.00	Create treatment plans for patients.	New	n/a	n/a	08/2024	Incumbent
+29-1071.00	Refer patients to other healthcare providers.	New	n/a	n/a	08/2021	Occupational Expert
+29-1122.00	Recommend adaptive equipment to individuals to increase independence in daily living activities.	New	n/a	n/a	08/2021	Occupational Expert
+29-1126.00	Attend high-risk and caesarian section infant deliveries to provide neonatal respiratory care as needed.	New	n/a	n/a	07/2013	Incumbent
+29-1141.02	Mentor nursing students.	New	n/a	n/a	08/2023	Occupational Expert
+29-1141.04	Develop and evaluate work processes based on evidence-based standards.	New	n/a	n/a	08/2025	Occupational Expert
+29-1161.00	Evaluate mental health of patients.	New	n/a	n/a	08/2021	Occupational Expert
+29-1161.00	Screen patients for gynecologic conditions such as infections.	New	n/a	n/a	08/2021	Occupational Expert
+29-1211.00	Place invasive intravascular monitors into patients.	New	n/a	n/a	07/2012	Incumbent
+29-1211.00	Teach anesthesiology principles to residents.	New	n/a	n/a	07/2012	Incumbent
+29-1214.00	Consult and direct other medical personnel on patient care.	New	n/a	n/a	08/2025	Occupational Expert
+29-1214.00	Process patient transfers to and from other hospitals.	New	n/a	n/a	08/2025	Occupational Expert
+29-1223.00	Perform mental health evaluations to provide information to courts of law on patients' mental states.	New	n/a	n/a	07/2014	Incumbent
+29-2011.00	Conduct blood typing and antibody screening.	New	n/a	n/a	08/2025	Incumbent
+29-2011.04	Cut sections of body tissues for microscopic examination, using microtomes or cryostats.	Revision	22780	Cut sections of body tissues for microscopic examination, using microtomes.	08/2024	Occupational Expert
+29-2011.04	Select and maintain controls for stains.	New	n/a	n/a	08/2024	Occupational Expert
+29-2012.00	Perform quality control analyses to ensure accuracy of test results.	New	n/a	n/a	07/2014	Incumbent
+29-2012.01	Load slides onto staining equipment.	New	n/a	n/a	08/2025	Occupational Expert
+29-2031.00	Perform general administrative tasks, such as answering telephones, scheduling appointments, or ordering supplies or equipment.	Revision	15234	Perform general administrative tasks, such as scheduling appointments or ordering supplies or equipment.	07/2014	Incumbent
+29-2033.00	Schedule patients for nuclear medicine exams and procedures.	New	n/a	n/a	07/2013	Incumbent
+29-2055.00	Schedule surgical procedures for patients.	New	n/a	n/a	07/2013	Incumbent
+29-2055.00	Transport patients to and from the operating room.	New	n/a	n/a	07/2013	Incumbent
+29-2057.00	Order supplies.	New	n/a	n/a	08/2020	Occupational Expert
+29-2057.00	Perform examinations using ophthalmic equipment, such as autorefractors, phoropters, tomographs, or retinoscopes.	Revision	19250	Operate ophthalmic equipment, such as autorefractors, phoropters, tomographs, or retinoscopes.	08/2020	Occupational Expert
+29-9091.00	Develop emergency action plans for sports facilities.	New	n/a	n/a	08/2021	Incumbent
+29-9099.01	Test patients for sexually transmitted infections.	New	n/a	n/a	08/2021	Incumbent
+31-1121.00	Assist patients with toileting and incontinent care.	New	n/a	n/a	07/2014	Incumbent
+31-1121.00	Feed patients.	New	n/a	n/a	07/2014	Incumbent
+31-1122.00	Administer bedside or personal care, such as assistance with ambulation, dressing, feeding, or personal hygiene.	Revision	2370	Administer bedside or personal care, such as ambulation or personal hygiene assistance.	08/2023	Incumbent
+31-2012.00	Sanitize equipment.	New	n/a	n/a	08/2020	Incumbent
+31-9093.00	Order medical supplies for healthcare facilities or laboratories.	New	n/a	n/a	07/2014	Incumbent
+31-9097.00	Confirm the identities of patients by verifying their personal information.	New	n/a	n/a	08/2019	Occupational Expert
+33-1012.00	Read and review subordinates' reports to ensure legal standards are met and there are no mistakes.	New	n/a	n/a	08/2024	Incumbent
+33-1021.00	Deploy and monitor drones for aerial surveillance and assessment of fire situations.	New	n/a	n/a	05/2025	AI/SME
+33-2022.00	Operate drones to monitor and assess fire conditions, track fire progress, and identify safe access points for firefighters.	New	n/a	n/a	05/2025	AI/SME
+33-3012.00	Conduct security checks of the premises.	New	n/a	n/a	08/2023	Incumbent
+33-3021.00	Operate drones for aerial surveillance or to gather evidence from difficult to reach locations.	New	n/a	n/a	05/2025	AI/SME
+33-3021.02	Use drone technology for aerial photography and videography of crime scenes.	New	n/a	n/a	05/2025	AI/SME
+33-3021.06	Make recommendations for investigations and subpoenas.	New	n/a	n/a	08/2024	Occupational Expert
+33-3031.00	Operate drones for surveillance of large areas and tracking of wildlife.	New	n/a	n/a	05/2025	AI/SME
+33-3041.00	Perform traffic control duties such as setting up barricades and temporary signs, placing bags on parking meters to limit their use, or directing traffic or pedestrians.	Revision	7949	Perform traffic control duties such as setting up barricades and temporary signs, placing bags on parking meters to limit their use, or directing traffic.	07/2016	Incumbent
+33-9011.00	Deliver educational presentations on wildlife topics, such as animal safety, at schools and community events.	New	n/a	n/a	08/2025	Occupational Expert
+33-9011.00	Pick up deceased animals from roadways and dispose of the animal carcasses.	New	n/a	n/a	08/2025	Occupational Expert
+33-9011.00	Testify at court hearings when citations are contested.	New	n/a	n/a	08/2025	Occupational Expert
+33-9011.00	Transport injured or ill wildlife to rescues.	New	n/a	n/a	08/2025	Occupational Expert
+33-9021.00	Serve documents to parties named in legal proceedings.	New	n/a	n/a	07/2015	Incumbent
+33-9021.00	Use advanced technology, such as drones, GPS trackers, and surveillance cameras, to facilitate investigations.	New	n/a	n/a	05/2025	AI/SME
+33-9099.02	Use drone technology for surveillance and loss prevention.	New	n/a	n/a	05/2025	AI/SME
+35-2011.00	Take out garbage.	New	n/a	n/a	08/2019	Incumbent
+35-2021.00	Check and log refrigerator, freezer, and cooler temperatures.	New	n/a	n/a	08/2024	Incumbent
+35-3011.00	Provide customers with directions or answers to questions.	New	n/a	n/a	07/2017	Incumbent
+35-3023.00	Check and monitor food temperatures while cooking.	New	n/a	n/a	08/2025	Incumbent
+35-3031.00	Check with customers to see if they want to apply any rewards to their purchase.	New	n/a	n/a	08/2025	Incumbent
+35-3031.00	Perform routine tasks, such as refilling syrups, sanitizer bottles, and other essential supplies.	New	n/a	n/a	08/2025	Incumbent
+35-9011.00	Prepare food, such as sandwiches, for customers.	New	n/a	n/a	08/2021	Incumbent
+35-9021.00	Clean and sanitize the dining area, including tables.	New	n/a	n/a	08/2025	Incumbent
+37-1012.00	Repair irrigation systems.	New	n/a	n/a	08/2021	Incumbent
+37-3011.00	Move furniture.	New	n/a	n/a	07/2015	Incumbent
+37-3012.00	Establish driving routes for pesticide applications.	New	n/a	n/a	07/2015	Incumbent
+37-3012.00	Record information about pesticide applications, such as the type used and amount applied.	New	n/a	n/a	07/2015	Incumbent
+37-3012.00	Use new technology and equipment, such as drones or GPS systems, to apply pesticides more accurately and efficiently.	New	n/a	n/a	05/2025	AI/SME
+39-2011.00	Teach owners how to train their dogs.	New	n/a	n/a	07/2014	Incumbent
+39-2011.00	Teach people with visual impairments to use guide dogs.	New	n/a	n/a	07/2014	Incumbent
+39-2021.00	Scuba dive in aquariums to perform exhibit maintenance.	New	n/a	n/a	08/2019	Incumbent
+39-2021.00	Train volunteers and facility staff.	New	n/a	n/a	08/2019	Incumbent
+39-3012.00	Provide race or game information to patrons.	New	n/a	n/a	07/2014	Incumbent
+39-3012.00	Serve drinks to patrons.	New	n/a	n/a	07/2014	Incumbent
+39-3021.00	Download digital keys to unlock digital movie files.	New	n/a	n/a	08/2020	Incumbent
+39-3021.00	Ingest digital content, such as films, advertisements, or trailers, into servers or projectors.	New	n/a	n/a	08/2020	Incumbent
+39-3092.00	Create patterns for costumes based on designer's drawings.	New	n/a	n/a	07/2016	Incumbent
+39-3092.00	Schedule costume fittings for actors.	New	n/a	n/a	07/2016	Incumbent
+39-3093.00	Maintain or repair athletic equipment.	New	n/a	n/a	07/2011	Incumbent
+39-5091.00	Clean and sanitize supplies, such as makeup brushes.	Revision	24008	Clean supplies such as makeup brushes.	08/2025	Occupational Expert
+39-5093.00	Assist hair stylists with chemical services, such as neutralizing perms and applying hair color.	New	n/a	n/a	06/2008	Incumbent
+39-5093.00	Launder and fold the towels that are used for drying customers' hair.	New	n/a	n/a	06/2008	Incumbent
+39-5093.00	Refill and stock work stations with supplies, such as shampoos and conditioners.	New	n/a	n/a	06/2008	Incumbent
+39-5093.00	Rinse out hair color or permanent solutions from customers' hair.	New	n/a	n/a	06/2008	Incumbent
+39-5093.00	Sweep hair from the salon floor.	New	n/a	n/a	06/2008	Incumbent
+39-9031.00	Adjust workout programs and provide variations to address injuries or muscle soreness.	New	n/a	n/a	08/2025	Occupational Expert
+39-9041.00	Advise student organizations.	New	n/a	n/a	08/2019	Incumbent
+41-4011.07	Log client information and sales leads into tracking documents or software.	New	n/a	n/a	08/2024	Incumbent
+41-9091.00	Contact customers to ensure their satisfaction with products or services.	New	n/a	n/a	08/2018	Occupational Expert
+41-9091.00	Train new recruits or other employees.	New	n/a	n/a	08/2018	Occupational Expert
+43-4121.00	Hire library staff such as student assistants.	New	n/a	n/a	08/2018	Incumbent
+43-4171.00	Enter and update databases of contact information, such as names, addresses, and phone numbers.	New	n/a	n/a	08/2023	Incumbent
+43-5041.00	Dig dirt away from meters to take readings.	New	n/a	n/a	07/2016	Incumbent
+43-5041.00	Install new or replace broken meters.	New	n/a	n/a	07/2016	Incumbent
+43-5051.00	Stock lobby with retail merchandise.	New	n/a	n/a	07/2016	Incumbent
+43-6011.00	Keep track of employees' time.	New	n/a	n/a	07/2017	Incumbent
+43-9081.00	Check the facts of stories using the internet.	New	n/a	n/a	07/2016	Incumbent
+43-9081.00	Design page layouts using text, photographs, graphics, and other elements.	New	n/a	n/a	07/2016	Incumbent
+43-9111.00	Present results of statistical analyses to stakeholders.	New	n/a	n/a	07/2015	Incumbent
+43-9111.00	Write code for statistical applications.	New	n/a	n/a	07/2015	Incumbent
+45-2091.00	Operate drones to monitor crop health, growth and pest infestations, and apply targeted treatments.	New	n/a	n/a	05/2025	AI/SME
+45-3031.00	Operate and maintain drone technology for aerial surveillance of hunting and fishing areas.	New	n/a	n/a	05/2025	AI/SME
+45-4011.00	Create field maps using geographic information systems technology.	New	n/a	n/a	08/2023	Incumbent
+45-4022.00	Operate remote-controlled logging machines and drones for dangerous or hard-to-reach tasks.	New	n/a	n/a	05/2025	AI/SME
+45-4023.00	Move logs using heavy equipment such as log loaders.	New	n/a	n/a	07/2017	Incumbent
+47-2021.00	Use drone technology to inspect and assess the condition of tall structures.	New	n/a	n/a	05/2025	AI/SME
+47-2031.00	Use drones for site surveying and to inspect hard-to-reach areas of a structure.	New	n/a	n/a	05/2025	AI/SME
+47-2041.00	Cut and install vinyl composition tile or vinyl base.	New	n/a	n/a	07/2011	Incumbent
+47-2141.00	Clean tools and equipment, such as brushes and rollers.	New	n/a	n/a	07/2014	Incumbent
+47-2141.00	Hang wallpaper.	New	n/a	n/a	07/2014	Incumbent
+47-2171.00	Unload rebar from trucks.	New	n/a	n/a	07/2015	Incumbent
+47-2171.00	Use forklifts or cranes to move construction material, such as rebar.	New	n/a	n/a	07/2015	Incumbent
+47-2221.00	Assemble or inspect hoisting equipment or rigging, such as cables, pulleys, or hooks, to move heavy equipment or materials.	Revision	11554	Assemble hoisting equipment or rigging, such as cables, pulleys, or hooks, to move heavy equipment or materials.	07/2015	Incumbent
+47-2221.00	Lift steel beams, girders, or columns using cranes or forklifts, or by signaling hoisting equipment operators to lift or position structural steel members.	Revision	20795	Hoist steel beams, girders, or columns into place, using cranes or signaling hoisting equipment operators to lift and position structural steel members.	07/2015	Incumbent
+47-3012.00	Cut or weld metal.	New	n/a	n/a	07/2013	Incumbent
+47-4011.00	Inspect structures to determine cause and origin of damage.	New	n/a	n/a	08/2024	Occupational Expert
+47-4011.01	Evaluate the energy performance of buildings using modeling software.	New	n/a	n/a	08/2022	Occupational Expert
+47-4071.00	Pump, clean, and repair septic tanks, sewer lines, or related structures such as manholes, culverts, and catch basins.	Revision	11610	Clean and repair septic tanks, sewer lines, or related structures such as manholes, culverts, and catch basins.	07/2017	Incumbent
+47-5013.00	Maintain and perform safety inspections on rigs, equipment, and other tools.	Revision	20451	Maintain and perform safety inspections on equipment and tools.	07/2013	Incumbent
+47-5032.00	Operate drones for aerial survey of blast sites and for post-blast damage assessment.	New	n/a	n/a	05/2025	AI/SME
+47-5043.00	Check roof or ribs for hazardous conditions.	New	n/a	n/a	07/2017	Incumbent
+47-5043.00	Clean equipment, such as dust collectors.	New	n/a	n/a	07/2017	Incumbent
+49-2021.00	Use drone technology to inspect towers and antennas for damage or maintenance needs.	New	n/a	n/a	05/2025	AI/SME
+49-2091.00	Perform installation, testing, adjustment, and repair of avionics equipment in uncrewed aerial vehicles, such as drones.	New	n/a	n/a	05/2025	AI/SME
+49-2095.00	Calibrate instruments, such as transmitters.	New	n/a	n/a	07/2017	Incumbent
+49-2095.00	Use drones for inspection of high-voltage lines and other hard-to-reach equipment.	New	n/a	n/a	05/2025	AI/SME
+49-3051.00	Explain repair procedures to customers.	New	n/a	n/a	07/2015	Incumbent
+49-3051.00	Repair or replace engine mechanical equipment, such as power tilts, water pumps, bilge pumps, or power take-offs.	Revision	13770	Repair engine mechanical equipment, such as power tilts, bilge pumps, or power take-offs.	07/2015	Incumbent
+49-3052.00	Diagnose electrical problems.	New	n/a	n/a	08/2021	Incumbent
+49-3091.00	Estimate costs of repairing bicycles and write service tickets.	New	n/a	n/a	07/2016	Incumbent
+49-3091.00	Make adjustments to bicycles to improve customer fit and riding position.	New	n/a	n/a	07/2016	Incumbent
+49-3092.00	Inspect and install lights, such as headlights and taillights.	New	n/a	n/a	08/2025	Incumbent
+49-9043.00	Troubleshoot electrical, hydraulic, or mechanical equipment and machines.	New	n/a	n/a	08/2024	Incumbent
+49-9044.00	Inventory and store parts, tools, and equipment.	New	n/a	n/a	08/2024	Occupational Expert
+49-9045.00	Reline furnaces using ramming material.	New	n/a	n/a	06/2007	Incumbent
+49-9052.00	Set up service for customers, installing, connecting, testing, or adjusting equipment, such as digital subscriber line modems.	Revision	11850	Set up service for customers, installing, connecting, testing, or adjusting equipment.	07/2015	Incumbent
+49-9061.00	Adjust or repair cameras, photographic mechanisms, or equipment such as range and view finders, shutters, light meters, or lens systems, using hand tools.	Revision	8437	Adjust cameras, photographic mechanisms, or equipment such as range and view finders, shutters, light meters, or lens systems, using hand tools.	07/2015	Incumbent
+49-9061.00	Repair and calibrate drone cameras and equipment for aerial photography and videography.	New	n/a	n/a	05/2025	AI/SME
+49-9063.00	Adjust the neck angle on fretted instruments.	New	n/a	n/a	08/2025	Occupational Expert
+49-9071.00	Use drones for inspecting roofs, gutters, and other hard-to-reach areas of buildings.	New	n/a	n/a	05/2025	AI/SME
+49-9094.00	Read blueprints and project specification manuals to recommend appropriate hardware and electronic locking devices.	New	n/a	n/a	08/2025	Occupational Expert
+51-2041.00	Troubleshoot and repair electrical or mechanical equipment.	New	n/a	n/a	08/2024	Incumbent
+51-3021.00	Clean and sanitize meat cases and cutting equipment.	New	n/a	n/a	07/2016	Incumbent
+51-3022.00	Clean meat cutting equipment.	New	n/a	n/a	07/2017	Incumbent
+51-4111.00	Troubleshoot malfunctions in manufacturing equipment.	New	n/a	n/a	08/2021	Incumbent
+51-5111.00	Correct color in photographs or digital images.	New	n/a	n/a	07/2016	Incumbent
+51-6051.00	Patch materials, such as cotton or leather.	New	n/a	n/a	08/2024	Incumbent
+51-8031.00	Complete wastewater discharge monitoring reports and maintenance logs.	New	n/a	n/a	08/2025	Occupational Expert
+51-8031.00	Maintain and repair portable safety equipment and permanent safety infrastructure to ensure operational readiness and compliance with safety protocols.	New	n/a	n/a	08/2025	Occupational Expert
+51-9011.00	Load products into tanks for shipment.	New	n/a	n/a	07/2015	Incumbent
+51-9071.00	Measure, cut, and file pieces of jewelry, such as rings, brooches, bracelets, and lockets.	Revision	23625	Cut and file pieces of jewelry such as rings, brooches, bracelets, and lockets.	08/2025	Incumbent
+51-9081.00	Meet with dentists or patients to discuss dental appliances.	New	n/a	n/a	08/2022	Incumbent
+51-9081.00	Order parts or materials needed to make dental appliances.	New	n/a	n/a	08/2022	Incumbent
+51-9081.00	Scan dental models to create digital files.	New	n/a	n/a	08/2022	Incumbent
+51-9081.00	Stain porcelain on dental appliances to match the color of patients' teeth.	New	n/a	n/a	08/2022	Incumbent
+51-9082.00	Order parts or supplies for orthotic or prosthetic devices.	New	n/a	n/a	07/2015	Incumbent
+51-9083.00	Tint lenses according to customer specifications.	New	n/a	n/a	07/2015	Incumbent
+51-9151.00	Adjust digital images using software.	New	n/a	n/a	07/2017	Incumbent
+51-9195.05	Apply glazes to pottery pieces, using tools such as spray guns.	Revision	21211	Mix and apply glazes to pottery pieces, using tools, such as spray guns.	08/2020	Incumbent
+51-9195.05	Decorate pottery using tools such as brushes.	New	n/a	n/a	08/2020	Incumbent
+51-9195.05	Load and unload pottery from kilns.	New	n/a	n/a	08/2020	Incumbent
+51-9195.05	Mix chemicals according to recipes to create glazes.	Revision	21211	Mix and apply glazes to pottery pieces, using tools, such as spray guns.	08/2020	Incumbent
+53-2012.00	Operate large scale uncrewed aerial vehicles (UAVs) or drones for various commercial purposes, such as aerial photography, surveying land and structures, or monitoring wildlife.	New	n/a	n/a	05/2025	AI/SME
+53-2021.00	Monitor, direct, or sequence the movement of aircraft within an assigned air space or on the ground at airports to minimize delays and maximize safety.	Revision	12729	Monitor or direct the movement of aircraft within an assigned air space or on the ground at airports to minimize delays and maximize safety.	07/2014	Incumbent
+53-2022.00	Inspect airfield conditions to ensure safety and compliance with federal regulatory requirements.	Revision	23939	Inspect airfield conditions to ensure compliance with federal regulatory requirements.	08/2021	Incumbent
+53-2022.00	Issue notices to advise flight crews of airfield status.	New	n/a	n/a	08/2021	Incumbent
+53-2022.00	Monitor and manage the operation of drones within the airport airspace to ensure safe aircraft operations.	New	n/a	n/a	05/2025	AI/SME
+53-2022.00	Train operations staff on topics such as driving on airfields and security identification display area (SIDA) procedures.	Revision	10618	Train operations staff.	08/2021	Incumbent
+53-5021.00	Oversee the use of drones for inspection and maintenance of hard-to-reach parts of the vessel.	New	n/a	n/a	05/2025	AI/SME
+53-5031.00	Use drone technology for ship inspections, maintenance, or other tasks.	New	n/a	n/a	05/2025	AI/SME
+53-6051.01	Inspect uncrewed aircraft systems, such as drones, to ensure compliance with safety and operation regulations.	New	n/a	n/a	05/2025	AI/SME
+53-7021.00	Inspect crane site conditions to determine ground stability.	New	n/a	n/a	07/2015	Incumbent
+53-7031.00	Perform maintenance on dredge equipment, such as changing engine oil.	New	n/a	n/a	06/2008	Incumbent
+53-7062.00	Inspect products for damage or leaks.	New	n/a	n/a	08/2024	Incumbent
+53-7073.00	Conduct regular inspections of equipment using drones or other advanced technology.	New	n/a	n/a	05/2025	AI/SME

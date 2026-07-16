@@ -1,0 +1,30 @@
+Element ID	Element Name	Scale ID	Category	Category Description
+3.A.1	Related Work Experience	RW	1	None
+3.A.1	Related Work Experience	RW	2	Up to and including 1 month
+3.A.1	Related Work Experience	RW	3	Over 1 month, up to and including 3 months
+3.A.1	Related Work Experience	RW	4	Over 3 months, up to and including 6 months
+3.A.1	Related Work Experience	RW	5	Over 6 months, up to and including 1 year
+3.A.1	Related Work Experience	RW	6	Over 1 year, up to and including 2 years
+3.A.1	Related Work Experience	RW	7	Over 2 years, up to and including 4 years
+3.A.1	Related Work Experience	RW	8	Over 4 years, up to and including 6 years
+3.A.1	Related Work Experience	RW	9	Over 6 years, up to and including 8 years
+3.A.1	Related Work Experience	RW	10	Over 8 years, up to and including 10 years
+3.A.1	Related Work Experience	RW	11	Over 10 years
+3.A.2	On-Site or In-Plant Training	PT	1	None
+3.A.2	On-Site or In-Plant Training	PT	2	Up to and including 1 month
+3.A.2	On-Site or In-Plant Training	PT	3	Over 1 month, up to and including 3 months
+3.A.2	On-Site or In-Plant Training	PT	4	Over 3 months, up to and including 6 months
+3.A.2	On-Site or In-Plant Training	PT	5	Over 6 months, up to and including 1 year
+3.A.2	On-Site or In-Plant Training	PT	6	Over 1 year, up to and including 2 years
+3.A.2	On-Site or In-Plant Training	PT	7	Over 2 years, up to and including 4 years
+3.A.2	On-Site or In-Plant Training	PT	8	Over 4 years, up to and including 10 years
+3.A.2	On-Site or In-Plant Training	PT	9	Over 10 years
+3.A.3	On-the-Job Training	OJ	1	None or short demonstration
+3.A.3	On-the-Job Training	OJ	2	Anything beyond short demonstration, up to and including 1 month
+3.A.3	On-the-Job Training	OJ	3	Over 1 month, up to and including 3 months
+3.A.3	On-the-Job Training	OJ	4	Over 3 months, up to and including 6 months
+3.A.3	On-the-Job Training	OJ	5	Over 6 months, up to and including 1 year
+3.A.3	On-the-Job Training	OJ	6	Over 1 year, up to and including 2 years
+3.A.3	On-the-Job Training	OJ	7	Over 2 years, up to and including 4 years
+3.A.3	On-the-Job Training	OJ	8	Over 4 years, up to and including 10 years
+3.A.3	On-the-Job Training	OJ	9	Over 10 years

@@ -1,0 +1,304 @@
+Work Styles Element ID	Work Styles Element Name	Work Activities Element ID	Work Activities Element Name
+1.D.1.a	Innovation	4.A.2.b.1	Making Decisions and Solving Problems
+1.D.1.a	Innovation	4.A.2.b.2	Thinking Creatively
+1.D.1.a	Innovation	4.A.2.b.3	Updating and Using Relevant Knowledge
+1.D.1.a	Innovation	4.A.2.b.4	Developing Objectives and Strategies
+1.D.1.a	Innovation	4.A.4.a.6	Selling or Influencing Others
+1.D.1.a	Innovation	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+1.D.1.a	Innovation	4.A.4.b.3	Training and Teaching Others
+1.D.1.a	Innovation	4.A.4.b.6	Providing Consultation and Advice to Others
+1.D.1.b	Achievement Orientation	4.A.1.a.1	Getting Information
+1.D.1.b	Achievement Orientation	4.A.2.b.1	Making Decisions and Solving Problems
+1.D.1.b	Achievement Orientation	4.A.2.b.2	Thinking Creatively
+1.D.1.b	Achievement Orientation	4.A.2.b.3	Updating and Using Relevant Knowledge
+1.D.1.b	Achievement Orientation	4.A.2.b.4	Developing Objectives and Strategies
+1.D.1.b	Achievement Orientation	4.A.2.b.6	Organizing, Planning, and Prioritizing Work
+1.D.1.b	Achievement Orientation	4.A.4.a.6	Selling or Influencing Others
+1.D.1.b	Achievement Orientation	4.A.4.b.3	Training and Teaching Others
+1.D.1.b	Achievement Orientation	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+1.D.1.b	Achievement Orientation	4.A.4.b.5	Coaching and Developing Others
+1.D.1.b	Achievement Orientation	4.A.4.b.6	Providing Consultation and Advice to Others
+1.D.1.c	Intellectual Curiosity	4.A.1.a.1	Getting Information
+1.D.1.c	Intellectual Curiosity	4.A.2.a.4	Analyzing Data or Information
+1.D.1.c	Intellectual Curiosity	4.A.2.b.1	Making Decisions and Solving Problems
+1.D.1.c	Intellectual Curiosity	4.A.2.b.2	Thinking Creatively
+1.D.1.c	Intellectual Curiosity	4.A.2.b.3	Updating and Using Relevant Knowledge
+1.D.1.c	Intellectual Curiosity	4.A.3.b.4	Repairing and Maintaining Mechanical Equipment
+1.D.1.c	Intellectual Curiosity	4.A.3.b.5	Repairing and Maintaining Electronic Equipment
+1.D.1.c	Intellectual Curiosity	4.A.4.a.1	Interpreting the Meaning of Information for Others
+1.D.1.c	Intellectual Curiosity	4.A.4.b.3	Training and Teaching Others
+1.D.1.c	Intellectual Curiosity	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+1.D.1.c	Intellectual Curiosity	4.A.4.b.5	Coaching and Developing Others
+1.D.1.c	Intellectual Curiosity	4.A.4.b.6	Providing Consultation and Advice to Others
+1.D.1.d	Tolerance for Ambiguity	4.A.2.a.1	Judging the Qualities of Objects, Services, or People
+1.D.1.d	Tolerance for Ambiguity	4.A.2.b.1	Making Decisions and Solving Problems
+1.D.1.d	Tolerance for Ambiguity	4.A.2.b.2	Thinking Creatively
+1.D.1.d	Tolerance for Ambiguity	4.A.2.b.4	Developing Objectives and Strategies
+1.D.1.d	Tolerance for Ambiguity	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+1.D.1.d	Tolerance for Ambiguity	4.A.4.b.6	Providing Consultation and Advice to Others
+1.D.1.e	Initiative	4.A.1.a.1	Getting Information
+1.D.1.e	Initiative	4.A.2.b.3	Updating and Using Relevant Knowledge
+1.D.1.e	Initiative	4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships
+1.D.1.e	Initiative	4.A.4.a.5	Assisting and Caring for Others
+1.D.1.e	Initiative	4.A.4.b.3	Training and Teaching Others
+1.D.1.e	Initiative	4.A.4.b.5	Coaching and Developing Others
+1.D.1.e	Initiative	4.A.4.b.6	Providing Consultation and Advice to Others
+1.D.1.f	Adaptability	4.A.2.b.1	Making Decisions and Solving Problems
+1.D.1.f	Adaptability	4.A.2.b.2	Thinking Creatively
+1.D.1.f	Adaptability	4.A.2.b.3	Updating and Using Relevant Knowledge
+1.D.1.f	Adaptability	4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships
+1.D.1.f	Adaptability	4.A.4.a.5	Assisting and Caring for Others
+1.D.1.f	Adaptability	4.A.4.a.6	Selling or Influencing Others
+1.D.1.f	Adaptability	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+1.D.1.f	Adaptability	4.A.4.a.8	Performing for or Working Directly with the Public
+1.D.1.f	Adaptability	4.A.4.b.1	Coordinating the Work and Activities of Others
+1.D.1.f	Adaptability	4.A.4.b.2	Developing and Building Teams
+1.D.1.f	Adaptability	4.A.4.b.3	Training and Teaching Others
+1.D.1.f	Adaptability	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+1.D.1.f	Adaptability	4.A.4.b.5	Coaching and Developing Others
+1.D.1.f	Adaptability	4.A.4.b.6	Providing Consultation and Advice to Others
+1.D.1.g	Self-Confidence	4.A.2.a.1	Judging the Qualities of Objects, Services, or People
+1.D.1.g	Self-Confidence	4.A.2.a.3	Evaluating Information to Determine Compliance with Standards
+1.D.1.g	Self-Confidence	4.A.2.b.1	Making Decisions and Solving Problems
+1.D.1.g	Self-Confidence	4.A.2.b.2	Thinking Creatively
+1.D.1.g	Self-Confidence	4.A.2.b.4	Developing Objectives and Strategies
+1.D.1.g	Self-Confidence	4.A.4.a.1	Interpreting the Meaning of Information for Others
+1.D.1.g	Self-Confidence	4.A.4.a.2	Communicating with Supervisors, Peers, or Subordinates
+1.D.1.g	Self-Confidence	4.A.4.a.3	Communicating with People Outside the Organization
+1.D.1.g	Self-Confidence	4.A.4.a.5	Assisting and Caring for Others
+1.D.1.g	Self-Confidence	4.A.4.a.6	Selling or Influencing Others
+1.D.1.g	Self-Confidence	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+1.D.1.g	Self-Confidence	4.A.4.a.8	Performing for or Working Directly with the Public
+1.D.1.g	Self-Confidence	4.A.4.b.2	Developing and Building Teams
+1.D.1.g	Self-Confidence	4.A.4.b.3	Training and Teaching Others
+1.D.1.g	Self-Confidence	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+1.D.1.g	Self-Confidence	4.A.4.b.5	Coaching and Developing Others
+1.D.1.g	Self-Confidence	4.A.4.b.6	Providing Consultation and Advice to Others
+1.D.1.h	Perseverance	4.A.1.a.1	Getting Information
+1.D.1.h	Perseverance	4.A.1.b.2	Inspecting Equipment, Structures, or Materials
+1.D.1.h	Perseverance	4.A.2.b.1	Making Decisions and Solving Problems
+1.D.1.h	Perseverance	4.A.2.b.2	Thinking Creatively
+1.D.1.h	Perseverance	4.A.3.a.1	Performing General Physical Activities
+1.D.1.h	Perseverance	4.A.3.b.4	Repairing and Maintaining Mechanical Equipment
+1.D.1.h	Perseverance	4.A.3.b.5	Repairing and Maintaining Electronic Equipment
+1.D.1.h	Perseverance	4.A.4.a.5	Assisting and Caring for Others
+1.D.1.h	Perseverance	4.A.4.a.6	Selling or Influencing Others
+1.D.1.h	Perseverance	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+1.D.1.h	Perseverance	4.A.4.a.8	Performing for or Working Directly with the Public
+1.D.1.h	Perseverance	4.A.4.b.3	Training and Teaching Others
+1.D.1.h	Perseverance	4.A.4.b.6	Providing Consultation and Advice to Others
+1.D.1.i	Leadership Orientation	4.A.2.b.1	Making Decisions and Solving Problems
+1.D.1.i	Leadership Orientation	4.A.2.b.4	Developing Objectives and Strategies
+1.D.1.i	Leadership Orientation	4.A.2.b.5	Scheduling Work and Activities
+1.D.1.i	Leadership Orientation	4.A.4.a.6	Selling or Influencing Others
+1.D.1.i	Leadership Orientation	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+1.D.1.i	Leadership Orientation	4.A.4.b.1	Coordinating the Work and Activities of Others
+1.D.1.i	Leadership Orientation	4.A.4.b.2	Developing and Building Teams
+1.D.1.i	Leadership Orientation	4.A.4.b.3	Training and Teaching Others
+1.D.1.i	Leadership Orientation	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+1.D.1.i	Leadership Orientation	4.A.4.b.5	Coaching and Developing Others
+1.D.1.i	Leadership Orientation	4.A.4.b.6	Providing Consultation and Advice to Others
+1.D.1.i	Leadership Orientation	4.A.4.c.2	Staffing Organizational Units
+1.D.2.a	Humility	4.A.4.a.2	Communicating with Supervisors, Peers, or Subordinates
+1.D.2.a	Humility	4.A.4.a.3	Communicating with People Outside the Organization
+1.D.2.a	Humility	4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships
+1.D.2.a	Humility	4.A.4.a.5	Assisting and Caring for Others
+1.D.2.a	Humility	4.A.4.a.8	Performing for or Working Directly with the Public
+1.D.2.a	Humility	4.A.4.b.2	Developing and Building Teams
+1.D.2.a	Humility	4.A.4.b.3	Training and Teaching Others
+1.D.2.a	Humility	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+1.D.2.a	Humility	4.A.4.b.5	Coaching and Developing Others
+1.D.2.b	Sincerity	4.A.2.a.1	Judging the Qualities of Objects, Services, or People
+1.D.2.b	Sincerity	4.A.4.a.2	Communicating with Supervisors, Peers, or Subordinates
+1.D.2.b	Sincerity	4.A.4.a.3	Communicating with People Outside the Organization
+1.D.2.b	Sincerity	4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships
+1.D.2.b	Sincerity	4.A.4.a.5	Assisting and Caring for Others
+1.D.2.b	Sincerity	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+1.D.2.b	Sincerity	4.A.4.a.8	Performing for or Working Directly with the Public
+1.D.2.b	Sincerity	4.A.4.b.1	Coordinating the Work and Activities of Others
+1.D.2.b	Sincerity	4.A.4.b.2	Developing and Building Teams
+1.D.2.b	Sincerity	4.A.4.b.3	Training and Teaching Others
+1.D.2.b	Sincerity	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+1.D.2.b	Sincerity	4.A.4.b.5	Coaching and Developing Others
+1.D.2.b	Sincerity	4.A.4.b.6	Providing Consultation and Advice to Others
+1.D.2.c	Empathy	4.A.4.a.2	Communicating with Supervisors, Peers, or Subordinates
+1.D.2.c	Empathy	4.A.4.a.3	Communicating with People Outside the Organization
+1.D.2.c	Empathy	4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships
+1.D.2.c	Empathy	4.A.4.a.5	Assisting and Caring for Others
+1.D.2.c	Empathy	4.A.4.a.6	Selling or Influencing Others
+1.D.2.c	Empathy	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+1.D.2.c	Empathy	4.A.4.a.8	Performing for or Working Directly with the Public
+1.D.2.c	Empathy	4.A.4.b.1	Coordinating the Work and Activities of Others
+1.D.2.c	Empathy	4.A.4.b.2	Developing and Building Teams
+1.D.2.c	Empathy	4.A.4.b.3	Training and Teaching Others
+1.D.2.c	Empathy	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+1.D.2.c	Empathy	4.A.4.b.5	Coaching and Developing Others
+1.D.2.c	Empathy	4.A.4.b.6	Providing Consultation and Advice to Others
+1.D.2.d	Cooperation	4.A.2.b.5	Scheduling Work and Activities
+1.D.2.d	Cooperation	4.A.4.a.1	Interpreting the Meaning of Information for Others
+1.D.2.d	Cooperation	4.A.4.a.2	Communicating with Supervisors, Peers, or Subordinates
+1.D.2.d	Cooperation	4.A.4.a.3	Communicating with People Outside the Organization
+1.D.2.d	Cooperation	4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships
+1.D.2.d	Cooperation	4.A.4.a.5	Assisting and Caring for Others
+1.D.2.d	Cooperation	4.A.4.a.6	Selling or Influencing Others
+1.D.2.d	Cooperation	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+1.D.2.d	Cooperation	4.A.4.a.8	Performing for or Working Directly with the Public
+1.D.2.d	Cooperation	4.A.4.b.1	Coordinating the Work and Activities of Others
+1.D.2.d	Cooperation	4.A.4.b.2	Developing and Building Teams
+1.D.2.d	Cooperation	4.A.4.b.3	Training and Teaching Others
+1.D.2.d	Cooperation	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+1.D.2.d	Cooperation	4.A.4.b.5	Coaching and Developing Others
+1.D.2.d	Cooperation	4.A.4.b.6	Providing Consultation and Advice to Others
+1.D.2.d	Cooperation	4.A.4.c.2	Staffing Organizational Units
+1.D.2.e	Optimism	4.A.4.a.2	Communicating with Supervisors, Peers, or Subordinates
+1.D.2.e	Optimism	4.A.4.a.3	Communicating with People Outside the Organization
+1.D.2.e	Optimism	4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships
+1.D.2.e	Optimism	4.A.4.a.5	Assisting and Caring for Others
+1.D.2.e	Optimism	4.A.4.a.6	Selling or Influencing Others
+1.D.2.e	Optimism	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+1.D.2.e	Optimism	4.A.4.a.8	Performing for or Working Directly with the Public
+1.D.2.e	Optimism	4.A.4.b.2	Developing and Building Teams
+1.D.2.e	Optimism	4.A.4.b.3	Training and Teaching Others
+1.D.2.e	Optimism	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+1.D.2.e	Optimism	4.A.4.b.5	Coaching and Developing Others
+1.D.2.e	Optimism	4.A.4.b.6	Providing Consultation and Advice to Others
+1.D.2.f	Social Orientation	4.A.4.a.1	Interpreting the Meaning of Information for Others
+1.D.2.f	Social Orientation	4.A.4.a.2	Communicating with Supervisors, Peers, or Subordinates
+1.D.2.f	Social Orientation	4.A.4.a.3	Communicating with People Outside the Organization
+1.D.2.f	Social Orientation	4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships
+1.D.2.f	Social Orientation	4.A.4.a.5	Assisting and Caring for Others
+1.D.2.f	Social Orientation	4.A.4.a.6	Selling or Influencing Others
+1.D.2.f	Social Orientation	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+1.D.2.f	Social Orientation	4.A.4.a.8	Performing for or Working Directly with the Public
+1.D.2.f	Social Orientation	4.A.4.b.1	Coordinating the Work and Activities of Others
+1.D.2.f	Social Orientation	4.A.4.b.2	Developing and Building Teams
+1.D.2.f	Social Orientation	4.A.4.b.3	Training and Teaching Others
+1.D.2.f	Social Orientation	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+1.D.2.f	Social Orientation	4.A.4.b.5	Coaching and Developing Others
+1.D.2.f	Social Orientation	4.A.4.b.6	Providing Consultation and Advice to Others
+1.D.2.f	Social Orientation	4.A.4.c.2	Staffing Organizational Units
+1.D.3.a	Cautiousness	4.A.1.a.2	Monitoring Processes, Materials, or Surroundings
+1.D.3.a	Cautiousness	4.A.1.b.2	Inspecting Equipment, Structures, or Materials
+1.D.3.a	Cautiousness	4.A.1.b.3	Estimating the Quantifiable Characteristics of Products, Events, or Information
+1.D.3.a	Cautiousness	4.A.2.a.1	Judging the Qualities of Objects, Services, or People
+1.D.3.a	Cautiousness	4.A.2.a.2	Processing Information
+1.D.3.a	Cautiousness	4.A.2.a.3	Evaluating Information to Determine Compliance with Standards
+1.D.3.a	Cautiousness	4.A.2.a.4	Analyzing Data or Information
+1.D.3.a	Cautiousness	4.A.2.b.1	Making Decisions and Solving Problems
+1.D.3.a	Cautiousness	4.A.3.a.1	Performing General Physical Activities
+1.D.3.a	Cautiousness	4.A.3.a.2	Handling and Moving Objects
+1.D.3.a	Cautiousness	4.A.3.a.3	Controlling Machines and Processes
+1.D.3.a	Cautiousness	4.A.3.a.4	Operating Vehicles, Mechanized Devices, or Equipment
+1.D.3.a	Cautiousness	4.A.3.b.2	Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment
+1.D.3.a	Cautiousness	4.A.3.b.4	Repairing and Maintaining Mechanical Equipment
+1.D.3.a	Cautiousness	4.A.3.b.5	Repairing and Maintaining Electronic Equipment
+1.D.3.a	Cautiousness	4.A.3.b.6	Documenting/Recording Information
+1.D.3.a	Cautiousness	4.A.4.a.5	Assisting and Caring for Others
+1.D.3.a	Cautiousness	4.A.4.c.3	Monitoring and Controlling Resources
+1.D.3.b	Attention to Detail	4.A.1.a.1	Getting Information
+1.D.3.b	Attention to Detail	4.A.1.a.2	Monitoring Processes, Materials, or Surroundings
+1.D.3.b	Attention to Detail	4.A.1.b.1	Identifying Objects, Actions, and Events
+1.D.3.b	Attention to Detail	4.A.1.b.2	Inspecting Equipment, Structures, or Materials
+1.D.3.b	Attention to Detail	4.A.1.b.3	Estimating the Quantifiable Characteristics of Products, Events, or Information
+1.D.3.b	Attention to Detail	4.A.2.a.1	Judging the Qualities of Objects, Services, or People
+1.D.3.b	Attention to Detail	4.A.2.a.2	Processing Information
+1.D.3.b	Attention to Detail	4.A.2.a.3	Evaluating Information to Determine Compliance with Standards
+1.D.3.b	Attention to Detail	4.A.2.a.4	Analyzing Data or Information
+1.D.3.b	Attention to Detail	4.A.2.b.1	Making Decisions and Solving Problems
+1.D.3.b	Attention to Detail	4.A.2.b.3	Updating and Using Relevant Knowledge
+1.D.3.b	Attention to Detail	4.A.2.b.4	Developing Objectives and Strategies
+1.D.3.b	Attention to Detail	4.A.2.b.5	Scheduling Work and Activities
+1.D.3.b	Attention to Detail	4.A.2.b.6	Organizing, Planning, and Prioritizing Work
+1.D.3.b	Attention to Detail	4.A.3.a.3	Controlling Machines and Processes
+1.D.3.b	Attention to Detail	4.A.3.a.4	Operating Vehicles, Mechanized Devices, or Equipment
+1.D.3.b	Attention to Detail	4.A.3.b.1	Working with Computers
+1.D.3.b	Attention to Detail	4.A.3.b.2	Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment
+1.D.3.b	Attention to Detail	4.A.3.b.4	Repairing and Maintaining Mechanical Equipment
+1.D.3.b	Attention to Detail	4.A.3.b.5	Repairing and Maintaining Electronic Equipment
+1.D.3.b	Attention to Detail	4.A.3.b.6	Documenting/Recording Information
+1.D.3.b	Attention to Detail	4.A.4.a.1	Interpreting the Meaning of Information for Others
+1.D.3.b	Attention to Detail	4.A.4.a.2	Communicating with Supervisors, Peers, or Subordinates
+1.D.3.b	Attention to Detail	4.A.4.a.3	Communicating with People Outside the Organization
+1.D.3.b	Attention to Detail	4.A.4.a.5	Assisting and Caring for Others
+1.D.3.b	Attention to Detail	4.A.4.a.6	Selling or Influencing Others
+1.D.3.b	Attention to Detail	4.A.4.a.8	Performing for or Working Directly with the Public
+1.D.3.b	Attention to Detail	4.A.4.b.1	Coordinating the Work and Activities of Others
+1.D.3.b	Attention to Detail	4.A.4.b.3	Training and Teaching Others
+1.D.3.b	Attention to Detail	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+1.D.3.b	Attention to Detail	4.A.4.b.6	Providing Consultation and Advice to Others
+1.D.3.b	Attention to Detail	4.A.4.c.1	Performing Administrative Activities
+1.D.3.b	Attention to Detail	4.A.4.c.2	Staffing Organizational Units
+1.D.3.b	Attention to Detail	4.A.4.c.3	Monitoring and Controlling Resources
+1.D.3.c	Dependability	4.A.1.a.1	Getting Information
+1.D.3.c	Dependability	4.A.1.a.2	Monitoring Processes, Materials, or Surroundings
+1.D.3.c	Dependability	4.A.1.b.1	Identifying Objects, Actions, and Events
+1.D.3.c	Dependability	4.A.1.b.2	Inspecting Equipment, Structures, or Materials
+1.D.3.c	Dependability	4.A.2.a.2	Processing Information
+1.D.3.c	Dependability	4.A.2.a.3	Evaluating Information to Determine Compliance with Standards
+1.D.3.c	Dependability	4.A.2.b.1	Making Decisions and Solving Problems
+1.D.3.c	Dependability	4.A.2.b.4	Developing Objectives and Strategies
+1.D.3.c	Dependability	4.A.2.b.5	Scheduling Work and Activities
+1.D.3.c	Dependability	4.A.2.b.6	Organizing, Planning, and Prioritizing Work
+1.D.3.c	Dependability	4.A.3.a.3	Controlling Machines and Processes
+1.D.3.c	Dependability	4.A.3.a.4	Operating Vehicles, Mechanized Devices, or Equipment
+1.D.3.c	Dependability	4.A.3.b.1	Working with Computers
+1.D.3.c	Dependability	4.A.3.b.2	Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment
+1.D.3.c	Dependability	4.A.3.b.4	Repairing and Maintaining Mechanical Equipment
+1.D.3.c	Dependability	4.A.3.b.5	Repairing and Maintaining Electronic Equipment
+1.D.3.c	Dependability	4.A.3.b.6	Documenting/Recording Information
+1.D.3.c	Dependability	4.A.4.a.1	Interpreting the Meaning of Information for Others
+1.D.3.c	Dependability	4.A.4.a.2	Communicating with Supervisors, Peers, or Subordinates
+1.D.3.c	Dependability	4.A.4.a.3	Communicating with People Outside the Organization
+1.D.3.c	Dependability	4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships
+1.D.3.c	Dependability	4.A.4.a.5	Assisting and Caring for Others
+1.D.3.c	Dependability	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+1.D.3.c	Dependability	4.A.4.a.8	Performing for or Working Directly with the Public
+1.D.3.c	Dependability	4.A.4.b.1	Coordinating the Work and Activities of Others
+1.D.3.c	Dependability	4.A.4.b.2	Developing and Building Teams
+1.D.3.c	Dependability	4.A.4.b.3	Training and Teaching Others
+1.D.3.c	Dependability	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+1.D.3.c	Dependability	4.A.4.b.5	Coaching and Developing Others
+1.D.3.c	Dependability	4.A.4.b.6	Providing Consultation and Advice to Others
+1.D.3.c	Dependability	4.A.4.c.1	Performing Administrative Activities
+1.D.3.c	Dependability	4.A.4.c.2	Staffing Organizational Units
+1.D.3.c	Dependability	4.A.4.c.3	Monitoring and Controlling Resources
+1.D.3.d	Integrity	4.A.1.b.2	Inspecting Equipment, Structures, or Materials
+1.D.3.d	Integrity	4.A.2.a.1	Judging the Qualities of Objects, Services, or People
+1.D.3.d	Integrity	4.A.2.a.3	Evaluating Information to Determine Compliance with Standards
+1.D.3.d	Integrity	4.A.4.a.2	Communicating with Supervisors, Peers, or Subordinates
+1.D.3.d	Integrity	4.A.4.a.3	Communicating with People Outside the Organization
+1.D.3.d	Integrity	4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships
+1.D.3.d	Integrity	4.A.4.a.5	Assisting and Caring for Others
+1.D.3.d	Integrity	4.A.4.a.6	Selling or Influencing Others
+1.D.3.d	Integrity	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+1.D.3.d	Integrity	4.A.4.a.8	Performing for or Working Directly with the Public
+1.D.3.d	Integrity	4.A.4.b.2	Developing and Building Teams
+1.D.3.d	Integrity	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+1.D.3.d	Integrity	4.A.4.b.5	Coaching and Developing Others
+1.D.3.d	Integrity	4.A.4.b.6	Providing Consultation and Advice to Others
+1.D.3.d	Integrity	4.A.4.c.3	Monitoring and Controlling Resources
+1.D.4.a	Stress Tolerance	4.A.2.b.1	Making Decisions and Solving Problems
+1.D.4.a	Stress Tolerance	4.A.4.a.3	Communicating with People Outside the Organization
+1.D.4.a	Stress Tolerance	4.A.4.a.5	Assisting and Caring for Others
+1.D.4.a	Stress Tolerance	4.A.4.a.6	Selling or Influencing Others
+1.D.4.a	Stress Tolerance	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+1.D.4.a	Stress Tolerance	4.A.4.a.8	Performing for or Working Directly with the Public
+1.D.4.a	Stress Tolerance	4.A.4.b.1	Coordinating the Work and Activities of Others
+1.D.4.a	Stress Tolerance	4.A.4.b.2	Developing and Building Teams
+1.D.4.a	Stress Tolerance	4.A.4.b.3	Training and Teaching Others
+1.D.4.a	Stress Tolerance	4.A.4.b.5	Coaching and Developing Others
+1.D.4.a	Stress Tolerance	4.A.4.b.6	Providing Consultation and Advice to Others
+1.D.4.b	Self-Control	4.A.2.b.1	Making Decisions and Solving Problems
+1.D.4.b	Self-Control	4.A.4.a.2	Communicating with Supervisors, Peers, or Subordinates
+1.D.4.b	Self-Control	4.A.4.a.3	Communicating with People Outside the Organization
+1.D.4.b	Self-Control	4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships
+1.D.4.b	Self-Control	4.A.4.a.5	Assisting and Caring for Others
+1.D.4.b	Self-Control	4.A.4.a.6	Selling or Influencing Others
+1.D.4.b	Self-Control	4.A.4.a.7	Resolving Conflicts and Negotiating with Others
+1.D.4.b	Self-Control	4.A.4.a.8	Performing for or Working Directly with the Public
+1.D.4.b	Self-Control	4.A.4.b.1	Coordinating the Work and Activities of Others
+1.D.4.b	Self-Control	4.A.4.b.2	Developing and Building Teams
+1.D.4.b	Self-Control	4.A.4.b.3	Training and Teaching Others
+1.D.4.b	Self-Control	4.A.4.b.4	Guiding, Directing, and Motivating Subordinates
+1.D.4.b	Self-Control	4.A.4.b.5	Coaching and Developing Others
+1.D.4.b	Self-Control	4.A.4.b.6	Providing Consultation and Advice to Others

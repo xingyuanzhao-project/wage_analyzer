@@ -23,7 +23,69 @@ export interface Occupation {
 }
 
 export type OccMap = Record<string, Occupation>; // soccode -> occupation
-export type XwalkMap = Record<string, string[]>; // parent soccode -> O*NET titles
+
+/** An O*NET-SOC child of a parent SOC: its code plus its O*NET title. */
+export interface OnetHit {
+  code: string;
+  title: string;
+}
+
+export type XwalkMap = Record<string, OnetHit[]>; // parent soccode -> O*NET children
+
+// --- O*NET occupational profile (one per O*NET-SOC code) ---------------------
+
+export interface OnetTask {
+  text: string;
+  type: string; // "Core" | "Supplemental"
+}
+
+/** A worker-requirement element (skill, knowledge area) with its definition. */
+export interface OnetElement {
+  name: string;
+  description: string;
+}
+
+export interface OnetJobZone {
+  zone: number;
+  name: string;
+  experience: string;
+  education: string;
+  training: string;
+  examples: string;
+  svp: string;
+}
+
+export interface OnetSoftwareExample {
+  name: string;
+  hot: boolean;
+  inDemand: boolean;
+}
+
+export interface OnetSoftwareCategory {
+  category: string;
+  examples: OnetSoftwareExample[];
+}
+
+export interface OnetEducation {
+  level: string;
+  percent: number;
+}
+
+/** Sections are optional: O*NET does not publish every domain for every code. */
+export interface OnetProfile {
+  code: string;
+  title: string;
+  description: string;
+  tasks?: OnetTask[];
+  dwas?: string[];
+  jobZone?: OnetJobZone;
+  knowledge?: OnetElement[];
+  essentialSkills?: OnetElement[];
+  software?: OnetSoftwareCategory[];
+  education?: OnetEducation[];
+}
+
+export type OnetBundle = Record<string, OnetProfile>; // onetcode -> profile
 
 export interface WageEntry {
   l1: number | null;
@@ -43,7 +105,7 @@ export interface MatchResult {
   title: string;
   description: string;
   score: number;
-  onetHits: string[];
+  onetHits: OnetHit[];
   matchedKeywords: string[];
 }
 

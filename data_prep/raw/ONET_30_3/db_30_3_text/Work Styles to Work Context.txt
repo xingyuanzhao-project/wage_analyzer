@@ -1,0 +1,267 @@
+Work Styles Element ID	Work Styles Element Name	Work Context Element ID	Work Context Element Name
+1.D.1.a	Innovation	4.C.1.d.1	Conflict Situations
+1.D.1.a	Innovation	4.C.3.a.4	Freedom to Make Decisions
+1.D.1.a	Innovation	4.C.3.b.8	Determine Tasks, Priorities and Goals
+1.D.1.a	Innovation	4.C.3.c.1	Level of Competition
+1.D.1.b	Achievement Orientation	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+1.D.1.b	Achievement Orientation	4.C.1.c.1	Health and Safety of Other Workers
+1.D.1.b	Achievement Orientation	4.C.1.c.2	Work Outcomes and Results of Other Workers
+1.D.1.b	Achievement Orientation	4.C.3.a.1	Consequence of Error
+1.D.1.b	Achievement Orientation	4.C.3.a.2.a	Impact of Decisions on Co-workers or Company Results
+1.D.1.b	Achievement Orientation	4.C.3.a.4	Freedom to Make Decisions
+1.D.1.b	Achievement Orientation	4.C.3.b.4	Importance of Being Exact or Accurate
+1.D.1.b	Achievement Orientation	4.C.3.b.8	Determine Tasks, Priorities and Goals
+1.D.1.b	Achievement Orientation	4.C.3.c.1	Level of Competition
+1.D.1.b	Achievement Orientation	4.C.3.d.1	Time Pressure
+1.D.1.c	Intellectual Curiosity	4.C.3.a.4	Freedom to Make Decisions
+1.D.1.c	Intellectual Curiosity	4.C.3.b.8	Determine Tasks, Priorities and Goals
+1.D.1.c	Intellectual Curiosity	4.C.3.c.1	Level of Competition
+1.D.1.d	Tolerance for Ambiguity	4.C.1.b.1.f	Deal With External Customers or the Public in General
+1.D.1.d	Tolerance for Ambiguity	4.C.1.c.2	Work Outcomes and Results of Other Workers
+1.D.1.d	Tolerance for Ambiguity	4.C.1.d.1	Conflict Situations
+1.D.1.d	Tolerance for Ambiguity	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+1.D.1.d	Tolerance for Ambiguity	4.C.1.d.3	Dealing with Violent or Physically Aggressive People
+1.D.1.d	Tolerance for Ambiguity	4.C.3.a.2.a	Impact of Decisions on Co-workers or Company Results
+1.D.1.d	Tolerance for Ambiguity	4.C.3.a.4	Freedom to Make Decisions
+1.D.1.d	Tolerance for Ambiguity	4.C.3.b.8	Determine Tasks, Priorities and Goals
+1.D.1.d	Tolerance for Ambiguity	4.C.3.d.4	Work Schedules
+1.D.1.e	Initiative	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+1.D.1.e	Initiative	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+1.D.1.e	Initiative	4.C.1.c.2	Work Outcomes and Results of Other Workers
+1.D.1.e	Initiative	4.C.3.a.4	Freedom to Make Decisions
+1.D.1.e	Initiative	4.C.3.b.8	Determine Tasks, Priorities and Goals
+1.D.1.e	Initiative	4.C.3.c.1	Level of Competition
+1.D.1.f	Adaptability	4.C.1.a.2.l	Face-to-Face Discussions with Individuals and Within Teams
+1.D.1.f	Adaptability	4.C.1.a.4	Contact With Others
+1.D.1.f	Adaptability	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+1.D.1.f	Adaptability	4.C.1.b.1.f	Deal With External Customers or the Public in General
+1.D.1.f	Adaptability	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+1.D.1.f	Adaptability	4.C.1.d.1	Conflict Situations
+1.D.1.f	Adaptability	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+1.D.1.f	Adaptability	4.C.1.d.3	Dealing with Violent or Physically Aggressive People
+1.D.1.f	Adaptability	4.C.3.a.4	Freedom to Make Decisions
+1.D.1.f	Adaptability	4.C.3.b.8	Determine Tasks, Priorities and Goals
+1.D.1.f	Adaptability	4.C.3.c.1	Level of Competition
+1.D.1.f	Adaptability	4.C.3.d.4	Work Schedules
+1.D.1.g	Self-Confidence	4.C.1.a.2.c	Public Speaking
+1.D.1.g	Self-Confidence	4.C.1.a.2.l	Face-to-Face Discussions with Individuals and Within Teams
+1.D.1.g	Self-Confidence	4.C.1.a.4	Contact With Others
+1.D.1.g	Self-Confidence	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+1.D.1.g	Self-Confidence	4.C.1.b.1.f	Deal With External Customers or the Public in General
+1.D.1.g	Self-Confidence	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+1.D.1.g	Self-Confidence	4.C.1.c.1	Health and Safety of Other Workers
+1.D.1.g	Self-Confidence	4.C.1.c.2	Work Outcomes and Results of Other Workers
+1.D.1.g	Self-Confidence	4.C.1.d.1	Conflict Situations
+1.D.1.g	Self-Confidence	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+1.D.1.g	Self-Confidence	4.C.1.d.3	Dealing with Violent or Physically Aggressive People
+1.D.1.g	Self-Confidence	4.C.3.a.1	Consequence of Error
+1.D.1.g	Self-Confidence	4.C.3.a.2.a	Impact of Decisions on Co-workers or Company Results
+1.D.1.g	Self-Confidence	4.C.3.a.4	Freedom to Make Decisions
+1.D.1.g	Self-Confidence	4.C.3.b.8	Determine Tasks, Priorities and Goals
+1.D.1.g	Self-Confidence	4.C.3.c.1	Level of Competition
+1.D.1.g	Self-Confidence	4.C.3.d.1	Time Pressure
+1.D.1.h	Perseverance	4.C.1.b.1.f	Deal With External Customers or the Public in General
+1.D.1.h	Perseverance	4.C.1.c.2	Work Outcomes and Results of Other Workers
+1.D.1.h	Perseverance	4.C.1.d.1	Conflict Situations
+1.D.1.h	Perseverance	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+1.D.1.h	Perseverance	4.C.1.d.3	Dealing with Violent or Physically Aggressive People
+1.D.1.h	Perseverance	4.C.2.b.1.a	Exposed to Sounds, Noise Levels that are Distracting or Uncomfortable
+1.D.1.h	Perseverance	4.C.2.b.1.b	Exposed to Very Hot or Cold Temperatures
+1.D.1.h	Perseverance	4.C.2.b.1.c	Exposed to Extremely Bright or Inadequate Lighting Conditions
+1.D.1.h	Perseverance	4.C.2.b.1.d	Exposed to Contaminants
+1.D.1.h	Perseverance	4.C.2.b.1.e	Exposed to Cramped Work Space, Awkward Positions
+1.D.1.h	Perseverance	4.C.2.b.1.f	Exposed to Whole Body Vibration
+1.D.1.h	Perseverance	4.C.2.c.1.a	Exposed to Radiation
+1.D.1.h	Perseverance	4.C.2.c.1.b	Exposed to Disease or Infections
+1.D.1.h	Perseverance	4.C.2.c.1.c	Exposed to High Places
+1.D.1.h	Perseverance	4.C.2.c.1.d	Exposed to Hazardous Conditions
+1.D.1.h	Perseverance	4.C.2.c.1.e	Exposed to Hazardous Equipment
+1.D.1.h	Perseverance	4.C.2.c.1.f	Exposed to Minor Burns, Cuts, Bites, or Stings
+1.D.1.h	Perseverance	4.C.2.d.1.i	Spend Time Making Repetitive Motions
+1.D.1.h	Perseverance	4.C.3.a.1	Consequence of Error
+1.D.1.h	Perseverance	4.C.3.a.2.a	Impact of Decisions on Co-workers or Company Results
+1.D.1.h	Perseverance	4.C.3.b.7	Importance of Repeating Same Tasks
+1.D.1.h	Perseverance	4.C.3.c.1	Level of Competition
+1.D.1.h	Perseverance	4.C.3.d.1	Time Pressure
+1.D.1.i	Leadership Orientation	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+1.D.1.i	Leadership Orientation	4.C.1.b.1.f	Deal With External Customers or the Public in General
+1.D.1.i	Leadership Orientation	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+1.D.1.i	Leadership Orientation	4.C.1.c.1	Health and Safety of Other Workers
+1.D.1.i	Leadership Orientation	4.C.1.c.2	Work Outcomes and Results of Other Workers
+1.D.1.i	Leadership Orientation	4.C.1.d.1	Conflict Situations
+1.D.1.i	Leadership Orientation	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+1.D.1.i	Leadership Orientation	4.C.1.d.3	Dealing with Violent or Physically Aggressive People
+1.D.1.i	Leadership Orientation	4.C.3.a.2.a	Impact of Decisions on Co-workers or Company Results
+1.D.1.i	Leadership Orientation	4.C.3.a.4	Freedom to Make Decisions
+1.D.1.i	Leadership Orientation	4.C.3.b.8	Determine Tasks, Priorities and Goals
+1.D.1.i	Leadership Orientation	4.C.3.c.1	Level of Competition
+1.D.2.a	Humility	4.C.1.a.4	Contact With Others
+1.D.2.a	Humility	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+1.D.2.a	Humility	4.C.1.b.1.f	Deal With External Customers or the Public in General
+1.D.2.a	Humility	4.C.1.d.3	Dealing with Violent or Physically Aggressive People
+1.D.2.a	Humility	4.C.3.c.1	Level of Competition
+1.D.2.b	Sincerity	4.C.1.a.2.c	Public Speaking
+1.D.2.b	Sincerity	4.C.1.a.2.f	Telephone Conversations
+1.D.2.b	Sincerity	4.C.1.a.2.l	Face-to-Face Discussions with Individuals and Within Teams
+1.D.2.b	Sincerity	4.C.1.a.4	Contact With Others
+1.D.2.b	Sincerity	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+1.D.2.b	Sincerity	4.C.1.b.1.f	Deal With External Customers or the Public in General
+1.D.2.b	Sincerity	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+1.D.2.b	Sincerity	4.C.1.c.1	Health and Safety of Other Workers
+1.D.2.b	Sincerity	4.C.1.c.2	Work Outcomes and Results of Other Workers
+1.D.2.b	Sincerity	4.C.1.d.1	Conflict Situations
+1.D.2.b	Sincerity	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+1.D.2.c	Empathy	4.C.1.a.2.f	Telephone Conversations
+1.D.2.c	Empathy	4.C.1.a.2.l	Face-to-Face Discussions with Individuals and Within Teams
+1.D.2.c	Empathy	4.C.1.a.4	Contact With Others
+1.D.2.c	Empathy	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+1.D.2.c	Empathy	4.C.1.b.1.f	Deal With External Customers or the Public in General
+1.D.2.c	Empathy	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+1.D.2.c	Empathy	4.C.1.c.1	Health and Safety of Other Workers
+1.D.2.c	Empathy	4.C.1.d.1	Conflict Situations
+1.D.2.c	Empathy	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+1.D.2.c	Empathy	4.C.1.d.3	Dealing with Violent or Physically Aggressive People
+1.D.2.c	Empathy	4.C.2.a.3	Physical Proximity
+1.D.2.c	Empathy	4.C.3.a.2.a	Impact of Decisions on Co-workers or Company Results
+1.D.2.d	Cooperation	4.C.1.a.2.f	Telephone Conversations
+1.D.2.d	Cooperation	4.C.1.a.2.l	Face-to-Face Discussions with Individuals and Within Teams
+1.D.2.d	Cooperation	4.C.1.a.4	Contact With Others
+1.D.2.d	Cooperation	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+1.D.2.d	Cooperation	4.C.1.b.1.f	Deal With External Customers or the Public in General
+1.D.2.d	Cooperation	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+1.D.2.d	Cooperation	4.C.1.c.1	Health and Safety of Other Workers
+1.D.2.d	Cooperation	4.C.1.d.1	Conflict Situations
+1.D.2.d	Cooperation	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+1.D.2.d	Cooperation	4.C.3.c.1	Level of Competition
+1.D.2.e	Optimism	4.C.1.a.2.c	Public Speaking
+1.D.2.e	Optimism	4.C.1.a.2.l	Face-to-Face Discussions with Individuals and Within Teams
+1.D.2.e	Optimism	4.C.1.a.4	Contact With Others
+1.D.2.e	Optimism	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+1.D.2.e	Optimism	4.C.1.b.1.f	Deal With External Customers or the Public in General
+1.D.2.e	Optimism	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+1.D.2.e	Optimism	4.C.1.d.1	Conflict Situations
+1.D.2.e	Optimism	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+1.D.2.e	Optimism	4.C.1.d.3	Dealing with Violent or Physically Aggressive People
+1.D.2.f	Social Orientation	4.C.1.a.2.c	Public Speaking
+1.D.2.f	Social Orientation	4.C.1.a.2.f	Telephone Conversations
+1.D.2.f	Social Orientation	4.C.1.a.2.l	Face-to-Face Discussions with Individuals and Within Teams
+1.D.2.f	Social Orientation	4.C.1.a.4	Contact With Others
+1.D.2.f	Social Orientation	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+1.D.2.f	Social Orientation	4.C.1.b.1.f	Deal With External Customers or the Public in General
+1.D.2.f	Social Orientation	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+1.D.2.f	Social Orientation	4.C.1.d.1	Conflict Situations
+1.D.2.f	Social Orientation	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+1.D.2.f	Social Orientation	4.C.2.a.3	Physical Proximity
+1.D.3.a	Cautiousness	4.C.1.c.1	Health and Safety of Other Workers
+1.D.3.a	Cautiousness	4.C.1.c.2	Work Outcomes and Results of Other Workers
+1.D.3.a	Cautiousness	4.C.1.d.3	Dealing with Violent or Physically Aggressive People
+1.D.3.a	Cautiousness	4.C.2.a.1.e	In an Open Vehicle or Operating Equipment
+1.D.3.a	Cautiousness	4.C.2.b.1.d	Exposed to Contaminants
+1.D.3.a	Cautiousness	4.C.2.c.1.a	Exposed to Radiation
+1.D.3.a	Cautiousness	4.C.2.c.1.b	Exposed to Disease or Infections
+1.D.3.a	Cautiousness	4.C.2.c.1.c	Exposed to High Places
+1.D.3.a	Cautiousness	4.C.2.c.1.d	Exposed to Hazardous Conditions
+1.D.3.a	Cautiousness	4.C.2.c.1.e	Exposed to Hazardous Equipment
+1.D.3.a	Cautiousness	4.C.2.c.1.f	Exposed to Minor Burns, Cuts, Bites, or Stings
+1.D.3.a	Cautiousness	4.C.2.d.1.c	Spend Time Climbing Ladders, Scaffolds, or Poles
+1.D.3.a	Cautiousness	4.C.2.e.1.d	Wear Common Protective or Safety Equipment such as Safety Shoes, Glasses, Gloves, Hearing Protection, Hard Hats, or Life Jackets
+1.D.3.a	Cautiousness	4.C.2.e.1.e	Wear Specialized Protective or Safety Equipment such as Breathing Apparatus, Safety Harness, Full Protection Suits, or Radiation Protection
+1.D.3.a	Cautiousness	4.C.3.a.1	Consequence of Error
+1.D.3.a	Cautiousness	4.C.3.a.2.a	Impact of Decisions on Co-workers or Company Results
+1.D.3.a	Cautiousness	4.C.3.b.4	Importance of Being Exact or Accurate
+1.D.3.b	Attention to Detail	4.C.1.a.2.j	Written Letters and Memos
+1.D.3.b	Attention to Detail	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+1.D.3.b	Attention to Detail	4.C.1.b.1.f	Deal With External Customers or the Public in General
+1.D.3.b	Attention to Detail	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+1.D.3.b	Attention to Detail	4.C.1.c.1	Health and Safety of Other Workers
+1.D.3.b	Attention to Detail	4.C.1.c.2	Work Outcomes and Results of Other Workers
+1.D.3.b	Attention to Detail	4.C.3.a.1	Consequence of Error
+1.D.3.b	Attention to Detail	4.C.3.a.2.a	Impact of Decisions on Co-workers or Company Results
+1.D.3.b	Attention to Detail	4.C.3.a.4	Freedom to Make Decisions
+1.D.3.b	Attention to Detail	4.C.3.b.4	Importance of Being Exact or Accurate
+1.D.3.b	Attention to Detail	4.C.3.b.7	Importance of Repeating Same Tasks
+1.D.3.b	Attention to Detail	4.C.3.b.8	Determine Tasks, Priorities and Goals
+1.D.3.b	Attention to Detail	4.C.3.d.1	Time Pressure
+1.D.3.c	Dependability	4.C.1.a.2.c	Public Speaking
+1.D.3.c	Dependability	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+1.D.3.c	Dependability	4.C.1.b.1.f	Deal With External Customers or the Public in General
+1.D.3.c	Dependability	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+1.D.3.c	Dependability	4.C.1.c.1	Health and Safety of Other Workers
+1.D.3.c	Dependability	4.C.1.c.2	Work Outcomes and Results of Other Workers
+1.D.3.c	Dependability	4.C.1.d.1	Conflict Situations
+1.D.3.c	Dependability	4.C.3.a.1	Consequence of Error
+1.D.3.c	Dependability	4.C.3.a.2.a	Impact of Decisions on Co-workers or Company Results
+1.D.3.c	Dependability	4.C.3.a.4	Freedom to Make Decisions
+1.D.3.c	Dependability	4.C.3.b.4	Importance of Being Exact or Accurate
+1.D.3.c	Dependability	4.C.3.b.7	Importance of Repeating Same Tasks
+1.D.3.c	Dependability	4.C.3.b.8	Determine Tasks, Priorities and Goals
+1.D.3.c	Dependability	4.C.3.d.1	Time Pressure
+1.D.3.d	Integrity	4.C.1.a.2.l	Face-to-Face Discussions with Individuals and Within Teams
+1.D.3.d	Integrity	4.C.1.a.4	Contact With Others
+1.D.3.d	Integrity	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+1.D.3.d	Integrity	4.C.1.b.1.f	Deal With External Customers or the Public in General
+1.D.3.d	Integrity	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+1.D.3.d	Integrity	4.C.1.c.1	Health and Safety of Other Workers
+1.D.3.d	Integrity	4.C.1.c.2	Work Outcomes and Results of Other Workers
+1.D.3.d	Integrity	4.C.1.d.1	Conflict Situations
+1.D.3.d	Integrity	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+1.D.3.d	Integrity	4.C.1.d.3	Dealing with Violent or Physically Aggressive People
+1.D.3.d	Integrity	4.C.3.a.1	Consequence of Error
+1.D.3.d	Integrity	4.C.3.a.2.a	Impact of Decisions on Co-workers or Company Results
+1.D.3.d	Integrity	4.C.3.a.4	Freedom to Make Decisions
+1.D.3.d	Integrity	4.C.3.b.8	Determine Tasks, Priorities and Goals
+1.D.4.a	Stress Tolerance	4.C.1.a.2.c	Public Speaking
+1.D.4.a	Stress Tolerance	4.C.1.a.2.l	Face-to-Face Discussions with Individuals and Within Teams
+1.D.4.a	Stress Tolerance	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+1.D.4.a	Stress Tolerance	4.C.1.b.1.f	Deal With External Customers or the Public in General
+1.D.4.a	Stress Tolerance	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+1.D.4.a	Stress Tolerance	4.C.1.c.1	Health and Safety of Other Workers
+1.D.4.a	Stress Tolerance	4.C.1.c.2	Work Outcomes and Results of Other Workers
+1.D.4.a	Stress Tolerance	4.C.1.d.1	Conflict Situations
+1.D.4.a	Stress Tolerance	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+1.D.4.a	Stress Tolerance	4.C.1.d.3	Dealing with Violent or Physically Aggressive People
+1.D.4.a	Stress Tolerance	4.C.2.a.1.c	Outdoors, Exposed to All Weather Conditions
+1.D.4.a	Stress Tolerance	4.C.2.a.3	Physical Proximity
+1.D.4.a	Stress Tolerance	4.C.2.b.1.a	Exposed to Sounds, Noise Levels that are Distracting or Uncomfortable
+1.D.4.a	Stress Tolerance	4.C.2.b.1.b	Exposed to Very Hot or Cold Temperatures
+1.D.4.a	Stress Tolerance	4.C.2.b.1.c	Exposed to Extremely Bright or Inadequate Lighting Conditions
+1.D.4.a	Stress Tolerance	4.C.2.b.1.d	Exposed to Contaminants
+1.D.4.a	Stress Tolerance	4.C.2.b.1.e	Exposed to Cramped Work Space, Awkward Positions
+1.D.4.a	Stress Tolerance	4.C.2.b.1.f	Exposed to Whole Body Vibration
+1.D.4.a	Stress Tolerance	4.C.2.c.1.a	Exposed to Radiation
+1.D.4.a	Stress Tolerance	4.C.2.c.1.b	Exposed to Disease or Infections
+1.D.4.a	Stress Tolerance	4.C.2.c.1.c	Exposed to High Places
+1.D.4.a	Stress Tolerance	4.C.2.c.1.d	Exposed to Hazardous Conditions
+1.D.4.a	Stress Tolerance	4.C.2.c.1.e	Exposed to Hazardous Equipment
+1.D.4.a	Stress Tolerance	4.C.2.c.1.f	Exposed to Minor Burns, Cuts, Bites, or Stings
+1.D.4.a	Stress Tolerance	4.C.2.d.1.c	Spend Time Climbing Ladders, Scaffolds, or Poles
+1.D.4.a	Stress Tolerance	4.C.3.a.1	Consequence of Error
+1.D.4.a	Stress Tolerance	4.C.3.a.2.a	Impact of Decisions on Co-workers or Company Results
+1.D.4.a	Stress Tolerance	4.C.3.a.4	Freedom to Make Decisions
+1.D.4.a	Stress Tolerance	4.C.3.c.1	Level of Competition
+1.D.4.a	Stress Tolerance	4.C.3.d.1	Time Pressure
+1.D.4.a	Stress Tolerance	4.C.3.d.3	Pace Determined by Speed of Equipment
+1.D.4.b	Self-Control	4.C.1.a.2.c	Public Speaking
+1.D.4.b	Self-Control	4.C.1.a.2.f	Telephone Conversations
+1.D.4.b	Self-Control	4.C.1.a.2.l	Face-to-Face Discussions with Individuals and Within Teams
+1.D.4.b	Self-Control	4.C.1.a.4	Contact With Others
+1.D.4.b	Self-Control	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+1.D.4.b	Self-Control	4.C.1.b.1.f	Deal With External Customers or the Public in General
+1.D.4.b	Self-Control	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+1.D.4.b	Self-Control	4.C.1.c.1	Health and Safety of Other Workers
+1.D.4.b	Self-Control	4.C.1.c.2	Work Outcomes and Results of Other Workers
+1.D.4.b	Self-Control	4.C.1.d.1	Conflict Situations
+1.D.4.b	Self-Control	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+1.D.4.b	Self-Control	4.C.1.d.3	Dealing with Violent or Physically Aggressive People
+1.D.4.b	Self-Control	4.C.2.b.1.a	Exposed to Sounds, Noise Levels that are Distracting or Uncomfortable
+1.D.4.b	Self-Control	4.C.2.b.1.d	Exposed to Contaminants
+1.D.4.b	Self-Control	4.C.2.b.1.e	Exposed to Cramped Work Space, Awkward Positions
+1.D.4.b	Self-Control	4.C.2.c.1.b	Exposed to Disease or Infections
+1.D.4.b	Self-Control	4.C.2.c.1.c	Exposed to High Places
+1.D.4.b	Self-Control	4.C.2.c.1.d	Exposed to Hazardous Conditions
+1.D.4.b	Self-Control	4.C.2.c.1.e	Exposed to Hazardous Equipment
+1.D.4.b	Self-Control	4.C.3.a.1	Consequence of Error
+1.D.4.b	Self-Control	4.C.3.a.2.a	Impact of Decisions on Co-workers or Company Results
+1.D.4.b	Self-Control	4.C.3.a.4	Freedom to Make Decisions
+1.D.4.b	Self-Control	4.C.3.c.1	Level of Competition
+1.D.4.b	Self-Control	4.C.3.d.1	Time Pressure

@@ -1,0 +1,40 @@
+Essential Skills Element ID	Essential Skills Element Name	Work Context Element ID	Work Context Element Name
+2.A.1.a	Reading Comprehension	4.C.1.a.2.h	E-Mail
+2.A.1.b	Active Listening	4.C.1.a.2.c	Public Speaking
+2.A.1.b	Active Listening	4.C.1.a.2.f	Telephone Conversations
+2.A.1.b	Active Listening	4.C.1.a.2.l	Face-to-Face Discussions with Individuals and Within Teams
+2.A.1.b	Active Listening	4.C.1.a.4	Contact With Others
+2.A.1.b	Active Listening	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+2.A.1.b	Active Listening	4.C.1.b.1.f	Deal With External Customers or the Public in General
+2.A.1.b	Active Listening	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+2.A.1.b	Active Listening	4.C.1.d.1	Conflict Situations
+2.A.1.b	Active Listening	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+2.A.1.c	Writing	4.C.1.a.2.h	E-Mail
+2.A.1.c	Writing	4.C.1.a.2.j	Written Letters and Memos
+2.A.1.d	Speaking	4.C.1.a.2.c	Public Speaking
+2.A.1.d	Speaking	4.C.1.a.2.f	Telephone Conversations
+2.A.1.d	Speaking	4.C.1.a.2.l	Face-to-Face Discussions with Individuals and Within Teams
+2.A.1.d	Speaking	4.C.1.a.4	Contact With Others
+2.A.1.d	Speaking	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+2.A.1.d	Speaking	4.C.1.b.1.f	Deal With External Customers or the Public in General
+2.A.1.d	Speaking	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+2.A.1.d	Speaking	4.C.1.d.1	Conflict Situations
+2.A.1.d	Speaking	4.C.1.d.2	Dealing With Unpleasant, Angry, or Discourteous People
+2.A.1.d	Speaking	4.C.1.d.3	Dealing with Violent or Physically Aggressive People
+2.A.2.a	Critical Thinking	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+2.A.2.a	Critical Thinking	4.C.1.b.1.f	Deal With External Customers or the Public in General
+2.A.2.a	Critical Thinking	4.C.1.d.1	Conflict Situations
+2.A.2.a	Critical Thinking	4.C.1.d.3	Dealing with Violent or Physically Aggressive People
+2.A.2.a	Critical Thinking	4.C.3.a.1	Consequence of Error
+2.A.2.a	Critical Thinking	4.C.3.a.2.a	Impact of Decisions on Co-workers or Company Results
+2.A.2.a	Critical Thinking	4.C.3.a.4	Freedom to Make Decisions
+2.A.2.a	Critical Thinking	4.C.3.b.8	Determine Tasks, Priorities and Goals
+2.A.2.a	Critical Thinking	4.C.3.c.1	Level of Competition
+2.A.2.b	Active Learning	4.C.3.a.4	Freedom to Make Decisions
+2.A.2.d	Monitoring	4.C.1.b.1.e	Work With or Contribute to a Work Group or Team
+2.A.2.d	Monitoring	4.C.1.b.1.g	Coordinate or Lead Others in Accomplishing Work Activities
+2.A.2.d	Monitoring	4.C.1.c.1	Health and Safety of Other Workers
+2.A.2.d	Monitoring	4.C.1.c.2	Work Outcomes and Results of Other Workers
+2.A.2.d	Monitoring	4.C.3.b.4	Importance of Being Exact or Accurate
+2.A.2.d	Monitoring	4.C.3.b.7	Importance of Repeating Same Tasks
+2.A.2.d	Monitoring	4.C.3.d.3	Pace Determined by Speed of Equipment

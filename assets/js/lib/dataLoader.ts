@@ -5,6 +5,7 @@ import type {
   XwalkMap,
   WageMap,
   WageTable,
+  OnetBundle,
 } from "./types";
 
 // Injected by layouts/_partials/head.html. Falls back to a root-relative path
@@ -70,4 +71,19 @@ export async function loadWages(
   const wages = await getJSON<WageMap>(`${year}/wages/${table}/${area}.json`);
   wageCache.set(key, wages);
   return wages;
+}
+
+// O*NET profiles are bundled per parent SOC (all its O*NET-SOC children) and
+// fetched on demand, the same pattern as per-area wages. The in-flight promise
+// is cached so a card expanding while the aggregate loads shares one request.
+const onetCache = new Map<string, Promise<OnetBundle>>();
+
+export function loadOnet(year: string, soccode: string): Promise<OnetBundle> {
+  const key = `${year}/${soccode}`;
+  const cached = onetCache.get(key);
+  if (cached) return cached;
+
+  const request = getJSON<OnetBundle>(`${year}/onet/${soccode}.json`);
+  onetCache.set(key, request);
+  return request;
 }

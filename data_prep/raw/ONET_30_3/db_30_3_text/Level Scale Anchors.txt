@@ -1,0 +1,484 @@
+Element ID	Element Name	Scale ID	Anchor Value	Anchor Description
+1.A.1.a.1	Oral Comprehension	LV	2	Understand a television commercial
+1.A.1.a.1	Oral Comprehension	LV	4	Understand a coach's oral instructions for a sport
+1.A.1.a.1	Oral Comprehension	LV	6	Understand a lecture on advanced physics
+1.A.1.a.2	Written Comprehension	LV	2	Understand signs on the highway
+1.A.1.a.2	Written Comprehension	LV	4	Understand an apartment lease
+1.A.1.a.2	Written Comprehension	LV	6	Understand an instruction book on repairing Artificial Intelligence systems
+1.A.1.a.3	Oral Expression	LV	2	Place an order at a restaurant drive-thru
+1.A.1.a.3	Oral Expression	LV	4	Give instructions to a lost motorist
+1.A.1.a.3	Oral Expression	LV	6	Explain advanced principles of genetics to college freshmen
+1.A.1.a.4	Written Expression	LV	1	Write a note to remind someone to take food out of the freezer
+1.A.1.a.4	Written Expression	LV	4	Write a job recommendation for a subordinate
+1.A.1.a.4	Written Expression	LV	6	Write an advanced economics textbook
+1.A.1.b.1	Fluency of Ideas	LV	2	Name four different uses for a screwdriver
+1.A.1.b.1	Fluency of Ideas	LV	4	Think of as many ideas as possible for the name of a new company
+1.A.1.b.1	Fluency of Ideas	LV	6	Identify as many strategies as possible for a company acquisition and merger
+1.A.1.b.2	Originality	LV	2	Use a credit card to open a locked door
+1.A.1.b.2	Originality	LV	4	Redesign job tasks to be interesting for employees
+1.A.1.b.2	Originality	LV	6	Invent a new type of man-made fiber
+1.A.1.b.3	Problem Sensitivity	LV	2	Recognize that an unplugged lamp won't work
+1.A.1.b.3	Problem Sensitivity	LV	4	Notice from a subtle difference in a client's mood that something is bothering them
+1.A.1.b.3	Problem Sensitivity	LV	6	Recognize an illness at an early stage of a disease when there are only a few symptoms
+1.A.1.b.4	Deductive Reasoning	LV	2	Know that a stalled car can coast downhill
+1.A.1.b.4	Deductive Reasoning	LV	5	Decide what factors to consider in selecting stocks
+1.A.1.b.4	Deductive Reasoning	LV	6	Design an aircraft wing using principles of aerodynamics
+1.A.1.b.5	Inductive Reasoning	LV	2	Decide what to wear based on the weather report
+1.A.1.b.5	Inductive Reasoning	LV	4	Determine the prime suspect based on crime scene evidence
+1.A.1.b.5	Inductive Reasoning	LV	6	Diagnose a disease using results of many different lab tests
+1.A.1.b.6	Information Ordering	LV	1	Put things in numerical order
+1.A.1.b.6	Information Ordering	LV	2	Follow the correct steps to make change
+1.A.1.b.6	Information Ordering	LV	6	Assemble a wind turbine
+1.A.1.b.7	Category Flexibility	LV	2	Sort paintbrushes based on length
+1.A.1.b.7	Category Flexibility	LV	3	Classify flowers according to size, color, and smell
+1.A.1.b.7	Category Flexibility	LV	6	Classify man-made fibers in terms of their characteristics, like strength or cost
+1.A.1.c.1	Mathematical Reasoning	LV	1	Determine how much 20 oranges will cost when they are priced at 5 for 4 dollars
+1.A.1.c.1	Mathematical Reasoning	LV	4	Decide how to calculate profits to determine the amounts of yearly bonuses
+1.A.1.c.1	Mathematical Reasoning	LV	6	Determine the mathematics required to simulate a space craft landing on the moon
+1.A.1.c.2	Number Facility	LV	1	Add 2 and 7
+1.A.1.c.2	Number Facility	LV	3	Calculate a discounted price
+1.A.1.c.2	Number Facility	LV	5	Compute the interest payment that should be generated from an investment
+1.A.1.d.1	Memorization	LV	1	Remember the number on your bus to be sure you get back on the right one
+1.A.1.d.1	Memorization	LV	4	Recite the first names of the five people you just met
+1.A.1.d.1	Memorization	LV	6	Recite a 300-word speech after studying it for 15 minutes
+1.A.1.e.1	Speed of Closure	LV	3	Recognize a song after hearing only the first few notes
+1.A.1.e.1	Speed of Closure	LV	4	Make sense of messy handwriting
+1.A.1.e.1	Speed of Closure	LV	5	Interpret patterns on weather radar to decide if the weather is changing
+1.A.1.e.2	Flexibility of Closure	LV	2	Detect that your phone is ringing while at a concert
+1.A.1.e.2	Flexibility of Closure	LV	4	Look for a golf ball in tall grass
+1.A.1.e.2	Flexibility of Closure	LV	6	Identify camouflaged animals from a moving vehicle while on a safari
+1.A.1.e.3	Perceptual Speed	LV	2	Sort mail according to ZIP codes with no time pressure
+1.A.1.e.3	Perceptual Speed	LV	4	Read five pressure indicators in 10 seconds to make sure each is within safe limits
+1.A.1.e.3	Perceptual Speed	LV	6	Inspect electrical parts for defects as they pass on a fast-moving assembly line
+1.A.1.f.1	Spatial Orientation	LV	2	Use the floor plan to locate a store in a mall
+1.A.1.f.1	Spatial Orientation	LV	3	Find your way through a dark room without hitting anything
+1.A.1.f.1	Spatial Orientation	LV	6	Navigate an ocean voyage using a compass and landmarks
+1.A.1.f.2	Visualization	LV	2	Imagine how to place paper in a printer so that the letterhead comes out on top
+1.A.1.f.2	Visualization	LV	4	Follow a diagram to assemble a metal storage cabinet
+1.A.1.f.2	Visualization	LV	6	Anticipate future moves in a chess game
+1.A.1.g.1	Selective Attention	LV	2	Answer a business call with coworkers talking nearby
+1.A.1.g.1	Selective Attention	LV	4	Watch security monitors for intruders throughout the night shift
+1.A.1.g.1	Selective Attention	LV	6	Study a technical manual while listening to loud construction sounds
+1.A.1.g.2	Time Sharing	LV	2	Listen to music while entering numbers into a spreadsheet
+1.A.1.g.2	Time Sharing	LV	3	Watch street signs while driving at 30 miles an hour
+1.A.1.g.2	Time Sharing	LV	6	Monitor radar and radio transmissions to keep track of heavy aircraft traffic
+1.A.2.a.1	Arm-Hand Steadiness	LV	2	Light a candle
+1.A.2.a.1	Arm-Hand Steadiness	LV	4	Thread a needle
+1.A.2.a.1	Arm-Hand Steadiness	LV	6	Cut facets in a diamond
+1.A.2.a.2	Manual Dexterity	LV	1	Screw a light bulb into a light socket
+1.A.2.a.2	Manual Dexterity	LV	4	Pack oranges in crates as quickly as possible
+1.A.2.a.2	Manual Dexterity	LV	7	Perform open heart surgery with surgical instruments
+1.A.2.a.3	Finger Dexterity	LV	2	Put coins in a parking meter
+1.A.2.a.3	Finger Dexterity	LV	4	Attach small dials to audio equipment on an assembly line
+1.A.2.a.3	Finger Dexterity	LV	6	Put together the inner workings of a small wrist watch
+1.A.2.b.1	Control Precision	LV	2	Adjust a room light with a dimmer switch
+1.A.2.b.1	Control Precision	LV	4	Adjust farm tractor controls
+1.A.2.b.1	Control Precision	LV	6	Drill a tooth
+1.A.2.b.2	Multilimb Coordination	LV	2	Row a boat
+1.A.2.b.2	Multilimb Coordination	LV	4	Operate a forklift truck in a warehouse
+1.A.2.b.2	Multilimb Coordination	LV	6	Play the drum set in a jazz band
+1.A.2.b.3	Response Orientation	LV	2	When a doorbell and phone ring at the same time, quickly select which to answer first
+1.A.2.b.3	Response Orientation	LV	4	Use either the brake or gas pedal when your vehicle is skidding
+1.A.2.b.3	Response Orientation	LV	7	In an out-of-control commercial aircraft, react quickly to restore control
+1.A.2.b.4	Rate Control	LV	1	Ride a bicycle alongside a jogger
+1.A.2.b.4	Rate Control	LV	4	Keep up with a car that changes speed
+1.A.2.b.4	Rate Control	LV	5	Shoot a duck in flight
+1.A.2.c.1	Reaction Time	LV	2	Start to slow down the car when a traffic light turns yellow
+1.A.2.c.1	Reaction Time	LV	4	Press a button to stop operation when a warning light goes off
+1.A.2.c.1	Reaction Time	LV	6	Hit the brake when a pedestrian steps in front of your car
+1.A.2.c.2	Wrist-Finger Speed	LV	2	Use a screwdriver to twist in a screw
+1.A.2.c.2	Wrist-Finger Speed	LV	3	Carve roast beef in a cafeteria
+1.A.2.c.2	Wrist-Finger Speed	LV	6	Type 90 words per minute
+1.A.2.c.3	Speed of Limb Movement	LV	2	Saw through a thin piece of wood
+1.A.2.c.3	Speed of Limb Movement	LV	4	Swat a fly with a fly swatter
+1.A.2.c.3	Speed of Limb Movement	LV	6	Throw punches in a boxing match
+1.A.3.a.1	Static Strength	LV	1	Push an empty shopping cart
+1.A.3.a.1	Static Strength	LV	4	Pull a 40-pound sack of fertilizer across the lawn
+1.A.3.a.1	Static Strength	LV	6	Lift 75-pound bags of cement onto a truck
+1.A.3.a.2	Explosive Strength	LV	2	Hit a nail with a hammer
+1.A.3.a.2	Explosive Strength	LV	4	Jump onto a 3-foot high platform
+1.A.3.a.2	Explosive Strength	LV	7	Throw a shot-put in a track meet
+1.A.3.a.3	Dynamic Strength	LV	2	Use pruning shears to trim a bush
+1.A.3.a.3	Dynamic Strength	LV	5	Climb a 48-foot long ladder
+1.A.3.a.3	Dynamic Strength	LV	6	Perform a gymnastics routine using the rings
+1.A.3.a.4	Trunk Strength	LV	2	Sit up in an office chair
+1.A.3.a.4	Trunk Strength	LV	4	Shovel snow for half an hour
+1.A.3.a.4	Trunk Strength	LV	6	Do 100 sit-ups
+1.A.3.b.1	Stamina	LV	1	Walk 1/4 mile
+1.A.3.b.1	Stamina	LV	4	Climb 6 flights of stairs
+1.A.3.b.1	Stamina	LV	6	Run 10 miles
+1.A.3.c.1	Extent Flexibility	LV	2	Reach to adjust the radio in a car
+1.A.3.c.1	Extent Flexibility	LV	4	Reach for a box on a high warehouse shelf
+1.A.3.c.1	Extent Flexibility	LV	6	Work under the dashboard of a car
+1.A.3.c.2	Dynamic Flexibility	LV	2	Hand pick a bushel of apples from a tree
+1.A.3.c.2	Dynamic Flexibility	LV	5	Perform a dance routine as part of a cheerleading squad
+1.A.3.c.2	Dynamic Flexibility	LV	6	Maneuver a kayak through swift rapids
+1.A.3.c.3	Gross Body Coordination	LV	2	Get in and out of a truck
+1.A.3.c.3	Gross Body Coordination	LV	4	Swim the length of a pool
+1.A.3.c.3	Gross Body Coordination	LV	6	Perform a ballet dance
+1.A.3.c.4	Gross Body Equilibrium	LV	2	Stand on a ladder
+1.A.3.c.4	Gross Body Equilibrium	LV	4	Walk on ice across a pond
+1.A.3.c.4	Gross Body Equilibrium	LV	6	Walk on narrow beams in high-rise construction
+1.A.4.a.1	Near Vision	LV	2	Read indicators on the dashboard of a car
+1.A.4.a.1	Near Vision	LV	5	Read the fine print of a legal document
+1.A.4.a.1	Near Vision	LV	6	Detect minor defects in a diamond
+1.A.4.a.2	Far Vision	LV	2	Read a roadside billboard
+1.A.4.a.2	Far Vision	LV	4	Read the slides on a presentation from across a room
+1.A.4.a.2	Far Vision	LV	7	Detect differences in ships on the horizon
+1.A.4.a.3	Visual Color Discrimination	LV	1	Separate laundry into colors and whites
+1.A.4.a.3	Visual Color Discrimination	LV	4	Trace electrical circuits marked by various colored wires
+1.A.4.a.3	Visual Color Discrimination	LV	6	Paint a color portrait of a person
+1.A.4.a.4	Night Vision	LV	2	Read street signs at dusk (just after sunset)
+1.A.4.a.4	Night Vision	LV	4	Read a book in a dimly lit setting
+1.A.4.a.4	Night Vision	LV	6	Find your way through the woods on a moonless night
+1.A.4.a.5	Peripheral Vision	LV	2	Keep in step while marching in a band
+1.A.4.a.5	Peripheral Vision	LV	4	Be aware of the location of your teammates while dribbling a basketball
+1.A.4.a.5	Peripheral Vision	LV	6	Distinguish a teammate from a competitor passing by in a car race
+1.A.4.a.6	Depth Perception	LV	2	Merge a car into traffic on a city street
+1.A.4.a.6	Depth Perception	LV	4	Operate a crane to move materials from a truck bed to the ground
+1.A.4.a.6	Depth Perception	LV	6	Throw a long pass to a closely guarded teammate
+1.A.4.a.7	Glare Sensitivity	LV	2	Drive on a familiar road on a cloudy day
+1.A.4.a.7	Glare Sensitivity	LV	5	See boats on the horizon when sailing
+1.A.4.a.7	Glare Sensitivity	LV	6	Snow ski in bright sunlight
+1.A.4.b.1	Hearing Sensitivity	LV	2	Notice a doorbell ringing
+1.A.4.b.1	Hearing Sensitivity	LV	4	Diagnose what's wrong with a car engine from its sound
+1.A.4.b.1	Hearing Sensitivity	LV	6	Tune an orchestra
+1.A.4.b.2	Auditory Attention	LV	2	Listen to a lecture while people nearby are talking
+1.A.4.b.2	Auditory Attention	LV	4	Listen for your flight announcement at a busy airport
+1.A.4.b.2	Auditory Attention	LV	6	Listen to instructions from a coworker in a noisy saw mill
+1.A.4.b.3	Sound Localization	LV	2	Listen to a sound system to determine which speaker is working
+1.A.4.b.3	Sound Localization	LV	4	Find a ringing phone in an unfamiliar apartment
+1.A.4.b.3	Sound Localization	LV	6	Determining the direction of an emergency vehicle from the sound of the siren
+1.A.4.b.4	Speech Recognition	LV	2	Recognize the voice of a coworker
+1.A.4.b.4	Speech Recognition	LV	4	Identify a former customer's voice over the phone
+1.A.4.b.4	Speech Recognition	LV	6	Understand a speech presented by someone with an unfamiliar accent
+1.A.4.b.5	Speech Clarity	LV	1	Call numbers in a bingo game
+1.A.4.b.5	Speech Clarity	LV	4	Make stadium-wide announcements during a sporting event
+1.A.4.b.5	Speech Clarity	LV	6	Give a lecture to a large audience
+2.A.1.a	Reading Comprehension	LV	2	Read step-by-step instructions for completing a form
+2.A.1.a	Reading Comprehension	LV	4	Understand an email from management describing new personnel policies
+2.A.1.a	Reading Comprehension	LV	6	Read a scientific journal article describing surgical procedures
+2.A.1.b	Active Listening	LV	2	Take a customer's order
+2.A.1.b	Active Listening	LV	4	Answer inquiries regarding credit references
+2.A.1.b	Active Listening	LV	6	Serve as a judge in a complex legal disagreement
+2.A.1.c	Writing	LV	2	Write down a guest's order at a restaurant
+2.A.1.c	Writing	LV	4	Write an email to staff outlining new directives
+2.A.1.c	Writing	LV	6	Write a novel for publication
+2.A.1.d	Speaking	LV	2	Greet tourists and explain tourist attractions
+2.A.1.d	Speaking	LV	4	Interview applicants to obtain personal and work history
+2.A.1.d	Speaking	LV	6	Argue a legal case before the Supreme Court
+2.A.1.e	Mathematics	LV	2	Count the amount of change to be given to a customer
+2.A.1.e	Mathematics	LV	4	Calculate the square footage of a new home under construction
+2.A.1.e	Mathematics	LV	6	Develop a mathematical model to simulate and resolve an engineering problem
+2.A.1.f	Science	LV	2	Conduct standard tests to determine soil quality
+2.A.1.f	Science	LV	4	Conduct product tests to ensure safety standards are met
+2.A.1.f	Science	LV	6	Analyze aerodynamic systems to determine the practicality of a design
+2.A.2.a	Critical Thinking	LV	2	Determine whether a subordinate has a good excuse for being late
+2.A.2.a	Critical Thinking	LV	4	Evaluate customer complaints and determine appropriate responses
+2.A.2.a	Critical Thinking	LV	6	Write legal brief challenging a federal law
+2.A.2.b	Active Learning	LV	2	Think about the implications of a news article for job opportunities
+2.A.2.b	Active Learning	LV	4	Determine the impact of new menu changes on a restaurant's purchasing requirements
+2.A.2.b	Active Learning	LV	6	Identify the implications of a new scientific theory for product design
+2.A.2.c	Learning Strategies	LV	2	Learn a different method of completing a task from a coworker
+2.A.2.c	Learning Strategies	LV	4	Identify an alternative approach to help trainees who are having difficulties
+2.A.2.c	Learning Strategies	LV	6	Apply principles of educational psychology to develop new teaching methods
+2.A.2.d	Monitoring	LV	2	Proofread and correct a letter
+2.A.2.d	Monitoring	LV	4	Monitor a meeting and revise the agenda to ensure important topics are discussed
+2.A.2.d	Monitoring	LV	6	Review corporate productivity and develop a plan to increase it
+2.B.1.a	Social Perceptiveness	LV	2	Notice that customers are angry because they have been waiting too long
+2.B.1.a	Social Perceptiveness	LV	4	Be aware of how a coworker's promotion will affect a work group
+2.B.1.a	Social Perceptiveness	LV	6	Counsel patients who are depressed during a crisis period
+2.B.1.b	Coordination	LV	2	Schedule appointments for a medical clinic
+2.B.1.b	Coordination	LV	4	Work with others to put a new roof on a house
+2.B.1.b	Coordination	LV	6	Direct a project requiring coordination between multiple subcontractors
+2.B.1.c	Persuasion	LV	2	Solicit donations for a charity
+2.B.1.c	Persuasion	LV	4	Convince a supervisor to purchase new office equipment
+2.B.1.c	Persuasion	LV	6	Change the opinion of the jury in a complex legal case
+2.B.1.d	Negotiation	LV	2	Present justification to a manager for altering a work schedule
+2.B.1.d	Negotiation	LV	4	Contract with a wholesaler to sell items at a given cost
+2.B.1.d	Negotiation	LV	6	Work as an ambassador in negotiating a new treaty
+2.B.1.e	Instructing	LV	2	Instruct a new employee in the use of a timekeeping system
+2.B.1.e	Instructing	LV	4	Instruct a coworker in how to operate a software program
+2.B.1.e	Instructing	LV	6	Demonstrate a surgical procedure to interns in a teaching hospital
+2.B.1.f	Service Orientation	LV	2	Ask customers if they would like a cup of coffee
+2.B.1.f	Service Orientation	LV	4	Make flight reservations for customers using an online booking site
+2.B.1.f	Service Orientation	LV	6	Direct relief agency operations in a disaster area
+2.B.2.i	Complex Problem Solving	LV	2	Lay out tools to complete a job
+2.B.2.i	Complex Problem Solving	LV	4	Redesign a floor layout to take advantage of new manufacturing techniques
+2.B.2.i	Complex Problem Solving	LV	6	Develop a plan to provide emergency relief for a major metropolitan area
+2.B.3.a	Operations Analysis	LV	2	Select a printer for an office
+2.B.3.a	Operations Analysis	LV	4	Suggest changes in software to make a system more user friendly
+2.B.3.a	Operations Analysis	LV	6	Identify the control system needed for a new process production plant
+2.B.3.b	Technology Design	LV	2	Adjust exercise equipment for use by a customer
+2.B.3.b	Technology Design	LV	4	Redesign the handle on a hand tool for easier gripping
+2.B.3.b	Technology Design	LV	6	Create new technology for producing industrial diamonds
+2.B.3.c	Equipment Selection	LV	2	Select a tool to adjust a loose part on a bicycle
+2.B.3.c	Equipment Selection	LV	4	Choose a software application to complete a work assignment
+2.B.3.c	Equipment Selection	LV	6	Identify the equipment needed to produce a new product line
+2.B.3.d	Installation	LV	2	Install a new air filter in an air conditioner
+2.B.3.d	Installation	LV	4	Install a speaker system in a car
+2.B.3.d	Installation	LV	6	Install a custom-made production machine for a new product
+2.B.3.e	Programming	LV	2	Write a program to sort objects in a database
+2.B.3.e	Programming	LV	4	Write a statistical analysis program to analyze demographic data
+2.B.3.e	Programming	LV	6	Write programs to analyze geological data for existence of mineral deposits
+2.B.3.g	Operations Monitoring	LV	2	Monitor completion times while running a computer program
+2.B.3.g	Operations Monitoring	LV	4	Monitor machine functions on an automated production line
+2.B.3.g	Operations Monitoring	LV	6	Monitor feedback control in a processing facility to maintain production flow
+2.B.3.h	Operation and Control	LV	2	Navigate the settings on an office printer to print on both sides of the paper
+2.B.3.h	Operation and Control	LV	4	Adjust the speed of assembly line equipment based on the product being assembled
+2.B.3.h	Operation and Control	LV	6	Control aircraft approach and landing at a large airport during a busy period
+2.B.3.j	Equipment Maintenance	LV	2	Add oil to an engine as indicated by a warning light
+2.B.3.j	Equipment Maintenance	LV	4	Clean moving parts in production machinery
+2.B.3.j	Equipment Maintenance	LV	6	Conduct maintenance checks on an aircraft
+2.B.3.k	Troubleshooting	LV	2	Identify the source of a leak by looking under a machine
+2.B.3.k	Troubleshooting	LV	4	Identify the circuit causing an electrical system to fail
+2.B.3.k	Troubleshooting	LV	6	Direct the debugging of code for a new operating system
+2.B.3.l	Repairing	LV	2	Tighten a screw to get a door to close properly
+2.B.3.l	Repairing	LV	4	Replace a faulty hydraulic valve
+2.B.3.l	Repairing	LV	6	Repair structural damage after an earthquake
+2.B.3.m	Quality Control Analysis	LV	2	Inspect a draft email for errors (e.g., grammar, punctuation)
+2.B.3.m	Quality Control Analysis	LV	4	Assess new parts for precision and accuracy to specifications
+2.B.3.m	Quality Control Analysis	LV	6	Develop procedures to test a prototype of a new computer system
+2.B.4.e	Judgment and Decision Making	LV	2	Decide how scheduling a break will affect work flow
+2.B.4.e	Judgment and Decision Making	LV	4	Evaluate a loan application for degree of risk
+2.B.4.e	Judgment and Decision Making	LV	6	Decide whether a manufacturing company should invest in new robotics technology
+2.B.4.g	Systems Analysis	LV	2	Determine how loss of a team member will affect the completion of a job
+2.B.4.g	Systems Analysis	LV	4	Determine how a new piece of equipment will affect production rates
+2.B.4.g	Systems Analysis	LV	6	Identify how changes in tax laws affect locations of manufacturing operations
+2.B.4.h	Systems Evaluation	LV	2	Determine why estimates for the time to complete a task are overly optimistic
+2.B.4.h	Systems Evaluation	LV	4	Identify the reasons why a client might be unhappy with a product
+2.B.4.h	Systems Evaluation	LV	6	Evaluate the long-term performance of a new computer system
+2.B.5.a	Time Management	LV	2	Keep a monthly calendar of appointments
+2.B.5.a	Time Management	LV	4	Allocate the time of subordinates to projects for the coming week
+2.B.5.a	Time Management	LV	6	Allocate the time of scientists to multiple research projects
+2.B.5.b	Management of Financial Resources	LV	2	Use available funds to buy office supplies and record the amount of the purchase
+2.B.5.b	Management of Financial Resources	LV	4	Prepare and manage a budget for a short-term project
+2.B.5.b	Management of Financial Resources	LV	6	Develop, monitor, and adjust annual budgets for a large corporation
+2.B.5.c	Management of Material Resources	LV	2	Reserve a room for a management meeting
+2.B.5.c	Management of Material Resources	LV	4	Evaluate an annual uniform service contract for delivery drivers
+2.B.5.c	Management of Material Resources	LV	6	Determine and monitor the computer system needs of a large corporation
+2.B.5.d	Management of Personnel Resources	LV	2	Encourage a coworker who is having difficulty finishing a project
+2.B.5.d	Management of Personnel Resources	LV	4	Direct the activities of a road repair crew with minimal disruption of traffic flow
+2.B.5.d	Management of Personnel Resources	LV	6	Manage recruitment and training programs for a high-performance company
+2.C.1.a	Administration and Management	LV	1	Approve a reimbursement request
+2.C.1.a	Administration and Management	LV	4	Monitor progress of a project to ensure timely completion
+2.C.1.a	Administration and Management	LV	7	Manage a multimillion-dollar company
+2.C.1.b	Administrative	LV	1	Direct phone calls to the appropriate staff member
+2.C.1.b	Administrative	LV	4	Type 30 words per minute
+2.C.1.b	Administrative	LV	7	Organize a digital storage system for company forms
+2.C.1.c	Economics and Accounting	LV	1	Answer billing questions from credit card customers
+2.C.1.c	Economics and Accounting	LV	4	Develop financial investment programs for individual clients
+2.C.1.c	Economics and Accounting	LV	7	Keep a major corporation's financial records
+2.C.1.d	Sales and Marketing	LV	1	Sell cakes at a bake sale
+2.C.1.d	Sales and Marketing	LV	4	Introduce clients to a new line of products
+2.C.1.d	Sales and Marketing	LV	7	Develop a marketing plan for a new nationwide high-speed internet system
+2.C.1.e	Customer and Personal Service	LV	1	Process a customer's dry-cleaning drop off
+2.C.1.e	Customer and Personal Service	LV	4	Be responsible for 10 children at daycare
+2.C.1.e	Customer and Personal Service	LV	7	Respond to a citizen's request for assistance after a major disaster
+2.C.1.f	Personnel and Human Resources	LV	1	Fill out a medical claim form
+2.C.1.f	Personnel and Human Resources	LV	4	Interview applicants for an administrative position
+2.C.1.f	Personnel and Human Resources	LV	7	Design a new personnel selection and promotion system for the Army
+2.C.10	Transportation	LV	1	Ride a train to work
+2.C.10	Transportation	LV	4	Drive a semi-truck through a busy city
+2.C.10	Transportation	LV	7	Control air traffic at a busy airport
+2.C.2.a	Production and Processing	LV	1	Put a computer back into its packing materials
+2.C.2.a	Production and Processing	LV	4	Supervise an appliance assembly line
+2.C.2.a	Production and Processing	LV	7	Manage an international shipping company distribution center
+2.C.2.b	Food Production	LV	1	Grow herbs in the kitchen
+2.C.2.b	Food Production	LV	4	Operate a commercial fishing boat
+2.C.2.b	Food Production	LV	7	Run a large production farm
+2.C.3.a	Computers and Electronics	LV	1	Operate a media player to watch a training video
+2.C.3.a	Computers and Electronics	LV	4	Use a computer to format a document
+2.C.3.a	Computers and Electronics	LV	7	Create a program to scan a computer for viruses
+2.C.3.b	Engineering and Technology	LV	1	Install a door lock
+2.C.3.b	Engineering and Technology	LV	4	Design a custom office chair
+2.C.3.b	Engineering and Technology	LV	7	Plan for the impact of weather in designing a bridge
+2.C.3.c	Design	LV	1	Draw a straight line 4 3/16 inches long
+2.C.3.c	Design	LV	4	Design plans for remodeling a kitchen
+2.C.3.c	Design	LV	7	Develop detailed plans for a high-rise office building
+2.C.3.d	Building and Construction	LV	1	Choose the proper type of wood for adding a deck onto a house
+2.C.3.d	Building and Construction	LV	4	Fix a plumbing leak in the ceiling
+2.C.3.d	Building and Construction	LV	7	Build a high-rise office tower
+2.C.3.e	Mechanical	LV	1	Replace the filters in a furnace
+2.C.3.e	Mechanical	LV	4	Replace a valve on a steam pipe
+2.C.3.e	Mechanical	LV	7	Overhaul an airplane jet engine
+2.C.4.a	Mathematics	LV	1	Add two numbers
+2.C.4.a	Mathematics	LV	4	Analyze data to determine areas with the highest sales
+2.C.4.a	Mathematics	LV	7	Derive a complex mathematical equation
+2.C.4.b	Physics	LV	1	Use a crowbar to pry open a box
+2.C.4.b	Physics	LV	4	Calculate the speed of a falling object
+2.C.4.b	Physics	LV	7	Design a cleaner burning gasoline engine
+2.C.4.c	Chemistry	LV	1	Use a common household bug spray
+2.C.4.c	Chemistry	LV	4	Use the proper concentration of chlorine to purify a water source
+2.C.4.c	Chemistry	LV	7	Develop a safe commercial cleaner
+2.C.4.d	Biology	LV	1	Feed domestic animals
+2.C.4.d	Biology	LV	4	Investigate the effects of pollution on marine plants and animals
+2.C.4.d	Biology	LV	7	Isolate and identify a new virus
+2.C.4.e	Psychology	LV	1	Monitor several children on a playground
+2.C.4.e	Psychology	LV	4	Understand the impact of alcohol on human responses
+2.C.4.e	Psychology	LV	7	Treat a person with a severe mental illness
+2.C.4.f	Sociology and Anthropology	LV	1	Identify two cultures in a story as being different
+2.C.4.f	Sociology and Anthropology	LV	4	Write an article about cultural differences
+2.C.4.f	Sociology and Anthropology	LV	7	Create a new theory about the development of civilizations
+2.C.4.g	Geography	LV	1	Know the capital of the United States
+2.C.4.g	Geography	LV	4	Find a specific country on a world map
+2.C.4.g	Geography	LV	7	Develop a map of the world showing mountains, deserts, and rivers
+2.C.5.a	Medicine and Dentistry	LV	1	Use a band-aid
+2.C.5.a	Medicine and Dentistry	LV	4	Fill a tooth cavity
+2.C.5.a	Medicine and Dentistry	LV	7	Perform open heart surgery
+2.C.5.b	Therapy and Counseling	LV	1	Put ice on a sprained ankle
+2.C.5.b	Therapy and Counseling	LV	4	Provide job counseling to the unemployed
+2.C.5.b	Therapy and Counseling	LV	7	Counsel an abused child
+2.C.6	Education and Training	LV	1	Show someone how to bowl
+2.C.6	Education and Training	LV	4	Lead a quality improvement seminar
+2.C.6	Education and Training	LV	7	Design a training program for new employees
+2.C.7.a	English Language	LV	1	Write a thank you note
+2.C.7.a	English Language	LV	4	Edit an article for a news website
+2.C.7.a	English Language	LV	7	Teach a college English class
+2.C.7.b	Foreign Language	LV	1	Say "please" and "thank you" in a foreign language
+2.C.7.b	Foreign Language	LV	4	Ask directions in a foreign city
+2.C.7.b	Foreign Language	LV	7	Write an English language review of a book written in a foreign language
+2.C.7.c	Fine Arts	LV	1	Attend a popular music concert
+2.C.7.c	Fine Arts	LV	4	Play a minor part in a local theater play
+2.C.7.c	Fine Arts	LV	7	Design an exhibit for a major art show
+2.C.7.d	History and Archeology	LV	1	Take a class in US history
+2.C.7.d	History and Archeology	LV	4	Teach local history to school children
+2.C.7.d	History and Archeology	LV	7	Determine the age of bones for placing them in fossil history
+2.C.7.e	Philosophy and Theology	LV	1	Watch a TV show on family values
+2.C.7.e	Philosophy and Theology	LV	4	Understand another culture's religious practices
+2.C.7.e	Philosophy and Theology	LV	7	Compare the teachings of major philosophers
+2.C.8.a	Public Safety and Security	LV	1	Use a seatbelt
+2.C.8.a	Public Safety and Security	LV	4	Inspect a building site for safety violations
+2.C.8.a	Public Safety and Security	LV	7	Command a military operation
+2.C.8.b	Law and Government	LV	1	Describe the length of a U.S. presidential term
+2.C.8.b	Law and Government	LV	4	Prepare documents and title papers for the purchase of a new house
+2.C.8.b	Law and Government	LV	7	Serve as a judge in a federal court
+2.C.9.a	Telecommunications	LV	1	Send an email
+2.C.9.a	Telecommunications	LV	4	Install a wireless internet router
+2.C.9.a	Telecommunications	LV	7	Develop a new, world-wide telecommunications network
+2.C.9.b	Communications and Media	LV	1	Write a thank you note
+2.C.9.b	Communications and Media	LV	4	Host a music radio show
+2.C.9.b	Communications and Media	LV	7	Write a novel
+4.A.1.a.1	Getting Information	LV	1	Follow a standard blueprint
+4.A.1.a.1	Getting Information	LV	4	Review a budget
+4.A.1.a.1	Getting Information	LV	7	Study international tax laws
+4.A.1.a.2	Monitoring Processes, Materials, or Surroundings	LV	1	Check to see if baking bread is done
+4.A.1.a.2	Monitoring Processes, Materials, or Surroundings	LV	4	Test electrical circuits
+4.A.1.a.2	Monitoring Processes, Materials, or Surroundings	LV	7	Check the status of a patient in critical medical care
+4.A.1.b.1	Identifying Objects, Actions, and Events	LV	1	Test an automobile transmission
+4.A.1.b.1	Identifying Objects, Actions, and Events	LV	4	Judge the suitability of food products for an event
+4.A.1.b.1	Identifying Objects, Actions, and Events	LV	7	Determine the reaction of a virus to a new drug
+4.A.1.b.2	Inspecting Equipment, Structures, or Materials	LV	1	Check that doors to building are locked
+4.A.1.b.2	Inspecting Equipment, Structures, or Materials	LV	4	Inspect equipment in a chemical processing plant
+4.A.1.b.2	Inspecting Equipment, Structures, or Materials	LV	7	Conduct a thorough inspection of an aircraft engine
+4.A.1.b.3	Estimating the Quantifiable Characteristics of Products, Events, or Information	LV	1	Estimate the size of household furniture to be shipped
+4.A.1.b.3	Estimating the Quantifiable Characteristics of Products, Events, or Information	LV	4	Estimate the time required to evacuate a city in the event of a major disaster
+4.A.1.b.3	Estimating the Quantifiable Characteristics of Products, Events, or Information	LV	7	Estimate the amount of natural resources that lie beneath the world's oceans
+4.A.2.a.1	Judging the Qualities of Objects, Services, or People	LV	1	Determine whether to remove a tree that has been damaged
+4.A.2.a.1	Judging the Qualities of Objects, Services, or People	LV	4	Determine the value of property lost in a fire
+4.A.2.a.1	Judging the Qualities of Objects, Services, or People	LV	7	Establish the value of a recently discovered ancient artwork
+4.A.2.a.2	Processing Information	LV	1	Calculate the costs for shipping packages
+4.A.2.a.2	Processing Information	LV	4	Calculate the adjustments for insurance claims
+4.A.2.a.2	Processing Information	LV	7	Compile data for a complex scientific report
+4.A.2.a.3	Evaluating Information to Determine Compliance with Standards	LV	1	Review forms for completeness
+4.A.2.a.3	Evaluating Information to Determine Compliance with Standards	LV	4	Evaluate a complicated insurance claim for compliance with policy terms
+4.A.2.a.3	Evaluating Information to Determine Compliance with Standards	LV	7	Make a ruling in court on a complicated motion
+4.A.2.a.4	Analyzing Data or Information	LV	1	Skim a short article to gather the main point
+4.A.2.a.4	Analyzing Data or Information	LV	4	Determine the interest cost to finance a new building
+4.A.2.a.4	Analyzing Data or Information	LV	7	Analyze the cost of medical care services for all hospitals in the country
+4.A.2.b.1	Making Decisions and Solving Problems	LV	1	Determine the meal selection for a cafeteria
+4.A.2.b.1	Making Decisions and Solving Problems	LV	4	Select the location for a major retail store
+4.A.2.b.1	Making Decisions and Solving Problems	LV	7	Make the final decision about a company's 5-year plan
+4.A.2.b.2	Thinking Creatively	LV	1	Change the spacing on a printed report
+4.A.2.b.2	Thinking Creatively	LV	4	Adapt popular music for a high school marching band
+4.A.2.b.2	Thinking Creatively	LV	7	Create new computer software
+4.A.2.b.3	Updating and Using Relevant Knowledge	LV	1	Keep up with price changes in a small retail store
+4.A.2.b.3	Updating and Using Relevant Knowledge	LV	4	Keep current on changes in maintenance procedures for repairing sports cars
+4.A.2.b.3	Updating and Using Relevant Knowledge	LV	7	Learn information related to a complex and rapidly changing technology
+4.A.2.b.4	Developing Objectives and Strategies	LV	1	Plan the holiday schedule for an airline workforce
+4.A.2.b.4	Developing Objectives and Strategies	LV	4	Develop the plan to complete the merger of two organizations over a 3-year period
+4.A.2.b.4	Developing Objectives and Strategies	LV	7	Develop a 10-year business plan for an organization
+4.A.2.b.5	Scheduling Work and Activities	LV	1	Make appointments for patients using a predetermined schedule
+4.A.2.b.5	Scheduling Work and Activities	LV	4	Prepare the work schedule for salesclerks in a large retail store
+4.A.2.b.5	Scheduling Work and Activities	LV	7	Schedule a complex conference program with multiple, parallel sessions
+4.A.2.b.6	Organizing, Planning, and Prioritizing Work	LV	1	Organize a work schedule that is repetitive and easy to plan
+4.A.2.b.6	Organizing, Planning, and Prioritizing Work	LV	4	Plan and adjust a personal to-do list according to changing demands
+4.A.2.b.6	Organizing, Planning, and Prioritizing Work	LV	7	Prioritize and plan multiple tasks several months ahead
+4.A.3.a.1	Performing General Physical Activities	LV	1	Walk between workstations in a small office
+4.A.3.a.1	Performing General Physical Activities	LV	4	Paint the outside of a house
+4.A.3.a.1	Performing General Physical Activities	LV	7	Climb up and down poles to install electricity
+4.A.3.a.2	Handling and Moving Objects	LV	1	Change settings on copy machines
+4.A.3.a.2	Handling and Moving Objects	LV	4	Arrange books in a library
+4.A.3.a.2	Handling and Moving Objects	LV	7	Load boxes on an assembly line
+4.A.3.a.3	Controlling Machines and Processes	LV	1	Operate a cash register
+4.A.3.a.3	Controlling Machines and Processes	LV	4	Operate a drilling rig
+4.A.3.a.3	Controlling Machines and Processes	LV	7	Operate a precision milling machine
+4.A.3.a.4	Operating Vehicles, Mechanized Devices, or Equipment	LV	1	Drive a car
+4.A.3.a.4	Operating Vehicles, Mechanized Devices, or Equipment	LV	4	Drive an 18-wheel tractor-trailer
+4.A.3.a.4	Operating Vehicles, Mechanized Devices, or Equipment	LV	7	Hover a helicopter in strong wind
+4.A.3.b.1	Working with Computers	LV	1	Enter employee information into a database
+4.A.3.b.1	Working with Computers	LV	4	Write software for keeping track of parts in inventory
+4.A.3.b.1	Working with Computers	LV	7	Set up a new computer system for a large multinational company
+4.A.3.b.2	Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment	LV	1	Specify the lighting for a work area
+4.A.3.b.2	Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment	LV	4	Specify the furniture and equipment for a new school
+4.A.3.b.2	Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment	LV	7	Draw the layout of a circuit board for a high-performance computer
+4.A.3.b.4	Repairing and Maintaining Mechanical Equipment	LV	1	Make simple, external adjustments to a door hinge with ordinary hand tools
+4.A.3.b.4	Repairing and Maintaining Mechanical Equipment	LV	4	Change the oil on a tractor
+4.A.3.b.4	Repairing and Maintaining Mechanical Equipment	LV	7	Overhaul a power plant turbine
+4.A.3.b.5	Repairing and Maintaining Electronic Equipment	LV	1	Use display settings to adjust a television picture
+4.A.3.b.5	Repairing and Maintaining Electronic Equipment	LV	4	Make repairs by removing and replacing circuit boards
+4.A.3.b.5	Repairing and Maintaining Electronic Equipment	LV	7	Use complex test equipment to calibrate electronic equipment
+4.A.3.b.6	Documenting/Recording Information	LV	1	Record the weight of a patient during a routine health exam
+4.A.3.b.6	Documenting/Recording Information	LV	4	Document the results of a crime scene investigation
+4.A.3.b.6	Documenting/Recording Information	LV	7	Maintain information about the use of satellites for industry communications
+4.A.4.a.1	Interpreting the Meaning of Information for Others	LV	1	Interpret a blood pressure reading
+4.A.4.a.1	Interpreting the Meaning of Information for Others	LV	4	Interpret how foreign tax laws apply to U.S. exports
+4.A.4.a.1	Interpreting the Meaning of Information for Others	LV	7	Interpret a complex experiment in physics for general audiences
+4.A.4.a.2	Communicating with Supervisors, Peers, or Subordinates	LV	1	Write brief messages to others
+4.A.4.a.2	Communicating with Supervisors, Peers, or Subordinates	LV	4	Report the results of a sales meeting to a supervisor
+4.A.4.a.2	Communicating with Supervisors, Peers, or Subordinates	LV	7	Create and deliver a presentation on a company's internal policies
+4.A.4.a.3	Communicating with People Outside the Organization	LV	1	Have little contact with people outside the organization
+4.A.4.a.3	Communicating with People Outside the Organization	LV	4	Present information to potential clients about available services
+4.A.4.a.3	Communicating with People Outside the Organization	LV	7	Prepare or deliver press releases
+4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships	LV	1	Exchange greetings with a coworker
+4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships	LV	4	Maintain good working relationships with almost all coworkers and clients
+4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships	LV	7	Gain cooperation from a diverse group of executives with competing interests
+4.A.4.a.5	Assisting and Caring for Others	LV	1	Help a coworker complete an assignment
+4.A.4.a.5	Assisting and Caring for Others	LV	4	Help a medical patient find in-home assistance or healthcare
+4.A.4.a.5	Assisting and Caring for Others	LV	7	Care for seriously injured persons in an emergency room
+4.A.4.a.6	Selling or Influencing Others	LV	1	Convince a coworker to assist with an assignment
+4.A.4.a.6	Selling or Influencing Others	LV	4	Make a sales pitch to convince others to buy a product
+4.A.4.a.6	Selling or Influencing Others	LV	7	Deliver a major sales campaign in a new market
+4.A.4.a.7	Resolving Conflicts and Negotiating with Others	LV	1	Apologize to a customer who complains about waiting too long
+4.A.4.a.7	Resolving Conflicts and Negotiating with Others	LV	4	Get two subordinates to agree about vacation schedules
+4.A.4.a.7	Resolving Conflicts and Negotiating with Others	LV	7	Negotiate a major labor-management contract
+4.A.4.a.8	Performing for or Working Directly with the Public	LV	1	Check tickets at a concert
+4.A.4.a.8	Performing for or Working Directly with the Public	LV	4	Sell shoes in a crowded shoe store
+4.A.4.a.8	Performing for or Working Directly with the Public	LV	7	Perform a monologue on TV
+4.A.4.b.1	Coordinating the Work and Activities of Others	LV	1	Exchange information during a shift change
+4.A.4.b.1	Coordinating the Work and Activities of Others	LV	4	Organize the cleanup crew after a major sporting event
+4.A.4.b.1	Coordinating the Work and Activities of Others	LV	7	Act as general contractor for building a large industrial complex
+4.A.4.b.2	Developing and Building Teams	LV	1	Encourage two coworkers to stick with a tough assignment
+4.A.4.b.2	Developing and Building Teams	LV	4	Lead an assembly team in an automobile plant
+4.A.4.b.2	Developing and Building Teams	LV	7	Lead a large team to design and build a new aircraft
+4.A.4.b.3	Training and Teaching Others	LV	1	Give coworkers brief instructions on a simple procedural change
+4.A.4.b.3	Training and Teaching Others	LV	4	Teach a social sciences course to high school students
+4.A.4.b.3	Training and Teaching Others	LV	7	Develop and conduct training programs for a medical school
+4.A.4.b.4	Guiding, Directing, and Motivating Subordinates	LV	1	Work occasionally as a backup supervisor
+4.A.4.b.4	Guiding, Directing, and Motivating Subordinates	LV	4	Manage a small team of employees in a dynamic workplace
+4.A.4.b.4	Guiding, Directing, and Motivating Subordinates	LV	7	Manage a severely downsized unit
+4.A.4.b.5	Coaching and Developing Others	LV	1	Show a coworker how to operate a piece of equipment
+4.A.4.b.5	Coaching and Developing Others	LV	4	Provide on-the-job training for administrative workers
+4.A.4.b.5	Coaching and Developing Others	LV	7	Coach a college athletic team
+4.A.4.b.6	Providing Consultation and Advice to Others	LV	1	Work in a position that requires little advising of others
+4.A.4.b.6	Providing Consultation and Advice to Others	LV	4	Recommend a new software package to increase operational efficiency
+4.A.4.b.6	Providing Consultation and Advice to Others	LV	7	Provide ideas for changing an organization to increase profitability
+4.A.4.c.1	Performing Administrative Activities	LV	1	Complete routine paperwork
+4.A.4.c.1	Performing Administrative Activities	LV	4	Complete tax forms for a small business
+4.A.4.c.1	Performing Administrative Activities	LV	7	Serve as the benefits director for a large computer sales organization
+4.A.4.c.2	Staffing Organizational Units	LV	1	Work in a position that has minimal staffing requirements
+4.A.4.c.2	Staffing Organizational Units	LV	4	Interview candidates for a sales position and make hiring recommendations
+4.A.4.c.2	Staffing Organizational Units	LV	7	Direct a recruiting program for a large international organization
+4.A.4.c.3	Monitoring and Controlling Resources	LV	1	Work as a server responsible for keeping track of utensils
+4.A.4.c.3	Monitoring and Controlling Resources	LV	4	Work as a chef responsible for ordering food for the menu
+4.A.4.c.3	Monitoring and Controlling Resources	LV	7	Serve as a financial executive in charge of a large company's budget

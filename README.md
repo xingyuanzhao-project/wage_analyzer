@@ -7,9 +7,22 @@ every matching occupation with its four prevailing-wage levels and job descripti
 **annualized** and **sorted from the lowest average wage upward** — so demanding roles
 sitting at the bottom of the pay range are easy to spot.
 
-Data source: **U.S. Department of Labor, Office of Foreign Labor Certification (OFLC)**,
-Prevailing Wage data, Wage Year 2025-26 (Revised, effective 8/1/25). This project is an
-independent explorer and is not affiliated with the U.S. Department of Labor.
+Expanding any result reveals the full **O*NET** occupational profile for each O*NET-SOC
+role under that wage SOC — tasks, detailed work activities, job zone, knowledge, skills,
+technology skills, and education — so a specific role such as *Business Intelligence
+Analysts* is discoverable in its own right, not just folded into the broad *Data
+Scientists* wage line. Ticking roles builds a combined, structured job description.
+
+Data sources:
+
+- **Wages** — U.S. Department of Labor, Office of Foreign Labor Certification (OFLC),
+  Prevailing Wage data, Wage Year 2025-26 (Revised, effective 8/1/25).
+- **Occupation detail** — O*NET 30.3 Database by the U.S. Department of Labor, Employment
+  and Training Administration (USDOL/ETA), used under the
+  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license. O*NET® is a trademark
+  of USDOL/ETA.
+
+This project is an independent explorer and is not affiliated with the U.S. Department of Labor.
 
 ## How it works
 
@@ -19,30 +32,39 @@ once per data year and shipped as small JSON files the browser fetches on demand
 
 ```
 data_prep/raw/OFLC_Wages_2025-26_Updated/   raw OFLC CSV/XLSX/PDF source files
+data_prep/raw/ONET_30_3/db_30_3_text/        raw O*NET tab-delimited database
             |
-            v  data_prep/build_data.py  (split by Area, annualize wages)
+            v  data_prep/build_data.py  (split by Area, annualize wages,
+            |                            join O*NET detail onto crosswalk codes)
             |
 static/data/
   years.json                      list of available data years
   2025-26/geography.json          Area <-> (State, County) rows
   2025-26/occupations.json        soccode -> {title, description}
-  2025-26/xwalk.json              parent soccode -> [O*NET titles]
+  2025-26/xwalk.json              parent soccode -> [{code, title}]  (O*NET children)
   2025-26/wages/alc/<area>.json   annualized wages per Area (all industries)
   2025-26/wages/edc/<area>.json   annualized wages per Area (higher education)
+  2025-26/onet/<soccode>.json     {onetcode: full O*NET profile} for the SOC's children
 ```
 
 The browser loads the small reference files once, then fetches only the single
 `wages/<table>/<area>.json` chunk for the resolved area (tens of KB) instead of the
-49 MB of raw wage CSVs.
+49 MB of raw wage CSVs. O*NET profiles load the same way: one `onet/<soccode>.json`
+bundle is fetched on demand when a result card is expanded or selected.
 
 ### Real data relations
 
 - `Geography.csv`: fuzzy-resolve `(State, County)` -> one `Area` code.
 - `oes_soc_occs.csv`: keyword -> broad SOC occupations (title + description).
-- `xwalk_plus.csv`: keyword -> granular O*NET titles (e.g. "Business Intelligence
-  Analysts") that map back to a parent SOC code, so specific queries resolve even when
-  the broad title differs ("Data Scientists").
+- `xwalk_plus.csv`: keyword -> granular O*NET children (`OnetCode` + `ONetTitle`, e.g.
+  `15-2051.01` "Business Intelligence Analysts") that map back to a parent SOC code, so
+  specific queries resolve even when the broad title differs ("Data Scientists"). This
+  same crosswalk is the single source of SOC -> O*NET membership used to group profiles.
 - `ALC_Export.csv` / `EDC_Export.csv`: `(Area, SocCode)` -> `Level1..4`, `Average`, `Label`.
+- O*NET `db_30_3_text/*.txt`: per O*NET-SOC-code tasks, detailed work activities, job zone,
+  knowledge, essential/software skills, and education. `build_onet` joins these onto the
+  crosswalk's O*NET codes (worker-requirement elements ranked by importance, as O*NET does)
+  and writes one profile bundle per parent SOC.
 
 ### Wage annualization
 
@@ -76,7 +98,10 @@ hugo --gc --minify
 
 ## Regenerating the data / adding a new year
 
-1. Drop the new OFLC release folder under `data_prep/raw/`.
+1. Drop the new OFLC release folder under `data_prep/raw/`. For occupation detail, also
+   place the O*NET text database under `data_prep/raw/ONET_30_3/db_30_3_text/` (download
+   the "O*NET Database — text/tab-delimited" archive from
+   [onetcenter.org](https://www.onetcenter.org/database.html#tabular)).
 2. Update the `YEAR*` constants in `data_prep/build_data.py` (and, to keep older years,
    generalize it to loop over multiple releases).
 3. Run the prep script from the repo root:

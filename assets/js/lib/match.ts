@@ -1,5 +1,5 @@
 import { fuzzyRatio, fuzzyPartial, wordPrefixHit } from "./fuzzy";
-import type { OccMap, XwalkMap, MatchResult } from "./types";
+import type { OccMap, XwalkMap, MatchResult, OnetHit } from "./types";
 
 /**
  * Score a keyword against a title. Uses full-string fuzzy ratio: "is this title
@@ -50,8 +50,9 @@ function scoreDesc(
  * surfaces:
  *   1. oes_soc_occs.csv Title / Description (broad SOC)
  *   2. xwalk_plus.csv   ONetTitle           (granular O*NET -> parent SOC)
- * Deduplicated by soccode, best score wins; O*NET titles that produced a hit
- * are recorded so the UI can show how the match was found.
+ * Deduplicated by soccode, best score wins; the O*NET children (code + title)
+ * that produced a hit are recorded so the UI can show how the match was found
+ * and link straight to those children's full profiles.
  */
 export function matchSoccodes(
   keyword: string,
@@ -61,15 +62,17 @@ export function matchSoccodes(
   const displayKeyword = keyword.trim();
   const keywordLower = displayKeyword.toLowerCase();
   const multiWord = keywordLower.includes(" ");
-  const hits = new Map<string, { score: number; onetHits: string[] }>();
+  const hits = new Map<string, { score: number; onetHits: OnetHit[] }>();
 
-  const update = (code: string, score: number, onetTitle?: string): void => {
+  const update = (code: string, score: number, onetHit?: OnetHit): void => {
     const cur = hits.get(code);
     if (!cur) {
-      hits.set(code, { score, onetHits: onetTitle ? [onetTitle] : [] });
-    } else {
-      if (score > cur.score) cur.score = score;
-      if (onetTitle) cur.onetHits.push(onetTitle);
+      hits.set(code, { score, onetHits: onetHit ? [onetHit] : [] });
+      return;
+    }
+    if (score > cur.score) cur.score = score;
+    if (onetHit && !cur.onetHits.some((h) => h.code === onetHit.code)) {
+      cur.onetHits.push(onetHit);
     }
   };
 
@@ -85,9 +88,9 @@ export function matchSoccodes(
   }
 
   for (const code in xwalk) {
-    for (const ot of xwalk[code]) {
-      const s = scoreTitle(keywordLower, ot, multiWord, 98, 93, 65);
-      if (s > 0) update(code, s, ot);
+    for (const child of xwalk[code]) {
+      const s = scoreTitle(keywordLower, child.title, multiWord, 98, 93, 65);
+      if (s > 0) update(code, s, child);
     }
   }
 
@@ -151,7 +154,7 @@ export function matchKeywords(
       }
       if (r.score > existing.score) existing.score = r.score;
       for (const o of r.onetHits) {
-        if (!existing.onetHits.includes(o)) existing.onetHits.push(o);
+        if (!existing.onetHits.some((h) => h.code === o.code)) existing.onetHits.push(o);
       }
       for (const k of r.matchedKeywords) {
         if (!existing.matchedKeywords.includes(k)) existing.matchedKeywords.push(k);

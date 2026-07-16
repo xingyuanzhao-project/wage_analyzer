@@ -428,9 +428,13 @@ input[type="text"]:focus {
   transition: background 0.15s, border-color 0.15s;
 }
 .aggregate__copy:hover { border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
-.aggregate__body { display: flex; flex-direction: column; gap: 0.85rem; }
-.aggregate__role-title { margin: 0 0 0.2rem; font-size: 0.9rem; font-weight: 700; color: var(--text); }
-.aggregate__role-desc { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
+.aggregate__body { display: flex; flex-direction: column; gap: 1.1rem; }
+.aggregate.is-loading .aggregate__body { opacity: 0.6; }
+.aggregate__role { padding-top: 1.1rem; border-top: 1px solid var(--border); }
+.aggregate__role:first-child { padding-top: 0; border-top: none; }
+.aggregate__role-head { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+.aggregate__role-title { margin: 0; font-size: 1rem; font-weight: 700; color: var(--text); }
+.aggregate__role-wage { margin-left: auto; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); font-variant-numeric: tabular-nums; }
 
 /* Cards */
 .card {
@@ -563,6 +567,122 @@ input[type="text"]:focus {
 }
 .link-btn:hover { text-decoration: underline; }
 
+/* ------------------------------------------------------------------ */
+/* O*NET detail (card "Show more" + aggregate)                         */
+/* ------------------------------------------------------------------ */
+.card__detail { margin-top: 0.85rem; }
+.card__detail-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.1rem 0;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.card__detail-toggle:hover { text-decoration: underline; }
+.card__detail-chev { flex-shrink: 0; transition: transform 0.2s ease; }
+.card__detail-toggle[aria-expanded="true"] .card__detail-chev { transform: rotate(180deg); }
+.card__onet { margin-top: 0.9rem; }
+
+/* One O*NET-SOC child profile */
+.onet {
+  padding: 1rem 1.1rem;
+  background: var(--bg-sunken);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.onet + .onet { margin-top: 0.75rem; }
+.onet--matched { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
+.onet__head { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.onet__title { margin: 0; font-size: 0.98rem; font-weight: 700; }
+.chip--match { background: color-mix(in srgb, var(--good) 16%, transparent); color: var(--good); }
+.onet__desc { margin: 0.5rem 0 0; color: var(--text-muted); font-size: 0.9rem; }
+.onet__empty, .onet__loading { margin: 0; color: var(--text-faint); font-size: 0.9rem; }
+
+.onet-sec { margin-top: 0.95rem; }
+.onet-sec__title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0 0 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.onet-sec__count {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-faint);
+}
+.onet-sec__more { margin-top: 0.5rem; font-size: 0.82rem; }
+
+.onet-list { margin: 0; padding-left: 1.1rem; display: flex; flex-direction: column; gap: 0.35rem; }
+.onet-list__item { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+.onet-el__name { color: var(--text); font-weight: 600; }
+.onet-el__desc { color: var(--text-muted); }
+.onet-tag {
+  margin-left: 0.45rem;
+  padding: 0.02rem 0.4rem;
+  border-radius: 999px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-faint);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Software / technology examples */
+.onet-soft { list-style: none; margin-left: -1.1rem; }
+.onet-soft__cat { display: block; color: var(--text); font-weight: 600; font-size: 0.86rem; margin-bottom: 0.3rem; }
+.onet-soft__examples { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.onet-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.12rem 0.5rem;
+  border-radius: 6px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+.onet-chip__flag {
+  padding: 0 0.32rem;
+  border-radius: 4px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.onet-chip__flag--hot { background: color-mix(in srgb, var(--warn) 20%, transparent); color: var(--warn); }
+
+/* Job zone */
+.onet-zone__name { margin: 0 0 0.55rem; font-size: 0.9rem; font-weight: 600; color: var(--text); }
+.onet-zone { display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 0.9rem; margin: 0; }
+.onet-zone__term { color: var(--text-faint); font-size: 0.82rem; font-weight: 600; }
+.onet-zone__def { margin: 0; color: var(--text-muted); font-size: 0.86rem; }
+
+/* Education distribution */
+.onet-edu { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+.onet-edu__row { display: grid; grid-template-columns: minmax(9rem, 14rem) 1fr 3rem; align-items: center; gap: 0.7rem; }
+.onet-edu__label { color: var(--text-muted); font-size: 0.85rem; }
+.onet-edu__bar { position: relative; height: 8px; background: var(--bg-elevated); border-radius: 999px; overflow: hidden; }
+.onet-edu__bar i { position: absolute; inset: 0 auto 0 0; border-radius: 999px; background: var(--tier3); }
+.onet-edu__pct { text-align: right; font-size: 0.82rem; font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums; }
+
 /* Notices */
 .notice {
   background: var(--bg-elevated);
@@ -610,6 +730,11 @@ input[type="text"]:focus {
   .card__avg { text-align: left; }
   .tier { grid-template-columns: 7rem 1fr 5.5rem; gap: 0.5rem; }
   .tier__name { font-size: 0.76rem; }
+  .onet-zone { grid-template-columns: 1fr; gap: 0.15rem 0; }
+  .onet-zone__term { margin-top: 0.35rem; }
+  .onet-edu__row { grid-template-columns: 1fr 3rem; }
+  .onet-edu__bar { display: none; }
+  .aggregate__role-wage { margin-left: 0; width: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {

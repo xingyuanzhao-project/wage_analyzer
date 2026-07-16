@@ -77,14 +77,25 @@ def load_occupations() -> dict:
 
 
 def load_xwalk() -> dict:
-    """OES_SOCCODE -> [ONetTitle, ...] from xwalk_plus.csv."""
+    """OES_SOCCODE -> [{code, title}, ...] from xwalk_plus.csv.
+
+    Each parent SOC maps to its O*NET-SOC children as (code, title) pairs. The
+    O*NET code identifies the child's full profile (onet/<soc>.json in the web
+    build); the title is the surface keyword matching runs against.
+    """
     xw = {}
+    seen = set()
     with open(DATA_DIR / "xwalk_plus.csv", newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
             code = row["OES_SOCCODE"].strip()
+            onet_code = row["OnetCode"].strip()
             title = row["ONetTitle"].strip()
-            if code and title:
-                xw.setdefault(code, []).append(title)
+            if not (code and onet_code and title):
+                continue
+            if (code, onet_code) in seen:
+                continue
+            seen.add((code, onet_code))
+            xw.setdefault(code, []).append({"code": onet_code, "title": title})
     return xw
 
 
@@ -244,13 +255,13 @@ def match_soccodes(keyword: str, occ: dict, xwalk: dict) -> list:
     multi_word = " " in keyword_lower
     hits = {}  # soccode -> {score, onet_hits}
 
-    def _update(code, score, onet_title=None):
+    def _update(code, score, onet_hit=None):
         if code not in hits:
             hits[code] = {"score": score, "onet_hits": []}
         else:
             hits[code]["score"] = max(hits[code]["score"], score)
-        if onet_title:
-            hits[code]["onet_hits"].append(onet_title)
+        if onet_hit:
+            hits[code]["onet_hits"].append(onet_hit)
 
     for code, (title, desc) in occ.items():
         ts = _score_title(keyword_lower, title, multi_word,
@@ -263,12 +274,12 @@ def match_soccodes(keyword: str, occ: dict, xwalk: dict) -> list:
         if ds > 0:
             _update(code, ds)
 
-    for code, onet_titles in xwalk.items():
-        for ot in onet_titles:
-            s = _score_title(keyword_lower, ot, multi_word,
+    for code, children in xwalk.items():
+        for child in children:
+            s = _score_title(keyword_lower, child["title"], multi_word,
                              sub_score=98, prefix_score=93, fuzzy_thresh=65)
             if s > 0:
-                _update(code, s, onet_title=ot)
+                _update(code, s, onet_hit=child)
 
     results = []
     for code, h in hits.items():
@@ -357,7 +368,8 @@ def format_rows(rows: list, area_name: str, geo_detail: str, top_n: int | None =
         label_str = f"  [{label}]" if label and label != "Annual Wage" else ""
 
         onet_hits = r.get("onet_hits", [])
-        onet_str = f"  via: {', '.join(onet_hits)}" if onet_hits else ""
+        onet_labels = [f"{h['title']} ({h['code']})" for h in onet_hits]
+        onet_str = f"  via: {', '.join(onet_labels)}" if onet_labels else ""
 
         desc = r["Description"]
         if len(desc) > 120:

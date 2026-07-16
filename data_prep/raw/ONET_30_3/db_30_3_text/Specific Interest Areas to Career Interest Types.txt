@@ -1,0 +1,54 @@
+Specific Interest Areas Element ID	Specific Interest Areas Element Name	Career Interest Types Element ID	Career Interest Types Element Name
+1.B.3.a	Mechanics/Electronics	1.B.1.a	Realistic
+1.B.3.b	Construction/Woodwork	1.B.1.a	Realistic
+1.B.3.c	Transportation/Machine Operation	1.B.1.a	Realistic
+1.B.3.d	Physical/Manual Labor	1.B.1.a	Realistic
+1.B.3.e	Protective Service	1.B.1.a	Realistic
+1.B.3.f	Agriculture	1.B.1.a	Realistic
+1.B.3.g	Nature/Outdoors	1.B.1.a	Realistic
+1.B.3.h	Animal Service	1.B.1.a	Realistic
+1.B.3.h	Animal Service	1.B.1.d	Social
+1.B.3.i	Athletics	1.B.1.a	Realistic
+1.B.3.i	Athletics	1.B.1.e	Enterprising
+1.B.3.j	Engineering	1.B.1.a	Realistic
+1.B.3.k	Physical Science	1.B.1.b	Investigative
+1.B.3.l	Life Science	1.B.1.b	Investigative
+1.B.3.m	Medical Science	1.B.1.b	Investigative
+1.B.3.n	Social Science	1.B.1.b	Investigative
+1.B.3.n	Social Science	1.B.1.d	Social
+1.B.3.o	Humanities	1.B.1.b	Investigative
+1.B.3.o	Humanities	1.B.1.c	Artistic
+1.B.3.p	Mathematics/Statistics	1.B.1.b	Investigative
+1.B.3.p	Mathematics/Statistics	1.B.1.f	Conventional
+1.B.3.q	Information Technology	1.B.1.f	Conventional
+1.B.3.r	Visual Arts	1.B.1.c	Artistic
+1.B.3.s	Applied Arts and Design	1.B.1.c	Artistic
+1.B.3.t	Performing Arts	1.B.1.c	Artistic
+1.B.3.u	Music	1.B.1.c	Artistic
+1.B.3.v	Creative Writing	1.B.1.c	Artistic
+1.B.3.w	Media	1.B.1.c	Artistic
+1.B.3.x	Culinary Art	1.B.1.c	Artistic
+1.B.3.x	Culinary Art	1.B.1.d	Social
+1.B.3.y	Teaching/Education	1.B.1.d	Social
+1.B.3.z	Social Service	1.B.1.d	Social
+1.B.3.aa	Health Care Service	1.B.1.b	Investigative
+1.B.3.aa	Health Care Service	1.B.1.d	Social
+1.B.3.ab	Religious Activities	1.B.1.d	Social
+1.B.3.ab	Religious Activities	1.B.1.e	Enterprising
+1.B.3.ac	Personal Service	1.B.1.d	Social
+1.B.3.ad	Professional Advising	1.B.1.d	Social
+1.B.3.ad	Professional Advising	1.B.1.e	Enterprising
+1.B.3.ae	Business Initiatives	1.B.1.e	Enterprising
+1.B.3.af	Sales	1.B.1.e	Enterprising
+1.B.3.ag	Marketing/Advertising	1.B.1.c	Artistic
+1.B.3.ag	Marketing/Advertising	1.B.1.e	Enterprising
+1.B.3.ah	Finance	1.B.1.e	Enterprising
+1.B.3.ah	Finance	1.B.1.f	Conventional
+1.B.3.ai	Accounting	1.B.1.f	Conventional
+1.B.3.aj	Human Resources	1.B.1.d	Social
+1.B.3.aj	Human Resources	1.B.1.f	Conventional
+1.B.3.ak	Office Work	1.B.1.f	Conventional
+1.B.3.al	Management/Administration	1.B.1.e	Enterprising
+1.B.3.am	Public Speaking	1.B.1.e	Enterprising
+1.B.3.an	Politics	1.B.1.e	Enterprising
+1.B.3.ao	Law	1.B.1.e	Enterprising

@@ -1,0 +1,189 @@
+Element ID	Element Name	Interest Type	Activity
+1.B.1.a	Realistic	Career Type	Build kitchen cabinets.
+1.B.1.a	Realistic	Career Type	Drive a truck to deliver packages to offices and homes.
+1.B.1.a	Realistic	Career Type	Put out forest fires.
+1.B.1.a	Realistic	Career Type	Repair household appliances.
+1.B.1.b	Investigative	Career Type	Develop a new medicine.
+1.B.1.b	Investigative	Career Type	Develop a way to better predict the weather.
+1.B.1.b	Investigative	Career Type	Study ways to reduce water pollution.
+1.B.1.b	Investigative	Career Type	Work in a biology lab.
+1.B.1.c	Artistic	Career Type	Compose or arrange music.
+1.B.1.c	Artistic	Career Type	Create special effects for movies.
+1.B.1.c	Artistic	Career Type	Draw pictures.
+1.B.1.c	Artistic	Career Type	Write books or plays.
+1.B.1.d	Social	Career Type	Give career guidance to people.
+1.B.1.d	Social	Career Type	Help people with personal or emotional problems.
+1.B.1.d	Social	Career Type	Perform rehabilitation therapy.
+1.B.1.d	Social	Career Type	Teach a high school class.
+1.B.1.e	Enterprising	Career Type	Manage a department within a large company.
+1.B.1.e	Enterprising	Career Type	Market a new line of clothing.
+1.B.1.e	Enterprising	Career Type	Represent a client in a lawsuit.
+1.B.1.e	Enterprising	Career Type	Start your own business.
+1.B.1.f	Conventional	Career Type	Develop a spreadsheet using computer software.
+1.B.1.f	Conventional	Career Type	Inventory supplies using a handheld computer.
+1.B.1.f	Conventional	Career Type	Keep shipping and receiving records.
+1.B.1.f	Conventional	Career Type	Load computer software into a large computer network.
+1.B.3.a	Mechanics/Electronics	Specific Area	Install computer systems.
+1.B.3.a	Mechanics/Electronics	Specific Area	Maintain aircraft engines.
+1.B.3.a	Mechanics/Electronics	Specific Area	Make repairs to industrial robots.
+1.B.3.a	Mechanics/Electronics	Specific Area	Repair motors and generators.
+1.B.3.b	Construction/Woodwork	Specific Area	Build and finish furniture.
+1.B.3.b	Construction/Woodwork	Specific Area	Build and install cabinets.
+1.B.3.b	Construction/Woodwork	Specific Area	Construct wood stairways.
+1.B.3.b	Construction/Woodwork	Specific Area	Operate woodworking machines.
+1.B.3.c	Transportation/Machine Operation	Specific Area	Drive a bus or motor coach.
+1.B.3.c	Transportation/Machine Operation	Specific Area	Operate a bulldozer to move dirt.
+1.B.3.c	Transportation/Machine Operation	Specific Area	Operate a forklift to move boxes.
+1.B.3.c	Transportation/Machine Operation	Specific Area	Transport materials in a truck or van.
+1.B.3.d	Physical/Manual Labor	Specific Area	Clean a work area.
+1.B.3.d	Physical/Manual Labor	Specific Area	Manually move cargo and freight.
+1.B.3.d	Physical/Manual Labor	Specific Area	Perform physical labor at a construction site.
+1.B.3.d	Physical/Manual Labor	Specific Area	Unload, sort, and move materials, equipment, or supplies.
+1.B.3.e	Protective Service	Specific Area	Apprehend and arrest suspects.
+1.B.3.e	Protective Service	Specific Area	Guard inmates in a prison.
+1.B.3.e	Protective Service	Specific Area	Investigate criminal activity.
+1.B.3.e	Protective Service	Specific Area	Maintain order and protect life by enforcing laws.
+1.B.3.f	Agriculture	Specific Area	Develop plans to reduce soil erosion and protect rangelands.
+1.B.3.f	Agriculture	Specific Area	Inspect crops for disease.
+1.B.3.f	Agriculture	Specific Area	Plant, cultivate, and harvest crops.
+1.B.3.f	Agriculture	Specific Area	Raise and tend to farm animals.
+1.B.3.g	Nature/Outdoors	Specific Area	Conserve wildlife habitats.
+1.B.3.g	Nature/Outdoors	Specific Area	Manage public forested lands for recreational purposes.
+1.B.3.g	Nature/Outdoors	Specific Area	Plant a public garden.
+1.B.3.g	Nature/Outdoors	Specific Area	Train conservation workers in planting tree seedlings.
+1.B.3.h	Animal Service	Specific Area	Exercise animals in a shelter.
+1.B.3.h	Animal Service	Specific Area	Provide treatment to sick or injured animals.
+1.B.3.h	Animal Service	Specific Area	Supply animals with food, water, and personal care.
+1.B.3.h	Animal Service	Specific Area	Train animals to assist persons with disabilities.
+1.B.3.i	Athletics	Specific Area	Coach a sports team.
+1.B.3.i	Athletics	Specific Area	Compete in an athletic event.
+1.B.3.i	Athletics	Specific Area	Play sports.
+1.B.3.i	Athletics	Specific Area	Train for an athletic event.
+1.B.3.j	Engineering	Specific Area	Apply principles of engineering in designing buildings.
+1.B.3.j	Engineering	Specific Area	Design, construct, and test aircraft, missiles, and spacecraft.
+1.B.3.j	Engineering	Specific Area	Explain engineering drawings.
+1.B.3.j	Engineering	Specific Area	Test performance of electronic and mechanical systems.
+1.B.3.k	Physical Science	Specific Area	Investigate the chemical composition of an unknown substance.
+1.B.3.k	Physical Science	Specific Area	Study formation of stars using space-based telescopes.
+1.B.3.k	Physical Science	Specific Area	Study ways to make foods safe and healthy.
+1.B.3.k	Physical Science	Specific Area	Use computer models for weather forecasting.
+1.B.3.l	Life Science	Specific Area	Develop medically useful products for humans.
+1.B.3.l	Life Science	Specific Area	Investigate the effects of bacteria on humans and animals.
+1.B.3.l	Life Science	Specific Area	Prepare environmental impact reports on wildlife.
+1.B.3.l	Life Science	Specific Area	Study the science of genes.
+1.B.3.m	Medical Science	Specific Area	Conduct research on ways to treat a new type of illness.
+1.B.3.m	Medical Science	Specific Area	Evaluate the performance of a newly developed medicine.
+1.B.3.m	Medical Science	Specific Area	Investigate the causes of human disease.
+1.B.3.m	Medical Science	Specific Area	Study ways of preventing disease.
+1.B.3.n	Social Science	Specific Area	Conduct research on economic issues.
+1.B.3.n	Social Science	Specific Area	Study cultural differences.
+1.B.3.n	Social Science	Specific Area	Study mental and emotional disorders.
+1.B.3.n	Social Science	Specific Area	Study public opinion on political issues.
+1.B.3.o	Humanities	Specific Area	Research and compare religious beliefs.
+1.B.3.o	Humanities	Specific Area	Research influences on a literary work.
+1.B.3.o	Humanities	Specific Area	Study the culture and history of a region of the world.
+1.B.3.o	Humanities	Specific Area	Study the history of the family.
+1.B.3.p	Mathematics/Statistics	Specific Area	Develop a statistical model to explain human behavior.
+1.B.3.p	Mathematics/Statistics	Specific Area	Extend mathematical knowledge in the field of geometry.
+1.B.3.p	Mathematics/Statistics	Specific Area	Make predictions based on statistical analyses.
+1.B.3.p	Mathematics/Statistics	Specific Area	Solve mathematical problems.
+1.B.3.q	Information Technology	Specific Area	Diagnose and resolve computer software problems.
+1.B.3.q	Information Technology	Specific Area	Research security measures for computer systems.
+1.B.3.q	Information Technology	Specific Area	Test, maintain, and monitor computer programs and systems.
+1.B.3.q	Information Technology	Specific Area	Write and review code for software.
+1.B.3.r	Visual Arts	Specific Area	Create a sculpture.
+1.B.3.r	Visual Arts	Specific Area	Create computer-generated graphics or animation.
+1.B.3.r	Visual Arts	Specific Area	Create photography art prints.
+1.B.3.r	Visual Arts	Specific Area	Sketch a picture or design.
+1.B.3.s	Applied Arts and Design	Specific Area	Create appealing product designs for home appliances.
+1.B.3.s	Applied Arts and Design	Specific Area	Create the set for film or theater productions.
+1.B.3.s	Applied Arts and Design	Specific Area	Design and create handmade clothes.
+1.B.3.s	Applied Arts and Design	Specific Area	Design displays to sell products in stores.
+1.B.3.t	Performing Arts	Specific Area	Act on stage for an audience.
+1.B.3.t	Performing Arts	Specific Area	Create new dance routines.
+1.B.3.t	Performing Arts	Specific Area	Direct stage, television, radio, video, or film productions.
+1.B.3.t	Performing Arts	Specific Area	Study and rehearse roles from scripts.
+1.B.3.u	Music	Specific Area	Create musical compositions, arrangements, or scores.
+1.B.3.u	Music	Specific Area	Perform music for a live audience.
+1.B.3.u	Music	Specific Area	Play a musical instrument.
+1.B.3.u	Music	Specific Area	Sing in a band.
+1.B.3.v	Creative Writing	Specific Area	Write a novel.
+1.B.3.v	Creative Writing	Specific Area	Write advertisements.
+1.B.3.v	Creative Writing	Specific Area	Write poetry or lyrics.
+1.B.3.v	Creative Writing	Specific Area	Write scripts for movies and media.
+1.B.3.w	Media	Specific Area	Develop content for a podcast.
+1.B.3.w	Media	Specific Area	Direct a television series.
+1.B.3.w	Media	Specific Area	Speak or read from scripted materials on radio or television.
+1.B.3.w	Media	Specific Area	Write and report human interest stories.
+1.B.3.x	Culinary Art	Specific Area	Coordinate activities of cooks engaged in food preparation.
+1.B.3.x	Culinary Art	Specific Area	Create new recipes or food presentations.
+1.B.3.x	Culinary Art	Specific Area	Develop a distinctive style of cooking.
+1.B.3.x	Culinary Art	Specific Area	Select and ensure freshness of food and ingredients for preparation.
+1.B.3.y	Teaching/Education	Specific Area	Adapt teaching methods to meet students' interests.
+1.B.3.y	Teaching/Education	Specific Area	Instruct students in activities designed to further intellectual growth.
+1.B.3.y	Teaching/Education	Specific Area	Teach school subjects.
+1.B.3.y	Teaching/Education	Specific Area	Teach social skills to students.
+1.B.3.z	Social Service	Specific Area	Advocate for individual or community needs.
+1.B.3.z	Social Service	Specific Area	Assist people with special needs.
+1.B.3.z	Social Service	Specific Area	Counsel clients with mental health issues.
+1.B.3.z	Social Service	Specific Area	Provide personal and economic assistance for homeless individuals.
+1.B.3.aa	Health Care Service	Specific Area	Administer first aid treatment or life support to injured persons.
+1.B.3.aa	Health Care Service	Specific Area	Develop medical treatment plans for patients.
+1.B.3.aa	Health Care Service	Specific Area	Prescribe medications.
+1.B.3.aa	Health Care Service	Specific Area	Provide preventive care to individuals.
+1.B.3.ab	Religious Activities	Specific Area	Lead a religious group.
+1.B.3.ab	Religious Activities	Specific Area	Organize religious services.
+1.B.3.ab	Religious Activities	Specific Area	Plan religious education programs.
+1.B.3.ab	Religious Activities	Specific Area	Provide spiritual guidance.
+1.B.3.ac	Personal Service	Specific Area	Assist customers with problems or questions.
+1.B.3.ac	Personal Service	Specific Area	Help individuals plan special events.
+1.B.3.ac	Personal Service	Specific Area	Make reservations for guests, such as for dinner, spa treatments, or golf tee times.
+1.B.3.ac	Personal Service	Specific Area	Make travel arrangements for sightseeing or other tours.
+1.B.3.ad	Professional Advising	Specific Area	Advise people on how to have a successful career.
+1.B.3.ad	Professional Advising	Specific Area	Coach students on study skills.
+1.B.3.ad	Professional Advising	Specific Area	Counsel people how to achieve their professional goals.
+1.B.3.ad	Professional Advising	Specific Area	Teach employees leadership and soft skills.
+1.B.3.ae	Business Initiatives	Specific Area	Create business strategies or policies to increase productivity.
+1.B.3.ae	Business Initiatives	Specific Area	Develop a long-term strategic plan for a company.
+1.B.3.ae	Business Initiatives	Specific Area	Identify partner companies to pursue new business opportunities.
+1.B.3.ae	Business Initiatives	Specific Area	Plan activities of businesses to maximize returns on investments.
+1.B.3.af	Sales	Specific Area	Demonstrate products to consumers.
+1.B.3.af	Sales	Specific Area	Direct sales or customer service activities.
+1.B.3.af	Sales	Specific Area	Persuade customers to buy a new product.
+1.B.3.af	Sales	Specific Area	Sell goods at bargain prices.
+1.B.3.ag	Marketing/Advertising	Specific Area	Develop promotional materials for advertising.
+1.B.3.ag	Marketing/Advertising	Specific Area	Plan an advertising or marketing campaign.
+1.B.3.ag	Marketing/Advertising	Specific Area	Promote a new product by advertising.
+1.B.3.ag	Marketing/Advertising	Specific Area	Use social media to market a company.
+1.B.3.ah	Finance	Specific Area	Analyze financials and securities of a company.
+1.B.3.ah	Finance	Specific Area	Make investments to generate future income.
+1.B.3.ah	Finance	Specific Area	Manage large amounts of money for a business.
+1.B.3.ah	Finance	Specific Area	Plan and direct financial decisions for a business.
+1.B.3.ai	Accounting	Specific Area	Keep accounting records for a company.
+1.B.3.ai	Accounting	Specific Area	Prepare budgets for a business.
+1.B.3.ai	Accounting	Specific Area	Prepare employee payroll.
+1.B.3.ai	Accounting	Specific Area	Verify and record numerical data for financial records.
+1.B.3.aj	Human Resources	Specific Area	Conduct training to improve employee skills and organizational performance.
+1.B.3.aj	Human Resources	Specific Area	Interpret and explain company policies and benefits to employees.
+1.B.3.aj	Human Resources	Specific Area	Maintain employee personnel records.
+1.B.3.aj	Human Resources	Specific Area	Recruit and hire employees for a company.
+1.B.3.ak	Office Work	Specific Area	Answer telephones, direct calls, and take messages.
+1.B.3.ak	Office Work	Specific Area	Maintain and update filing, inventory, and database systems.
+1.B.3.ak	Office Work	Specific Area	Operate office machines, such as printers and scanners.
+1.B.3.ak	Office Work	Specific Area	Schedule appointments for customers.
+1.B.3.al	Management/Administration	Specific Area	Develop organizational goals or objectives.
+1.B.3.al	Management/Administration	Specific Area	Manage an organization or group of people.
+1.B.3.al	Management/Administration	Specific Area	Plan or coordinate one or more administrative services.
+1.B.3.al	Management/Administration	Specific Area	Supervise organizational operations or projects.
+1.B.3.am	Public Speaking	Specific Area	Be a speaker at a club meeting.
+1.B.3.am	Public Speaking	Specific Area	Discuss your ideas on a podcast.
+1.B.3.am	Public Speaking	Specific Area	Make a public speech to raise money for a worthy cause.
+1.B.3.am	Public Speaking	Specific Area	Provide a public announcement on TV or radio.
+1.B.3.an	Politics	Specific Area	Campaign for political office.
+1.B.3.an	Politics	Specific Area	Develop knowledge of government policy decisions.
+1.B.3.an	Politics	Specific Area	Engage in a political debate.
+1.B.3.an	Politics	Specific Area	Lead a political campaign.
+1.B.3.ao	Law	Specific Area	Defend a client in court.
+1.B.3.ao	Law	Specific Area	Draw up legal documents.
+1.B.3.ao	Law	Specific Area	Mediate legal disputes.
+1.B.3.ao	Law	Specific Area	Provide legal advice to clients.
