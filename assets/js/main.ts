@@ -1,6 +1,6 @@
 import { loadYears, loadYearData, loadWages, type YearData } from "./lib/dataLoader";
 import { resolveArea } from "./lib/geography";
-import { matchSoccodes } from "./lib/match";
+import { parseKeywords, matchKeywords } from "./lib/match";
 import { buildRows } from "./lib/pipeline";
 import type { YearInfo, WageTable, ResultRow } from "./lib/types";
 
@@ -123,10 +123,12 @@ function renderResults(
   rows: ResultRow[],
   areaName: string,
   geoDetail: string,
-  keyword: string,
+  keywords: string[],
 ): void {
-  const tableName = table === "alc" ? "All industries (ACWIA)" : "Higher education (ACWIA)";
+  const activeSeg = els.tableToggle.querySelector<HTMLElement>(".seg.is-active");
+  const tableName = (activeSeg?.textContent ?? "").trim();
   const withWage = rows.filter((r) => r.hasWage && r.avg !== null).length;
+  const showKeywords = keywords.length > 1;
 
   const summary = `<div class="results__summary">
       <div>
@@ -142,24 +144,36 @@ function renderResults(
 
   const list = document.createElement("div");
   list.className = "results__list";
-  for (const row of rows) list.appendChild(renderCard(row));
+  for (const row of rows) list.appendChild(renderCard(row, showKeywords));
 
   setResultsHTML(summary);
   if (withWage === 0) {
     const note = document.createElement("p");
     note.className = "results__nowage";
-    note.textContent = `No wage rows exist for “${keyword}” in this area. The matched occupations are listed below without wage figures.`;
+    note.textContent =
+      "No wage figures are published for these occupations in this area. They are listed below for reference.";
     els.results.appendChild(note);
   }
   els.results.appendChild(list);
 }
 
-function renderCard(row: ResultRow): HTMLElement {
+function renderCard(row: ResultRow, showKeywords: boolean): HTMLElement {
   const node = els.cardTpl.content.firstElementChild!.cloneNode(true) as HTMLElement;
   if (!row.hasWage || row.avg === null) node.classList.add("card--nowage");
 
   (node.querySelector(".card__title") as HTMLElement).textContent = row.title;
   (node.querySelector(".chip--soc") as HTMLElement).textContent = row.soccode;
+
+  if (showKeywords) {
+    const tags = node.querySelector(".card__tags") as HTMLElement;
+    const socChip = node.querySelector(".chip--soc");
+    for (const kw of row.matchedKeywords) {
+      const chip = document.createElement("span");
+      chip.className = "chip chip--kw";
+      chip.textContent = kw;
+      tags.insertBefore(chip, socChip);
+    }
+  }
 
   const via = node.querySelector(".chip--via") as HTMLElement;
   const uniqueOnet = Array.from(new Set(row.onetHits));
@@ -211,13 +225,13 @@ let searching = false;
 async function runSearch(): Promise<void> {
   if (searching) return;
 
-  const keyword = els.keyword.value.trim();
+  const keywords = parseKeywords(els.keyword.value);
   const state = els.state.value.trim();
   const county = els.county.value.trim();
   const year = els.year.value;
 
   const missing: string[] = [];
-  if (!keyword) missing.push("a job keyword");
+  if (keywords.length === 0) missing.push("a job keyword");
   if (!state) missing.push("a state");
   if (!county) missing.push("a county");
   if (missing.length) {
@@ -244,19 +258,20 @@ async function runSearch(): Promise<void> {
       return;
     }
 
-    const matches = matchSoccodes(keyword, data.occ, data.xwalk);
+    const matches = matchKeywords(keywords, data.occ, data.xwalk);
     if (matches.length === 0) {
+      const kwText = keywords.map((k) => `“${k}”`).join(", ");
       renderMessage(
         "empty",
         "No occupations matched",
-        `Area resolved to <strong>${area.areaName}</strong> (${area.detail}), but nothing matched “${keyword}”. Try a broader keyword.`,
+        `Area resolved to <strong>${area.areaName}</strong> (${area.detail}), but nothing matched ${kwText}. Try broader keywords.`,
       );
       return;
     }
 
     const wages = await loadWages(year, table, area.area);
     const rows = buildRows(matches, wages);
-    renderResults(rows, area.areaName as string, area.detail, keyword);
+    renderResults(rows, area.areaName as string, area.detail, keywords);
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     renderMessage(
@@ -315,7 +330,7 @@ async function init(): Promise<void> {
   renderMessage(
     "welcome",
     "Start a search",
-    "Enter a job keyword with a state and county above. Results show every matching occupation, each with its four annual wage levels and description, sorted from the lowest average wage upward.",
+    "Enter one or more job titles with a state and county above. Results show every matching occupation, each with its four annual wage levels and description, sorted from the lowest average wage upward.",
   );
 
   try {

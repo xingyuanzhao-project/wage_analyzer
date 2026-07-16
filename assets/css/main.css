@@ -53,6 +53,10 @@
 
 * { box-sizing: border-box; }
 
+/* Ensure the HTML `hidden` attribute always wins over author display rules
+   (e.g. `.chip { display: inline-block }`), so hidden chips/buttons stay gone. */
+[hidden] { display: none !important; }
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -168,6 +172,12 @@ a:hover { text-decoration: underline; }
   color: var(--text-muted);
   letter-spacing: 0.01em;
 }
+.field-hint {
+  margin: 0.15rem 0 0;
+  font-size: 0.8rem;
+  color: var(--text-faint);
+  line-height: 1.4;
+}
 
 input[type="text"], select {
   width: 100%;
@@ -203,7 +213,7 @@ input[type="text"]:focus, select:focus {
 select { appearance: none; -webkit-appearance: none; padding-right: 2rem; }
 
 .segmented {
-  display: inline-flex;
+  display: flex;
   padding: 3px;
   gap: 3px;
   background: var(--bg-sunken);
@@ -320,6 +330,11 @@ select { appearance: none; -webkit-appearance: none; padding-right: 2rem; }
   font-variant-numeric: tabular-nums;
 }
 .chip--via { background: var(--accent-soft); color: var(--accent); }
+.chip--kw {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
+}
 
 .card__avg { text-align: right; flex-shrink: 0; }
 .card__avg-label { display: block; font-size: 0.7rem; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.05em; }

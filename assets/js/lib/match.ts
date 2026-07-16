@@ -46,7 +46,8 @@ function scoreDesc(
 }
 
 /**
- * Port of match_soccodes(). Searches two real join surfaces:
+ * Match a SINGLE keyword. Port of match_soccodes(). Searches two real join
+ * surfaces:
  *   1. oes_soc_occs.csv Title / Description (broad SOC)
  *   2. xwalk_plus.csv   ONetTitle           (granular O*NET -> parent SOC)
  * Deduplicated by soccode, best score wins; O*NET titles that produced a hit
@@ -57,7 +58,8 @@ export function matchSoccodes(
   occ: OccMap,
   xwalk: XwalkMap,
 ): MatchResult[] {
-  const keywordLower = keyword.trim().toLowerCase();
+  const displayKeyword = keyword.trim();
+  const keywordLower = displayKeyword.toLowerCase();
   const multiWord = keywordLower.includes(" ");
   const hits = new Map<string, { score: number; onetHits: string[] }>();
 
@@ -99,9 +101,65 @@ export function matchSoccodes(
       description: o.description,
       score: h.score,
       onetHits: h.onetHits,
+      matchedKeywords: [displayKeyword],
     });
   });
 
+  results.sort((a, b) => b.score - a.score);
+  return results;
+}
+
+/**
+ * Split a raw keyword input into distinct search terms. Multiple terms are
+ * separated by a semicolon or newline; each term may itself be several words
+ * (e.g. "Business Intelligence Analyst"). Terms are trimmed and de-duplicated
+ * case-insensitively, preserving first-seen order.
+ */
+export function parseKeywords(input: string): string[] {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const part of input.split(/[;\n]+/)) {
+    const term = part.trim();
+    if (!term) continue;
+    const key = term.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(term);
+  }
+  return out;
+}
+
+/**
+ * Match a SET of keywords. Each term is matched independently with
+ * matchSoccodes, then results are merged by soccode: best score wins, and the
+ * O*NET hits and matched keywords are unioned. A single-term search is just the
+ * size-1 case of this same path.
+ */
+export function matchKeywords(
+  keywords: string[],
+  occ: OccMap,
+  xwalk: XwalkMap,
+): MatchResult[] {
+  const merged = new Map<string, MatchResult>();
+
+  for (const keyword of keywords) {
+    for (const r of matchSoccodes(keyword, occ, xwalk)) {
+      const existing = merged.get(r.soccode);
+      if (!existing) {
+        merged.set(r.soccode, r);
+        continue;
+      }
+      if (r.score > existing.score) existing.score = r.score;
+      for (const o of r.onetHits) {
+        if (!existing.onetHits.includes(o)) existing.onetHits.push(o);
+      }
+      for (const k of r.matchedKeywords) {
+        if (!existing.matchedKeywords.includes(k)) existing.matchedKeywords.push(k);
+      }
+    }
+  }
+
+  const results = Array.from(merged.values());
   results.sort((a, b) => b.score - a.score);
   return results;
 }

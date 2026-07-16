@@ -44,6 +44,7 @@ export interface MatchResult {
   description: string;
   score: number;
   onetHits: string[];
+  matchedKeywords: string[];
 }
 
 export interface ResultRow extends MatchResult {
