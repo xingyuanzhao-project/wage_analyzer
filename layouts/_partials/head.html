@@ -1,0 +1,45 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Site.Title }}{{ with .Site.Params.tagline }} &mdash; {{ . }}{{ end }}</title>
+<meta name="description" content="{{ .Site.Params.description }}">
+<meta name="color-scheme" content="light dark">
+
+<link rel="icon" href="data:image/svg+xml,{{ `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><path d='M22 66 L42 44 L56 58 L78 32' fill='none' stroke='white' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'/></svg>` | safeURL }}">
+
+{{/* Set theme before first paint to avoid a flash of the wrong theme. */}}
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem("wage-explorer-theme");
+      var theme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {}
+  })();
+</script>
+
+{{/* Expose the site data base path to the client bundle (works for both the
+     project subpath in production and localhost during `hugo server`). */}}
+<script>window.WAGE_DATA_BASE = "{{ "data/" | relURL }}";</script>
+
+{{ with resources.Get "css/main.css" }}
+  {{ if hugo.IsProduction }}
+    {{ with . | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+    {{ end }}
+  {{ else }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{ end }}
+{{ end }}
+
+{{ with resources.Get "js/main.ts" }}
+  {{ $opts := dict "minify" hugo.IsProduction "target" "es2020" "format" "iife" "targetPath" "js/app.js" }}
+  {{ with . | js.Build $opts }}
+    {{ if hugo.IsProduction }}
+      {{ with . | fingerprint }}
+        <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
+      {{ end }}
+    {{ else }}
+      <script src="{{ .RelPermalink }}" defer></script>
+    {{ end }}
+  {{ end }}
+{{ end }}

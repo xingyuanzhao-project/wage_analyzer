@@ -1,0 +1,18 @@
+# Hugo build output and caches
+/public/
+/resources/_gen/
+.hugo_build.lock
+
+# Node (only used transiently, never committed)
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+
+# Local Hugo binary (installed outside repo, but guard anyway)
+/hugo-bin/
+
+# OS cruft
+.DS_Store
+Thumbs.db

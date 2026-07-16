@@ -1,0 +1,91 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="hero__inner">
+    <h1 class="hero__title">Wage Explorer</h1>
+    <p class="hero__tagline">{{ .Site.Params.tagline }}</p>
+    <p class="hero__lede">
+      Search a job keyword with a state and county. Get every matching occupation with
+      its four prevailing-wage levels and job description, all converted to annual pay and
+      sorted lowest to highest &mdash; so the demanding roles sitting at the bottom of the
+      pay range are easy to spot.
+    </p>
+  </div>
+</section>
+
+<section class="search-panel" aria-label="Wage search">
+  <form id="search-form" class="search-form" autocomplete="off" novalidate>
+    <div class="field-row">
+      <div class="field field--year">
+        <label for="year">Data year</label>
+        <div class="select-wrap">
+          <select id="year" name="year"></select>
+        </div>
+      </div>
+
+      <div class="field field--table">
+        <label id="table-label">Wage table</label>
+        <div class="segmented" id="table-toggle" role="radiogroup" aria-labelledby="table-label">
+          <button type="button" class="seg is-active" data-table="alc" role="radio" aria-checked="true">All industries</button>
+          <button type="button" class="seg" data-table="edc" role="radio" aria-checked="false">Higher education</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="keyword">Job keyword</label>
+      <input id="keyword" name="keyword" type="text" inputmode="search"
+             placeholder="e.g. business intelligence, registered nurse, software" />
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="state">State</label>
+        <input id="state" name="state" type="text" list="state-list" placeholder="Texas or TX" />
+        <datalist id="state-list"></datalist>
+      </div>
+      <div class="field">
+        <label for="county">County</label>
+        <input id="county" name="county" type="text" list="county-list" placeholder="Travis County" />
+        <datalist id="county-list"></datalist>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" id="search-btn" class="btn btn--primary">Search wages</button>
+      <p id="form-hint" class="form-hint" role="status"></p>
+    </div>
+  </form>
+</section>
+
+<section id="results" class="results" aria-live="polite"></section>
+
+<template id="tpl-result-card">
+  <article class="card">
+    <header class="card__head">
+      <div class="card__titles">
+        <h3 class="card__title"></h3>
+        <div class="card__tags">
+          <span class="chip chip--soc"></span>
+          <span class="chip chip--via" hidden></span>
+        </div>
+      </div>
+      <div class="card__avg">
+        <span class="card__avg-label">Avg / year</span>
+        <span class="card__avg-value"></span>
+      </div>
+    </header>
+
+    <div class="tiers">
+      <div class="tier" data-level="1"><span class="tier__name">Level 1 · Entry</span><span class="tier__bar"><i></i></span><span class="tier__value"></span></div>
+      <div class="tier" data-level="2"><span class="tier__name">Level 2 · Qualified</span><span class="tier__bar"><i></i></span><span class="tier__value"></span></div>
+      <div class="tier" data-level="3"><span class="tier__name">Level 3 · Experienced</span><span class="tier__bar"><i></i></span><span class="tier__value"></span></div>
+      <div class="tier" data-level="4"><span class="tier__name">Level 4 · Expert</span><span class="tier__bar"><i></i></span><span class="tier__value"></span></div>
+    </div>
+
+    <div class="card__desc">
+      <p class="card__desc-text"></p>
+      <button type="button" class="link-btn card__desc-toggle" hidden>Show more</button>
+    </div>
+  </article>
+</template>
+{{ end }}

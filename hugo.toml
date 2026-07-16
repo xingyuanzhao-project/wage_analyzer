@@ -1,0 +1,20 @@
+baseURL = "https://xingyuanzhao-project.github.io/wage-explorer/"
+locale = "en-us"
+title = "Wage Explorer"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+
+# The generated wage data lives in static/data and is served verbatim.
+# Nothing under static/ is processed by Hugo.
+
+[params]
+  tagline = "Find where demanding work meets the lowest prevailing wage."
+  description = "Explore U.S. Department of Labor OFLC prevailing wages by job and location. Search a job keyword plus a state and county to see matching occupations, their four wage levels, and job descriptions, all annualized and sorted from lowest to highest."
+  dataSource = "U.S. DOL Office of Foreign Labor Certification (OFLC), Prevailing Wage data"
+
+[build]
+  # Fingerprinted assets are safe to cache aggressively.
+  writeStats = false
+
+[minify]
+  minifyOutput = true
