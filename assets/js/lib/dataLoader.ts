@@ -76,6 +76,10 @@ export async function loadWages(
 // O*NET profiles are bundled per parent SOC (all its O*NET-SOC children) and
 // fetched on demand, the same pattern as per-area wages. The in-flight promise
 // is cached so a card expanding while the aggregate loads shares one request.
+// Only a *resolved* fetch stays cached, matching loadYearData/loadWages above:
+// a rejected fetch (dropped connection, cold CDN edge, etc.) is transient, not
+// evidence the file is missing, so it must not permanently poison the cache --
+// the entry is evicted on rejection so the next call retries against the network.
 const onetCache = new Map<string, Promise<OnetBundle>>();
 
 export function loadOnet(year: string, soccode: string): Promise<OnetBundle> {
@@ -84,6 +88,9 @@ export function loadOnet(year: string, soccode: string): Promise<OnetBundle> {
   if (cached) return cached;
 
   const request = getJSON<OnetBundle>(`${year}/onet/${soccode}.json`);
+  request.catch(() => {
+    if (onetCache.get(key) === request) onetCache.delete(key);
+  });
   onetCache.set(key, request);
   return request;
 }

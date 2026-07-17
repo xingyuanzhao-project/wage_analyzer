@@ -380,7 +380,7 @@ async function updateAggregate(): Promise<void> {
   head.append(count, copyBtn);
   aggregateEl.appendChild(head);
 
-  aggregateEl.appendChild(renderAggregateReport(entries));
+  aggregateEl.appendChild(renderAggregateReport(entries, () => void updateAggregate()));
 }
 
 async function copyAggregate(entries: AggregateEntry[], btn: HTMLButtonElement): Promise<void> {

@@ -483,6 +483,7 @@ input[type="text"]:focus {
   font-variant-numeric: tabular-nums;
 }
 .agg-role__subs { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; }
+.agg-role .onet__error { margin-top: 0.5rem; }
 .agg-role__sub {
   font-size: 0.78rem;
   color: var(--text-muted);
@@ -731,6 +732,10 @@ input[type="text"]:focus {
 .chip--match { background: color-mix(in srgb, var(--good) 16%, transparent); color: var(--good); }
 .onet__desc { margin: 0.5rem 0 0; color: var(--text-muted); font-size: 0.9rem; }
 .onet__empty, .onet__loading { margin: 0; color: var(--text-faint); font-size: 0.9rem; }
+/* A failed fetch, not an absence of data -- flagged like other things needing
+   the user's attention (.form-hint, .results__nowage), with an inline retry. */
+.onet__error { margin: 0; color: var(--warn); font-size: 0.9rem; }
+.onet__error .link-btn { display: inline; margin-top: 0; color: var(--warn); font-weight: 600; }
 
 .onet-sec { margin-top: 0.95rem; }
 .onet-sec__title {

@@ -431,11 +431,33 @@ function educationSection(roles: RoleRef[]): HTMLElement | null {
   return section;
 }
 
+/**
+ * A failed O*NET fetch is a load error, not evidence the detail was never
+ * published -- every SOC in the crosswalk has a bundle file (see build_onet in
+ * data_prep/build_data.py), so a null bundle here always means the network
+ * request failed. Say so explicitly and offer a real retry rather than a
+ * silent gap that reads as "no data exists."
+ */
+function loadFailureNote(jobTitles: string[], onRetry: () => void): HTMLElement {
+  const note = h("p", "onet__error");
+  note.append(
+    jobTitles.length === 1
+      ? `Couldn't load O*NET detail for ${jobTitles[0]}.`
+      : `Couldn't load O*NET detail for ${jobTitles.length} jobs.`,
+  );
+  note.append(" ");
+  const retry = h("button", "link-btn", "Retry");
+  retry.type = "button";
+  retry.addEventListener("click", onRetry);
+  note.appendChild(retry);
+  return note;
+}
+
 /** The selected-jobs strip: each job's title, SOC, wage, and the child roles
  *  ticked for it. Wages are published only at the SOC level, so the wage stays
  *  on the job line and the ticked sub-roles sit under it as JD contributors --
  *  never as separately-priced rows. */
-function rolesStrip(entries: AggregateEntry[]): HTMLElement {
+function rolesStrip(entries: AggregateEntry[], onRetry: () => void): HTMLElement {
   const strip = h("div", "agg-roles");
   for (const { row, bundle, codes } of entries) {
     const item = h("div", "agg-role");
@@ -457,20 +479,31 @@ function rolesStrip(entries: AggregateEntry[]): HTMLElement {
         }
         item.appendChild(subs);
       }
+    } else {
+      item.appendChild(loadFailureNote([row.title], onRetry));
     }
     strip.appendChild(item);
   }
   return strip;
 }
 
-/** Render the aggregate as section blocks pooled across all selected roles. */
-export function renderAggregateReport(entries: AggregateEntry[]): HTMLElement {
+/**
+ * Render the aggregate as section blocks pooled across all selected roles.
+ * `onRetry` rebuilds the aggregate (e.g. re-running updateAggregate), giving
+ * any SOC whose O*NET fetch failed a real chance to succeed on a fresh request.
+ */
+export function renderAggregateReport(entries: AggregateEntry[], onRetry: () => void): HTMLElement {
   const wrap = h("div", "agg-report");
-  wrap.appendChild(rolesStrip(entries));
+  wrap.appendChild(rolesStrip(entries, onRetry));
 
+  const failedTitles = entries.filter((e) => !e.bundle).map((e) => e.row.title);
   const roles = collectRoles(entries);
   if (roles.length === 0) {
-    wrap.appendChild(h("p", "onet__empty", "No O*NET detail is available for the selected roles."));
+    wrap.appendChild(
+      failedTitles.length > 0
+        ? loadFailureNote(failedTitles, onRetry)
+        : h("p", "onet__empty", "No O*NET detail is available for the selected roles."),
+    );
     return wrap;
   }
 
@@ -532,13 +565,17 @@ export function aggregateReportToText(entries: AggregateEntry[]): string {
   lines.push("", "Selected jobs:");
   for (const { row, bundle, codes } of entries) {
     const wanted = new Set(codes);
-    const subs = bundle
-      ? orderCodes(bundle, new Set(row.onetHits.map((hit) => hit.code)))
-          .filter((code) => wanted.has(code))
-          .map((code) => bundle[code].title)
-          .join("; ")
-      : "";
-    const suffix = subs ? `: ${subs}` : "";
+    // A null bundle is a failed fetch, not an absence of O*NET data (every SOC
+    // has a published bundle) -- say so rather than silently dropping the roles.
+    const suffix = !bundle
+      ? ": [O*NET detail failed to load -- retry in the app]"
+      : (() => {
+          const subs = orderCodes(bundle, new Set(row.onetHits.map((hit) => hit.code)))
+            .filter((code) => wanted.has(code))
+            .map((code) => bundle[code].title)
+            .join("; ");
+          return subs ? `: ${subs}` : "";
+        })();
     lines.push(`- ${row.title} (${row.soccode}, ${formatUSD(row.avg)} avg/yr)${suffix}`);
   }
 
