@@ -106,6 +106,12 @@ export interface MatchResult {
   description: string;
   score: number;
   onetHits: OnetHit[];
+  /**
+   * Every O*NET-SOC child of this SOC (the full crosswalk family), regardless of
+   * whether it matched the keyword. `onetHits` is the matched subset; this is the
+   * whole set, so a card can list its sub-codes without loading the O*NET bundle.
+   */
+  onetChildren: OnetHit[];
   matchedKeywords: string[];
 }
 

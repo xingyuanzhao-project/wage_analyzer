@@ -7,11 +7,23 @@ every matching occupation with its four prevailing-wage levels and job descripti
 **annualized** and **sorted from the lowest average wage upward** — so demanding roles
 sitting at the bottom of the pay range are easy to spot.
 
-Expanding any result reveals the full **O*NET** occupational profile for each O*NET-SOC
-role under that wage SOC — tasks, detailed work activities, job zone, knowledge, skills,
-technology skills, and education — so a specific role such as *Business Intelligence
-Analysts* is discoverable in its own right, not just folded into the broad *Data
-Scientists* wage line. Ticking roles builds a combined, structured job description.
+Results appear in two tabs. **Job Explorer** lists every matching occupation; each card
+leads with its wage **SOC code and title** and, when the SOC covers more than one O*NET
+role, lists those roles as a **checklist beneath the title** — so a specific role such as
+*Business Intelligence Analysts* is selectable in its own right rather than folded into the
+broad *Data Scientists* wage line. The role that matched the search is highlighted.
+Expanding a card reveals the full **O*NET** profile of every O*NET-SOC child role — tasks,
+detailed work activities, job zone, knowledge, skills, technology skills, and education.
+
+Selection is per role. The card's main checkbox is a parent over its roles: it ticks or
+clears them all and reads as *indeterminate* when only some are chosen; each sub-role box
+adds just that role. Wages are published only at the SOC level, so these boxes scope which
+role's detail is pooled — they never imply a separate wage per role.
+
+Switch to the **Aggregated job description** tab, which pools the ticked roles' O*NET detail
+**by section** rather than stacking one profile per job: shared tasks, activities,
+knowledge, skills, and technology are deduped and tagged with the role(s) that require them,
+while job zone and education — per-role facts that cannot merge — are compared side by side.
 
 Data sources:
 

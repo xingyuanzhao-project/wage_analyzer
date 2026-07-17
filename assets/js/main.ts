@@ -9,8 +9,15 @@ import { resolveArea } from "./lib/geography";
 import { parseKeywords, matchKeywords } from "./lib/match";
 import { buildRows } from "./lib/pipeline";
 import { Dropdown, type DropdownOption } from "./lib/dropdown";
-import { orderCodes, renderProfile, profileToText } from "./lib/onetView";
-import type { YearInfo, WageTable, ResultRow, OnetBundle } from "./lib/types";
+import { formatUSD } from "./lib/format";
+import {
+  orderCodes,
+  renderProfile,
+  renderAggregateReport,
+  aggregateReportToText,
+  type AggregateEntry,
+} from "./lib/onetView";
+import type { YearInfo, WageTable, ResultRow, OnetBundle, OnetHit } from "./lib/types";
 
 const DESC_CLAMP_CHARS = 260;
 
@@ -109,15 +116,6 @@ function initTheme(): void {
 }
 
 // ---------------------------------------------------------------------------
-// Formatting helpers
-// ---------------------------------------------------------------------------
-
-function formatUSD(value: number | null): string {
-  if (value === null || Number.isNaN(value)) return "N/A";
-  return "$" + Math.round(value).toLocaleString("en-US");
-}
-
-// ---------------------------------------------------------------------------
 // Dropdown option sources
 // ---------------------------------------------------------------------------
 
@@ -161,6 +159,7 @@ const selected = new Set<string>();
 let sortDd: Dropdown | null = null;
 let listEl: HTMLElement | null = null;
 let aggregateEl: HTMLElement | null = null;
+let aggregateTabBadge: HTMLElement | null = null;
 
 // ---------------------------------------------------------------------------
 // Result rendering
@@ -208,7 +207,23 @@ function renderResults(
 
   els.results.textContent = "";
 
-  // --- summary bar (area, counts, sort control) ---
+  // --- tabs: Job Explorer (search results) | Aggregated job description ---
+  const tabs = document.createElement("div");
+  tabs.className = "view-tabs";
+  tabs.setAttribute("role", "tablist");
+  const explorerTab = makeTab("Job Explorer", true);
+  const aggregateTab = makeTab("Aggregated job description", false);
+  aggregateTabBadge = makeEl("span", "view-tab__badge");
+  aggregateTabBadge.hidden = true;
+  aggregateTab.appendChild(aggregateTabBadge);
+  tabs.append(explorerTab, aggregateTab);
+  els.results.appendChild(tabs);
+
+  // --- Job Explorer panel: summary bar + result cards ---
+  const explorerPanel = makeEl("div", "view-panel");
+  explorerPanel.setAttribute("role", "tabpanel");
+  els.results.appendChild(explorerPanel);
+
   const summary = document.createElement("div");
   summary.className = "results__summary";
 
@@ -241,7 +256,7 @@ function renderResults(
 
   meta.append(countPill, tablePill, sortField);
   summary.append(heading, meta);
-  els.results.appendChild(summary);
+  explorerPanel.appendChild(summary);
 
   sortDd = new Dropdown(sortMount, {
     mode: "select",
@@ -254,24 +269,40 @@ function renderResults(
     },
   });
 
-  // --- aggregated job description panel ---
-  aggregateEl = document.createElement("section");
-  aggregateEl.className = "aggregate";
-  aggregateEl.setAttribute("aria-live", "polite");
-  els.results.appendChild(aggregateEl);
-
   if (withWage === 0) {
     const note = document.createElement("p");
     note.className = "results__nowage";
     note.textContent =
       "No wage figures are published for these occupations in this area. They are listed below for reference.";
-    els.results.appendChild(note);
+    explorerPanel.appendChild(note);
   }
 
-  // --- results list (re-rendered on sort, selections preserved) ---
+  // Re-rendered on sort; selections preserved via the shared `selected` Set.
   listEl = document.createElement("div");
   listEl.className = "results__list";
-  els.results.appendChild(listEl);
+  explorerPanel.appendChild(listEl);
+
+  // --- Aggregated job description panel (filled on demand by updateAggregate) ---
+  const aggregatePanel = makeEl("div", "view-panel");
+  aggregatePanel.setAttribute("role", "tabpanel");
+  aggregatePanel.hidden = true;
+  aggregateEl = document.createElement("section");
+  aggregateEl.className = "aggregate";
+  aggregateEl.setAttribute("aria-live", "polite");
+  aggregatePanel.appendChild(aggregateEl);
+  els.results.appendChild(aggregatePanel);
+
+  // Switching tabs only toggles panel visibility; ticking a card never does.
+  const showExplorer = (explorer: boolean): void => {
+    explorerTab.classList.toggle("is-active", explorer);
+    aggregateTab.classList.toggle("is-active", !explorer);
+    explorerTab.setAttribute("aria-selected", explorer ? "true" : "false");
+    aggregateTab.setAttribute("aria-selected", explorer ? "false" : "true");
+    explorerPanel.hidden = !explorer;
+    aggregatePanel.hidden = explorer;
+  };
+  explorerTab.addEventListener("click", () => showExplorer(true));
+  aggregateTab.addEventListener("click", () => showExplorer(false));
 
   renderList();
 }
@@ -293,87 +324,68 @@ let aggregateToken = 0;
 async function updateAggregate(): Promise<void> {
   if (!aggregateEl) return;
   const token = ++aggregateToken;
-  const chosen = sortRows(currentRows, sortMode).filter((r) => selected.has(r.soccode));
+
+  // A job contributes only the child roles ticked on its card.
+  const chosen = sortRows(currentRows, sortMode)
+    .map((row) => ({
+      row,
+      codes: row.onetChildren.map((c) => c.code).filter((code) => selected.has(code)),
+    }))
+    .filter((x) => x.codes.length > 0);
+  const roleCount = chosen.reduce((n, x) => n + x.codes.length, 0);
+
+  if (aggregateTabBadge) {
+    aggregateTabBadge.textContent = String(roleCount);
+    aggregateTabBadge.hidden = roleCount === 0;
+  }
 
   if (chosen.length === 0) {
     aggregateEl.textContent = "";
     aggregateEl.classList.remove("is-active", "is-loading");
-    const empty = document.createElement("p");
-    empty.className = "aggregate__empty";
-    empty.textContent = "Tick the box on any roles below to build a combined job description here.";
-    aggregateEl.appendChild(empty);
+    aggregateEl.appendChild(
+      makeEl(
+        "p",
+        "aggregate__empty",
+        "Tick a role in Job Explorer to build a combined job description here.",
+      ),
+    );
     return;
   }
 
   aggregateEl.classList.add("is-active", "is-loading");
 
-  const bundles = await Promise.all(chosen.map((r) => loadOnetSafe(r.soccode)));
+  const bundles = await Promise.all(chosen.map((x) => loadOnetSafe(x.row.soccode)));
   if (token !== aggregateToken) return; // a newer selection superseded this build
+  const entries: AggregateEntry[] = chosen.map((x, i) => ({
+    row: x.row,
+    bundle: bundles[i],
+    codes: x.codes,
+  }));
 
   aggregateEl.classList.remove("is-loading");
   aggregateEl.textContent = "";
 
   const head = document.createElement("div");
   head.className = "aggregate__head";
-  const title = document.createElement("h3");
-  title.className = "aggregate__title";
-  title.textContent = "Aggregated job description";
-  const count = document.createElement("span");
-  count.className = "aggregate__count";
-  count.textContent = `${chosen.length} role${chosen.length === 1 ? "" : "s"} selected`;
+  const count = makeEl(
+    "span",
+    "aggregate__count",
+    `${roleCount} role${roleCount === 1 ? "" : "s"} across ${chosen.length} job${chosen.length === 1 ? "" : "s"}`,
+  );
   const copyBtn = document.createElement("button");
   copyBtn.type = "button";
   copyBtn.className = "aggregate__copy";
   copyBtn.textContent = "Copy";
-  copyBtn.addEventListener("click", () => void copyAggregate(chosen, bundles, copyBtn));
-  head.append(title, count, copyBtn);
+  copyBtn.addEventListener("click", () => void copyAggregate(entries, copyBtn));
+  head.append(count, copyBtn);
   aggregateEl.appendChild(head);
 
-  const body = document.createElement("div");
-  body.className = "aggregate__body";
-  chosen.forEach((r, i) => {
-    body.appendChild(renderAggregateRole(r, bundles[i]));
-  });
-  aggregateEl.appendChild(body);
+  aggregateEl.appendChild(renderAggregateReport(entries));
 }
 
-function renderAggregateRole(row: ResultRow, bundle: OnetBundle | null): HTMLElement {
-  const role = document.createElement("section");
-  role.className = "aggregate__role";
-
-  const header = document.createElement("div");
-  header.className = "aggregate__role-head";
-  header.appendChild(makeEl("h4", "aggregate__role-title", row.title));
-  header.appendChild(makeEl("span", "chip chip--soc", row.soccode));
-  const wage = makeEl("span", "aggregate__role-wage", `${formatUSD(row.avg)} avg / yr`);
-  header.appendChild(wage);
-  role.appendChild(header);
-
-  const matched = new Set(row.onetHits.map((h) => h.code));
-  appendOnetProfiles(role, bundle, matched, "aggregate__onet");
-  return role;
-}
-
-async function copyAggregate(
-  rows: ResultRow[],
-  bundles: (OnetBundle | null)[],
-  btn: HTMLButtonElement,
-): Promise<void> {
-  const blocks = rows.map((r, i) => {
-    const lines = [`## ${r.title} (${r.soccode}) — ${formatUSD(r.avg)} avg / yr`];
-    const bundle = bundles[i];
-    if (bundle) {
-      const matched = new Set(r.onetHits.map((h) => h.code));
-      for (const code of orderCodes(bundle, matched)) {
-        lines.push("", profileToText(bundle[code]));
-      }
-    } else if (r.description) {
-      lines.push("", r.description);
-    }
-    return lines.join("\n");
-  });
+async function copyAggregate(entries: AggregateEntry[], btn: HTMLButtonElement): Promise<void> {
   try {
-    await navigator.clipboard.writeText(blocks.join("\n\n"));
+    await navigator.clipboard.writeText(aggregateReportToText(entries));
     btn.textContent = "Copied";
   } catch (e) {
     btn.textContent = "Press Ctrl+C";
@@ -399,6 +411,16 @@ function makeEl(tag: string, className: string, text?: string): HTMLElement {
   return node;
 }
 
+function makeTab(label: string, active: boolean): HTMLButtonElement {
+  const tab = document.createElement("button");
+  tab.type = "button";
+  tab.className = "view-tab" + (active ? " is-active" : "");
+  tab.setAttribute("role", "tab");
+  tab.setAttribute("aria-selected", active ? "true" : "false");
+  tab.append(label);
+  return tab;
+}
+
 /**
  * Render every O*NET child of a SOC (matched first) into a container. Every SOC
  * that reaches here has a profile bundle; a null bundle means the fetch itself
@@ -422,42 +444,107 @@ function appendOnetProfiles(
   host.appendChild(wrap);
 }
 
+/** One O*NET-SOC sub-role checkbox row (small box + code + title). */
+function makeRoleRow(
+  child: OnetHit,
+  matched: boolean,
+): { label: HTMLLabelElement; input: HTMLInputElement } {
+  const label = document.createElement("label");
+  label.className = "card__role" + (matched ? " card__role--matched" : "");
+  const input = document.createElement("input");
+  input.type = "checkbox";
+  input.className = "card__role-input";
+  label.append(
+    input,
+    makeEl("span", "card__role-box"),
+    makeEl("span", "card__role-code", child.code),
+    makeEl("span", "card__role-title", child.title),
+  );
+  return { label, input };
+}
+
+/**
+ * Wire a card's selection to the shared `selected` set, which holds O*NET-SOC
+ * child codes -- the unit that feeds the aggregate. The card's main checkbox is
+ * a parent over its children: checked when all are ticked, indeterminate when
+ * some are, and it toggles the whole set. Multi-role SOCs also render one box
+ * per child so a single role (e.g. Business Intelligence Analysts) can be
+ * aggregated on its own. Wages exist only at the SOC level, so these boxes scope
+ * which sub-role detail is pooled; they never imply a per-sub-role wage.
+ */
+function wireSelection(node: HTMLElement, row: ResultRow): void {
+  const parent = node.querySelector(".card__select-input") as HTMLInputElement;
+  parent.setAttribute("aria-label", `Add ${row.title} to the aggregated job description`);
+
+  const childCodes = row.onetChildren.map((c) => c.code);
+  const matchedCodes = new Set(row.onetHits.map((h) => h.code));
+  const childControls: { code: string; input: HTMLInputElement }[] = [];
+
+  const selectedCount = (): number =>
+    childCodes.reduce((n, code) => n + (selected.has(code) ? 1 : 0), 0);
+
+  const syncParent = (): void => {
+    const n = selectedCount();
+    parent.checked = n === childCodes.length;
+    parent.indeterminate = n > 0 && n < childCodes.length;
+    node.classList.toggle("is-selected", n > 0);
+  };
+
+  // Multi-role SOCs expose each child; a single-child SOC is driven by the
+  // parent box alone (its lone child would just restate the card title).
+  if (row.onetChildren.length > 1) {
+    const roles = node.querySelector(".card__roles") as HTMLElement;
+    roles.hidden = false;
+    const ordered = row.onetChildren
+      .slice()
+      .sort(
+        (a, b) =>
+          (matchedCodes.has(a.code) ? 0 : 1) - (matchedCodes.has(b.code) ? 0 : 1) ||
+          a.code.localeCompare(b.code),
+      );
+    for (const child of ordered) {
+      const { label, input } = makeRoleRow(child, matchedCodes.has(child.code));
+      input.checked = selected.has(child.code);
+      input.addEventListener("change", () => {
+        if (input.checked) selected.add(child.code);
+        else selected.delete(child.code);
+        syncParent();
+        void updateAggregate();
+      });
+      childControls.push({ code: child.code, input });
+      roles.appendChild(label);
+    }
+  }
+
+  parent.addEventListener("change", () => {
+    const selectAll = selectedCount() < childCodes.length;
+    for (const code of childCodes) {
+      if (selectAll) selected.add(code);
+      else selected.delete(code);
+    }
+    for (const { code, input } of childControls) input.checked = selected.has(code);
+    syncParent();
+    void updateAggregate();
+  });
+
+  syncParent();
+}
+
 function renderCard(row: ResultRow, showKeywords: boolean): HTMLElement {
   const node = els.cardTpl.content.firstElementChild!.cloneNode(true) as HTMLElement;
   node.dataset.soc = row.soccode;
   if (!row.hasWage || row.avg === null) node.classList.add("card--nowage");
 
-  const checkbox = node.querySelector(".card__select-input") as HTMLInputElement;
-  checkbox.checked = selected.has(row.soccode);
-  checkbox.setAttribute("aria-label", `Add ${row.title} to the aggregated job description`);
-  if (checkbox.checked) node.classList.add("is-selected");
-  checkbox.addEventListener("change", () => {
-    if (checkbox.checked) selected.add(row.soccode);
-    else selected.delete(row.soccode);
-    node.classList.toggle("is-selected", checkbox.checked);
-    void updateAggregate();
-  });
-
+  (node.querySelector(".card__soc") as HTMLElement).textContent = row.soccode;
   (node.querySelector(".card__title") as HTMLElement).textContent = row.title;
-  (node.querySelector(".chip--soc") as HTMLElement).textContent = row.soccode;
 
   if (showKeywords) {
     const tags = node.querySelector(".card__tags") as HTMLElement;
-    const socChip = node.querySelector(".chip--soc");
-    for (const kw of row.matchedKeywords) {
-      const chip = document.createElement("span");
-      chip.className = "chip chip--kw";
-      chip.textContent = kw;
-      tags.insertBefore(chip, socChip);
-    }
+    tags.hidden = false;
+    for (const kw of row.matchedKeywords) tags.appendChild(makeEl("span", "chip chip--kw", kw));
   }
 
-  const via = node.querySelector(".chip--via") as HTMLElement;
-  if (row.onetHits.length) {
-    via.hidden = false;
-    via.textContent = "via " + row.onetHits.map((h) => h.title).join(", ");
-    via.title = "Matched through an O*NET occupation in the crosswalk";
-  }
+  wireSelection(node, row);
 
   (node.querySelector(".card__avg-value") as HTMLElement).textContent = formatUSD(row.avg);
 

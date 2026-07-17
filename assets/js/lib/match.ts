@@ -104,6 +104,7 @@ export function matchSoccodes(
       description: o.description,
       score: h.score,
       onetHits: h.onetHits,
+      onetChildren: xwalk[code] ?? [],
       matchedKeywords: [displayKeyword],
     });
   });
