@@ -159,7 +159,20 @@ const selected = new Set<string>();
 let sortDd: Dropdown | null = null;
 let listEl: HTMLElement | null = null;
 let aggregateEl: HTMLElement | null = null;
-let aggregateTabBadge: HTMLElement | null = null;
+
+// Compile / report-view wiring. The aggregate is built only when the user
+// chooses "Compile", never on every tick, so the selection handlers and the
+// compile action reach the toolbar button and report panel through these.
+let compileBtn: HTMLButtonElement | null = null;
+let compileLabelEl: HTMLElement | null = null;
+let compileCountEl: HTMLElement | null = null;
+let reportTabBadge: HTMLElement | null = null;
+let switchViewFn: ((view: "explorer" | "report") => void) | null = null;
+// Signature of the selection the on-screen report was compiled from (null until
+// the first compile). When it diverges from the live selection, the report is
+// stale and the UI says so rather than silently showing old numbers.
+let compiledSignature: string | null = null;
+let compiling = false;
 
 // ---------------------------------------------------------------------------
 // Result rendering
@@ -200,6 +213,8 @@ function renderResults(
   currentRows = rows;
   currentKeywords = keywords;
   selected.clear();
+  compiledSignature = null;
+  compiling = false;
 
   const activeSeg = els.tableToggle.querySelector<HTMLElement>(".seg.is-active");
   const tableName = (activeSeg?.textContent ?? "").trim();
@@ -207,16 +222,30 @@ function renderResults(
 
   els.results.textContent = "";
 
-  // --- tabs: Job Explorer (search results) | Aggregated job description ---
+  // --- top toolbar: page tabs (Job Explorer | Aggregated report) on the left,
+  //     the Compile action on the far right ---
   const tabs = document.createElement("div");
   tabs.className = "view-tabs";
-  tabs.setAttribute("role", "tablist");
+  const tabList = makeEl("div", "view-tabs__list");
+  tabList.setAttribute("role", "tablist");
   const explorerTab = makeTab("Job Explorer", true);
-  const aggregateTab = makeTab("Aggregated job description", false);
-  aggregateTabBadge = makeEl("span", "view-tab__badge");
-  aggregateTabBadge.hidden = true;
-  aggregateTab.appendChild(aggregateTabBadge);
-  tabs.append(explorerTab, aggregateTab);
+  const reportTab = makeTab("Aggregated report", false);
+  reportTabBadge = makeEl("span", "view-tab__badge");
+  reportTabBadge.hidden = true;
+  reportTab.appendChild(reportTabBadge);
+  tabList.append(explorerTab, reportTab);
+
+  compileBtn = document.createElement("button");
+  compileBtn.type = "button";
+  compileBtn.className = "view-tabs__compile";
+  compileBtn.disabled = true;
+  compileLabelEl = makeEl("span", "view-tabs__compile-label", "Compile aggregated job description");
+  compileCountEl = makeEl("span", "view-tabs__compile-count");
+  compileCountEl.hidden = true;
+  compileBtn.append(compileLabelEl, compileCountEl);
+  compileBtn.addEventListener("click", () => void compileReport());
+
+  tabs.append(tabList, compileBtn);
   els.results.appendChild(tabs);
 
   // --- Job Explorer panel: summary bar + result cards ---
@@ -282,28 +311,31 @@ function renderResults(
   listEl.className = "results__list";
   explorerPanel.appendChild(listEl);
 
-  // --- Aggregated job description panel (filled on demand by updateAggregate) ---
-  const aggregatePanel = makeEl("div", "view-panel");
-  aggregatePanel.setAttribute("role", "tabpanel");
-  aggregatePanel.hidden = true;
+  // --- Aggregated report panel (built on demand by compileReport) ---
+  const reportPanel = makeEl("div", "view-panel");
+  reportPanel.setAttribute("role", "tabpanel");
+  reportPanel.hidden = true;
   aggregateEl = document.createElement("section");
   aggregateEl.className = "aggregate";
   aggregateEl.setAttribute("aria-live", "polite");
-  aggregatePanel.appendChild(aggregateEl);
-  els.results.appendChild(aggregatePanel);
+  reportPanel.appendChild(aggregateEl);
+  els.results.appendChild(reportPanel);
 
-  // Switching tabs only toggles panel visibility; ticking a card never does.
-  const showExplorer = (explorer: boolean): void => {
+  // Tabs only toggle panel visibility; ticking a card never switches view and
+  // never builds the report -- that waits for an explicit Compile.
+  switchViewFn = (view) => {
+    const explorer = view === "explorer";
     explorerTab.classList.toggle("is-active", explorer);
-    aggregateTab.classList.toggle("is-active", !explorer);
+    reportTab.classList.toggle("is-active", !explorer);
     explorerTab.setAttribute("aria-selected", explorer ? "true" : "false");
-    aggregateTab.setAttribute("aria-selected", explorer ? "false" : "true");
+    reportTab.setAttribute("aria-selected", explorer ? "false" : "true");
     explorerPanel.hidden = !explorer;
-    aggregatePanel.hidden = explorer;
+    reportPanel.hidden = explorer;
   };
-  explorerTab.addEventListener("click", () => showExplorer(true));
-  aggregateTab.addEventListener("click", () => showExplorer(false));
+  explorerTab.addEventListener("click", () => switchViewFn?.("explorer"));
+  reportTab.addEventListener("click", () => switchViewFn?.("report"));
 
+  renderReportPlaceholder();
   renderList();
 }
 
@@ -313,58 +345,170 @@ function renderList(): void {
   const showKeywords = currentKeywords.length > 1;
   listEl.textContent = "";
   for (const row of sorted) listEl.appendChild(renderCard(row, showKeywords));
-  void updateAggregate();
+  refreshCompileUi();
 }
 
-// Each aggregate rebuild takes a token; async bundle loads that finish after a
-// newer selection change are dropped, so the panel always reflects the latest
-// set of ticked roles.
-let aggregateToken = 0;
+// The report is a snapshot of one Compile. This token drops a compile whose
+// bundle loads finish after a newer compile has started, so the panel never
+// shows a stale in-flight build.
+let compileToken = 0;
 
-async function updateAggregate(): Promise<void> {
-  if (!aggregateEl) return;
-  const token = ++aggregateToken;
-
-  // A job contributes only the child roles ticked on its card.
-  const chosen = sortRows(currentRows, sortMode)
+/** A job contributes only the child roles ticked on its card. */
+function gatherChosen(): { row: ResultRow; codes: string[] }[] {
+  return sortRows(currentRows, sortMode)
     .map((row) => ({
       row,
       codes: row.onetChildren.map((c) => c.code).filter((code) => selected.has(code)),
     }))
     .filter((x) => x.codes.length > 0);
-  const roleCount = chosen.reduce((n, x) => n + x.codes.length, 0);
+}
 
-  if (aggregateTabBadge) {
-    aggregateTabBadge.textContent = String(roleCount);
-    aggregateTabBadge.hidden = roleCount === 0;
+/** Order-independent fingerprint of the ticked roles; equal signatures mean the
+ *  compiled report still matches the live selection. */
+function selectionSignature(): string {
+  return [...selected].sort().join("|");
+}
+
+/**
+ * Reconcile the toolbar Compile button and the report panel with the current
+ * selection. Called on every tick -- it updates the count and enabled/stale
+ * state but never builds the report (that is Compile's job).
+ */
+function refreshCompileUi(): void {
+  const count = selected.size;
+  if (compileBtn) compileBtn.disabled = count === 0 || compiling;
+  if (compileCountEl) {
+    compileCountEl.textContent = String(count);
+    compileCountEl.hidden = count === 0;
   }
+  const stale = compiledSignature !== null && compiledSignature !== selectionSignature();
+  if (compileBtn) compileBtn.classList.toggle("is-stale", stale && count > 0 && !compiling);
 
-  if (chosen.length === 0) {
-    aggregateEl.textContent = "";
-    aggregateEl.classList.remove("is-active", "is-loading");
-    aggregateEl.appendChild(
-      makeEl(
-        "p",
-        "aggregate__empty",
-        "Tick a role in Job Explorer to build a combined job description here.",
-      ),
-    );
+  if (compiling) return; // leave the progress bar untouched mid-compile
+  if (compiledSignature === null) renderReportPlaceholder();
+  else setReportStale(stale);
+}
+
+/** The report panel before any compile: a prompt that reflects how many roles
+ *  are ticked, with an inline Compile shortcut once at least one is. */
+function renderReportPlaceholder(): void {
+  if (!aggregateEl) return;
+  aggregateEl.textContent = "";
+  aggregateEl.classList.remove("is-active");
+  const count = selected.size;
+  const box = makeEl("div", "aggregate__empty");
+  if (count === 0) {
+    box.textContent =
+      "Tick one or more roles in Job Explorer, then choose Compile aggregated job description.";
+  } else {
+    box.append(`${count} role${count === 1 ? "" : "s"} selected. `);
+    const btn = makeEl("button", "link-btn", "Compile now") as HTMLButtonElement;
+    btn.type = "button";
+    btn.addEventListener("click", () => void compileReport());
+    box.appendChild(btn);
+  }
+  aggregateEl.appendChild(box);
+}
+
+/** Show/refresh (or clear) the "report is out of date" banner atop the report. */
+function setReportStale(stale: boolean): void {
+  if (!aggregateEl) return;
+  let banner = aggregateEl.querySelector<HTMLElement>(".agg-stale");
+  if (!stale || compiledSignature === null) {
+    banner?.remove();
     return;
   }
+  if (!banner) {
+    banner = makeEl("div", "agg-stale");
+    const text = makeEl("span", "agg-stale__text");
+    const btn = makeEl("button", "link-btn agg-stale__btn", "Recompile") as HTMLButtonElement;
+    btn.type = "button";
+    btn.addEventListener("click", () => void compileReport());
+    banner.append(text, btn);
+    aggregateEl.prepend(banner);
+  }
+  const count = selected.size;
+  banner.querySelector(".agg-stale__text")!.textContent =
+    count === 0
+      ? "No roles selected — this report is out of date."
+      : "Selection changed since this report was compiled.";
+  banner.querySelector<HTMLButtonElement>(".agg-stale__btn")!.disabled = count === 0;
+}
 
-  aggregateEl.classList.add("is-active", "is-loading");
+function updateReportTabBadge(roleCount: number): void {
+  if (!reportTabBadge) return;
+  reportTabBadge.textContent = String(roleCount);
+  reportTabBadge.hidden = roleCount === 0;
+}
 
-  const bundles = await Promise.all(chosen.map((x) => loadOnetSafe(x.row.soccode)));
-  if (token !== aggregateToken) return; // a newer selection superseded this build
+/** A determinate progress bar tied to the actual O*NET bundle loads. */
+function makeProgress(total: number): { el: HTMLElement; step: (done: number) => void } {
+  const el = makeEl("div", "agg-progress");
+  const label = makeEl("p", "agg-progress__label", `Compiling… 0 of ${total}`);
+  const track = makeEl("div", "agg-progress__track");
+  track.setAttribute("role", "progressbar");
+  track.setAttribute("aria-valuemin", "0");
+  track.setAttribute("aria-valuemax", String(total));
+  track.setAttribute("aria-valuenow", "0");
+  const fill = makeEl("i", "agg-progress__fill");
+  fill.style.width = "0%";
+  track.appendChild(fill);
+  el.append(label, track);
+  return {
+    el,
+    step(done: number) {
+      const pct = total > 0 ? Math.round((done / total) * 100) : 100;
+      fill.style.width = `${pct}%`;
+      track.setAttribute("aria-valuenow", String(done));
+      label.textContent = done >= total ? "Assembling report…" : `Compiling… ${done} of ${total} jobs`;
+    },
+  };
+}
+
+/**
+ * Build the aggregated report from the ticked roles: switch to the report tab,
+ * show a progress bar while the O*NET bundles load, then render the pooled
+ * sections. This runs only on an explicit Compile, so selecting roles stays
+ * cheap and the report is a deliberate snapshot the user asked for.
+ */
+async function compileReport(): Promise<void> {
+  if (!aggregateEl || !switchViewFn) return;
+  const chosen = gatherChosen();
+  if (chosen.length === 0) return;
+  const roleCount = chosen.reduce((n, x) => n + x.codes.length, 0);
+  const signature = selectionSignature();
+  const token = ++compileToken;
+
+  compiling = true;
+  switchViewFn("report");
+  if (compileLabelEl) compileLabelEl.textContent = "Compiling…";
+  refreshCompileUi(); // disables the button, drops the stale flag
+
+  aggregateEl.textContent = "";
+  aggregateEl.classList.add("is-active");
+  const progress = makeProgress(chosen.length);
+  aggregateEl.appendChild(progress.el);
+
+  let done = 0;
+  const bundles = await Promise.all(
+    chosen.map(async (x) => {
+      const bundle = await loadOnetSafe(x.row.soccode);
+      progress.step(++done);
+      return bundle;
+    }),
+  );
+  if (token !== compileToken) return; // a newer compile superseded this one
+
   const entries: AggregateEntry[] = chosen.map((x, i) => ({
     row: x.row,
     bundle: bundles[i],
     codes: x.codes,
   }));
+  compiledSignature = signature;
+  compiling = false;
+  if (compileLabelEl) compileLabelEl.textContent = "Compile aggregated job description";
 
-  aggregateEl.classList.remove("is-loading");
   aggregateEl.textContent = "";
-
   const head = document.createElement("div");
   head.className = "aggregate__head";
   const count = makeEl(
@@ -379,8 +523,10 @@ async function updateAggregate(): Promise<void> {
   copyBtn.addEventListener("click", () => void copyAggregate(entries, copyBtn));
   head.append(count, copyBtn);
   aggregateEl.appendChild(head);
+  aggregateEl.appendChild(renderAggregateReport(entries, () => void compileReport(), renderTiers));
 
-  aggregateEl.appendChild(renderAggregateReport(entries, () => void updateAggregate()));
+  updateReportTabBadge(roleCount);
+  refreshCompileUi();
 }
 
 async function copyAggregate(entries: AggregateEntry[], btn: HTMLButtonElement): Promise<void> {
@@ -509,7 +655,7 @@ function wireSelection(node: HTMLElement, row: ResultRow): void {
         if (input.checked) selected.add(child.code);
         else selected.delete(child.code);
         syncParent();
-        void updateAggregate();
+        refreshCompileUi();
       });
       childControls.push({ code: child.code, input });
       roles.appendChild(label);
@@ -524,10 +670,42 @@ function wireSelection(node: HTMLElement, row: ResultRow): void {
     }
     for (const { code, input } of childControls) input.checked = selected.has(code);
     syncParent();
-    void updateAggregate();
+    refreshCompileUi();
   });
 
   syncParent();
+}
+
+/**
+ * Fill a `.tiers` block's four `.tier` rows with a row's wage levels: each bar is
+ * scaled to that row's own highest level and shows the annual value. One
+ * implementation shared by the result card and the aggregate report.
+ */
+function fillTiers(tiers: HTMLElement, row: ResultRow): void {
+  const levels = [row.l1, row.l2, row.l3, row.l4];
+  const scaleMax = Math.max(0, ...levels.filter((v): v is number => v !== null));
+  tiers.querySelectorAll(".tier").forEach((tier, i) => {
+    const v = levels[i];
+    const bar = tier.querySelector("i") as HTMLElement;
+    (tier.querySelector(".tier__value") as HTMLElement).textContent = formatUSD(v);
+    if (v !== null && scaleMax > 0) {
+      bar.style.width = Math.max(4, (v / scaleMax) * 100) + "%";
+    } else {
+      bar.style.width = "0%";
+      tier.classList.add("tier--empty");
+    }
+  });
+}
+
+/**
+ * A standalone `.tiers` element for a row, cloned from the card template so the
+ * four level labels have a single source (the template in layouts/home.html).
+ * Injected into the aggregate report, which is built in script.
+ */
+function renderTiers(row: ResultRow): HTMLElement {
+  const tiers = els.cardTpl.content.querySelector(".tiers")!.cloneNode(true) as HTMLElement;
+  fillTiers(tiers, row);
+  return tiers;
 }
 
 function renderCard(row: ResultRow, showKeywords: boolean): HTMLElement {
@@ -547,22 +725,7 @@ function renderCard(row: ResultRow, showKeywords: boolean): HTMLElement {
   wireSelection(node, row);
 
   (node.querySelector(".card__avg-value") as HTMLElement).textContent = formatUSD(row.avg);
-
-  const levels = [row.l1, row.l2, row.l3, row.l4];
-  const scaleMax = Math.max(0, ...levels.filter((v): v is number => v !== null));
-  const tierEls = node.querySelectorAll(".tier");
-  tierEls.forEach((tier, i) => {
-    const v = levels[i];
-    const bar = tier.querySelector("i") as HTMLElement;
-    const valueEl = tier.querySelector(".tier__value") as HTMLElement;
-    valueEl.textContent = formatUSD(v);
-    if (v !== null && scaleMax > 0) {
-      bar.style.width = Math.max(4, (v / scaleMax) * 100) + "%";
-    } else {
-      bar.style.width = "0%";
-      tier.classList.add("tier--empty");
-    }
-  });
+  fillTiers(node.querySelector(".tiers") as HTMLElement, row);
 
   const descText = node.querySelector(".card__desc-text") as HTMLElement;
   descText.textContent = row.description || "No description available.";

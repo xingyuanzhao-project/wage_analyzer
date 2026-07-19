@@ -397,13 +397,17 @@ input[type="text"]:focus {
 
 .results__list { display: flex; flex-direction: column; gap: 1rem; }
 
-/* View tabs (Job Explorer | Aggregated job description) */
+/* Top toolbar: page tabs (Job Explorer | Aggregated report) + Compile action */
 .view-tabs {
   display: flex;
-  gap: 0.3rem;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  flex-wrap: wrap;
   margin-bottom: 1.1rem;
   border-bottom: 1px solid var(--border);
 }
+.view-tabs__list { display: flex; gap: 0.3rem; }
 .view-tab {
   display: inline-flex;
   align-items: center;
@@ -434,6 +438,45 @@ input[type="text"]:focus {
   border-radius: 999px;
 }
 
+/* Compile action: the single, explicit trigger that builds the report. */
+.view-tabs__compile {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--accent-contrast);
+  background: var(--accent);
+  border: 1px solid transparent;
+  border-radius: 9px;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.15s, box-shadow 0.15s, opacity 0.15s;
+}
+.view-tabs__compile:hover:not(:disabled) { background: var(--accent-strong); }
+.view-tabs__compile:disabled { opacity: 0.5; cursor: not-allowed; box-shadow: none; }
+/* Pulse while a compiled report is out of date, inviting a recompile. */
+.view-tabs__compile.is-stale { animation: compile-pulse 1.8s ease-in-out infinite; }
+.view-tabs__compile-count {
+  min-width: 1.3rem;
+  padding: 0 0.35rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  text-align: center;
+  color: var(--accent);
+  background: var(--accent-contrast);
+  border-radius: 999px;
+}
+@keyframes compile-pulse {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 45%, transparent); }
+  70% { box-shadow: 0 0 0 7px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
 /* Aggregated job description */
 .aggregate {
   padding: 1rem 1.15rem;
@@ -446,8 +489,43 @@ input[type="text"]:focus {
   border-color: var(--border);
   box-shadow: var(--shadow-sm);
 }
-.aggregate.is-loading .agg-report { opacity: 0.55; }
 .aggregate__empty { margin: 0; color: var(--text-faint); font-size: 0.92rem; }
+.aggregate__empty .link-btn { margin-top: 0; }
+
+/* Compile progress -- determinate, tied to the O*NET bundle loads. */
+.agg-progress { padding: 0.4rem 0 0.2rem; }
+.agg-progress__label { margin: 0 0 0.55rem; color: var(--text-muted); font-size: 0.9rem; font-weight: 600; }
+.agg-progress__track {
+  position: relative;
+  height: 8px;
+  background: var(--bg-sunken);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.agg-progress__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+/* "Report is out of date" banner: the selection changed since it was compiled. */
+.agg-stale {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.9rem;
+  padding: 0.5rem 0.75rem;
+  background: color-mix(in srgb, var(--warn) 12%, var(--bg-elevated));
+  border: 1px solid color-mix(in srgb, var(--warn) 35%, transparent);
+  border-radius: 9px;
+}
+.agg-stale__text { color: var(--warn); font-size: 0.85rem; font-weight: 600; }
+.agg-stale__btn { margin-top: 0; }
+.agg-stale__btn:disabled { opacity: 0.5; cursor: not-allowed; text-decoration: none; }
 .aggregate__head { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.85rem; }
 .aggregate__count { color: var(--text-muted); font-size: 0.85rem; font-weight: 600; }
 .aggregate__copy {
@@ -483,6 +561,8 @@ input[type="text"]:focus {
   font-variant-numeric: tabular-nums;
 }
 .agg-role__subs { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; }
+/* The four wage levels sit tighter here than on the roomier Job Explorer card. */
+.agg-role .tiers { margin: 0.6rem 0 0.15rem; }
 .agg-role .onet__error { margin-top: 0.5rem; }
 .agg-role__sub {
   font-size: 0.78rem;
@@ -868,6 +948,7 @@ input[type="text"]:focus {
   .onet-edu__row { grid-template-columns: 1fr 3rem; }
   .onet-edu__bar { display: none; }
   .agg-role__wage { margin-left: 0; width: 100%; }
+  .view-tabs__compile { width: 100%; justify-content: center; margin-bottom: 0.3rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

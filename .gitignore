@@ -12,6 +12,7 @@ __pycache__/
 
 # Local Hugo binary (installed outside repo, but guard anyway)
 /hugo-bin/
+hugo-server.log
 
 # OS cruft
 .DS_Store

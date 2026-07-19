@@ -20,10 +20,21 @@ clears them all and reads as *indeterminate* when only some are chosen; each sub
 adds just that role. Wages are published only at the SOC level, so these boxes scope which
 role's detail is pooled — they never imply a separate wage per role.
 
-Switch to the **Aggregated job description** tab, which pools the ticked roles' O*NET detail
-**by section** rather than stacking one profile per job: shared tasks, activities,
-knowledge, skills, and technology are deduped and tagged with the role(s) that require them,
-while job zone and education — per-role facts that cannot merge — are compared side by side.
+The results view has two tabs — **Job Explorer** and **Aggregated report** — with a
+**Compile aggregated job description** button on the right. Ticking roles never rebuilds the
+report on its own: it is a snapshot built only when you press **Compile**, which switches to
+the report tab and shows a progress bar while each job's O*NET bundle loads. Change the
+selection afterwards and the report is flagged out of date with a **Recompile** prompt rather
+than silently shifting under you.
+
+The report pools the ticked roles' O*NET detail **by section** rather than stacking one
+profile per job: shared tasks, activities, knowledge, skills, and technology are deduped and
+tagged with the role(s) that require them, while job zone and education — per-role facts that
+cannot merge — are compared side by side. Each contributing job also shows its four
+prevailing-wage **levels** (Entry through Expert), since wages are published per SOC and not
+per role. Education distributions are ordered from the **lowest to the highest education
+level** (O*NET's required-education category ordinal), not by frequency — so they read
+Bachelor's → Master's → Doctoral regardless of which level is most common.
 
 Data sources:
 

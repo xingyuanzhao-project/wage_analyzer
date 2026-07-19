@@ -69,6 +69,12 @@ export interface OnetSoftwareCategory {
 export interface OnetEducation {
   level: string;
   percent: number;
+  /**
+   * O*NET's required-education category number (1 = Less than a High School
+   * Diploma ... 12 = Post-Doctoral Training) -- the ordinal that sorts the
+   * distribution by education level rather than by frequency.
+   */
+  rank: number;
 }
 
 /** Sections are optional: O*NET does not publish every domain for every code. */

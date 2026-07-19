@@ -150,10 +150,21 @@ function jobZoneBlock(jz: OnetJobZone): HTMLElement {
   return section;
 }
 
+/**
+ * Order a distribution by education level (O*NET's category rank, low to high),
+ * not by frequency -- so it reads Associate's -> Bachelor's -> Master's -> ...
+ * regardless of which level is most common. `rank` is the source's own ordinal,
+ * so no education list is hardcoded here.
+ */
+function eduByLevel(edu: OnetEducation[]): OnetEducation[] {
+  return edu.slice().sort((a, b) => a.rank - b.rank);
+}
+
 function educationList(edu: OnetEducation[]): HTMLElement {
   const list = h("ul", "onet-edu");
-  const max = Math.max(...edu.map((e) => e.percent));
-  for (const e of edu) {
+  const ordered = eduByLevel(edu);
+  const max = Math.max(...ordered.map((e) => e.percent));
+  for (const e of ordered) {
     const li = h("li", "onet-edu__row");
     li.appendChild(h("span", "onet-edu__label", e.level));
     const bar = h("span", "onet-edu__bar");
@@ -453,11 +464,17 @@ function loadFailureNote(jobTitles: string[], onRetry: () => void): HTMLElement 
   return note;
 }
 
-/** The selected-jobs strip: each job's title, SOC, wage, and the child roles
- *  ticked for it. Wages are published only at the SOC level, so the wage stays
- *  on the job line and the ticked sub-roles sit under it as JD contributors --
- *  never as separately-priced rows. */
-function rolesStrip(entries: AggregateEntry[], onRetry: () => void): HTMLElement {
+/** The selected-jobs strip: each job's title, SOC, average wage, the four wage
+ *  levels, and the child roles ticked for it. Wages are published only at the
+ *  SOC level, so the wage and tiers stay on the job line and the ticked
+ *  sub-roles sit under them as JD contributors -- never as separately-priced
+ *  rows. `renderTiers` is injected by the caller: main.ts owns the card template
+ *  that the tier labels live in, so the level labels keep a single source. */
+function rolesStrip(
+  entries: AggregateEntry[],
+  onRetry: () => void,
+  renderTiers: (row: ResultRow) => HTMLElement,
+): HTMLElement {
   const strip = h("div", "agg-roles");
   for (const { row, bundle, codes } of entries) {
     const item = h("div", "agg-role");
@@ -466,6 +483,7 @@ function rolesStrip(entries: AggregateEntry[], onRetry: () => void): HTMLElement
     head.appendChild(h("span", "chip chip--soc", row.soccode));
     head.appendChild(h("span", "agg-role__wage", `${formatUSD(row.avg)} avg / yr`));
     item.appendChild(head);
+    item.appendChild(renderTiers(row));
     if (bundle) {
       const wanted = new Set(codes);
       const matched = new Set(row.onetHits.map((hit) => hit.code));
@@ -489,12 +507,18 @@ function rolesStrip(entries: AggregateEntry[], onRetry: () => void): HTMLElement
 
 /**
  * Render the aggregate as section blocks pooled across all selected roles.
- * `onRetry` rebuilds the aggregate (e.g. re-running updateAggregate), giving
- * any SOC whose O*NET fetch failed a real chance to succeed on a fresh request.
+ * `onRetry` recompiles the aggregate (re-running compileReport), giving any SOC
+ * whose O*NET fetch failed a real chance to succeed on a fresh request.
+ * `renderTiers` draws a row's four wage levels, injected so the card and the
+ * report share one tier renderer (and one source for the level labels).
  */
-export function renderAggregateReport(entries: AggregateEntry[], onRetry: () => void): HTMLElement {
+export function renderAggregateReport(
+  entries: AggregateEntry[],
+  onRetry: () => void,
+  renderTiers: (row: ResultRow) => HTMLElement,
+): HTMLElement {
   const wrap = h("div", "agg-report");
-  wrap.appendChild(rolesStrip(entries, onRetry));
+  wrap.appendChild(rolesStrip(entries, onRetry, renderTiers));
 
   const failedTitles = entries.filter((e) => !e.bundle).map((e) => e.row.title);
   const roles = collectRoles(entries);
@@ -576,7 +600,10 @@ export function aggregateReportToText(entries: AggregateEntry[]): string {
             .join("; ");
           return subs ? `: ${subs}` : "";
         })();
-    lines.push(`- ${row.title} (${row.soccode}, ${formatUSD(row.avg)} avg/yr)${suffix}`);
+    const tiers = [row.l1, row.l2, row.l3, row.l4]
+      .map((v, i) => `L${i + 1} ${formatUSD(v)}`)
+      .join(" / ");
+    lines.push(`- ${row.title} (${row.soccode}, ${formatUSD(row.avg)} avg/yr; ${tiers})${suffix}`);
   }
 
   if (roles.length === 0) return lines.join("\n");
@@ -627,7 +654,9 @@ export function aggregateReportToText(entries: AggregateEntry[]): string {
   if (eduRoles.length) {
     lines.push("", "Education (% of respondents):");
     for (const role of eduRoles) {
-      const dist = (role.profile.education ?? []).map((e) => `${e.level} ${e.percent}%`).join(", ");
+      const dist = eduByLevel(role.profile.education ?? [])
+        .map((e) => `${e.level} ${e.percent}%`)
+        .join(", ");
       lines.push(`- ${role.title}: ${dist}`);
     }
   }

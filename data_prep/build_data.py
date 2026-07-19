@@ -379,11 +379,18 @@ def _education_by_code(target: set, categories: dict[int, str]) -> dict[str, lis
         if code not in target or r["Scale ID"].strip() != SCALE_REQUIRED_EDUCATION:
             continue
         percent = parse_wage(r["Data Value"])
-        label = categories.get(int(r["Category"]))
+        category = int(r["Category"])
+        label = categories.get(category)
         if percent and percent > 0 and label:
-            acc.setdefault(code, []).append({"level": label, "percent": round(percent, 1)})
+            acc.setdefault(code, []).append(
+                {"level": label, "percent": round(percent, 1), "rank": category}
+            )
+    # O*NET's category number is the ordinal education level (1 = Less than a
+    # High School Diploma ... 12 = Post-Doctoral Training), so sort by it to read
+    # lowest-to-highest rather than by frequency. `rank` is carried through so
+    # the frontend keeps this order independent of array position.
     for rows in acc.values():
-        rows.sort(key=lambda e: e["percent"], reverse=True)
+        rows.sort(key=lambda e: e["rank"])
     return acc
 
 
