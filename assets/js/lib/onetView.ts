@@ -151,13 +151,36 @@ function jobZoneBlock(jz: OnetJobZone): HTMLElement {
 }
 
 /**
- * Order a distribution by education level (O*NET's category rank, low to high),
- * not by frequency -- so it reads Associate's -> Bachelor's -> Master's -> ...
- * regardless of which level is most common. `rank` is the source's own ordinal,
- * so no education list is hardcoded here.
+ * O*NET's Required Level of Education (RL) scale: each category label mapped to
+ * its ordinal (1 = least ... 12 = most), transcribed verbatim from O*NET's
+ * "Education Categories" reference (element 2.D.1). The per-occupation data
+ * stores education only as {level, percent}, so this one table is what lets the
+ * UI order a distribution by level instead of by frequency -- no ordinal is
+ * carried in the data, and this is the single place the ordering is defined.
+ */
+const EDU_LEVEL_ORDER: Record<string, number> = {
+  "Less than a High School Diploma": 1,
+  "High School Diploma - or the equivalent (for example, GED)": 2,
+  "Post-Secondary Certificate - awarded for training completed after high school (for example, in agriculture or natural resources, computer services, personal or culinary services, engineering technologies, healthcare, construction trades, mechanic and repair technologies, or precision production)": 3,
+  "Some College Courses": 4,
+  "Associate's Degree (or other 2-year degree)": 5,
+  "Bachelor's Degree": 6,
+  "Post-Baccalaureate Certificate - awarded for completion of an organized program of study; designed for people who have completed a Baccalaureate degree but do not meet the requirements of academic degrees carrying the title of Master.": 7,
+  "Master's Degree": 8,
+  "Post-Master's Certificate - awarded for completion of an organized program of study; designed for people who have completed a Master's degree but do not meet the requirements of academic degrees at the doctoral level.": 9,
+  "First Professional Degree - awarded for completion of a program that: requires at least 2 years of college work before entrance into the program, includes a total of at least 6 academic years of work to complete, and provides all remaining academic requirements to begin practice in a profession.": 10,
+  "Doctoral Degree": 11,
+  "Post-Doctoral Training": 12,
+};
+
+/**
+ * Order a distribution by education level, low to high, so it reads
+ * Associate's -> Bachelor's -> Master's -> ... regardless of which level is most
+ * common. An unrecognized label sorts last, keeping the render stable.
  */
 function eduByLevel(edu: OnetEducation[]): OnetEducation[] {
-  return edu.slice().sort((a, b) => a.rank - b.rank);
+  const rankOf = (level: string) => EDU_LEVEL_ORDER[level] ?? Number.MAX_SAFE_INTEGER;
+  return edu.slice().sort((a, b) => rankOf(a.level) - rankOf(b.level));
 }
 
 function educationList(edu: OnetEducation[]): HTMLElement {
@@ -444,10 +467,10 @@ function educationSection(roles: RoleRef[]): HTMLElement | null {
 
 /**
  * A failed O*NET fetch is a load error, not evidence the detail was never
- * published -- every SOC in the crosswalk has a bundle file (see build_onet in
- * data_prep/build_data.py), so a null bundle here always means the network
- * request failed. Say so explicitly and offer a real retry rather than a
- * silent gap that reads as "no data exists."
+ * published -- every SOC in the crosswalk is written into a major-group shard
+ * (see build_onet in data_prep/build_data.py), so a null bundle here always
+ * means the shard fetch or lookup failed. Say so explicitly and offer a real
+ * retry rather than a silent gap that reads as "no data exists."
  */
 function loadFailureNote(jobTitles: string[], onRetry: () => void): HTMLElement {
   const note = h("p", "onet__error");
@@ -491,8 +514,12 @@ function rolesStrip(
       if (shown.length) {
         const subs = h("div", "agg-role__subs");
         for (const code of shown) {
-          const sub = h("span", "agg-role__sub", bundle[code].title);
-          if (matched.has(code)) sub.classList.add("agg-role__sub--matched");
+          // "code Title" (e.g. 15-2051.01 Business Intelligence Analysts), the
+          // same shape as the card's sub-role rows. Uniform styling -- matched vs
+          // unmatched is not colour-coded here (only the list order reflects it).
+          const sub = h("span", "agg-role__sub");
+          sub.appendChild(h("span", "agg-role__sub-code", code));
+          sub.appendChild(h("span", "agg-role__sub-title", bundle[code].title));
           subs.appendChild(sub);
         }
         item.appendChild(subs);

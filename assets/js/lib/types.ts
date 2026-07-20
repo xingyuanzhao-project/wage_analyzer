@@ -69,12 +69,6 @@ export interface OnetSoftwareCategory {
 export interface OnetEducation {
   level: string;
   percent: number;
-  /**
-   * O*NET's required-education category number (1 = Less than a High School
-   * Diploma ... 12 = Post-Doctoral Training) -- the ordinal that sorts the
-   * distribution by education level rather than by frequency.
-   */
-  rank: number;
 }
 
 /** Sections are optional: O*NET does not publish every domain for every code. */
@@ -92,6 +86,14 @@ export interface OnetProfile {
 }
 
 export type OnetBundle = Record<string, OnetProfile>; // onetcode -> profile
+
+/**
+ * One O*NET file on disk: the bundles for every parent SOC in a SOC major group,
+ * keyed by parent SOC code. The file is named for the major group (the two
+ * digits before the hyphen, e.g. 15.json), so the ~800 per-SOC bundles collapse
+ * to one file per major group (~23) without changing what a bundle contains.
+ */
+export type OnetShard = Record<string, OnetBundle>; // parent soccode -> bundle
 
 export interface WageEntry {
   l1: number | null;

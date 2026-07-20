@@ -80,8 +80,9 @@ def load_xwalk() -> dict:
     """OES_SOCCODE -> [{code, title}, ...] from xwalk_plus.csv.
 
     Each parent SOC maps to its O*NET-SOC children as (code, title) pairs. The
-    O*NET code identifies the child's full profile (onet/<soc>.json in the web
-    build); the title is the surface keyword matching runs against.
+    O*NET code identifies the child's full profile (inside the onet/<major>.json
+    major-group shard in the web build); the title is the surface keyword
+    matching runs against.
     """
     xw = {}
     seen = set()

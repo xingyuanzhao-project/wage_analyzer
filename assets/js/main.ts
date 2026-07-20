@@ -17,9 +17,19 @@ import {
   aggregateReportToText,
   type AggregateEntry,
 } from "./lib/onetView";
+import { textToPdfBlob } from "./lib/pdf";
 import type { YearInfo, WageTable, ResultRow, OnetBundle, OnetHit } from "./lib/types";
 
 const DESC_CLAMP_CHARS = 260;
+
+// The compile does real work (loading O*NET shards, pooling sections), but once
+// a shard is cached that work is instant -- so the progress bar would flash and
+// vanish, reading as a glitch. Hold it on screen for at least this long so the
+// user actually sees the fill animate to done.
+const MIN_COMPILE_MS = 650;
+
+const delay = (ms: number): Promise<void> => new Promise((resolve) => window.setTimeout(resolve, ms));
+const nextFrame = (): Promise<void> => new Promise((resolve) => requestAnimationFrame(() => resolve()));
 
 const els = {
   form: document.getElementById("search-form") as HTMLFormElement,
@@ -486,8 +496,13 @@ async function compileReport(): Promise<void> {
 
   aggregateEl.textContent = "";
   aggregateEl.classList.add("is-active");
+  const startedAt = performance.now();
   const progress = makeProgress(chosen.length);
   aggregateEl.appendChild(progress.el);
+  // Paint the empty (0%) bar before the loads begin so a cached, instant compile
+  // still animates from zero instead of snapping straight to full.
+  await nextFrame();
+  if (token !== compileToken) return;
 
   let done = 0;
   const bundles = await Promise.all(
@@ -498,6 +513,11 @@ async function compileReport(): Promise<void> {
     }),
   );
   if (token !== compileToken) return; // a newer compile superseded this one
+
+  // Give the (possibly instant) progress bar a minimum time on screen.
+  const elapsed = performance.now() - startedAt;
+  if (elapsed < MIN_COMPILE_MS) await delay(MIN_COMPILE_MS - elapsed);
+  if (token !== compileToken) return; // a newer compile may have started during the hold
 
   const entries: AggregateEntry[] = chosen.map((x, i) => ({
     row: x.row,
@@ -521,7 +541,14 @@ async function compileReport(): Promise<void> {
   copyBtn.className = "aggregate__copy";
   copyBtn.textContent = "Copy";
   copyBtn.addEventListener("click", () => void copyAggregate(entries, copyBtn));
-  head.append(count, copyBtn);
+  const downloadBtn = document.createElement("button");
+  downloadBtn.type = "button";
+  downloadBtn.className = "aggregate__download";
+  downloadBtn.textContent = "Download PDF";
+  downloadBtn.addEventListener("click", () => downloadAggregatePdf(entries));
+  const actions = makeEl("div", "aggregate__actions");
+  actions.append(copyBtn, downloadBtn);
+  head.append(count, actions);
   aggregateEl.appendChild(head);
   aggregateEl.appendChild(renderAggregateReport(entries, () => void compileReport(), renderTiers));
 
@@ -539,6 +566,20 @@ async function copyAggregate(entries: AggregateEntry[], btn: HTMLButtonElement):
   window.setTimeout(() => {
     btn.textContent = "Copy";
   }, 1600);
+}
+
+/** Download the aggregate as a self-contained PDF built from the same structured
+ *  text as Copy. Triggers a direct file download -- no print dialog. */
+function downloadAggregatePdf(entries: AggregateEntry[]): void {
+  const blob = textToPdfBlob(aggregateReportToText(entries));
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "aggregated-job-description.pdf";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
 }
 
 /** Fetch a SOC's O*NET bundle, resolving to null so one gap never breaks the UI. */

@@ -30,9 +30,9 @@ Output (all under static/data/, committed and served verbatim by Hugo):
   <YEAR>/xwalk.json          {soccode: [{code, title}, ...]}   (O*NET children)
   <YEAR>/wages/alc/<area>.json   {soccode: {l1,l2,l3,l4,avg,label}}
   <YEAR>/wages/edc/<area>.json   {soccode: {l1,l2,l3,l4,avg,label}}
-  <YEAR>/onet/<soccode>.json     {onetcode: {code,title,description,tasks,dwas,
-                                   jobZone,knowledge,essentialSkills,software,
-                                   education}}
+  <YEAR>/onet/<major>.json       {soccode: {onetcode: {code,title,description,
+                                   tasks,dwas,jobZone,knowledge,essentialSkills,
+                                   software,education}}}  (grouped by SOC major group)
 
 Run:  python data_prep/build_data.py
 Uses only the Python standard library.
@@ -209,8 +209,9 @@ def build_wages(table: str) -> tuple[int, int]:
 # occupational detail (tasks, work activities, skills, ...) per granular
 # O*NET-SOC code (e.g. 15-2051.01). xwalk_plus already provides the authoritative
 # SOC -> O*NET membership; build_onet joins the O*NET tabular files onto those
-# codes and groups the resulting profiles by parent SOC, so the app can fetch one
-# onet/<soc>.json alongside the SOC's wage row.
+# codes, groups the resulting profiles by parent SOC, then shards those bundles
+# by SOC major group (onet/<major>.json) so the app fetches one small file per
+# major group instead of one file per SOC.
 # ---------------------------------------------------------------------------
 
 def read_tsv(name: str):
@@ -379,23 +380,31 @@ def _education_by_code(target: set, categories: dict[int, str]) -> dict[str, lis
         if code not in target or r["Scale ID"].strip() != SCALE_REQUIRED_EDUCATION:
             continue
         percent = parse_wage(r["Data Value"])
-        category = int(r["Category"])
-        label = categories.get(category)
+        label = categories.get(int(r["Category"]))
         if percent and percent > 0 and label:
-            acc.setdefault(code, []).append(
-                {"level": label, "percent": round(percent, 1), "rank": category}
-            )
-    # O*NET's category number is the ordinal education level (1 = Less than a
-    # High School Diploma ... 12 = Post-Doctoral Training), so sort by it to read
-    # lowest-to-highest rather than by frequency. `rank` is carried through so
-    # the frontend keeps this order independent of array position.
+            acc.setdefault(code, []).append({"level": label, "percent": round(percent, 1)})
     for rows in acc.values():
-        rows.sort(key=lambda e: e["rank"])
+        rows.sort(key=lambda e: e["percent"], reverse=True)
     return acc
 
 
-def build_onet(xwalk_map: dict[str, list[dict]]) -> tuple[int, int]:
-    """Build per-SOC O*NET profile files from the crosswalk membership map."""
+def major_group(soccode: str) -> str:
+    """SOC major group: the two digits before the hyphen (e.g. 15-2051 -> 15)."""
+    return soccode.split("-", 1)[0]
+
+
+def build_onet(xwalk_map: dict[str, list[dict]]) -> tuple[int, int, int]:
+    """Build O*NET profile files, grouped into SOC major-group shards.
+
+    Each parent SOC's bundle (its O*NET-SOC children keyed by O*NET code) is
+    nested under the SOC inside a shard named for the SOC major group -- the two
+    digits before the hyphen, the top level of the official SOC hierarchy (e.g.
+    15 = Computer and Mathematical). One file per major group (~23) instead of
+    one per SOC (~800) keeps the layout logical, keeps each file small enough to
+    fetch whole on demand, and keeps the file count low enough for git.
+
+    Returns (shard count, SOC count, O*NET-SOC profile count).
+    """
     target = {child["code"] for children in xwalk_map.values() for child in children}
 
     occupations = {
@@ -440,15 +449,19 @@ def build_onet(xwalk_map: dict[str, list[dict]]) -> tuple[int, int]:
 
     out_dir = OUT / YEAR / "onet"
     out_dir.mkdir(parents=True, exist_ok=True)
+    shards: dict[str, dict[str, dict]] = {}
     n_codes = 0
     for soc, children in xwalk_map.items():
         bundle = {}
         for child in children:
             bundle[child["code"]] = profile_for(child["code"], child["title"])
             n_codes += 1
-        write_json(out_dir / f"{soc}.json", bundle)
+        shards.setdefault(major_group(soc), {})[soc] = bundle
 
-    return len(xwalk_map), n_codes
+    for major, socs in shards.items():
+        write_json(out_dir / f"{major}.json", socs)
+
+    return len(shards), len(xwalk_map), n_codes
 
 
 def main() -> None:
@@ -467,7 +480,7 @@ def main() -> None:
     xwalk_map, n_xwalk = build_xwalk()
     n_alc_areas, n_alc_rows = build_wages("alc")
     n_edc_areas, n_edc_rows = build_wages("edc")
-    n_onet_socs, n_onet_codes = build_onet(xwalk_map)
+    n_onet_shards, n_onet_socs, n_onet_codes = build_onet(xwalk_map)
 
     print("Data build complete.")
     print(f"  geography rows : {n_geo}")
@@ -475,7 +488,7 @@ def main() -> None:
     print(f"  xwalk parents  : {n_xwalk}")
     print(f"  ALC : {n_alc_rows} rows -> {n_alc_areas} area files")
     print(f"  EDC : {n_edc_rows} rows -> {n_edc_areas} area files")
-    print(f"  O*NET : {n_onet_codes} profiles -> {n_onet_socs} SOC files")
+    print(f"  O*NET : {n_onet_codes} profiles across {n_onet_socs} SOCs -> {n_onet_shards} shard files")
     print(f"  output dir     : {OUT}")
 
 

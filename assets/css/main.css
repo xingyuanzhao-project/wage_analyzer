@@ -528,8 +528,9 @@ input[type="text"]:focus {
 .agg-stale__btn:disabled { opacity: 0.5; cursor: not-allowed; text-decoration: none; }
 .aggregate__head { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.85rem; }
 .aggregate__count { color: var(--text-muted); font-size: 0.85rem; font-weight: 600; }
-.aggregate__copy {
-  margin-left: auto;
+.aggregate__actions { margin-left: auto; display: flex; gap: 0.5rem; }
+.aggregate__copy,
+.aggregate__download {
   font: inherit;
   font-size: 0.85rem;
   font-weight: 600;
@@ -541,7 +542,8 @@ input[type="text"]:focus {
   cursor: pointer;
   transition: background 0.15s, border-color 0.15s;
 }
-.aggregate__copy:hover { border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+.aggregate__copy:hover,
+.aggregate__download:hover { border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
 
 /* Selected-jobs strip */
 .agg-roles { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.3rem; }
@@ -565,18 +567,17 @@ input[type="text"]:focus {
 .agg-role .tiers { margin: 0.6rem 0 0.15rem; }
 .agg-role .onet__error { margin-top: 0.5rem; }
 .agg-role__sub {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
   font-size: 0.78rem;
-  color: var(--text-muted);
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: 6px;
-  padding: 0.15rem 0.45rem;
+  padding: 0.15rem 0.5rem;
 }
-.agg-role__sub--matched {
-  color: var(--accent);
-  background: var(--accent-soft);
-  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
-}
+.agg-role__sub-code { color: var(--text-faint); font-variant-numeric: tabular-nums; }
+.agg-role__sub-title { color: var(--text-muted); }
 
 /* Per-item source attribution tags inside pooled sections */
 .agg-src { display: inline-flex; flex-wrap: wrap; gap: 0.3rem; margin-left: 0.5rem; vertical-align: middle; }
