@@ -9,6 +9,7 @@ import type {
   ResultRow,
 } from "./types";
 import { formatUSD } from "./format";
+import { Pdf, rgb, type Color, type Run } from "./pdf";
 
 // How many items each section shows before a "Show all" toggle appears. Copy
 // output is never capped -- the cap is a display affordance, not data loss.
@@ -689,4 +690,427 @@ export function aggregateReportToText(entries: AggregateEntry[]): string {
   }
 
   return lines.join("\n");
+}
+
+// ---------------------------------------------------------------------------
+// Aggregated report: PDF view
+//
+// A third rendering of the same pooled aggregate (alongside the DOM view and the
+// copy text), drawn with pdf.ts primitives so the download mirrors the on-screen
+// report's layout -- role cards with four scaled wage bars, code+title sub-role
+// pills, and each pooled section as a headed bullet list with role chips. What
+// the HTML collapses (PREVIEW_CAP items, "+N" source chips) is drawn in full
+// here: a downloaded document has no "Show all", so every item and every source
+// is present.
+// ---------------------------------------------------------------------------
+
+// Light-theme tokens copied from main.css :root -- a printed page is always
+// light, so the PDF does not follow the app's dark theme.
+const PDF_INK = rgb("#121a2b");
+const PDF_MUTED = rgb("#5c6780");
+const PDF_FAINT = rgb("#8a94a8");
+const PDF_ACCENT = rgb("#2563eb");
+const PDF_BORDER = rgb("#e2e6ef");
+const PDF_SUNKEN = rgb("#eef1f7");
+const PDF_ELEVATED = rgb("#ffffff");
+const PDF_WARN = rgb("#b45309");
+const PDF_TIERS = [rgb("#7dd3fc"), rgb("#38bdf8"), rgb("#2563eb"), rgb("#1e3a8a")];
+
+const TITLE_SIZE = 15;
+const SUBTITLE_SIZE = 9.5;
+const CARD_TITLE = 11.5;
+const SOC_SIZE = 8.5;
+const WAGE_SIZE = 9;
+const TIER_LABEL = 8.5;
+const TIER_VALUE = 9;
+const TIER_ROW_H = 13;
+const TIER_LABEL_W = 118;
+const TIER_VALUE_W = 60;
+const COL_GAP = 8;
+const BAR_H = 5.5;
+const CARD_PAD = 10;
+const CARD_GAP = 9;
+const SEC_TITLE = 9.5;
+const SEC_COUNT = 8;
+const SECTION_GAP = 11;
+const ITEM_SIZE = 9.5;
+const ITEM_LH = 12.6;
+const ITEM_GAP = 2.5;
+const SRC_CHIP = 7.5;
+const TAG_CHIP = 7;
+const SUB_CHIP = 8;
+const EDU_LABEL = 8.5;
+const EDU_LABEL_LH = 11;
+const EDU_BAR_H = 5;
+const EDU_PCT = 8.5;
+const EDU_ROW_MIN = 12;
+
+const CHIP_PADX = 4.5;
+const CHIP_PADY = 2.4;
+const CHIP_GAP = 4;
+const CHIP_RADIUS = 3;
+const BULLET_INDENT = 12;
+
+interface PdfChip {
+  parts: { text: string; color: Color; bold?: boolean }[];
+  bg: Color;
+  border: Color;
+  size: number;
+}
+
+/** Baseline-align a secondary run of size `s` to a primary run of size `p` whose
+ *  em box top is `pTop`, so codes/wages sit on the title's baseline. */
+function alignTop(pTop: number, p: number, s: number): number {
+  return pTop + (p - s) * 0.8;
+}
+
+function chipSize(pdf: Pdf, chip: PdfChip): { w: number; h: number } {
+  const space = pdf.measure(" ", chip.size);
+  let inner = 0;
+  chip.parts.forEach((part, i) => {
+    inner += pdf.measure(part.text, chip.size, part.bold);
+    if (i > 0) inner += space;
+  });
+  return { w: inner + CHIP_PADX * 2, h: chip.size + CHIP_PADY * 2 };
+}
+
+function drawChip(pdf: Pdf, x: number, top: number, chip: PdfChip): void {
+  const { w, h } = chipSize(pdf, chip);
+  pdf.box(x, top, w, h, { fill: chip.bg, stroke: chip.border, radius: CHIP_RADIUS, lineWidth: 0.6 });
+  const space = pdf.measure(" ", chip.size);
+  let tx = x + CHIP_PADX;
+  const ty = top + (h - chip.size) / 2;
+  chip.parts.forEach((part, i) => {
+    if (i > 0) tx += space;
+    pdf.text(tx, ty, part.text, { size: chip.size, bold: part.bold, color: part.color });
+    tx += pdf.measure(part.text, chip.size, part.bold);
+  });
+}
+
+/** Flow chips left-to-right within [leftX, rightX], wrapping to new rows. Returns
+ *  the last row's top and height; draw=false measures only (for pagination).
+ *  `startRowH` seeds the first row's height so chips that trail wrapped text and
+ *  overflow drop a full text line instead of colliding with it. */
+function flowChips(
+  pdf: Pdf,
+  startX: number,
+  top: number,
+  leftX: number,
+  rightX: number,
+  chips: PdfChip[],
+  draw: boolean,
+  startRowH = 0,
+): { rowTop: number; rowH: number } {
+  let cx = startX;
+  let cy = top;
+  let rowH = startRowH;
+  for (const chip of chips) {
+    const { w, h } = chipSize(pdf, chip);
+    if (cx + w > rightX && cx > leftX) {
+      cy += rowH + 3;
+      cx = leftX;
+      rowH = 0;
+    }
+    if (draw) drawChip(pdf, cx, cy, chip);
+    cx += w + CHIP_GAP;
+    rowH = Math.max(rowH, h);
+  }
+  return { rowTop: cy, rowH };
+}
+
+/** Source-attribution chips for a pooled item -- all of them (no "+N" cap),
+ *  shown only when the report spans more than one role. */
+function srcChips(sources: string[], titleByCode: Map<string, string>, showSrc: boolean): PdfChip[] {
+  if (!showSrc) return [];
+  return sources.map((code) => ({
+    parts: [{ text: titleByCode.get(code) ?? code, color: PDF_MUTED }],
+    bg: PDF_SUNKEN,
+    border: PDF_BORDER,
+    size: SRC_CHIP,
+  }));
+}
+
+function sectionHeading(pdf: Pdf, title: string, count: string, x: number): void {
+  pdf.ensure(SEC_TITLE + 8 + ITEM_LH);
+  const upper = title.toUpperCase();
+  pdf.text(x, pdf.top, upper, { size: SEC_TITLE, bold: true, color: PDF_INK });
+  if (count) {
+    const tw = pdf.measure(upper, SEC_TITLE, true);
+    pdf.text(x + tw + 6, alignTop(pdf.top, SEC_TITLE, SEC_COUNT), count, { size: SEC_COUNT, color: PDF_FAINT });
+  }
+  pdf.top += SEC_TITLE + 7;
+}
+
+/** A "• text …" bullet with a hanging indent, followed by trailing chips (tags,
+ *  sources). Measures the whole block first so it never breaks across a page. */
+function bulletItem(pdf: Pdf, x: number, w: number, runs: Run[], chips: PdfChip[]): void {
+  const textX = x + BULLET_INDENT;
+  const textW = w - BULLET_INDENT;
+  const rightX = x + w;
+
+  const dry = pdf.paragraph(textX, 0, textW, runs, ITEM_SIZE, ITEM_LH, false);
+  let bottom = dry.endTop + ITEM_LH;
+  if (chips.length) {
+    const c = flowChips(pdf, dry.endX + CHIP_GAP, dry.endTop, textX, rightX, chips, false, ITEM_LH);
+    bottom = Math.max(bottom, c.rowTop + c.rowH);
+  }
+  pdf.ensure(bottom + ITEM_GAP);
+
+  const top = pdf.top;
+  pdf.text(x, top, "\u2022", { size: ITEM_SIZE, color: PDF_MUTED });
+  const p = pdf.paragraph(textX, top, textW, runs, ITEM_SIZE, ITEM_LH, true);
+  let realBottom = p.endTop + ITEM_LH;
+  if (chips.length) {
+    const c = flowChips(pdf, p.endX + CHIP_GAP, p.endTop, textX, rightX, chips, true, ITEM_LH);
+    realBottom = Math.max(realBottom, c.rowTop + c.rowH);
+  }
+  pdf.top = realBottom + ITEM_GAP;
+}
+
+/** One selected job: title, SOC code, average wage, four scaled wage bars, and
+ *  the ticked sub-role pills (or a load-failure note). */
+function drawJobCard(pdf: Pdf, entry: AggregateEntry, tierLabels: string[], x: number, w: number): void {
+  const { row, bundle, codes } = entry;
+  const innerX = x + CARD_PAD;
+  const innerRight = x + w - CARD_PAD;
+  const wanted = new Set(codes);
+  const matched = new Set(row.onetHits.map((hit) => hit.code));
+  const shown = bundle ? orderCodes(bundle, matched).filter((code) => wanted.has(code)) : [];
+  const subChips: PdfChip[] = shown.map((code) => ({
+    parts: [
+      { text: code, color: PDF_FAINT },
+      { text: bundle![code].title, color: PDF_MUTED },
+    ],
+    bg: PDF_ELEVATED,
+    border: PDF_BORDER,
+    size: SUB_CHIP,
+  }));
+
+  const headH = 17;
+  const tiersH = 4 * TIER_ROW_H;
+  let subsH = 0;
+  if (subChips.length) {
+    const dry = flowChips(pdf, innerX, 0, innerX, innerRight, subChips, false);
+    subsH = 6 + dry.rowTop + dry.rowH;
+  }
+  const failH = bundle ? 0 : ITEM_LH + 2;
+  const cardH = CARD_PAD + headH + tiersH + subsH + failH + CARD_PAD;
+
+  pdf.ensure(cardH + CARD_GAP);
+  const top0 = pdf.top;
+  pdf.box(x, top0, w, cardH, { fill: PDF_SUNKEN, stroke: PDF_BORDER, radius: 8, lineWidth: 0.8 });
+
+  const titleTop = top0 + CARD_PAD;
+  pdf.text(innerX, titleTop, row.title, { size: CARD_TITLE, bold: true, color: PDF_INK });
+  const titleW = pdf.measure(row.title, CARD_TITLE, true);
+  pdf.text(innerX + titleW + 7, alignTop(titleTop, CARD_TITLE, SOC_SIZE), row.soccode, {
+    size: SOC_SIZE,
+    bold: true,
+    color: PDF_MUTED,
+  });
+  const wageText = `${formatUSD(row.avg)} avg / yr`;
+  pdf.text(innerRight - pdf.measure(wageText, WAGE_SIZE), alignTop(titleTop, CARD_TITLE, WAGE_SIZE), wageText, {
+    size: WAGE_SIZE,
+    color: PDF_MUTED,
+  });
+
+  const tiersTop = titleTop + headH;
+  const levels = [row.l1, row.l2, row.l3, row.l4];
+  const scaleMax = Math.max(0, ...levels.filter((v): v is number => v !== null));
+  const barX = innerX + TIER_LABEL_W + COL_GAP;
+  const barW = innerRight - TIER_VALUE_W - COL_GAP - barX;
+  for (let i = 0; i < 4; i++) {
+    const rowTop = tiersTop + i * TIER_ROW_H;
+    const v = levels[i];
+    pdf.text(innerX, rowTop + (TIER_ROW_H - TIER_LABEL) / 2, tierLabels[i] || `Level ${i + 1}`, {
+      size: TIER_LABEL,
+      color: v === null ? PDF_FAINT : PDF_MUTED,
+    });
+    if (v !== null && scaleMax > 0) {
+      pdf.box(barX, rowTop + (TIER_ROW_H - BAR_H) / 2, Math.max(4, (v / scaleMax) * barW), BAR_H, {
+        fill: PDF_TIERS[i],
+        radius: BAR_H / 2,
+      });
+    }
+    const valText = formatUSD(v);
+    pdf.text(innerRight - pdf.measure(valText, TIER_VALUE, true), rowTop + (TIER_ROW_H - TIER_VALUE) / 2, valText, {
+      size: TIER_VALUE,
+      bold: true,
+      color: v === null ? PDF_FAINT : PDF_INK,
+    });
+  }
+
+  const belowTiers = tiersTop + tiersH;
+  if (!bundle) {
+    pdf.text(innerX, belowTiers + 2, "O*NET detail failed to load \u2014 retry in the app.", {
+      size: ITEM_SIZE,
+      color: PDF_WARN,
+    });
+  } else if (subChips.length) {
+    flowChips(pdf, innerX, belowTiers + 6, innerX, innerRight, subChips, true);
+  }
+
+  pdf.top = top0 + cardH + CARD_GAP;
+}
+
+/** Education: one percent distribution per role (level low-to-high), a per-role
+ *  fact that cannot be pooled, so it is compared just like the on-screen view. */
+function drawEducation(pdf: Pdf, roles: RoleRef[], x: number, w: number): void {
+  const eduRoles = roles.filter((r) => r.profile.education?.length);
+  if (eduRoles.length === 0) return;
+  pdf.top += SECTION_GAP;
+  sectionHeading(pdf, "Education", "% of respondents", x);
+
+  const labelW = 150;
+  const barX = x + labelW + COL_GAP;
+  for (const role of eduRoles) {
+    const dist = eduByLevel(role.profile.education ?? []);
+    const maxPct = Math.max(0, ...dist.map((e) => e.percent));
+    pdf.ensure(9 + 5 + EDU_ROW_MIN);
+    pdf.text(x, pdf.top, role.title, { size: 9, bold: true, color: PDF_MUTED });
+    pdf.top += 9 + 5;
+    for (const e of dist) {
+      const lines = pdf.wrap(e.level, EDU_LABEL, false, labelW);
+      const rowH = Math.max(lines.length * EDU_LABEL_LH, EDU_ROW_MIN);
+      pdf.ensure(rowH);
+      const rowTop = pdf.top;
+      lines.forEach((ln, i) => pdf.text(x, rowTop + i * EDU_LABEL_LH, ln, { size: EDU_LABEL, color: PDF_MUTED }));
+      const barTop = rowTop + (EDU_LABEL_LH - EDU_BAR_H) / 2;
+      const barW = x + w - EDU_PCT - 24 - COL_GAP - barX;
+      if (maxPct > 0) {
+        pdf.box(barX, barTop, Math.max(3, (e.percent / maxPct) * barW), EDU_BAR_H, {
+          fill: PDF_TIERS[2],
+          radius: EDU_BAR_H / 2,
+        });
+      }
+      const pct = `${e.percent}%`;
+      pdf.text(x + w - pdf.measure(pct, EDU_PCT, true), rowTop + (EDU_LABEL_LH - EDU_PCT) / 2, pct, {
+        size: EDU_PCT,
+        bold: true,
+        color: PDF_INK,
+      });
+      pdf.top = rowTop + rowH + 2;
+    }
+    pdf.top += 4;
+  }
+}
+
+/**
+ * Render the aggregate as a downloadable PDF that mirrors the on-screen report.
+ * `tierLabels` are the four wage-level names, passed in from the card template so
+ * the level labels keep a single source (the same reason renderAggregateReport
+ * takes an injected tier renderer). Every section is drawn in full -- no preview
+ * cap and no source-chip cap -- so the download is the complete report.
+ */
+export function aggregateReportToPdfBlob(entries: AggregateEntry[], tierLabels: string[]): Blob {
+  const pdf = new Pdf();
+  const x = pdf.margin;
+  const w = pdf.contentW;
+
+  const roles = collectRoles(entries);
+  const jobWord = entries.length === 1 ? "job" : "jobs";
+  const roleWord = roles.length === 1 ? "role" : "roles";
+
+  pdf.text(x, pdf.top, "Aggregated job description", { size: TITLE_SIZE, bold: true, color: PDF_INK });
+  pdf.top += TITLE_SIZE + 4;
+  pdf.text(x, pdf.top, `${roles.length} ${roleWord} across ${entries.length} ${jobWord}`, {
+    size: SUBTITLE_SIZE,
+    color: PDF_MUTED,
+  });
+  pdf.top += SUBTITLE_SIZE + 8;
+  pdf.box(x, pdf.top, w, 0.8, { fill: PDF_BORDER });
+  pdf.top += 12;
+
+  for (const entry of entries) drawJobCard(pdf, entry, tierLabels, x, w);
+
+  if (roles.length === 0) {
+    const failed = entries.some((e) => !e.bundle);
+    pdf.top += 6;
+    pdf.text(
+      x,
+      pdf.top,
+      failed
+        ? "O*NET detail failed to load \u2014 retry in the app."
+        : "No O*NET detail is available for the selected roles.",
+      { size: ITEM_SIZE, color: failed ? PDF_WARN : PDF_MUTED },
+    );
+    return pdf.blob();
+  }
+
+  const pools = buildPools(roles);
+  const titleByCode = new Map(roles.map((r) => [r.code, r.title]));
+  const showSrc = roles.length > 1;
+
+  if (pools.tasks.length) {
+    pdf.top += SECTION_GAP;
+    sectionHeading(pdf, "Tasks", String(pools.tasks.length), x);
+    for (const t of pools.tasks) {
+      const chips: PdfChip[] = [];
+      if (t.supplemental) {
+        chips.push({ parts: [{ text: "SUPPLEMENTAL", color: PDF_FAINT }], bg: PDF_ELEVATED, border: PDF_BORDER, size: TAG_CHIP });
+      }
+      chips.push(...srcChips(t.sources, titleByCode, showSrc));
+      bulletItem(pdf, x, w, [{ text: t.text, color: PDF_MUTED }], chips);
+    }
+  }
+
+  if (pools.dwas.length) {
+    pdf.top += SECTION_GAP;
+    sectionHeading(pdf, "Detailed Work Activities", String(pools.dwas.length), x);
+    for (const d of pools.dwas) {
+      bulletItem(pdf, x, w, [{ text: d.text, color: PDF_MUTED }], srcChips(d.sources, titleByCode, showSrc));
+    }
+  }
+
+  if (pools.zones.length) {
+    pdf.top += SECTION_GAP;
+    sectionHeading(pdf, "Job Zone", pools.zones.length === 1 ? "1 level" : `${pools.zones.length} levels`, x);
+    for (const z of pools.zones) {
+      bulletItem(
+        pdf,
+        x,
+        w,
+        [
+          { text: `Zone ${z.zone}`, bold: true, color: PDF_INK },
+          { text: "\u2014", color: PDF_MUTED },
+          { text: z.name, color: PDF_MUTED },
+        ],
+        srcChips(z.sources, titleByCode, showSrc),
+      );
+    }
+  }
+
+  const elementSection = (title: string, items: { name: string; description: string; sources: string[] }[]): void => {
+    if (items.length === 0) return;
+    pdf.top += SECTION_GAP;
+    sectionHeading(pdf, title, String(items.length), x);
+    for (const e of items) {
+      const runs: Run[] = [{ text: e.name, bold: true, color: PDF_INK }];
+      if (e.description) {
+        runs.push({ text: "\u2014", color: PDF_MUTED }, { text: e.description, color: PDF_MUTED });
+      }
+      bulletItem(pdf, x, w, runs, srcChips(e.sources, titleByCode, showSrc));
+    }
+  };
+  elementSection("Knowledge", pools.knowledge);
+  elementSection("Skills", pools.skills);
+
+  if (pools.software.length) {
+    pdf.top += SECTION_GAP;
+    sectionHeading(pdf, "Technology Skills", String(pools.software.length), x);
+    for (const c of pools.software) {
+      const chips: PdfChip[] = c.examples.map((ex) => {
+        const parts: { text: string; color: Color; bold?: boolean }[] = [{ text: ex.name, color: PDF_MUTED }];
+        if (ex.hot) parts.push({ text: "HOT", color: PDF_WARN, bold: true });
+        else if (ex.inDemand) parts.push({ text: "IN DEMAND", color: PDF_ACCENT, bold: true });
+        return { parts, bg: PDF_ELEVATED, border: PDF_BORDER, size: SRC_CHIP };
+      });
+      chips.push(...srcChips(c.sources, titleByCode, showSrc));
+      bulletItem(pdf, x, w, [{ text: c.category, bold: true, color: PDF_INK }], chips);
+    }
+  }
+
+  drawEducation(pdf, pools.roles, x, w);
+
+  return pdf.blob();
 }

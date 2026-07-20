@@ -15,9 +15,9 @@ import {
   renderProfile,
   renderAggregateReport,
   aggregateReportToText,
+  aggregateReportToPdfBlob,
   type AggregateEntry,
 } from "./lib/onetView";
-import { textToPdfBlob } from "./lib/pdf";
 import type { YearInfo, WageTable, ResultRow, OnetBundle, OnetHit } from "./lib/types";
 
 const DESC_CLAMP_CHARS = 260;
@@ -568,10 +568,14 @@ async function copyAggregate(entries: AggregateEntry[], btn: HTMLButtonElement):
   }, 1600);
 }
 
-/** Download the aggregate as a self-contained PDF built from the same structured
- *  text as Copy. Triggers a direct file download -- no print dialog. */
+/** Download the aggregate as a self-contained PDF that mirrors the on-screen
+ *  report layout. Triggers a direct file download -- no print dialog. The tier
+ *  labels come from the card template so the level names keep a single source. */
 function downloadAggregatePdf(entries: AggregateEntry[]): void {
-  const blob = textToPdfBlob(aggregateReportToText(entries));
+  const tierLabels = Array.from(els.cardTpl.content.querySelectorAll(".tier__name")).map(
+    (el) => el.textContent ?? "",
+  );
+  const blob = aggregateReportToPdfBlob(entries, tierLabels);
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
