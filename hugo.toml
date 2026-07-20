@@ -1,4 +1,4 @@
-baseURL = "https://xingyuanzhao-project.github.io/wage-explorer/"
+baseURL = "https://xingyuanzhao-project.github.io/wage_analyzer/"
 locale = "en-us"
 title = "Wage Explorer"
 enableRobotsTXT = true
