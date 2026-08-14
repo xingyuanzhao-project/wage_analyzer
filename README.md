@@ -2,7 +2,7 @@
 
 Find the U.S. prevailing wage for any job, by state and county.
 
-**Use it:** https://xingyuanzhao-project.github.io/wage-explorer/
+**Use it:** https://xingyuanzhao-project.github.io/wage_analyzer/
 
 ## How to use it
 
