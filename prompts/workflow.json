@@ -4,11 +4,16 @@
     "port": 8787,
     "defaultOrigin": "http://127.0.0.1:8787",
     "completePath": "/v1/complete",
+    "origins": [
+      { "pageHostPattern": "^(localhost|127\\.0\\.0\\.1)$", "origin": "http://127.0.0.1:8787" },
+      { "pageHostPattern": "^xingyuanzhao-project\\.github\\.io$", "origin": "https://wage-analyzer-llm.special-duckling.workers.dev" }
+    ],
     "allowedOrigins": [
       "http://localhost:1313",
-      "http://127.0.0.1:1313"
+      "http://127.0.0.1:1313",
+      "https://xingyuanzhao-project.github.io"
     ],
-    "allowedOriginPattern": "^https?://(localhost|127\\.0\\.0\\.1)(:\\d+)?$",
+    "allowedOriginPattern": "^https?://(localhost|127\\.0\\.0\\.1)(:\\d+)?$|^https://xingyuanzhao-project\\.github\\.io$",
     "openrouterBase": "https://openrouter.ai/api/v1",
     "siteTitle": "Wage Explorer",
     "siteUrl": "https://xingyuanzhao-project.github.io/wage_analyzer/"
@@ -49,7 +54,7 @@
     "chipsError": "Couldn't generate suggestions. You can still type in the fields below.",
     "retrieveError": "Couldn't build the evidence pack.",
     "retrieveEmptyRoles": "No compiled O*NET roles are available to retrieve from.",
-    "proxyMissing": "The LLM proxy is not reachable. Start it with python scripts/llm_proxy.py (key in .env) and retry.",
+    "proxyMissing": "The LLM proxy is not reachable.",
     "working": "Working…",
     "workingChips": "Collecting suggested answers…",
     "workingOutline": "Drafting the outline…",
