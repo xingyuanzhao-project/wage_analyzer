@@ -19,3 +19,18 @@ disableKinds = ["taxonomy", "term"]
 
 [minify]
   minifyOutput = true
+
+# Serve /prompts from the repo-root prompts folder — the only place LLM
+# call text, models policy, and customize copy are stored.
+[[module.mounts]]
+  source = "assets"
+  target = "assets"
+[[module.mounts]]
+  source = "layouts"
+  target = "layouts"
+[[module.mounts]]
+  source = "static"
+  target = "static"
+[[module.mounts]]
+  source = "prompts"
+  target = "static/prompts"

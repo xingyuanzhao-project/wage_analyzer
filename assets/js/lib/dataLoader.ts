@@ -14,6 +14,8 @@ import type {
 declare global {
   interface Window {
     WAGE_DATA_BASE?: string;
+    WAGE_PROMPTS_BASE?: string;
+    WAGE_LLM_PROXY?: string;
   }
 }
 
@@ -33,6 +35,12 @@ async function getJSON<T>(path: string): Promise<T> {
 
 export function loadYears(): Promise<YearsFile> {
   return getJSON<YearsFile>("years.json");
+}
+
+/** Fetch any JSON under the data base. Path fragments come from callers (year
+ *  folders, prompt-configured retrieve files) — this loader does not invent them. */
+export function loadStaticJson<T>(path: string): Promise<T> {
+  return getJSON<T>(path);
 }
 
 export interface YearData {

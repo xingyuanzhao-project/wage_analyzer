@@ -1,0 +1,13 @@
+{
+  "models": "models.json",
+  "workflow": "workflow.json",
+  "retrieve": "retrieve.json",
+  "purposes": "purposes.json",
+  "parse": "parse.json",
+  "calls": {
+    "intake-chips": "calls/intake-chips.json",
+    "outline": "calls/outline.json",
+    "outline-revise": "calls/outline-revise.json",
+    "generate": "calls/generate.json"
+  }
+}

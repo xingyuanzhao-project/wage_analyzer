@@ -14,6 +14,10 @@ __pycache__/
 /hugo-bin/
 hugo-server.log
 
+# Local secrets — never commit
+.env
+.env.local
+
 # OS cruft
 .DS_Store
 Thumbs.db

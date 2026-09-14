@@ -1,0 +1,24 @@
+{
+  "id": "outline",
+  "variables": [
+    "purpose_id",
+    "purpose_label",
+    "purpose_other",
+    "intake",
+    "evidence",
+    "report_fields"
+  ],
+  "temperature": 0.2,
+  "max_tokens": 1400,
+  "parse": { "type": "json" },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You propose a short outline of decisions to customize a job-description report for an H-1B / LCA / PERM user. You may only use the evidence pack and the user's optional intake. Every decision must cite evidence chunk ids from the pack. Do not invent occupations, duties, wages, or requirements. Do not blend multiple SOC wage rows into one prevailing wage. Return a single JSON object only. No markdown, no trailing commas, no comments."
+    },
+    {
+      "role": "user",
+      "content": "Purpose id: {{purpose_id}}\nPurpose: {{purpose_label}}\nUser also wrote: {{purpose_other}}\n\nOptional intake (fields may be empty):\n{{intake}}\n\nEvidence pack (the only occupational facts you may use):\n{{evidence}}\n\nThe later report must fill these fields (id, title, kind). The outline should set up those fields, not extra ones:\n{{report_fields}}\n\nReturn JSON: {\"decisions\": [{\"id\": \"d1\", \"title\": \"...\", \"detail\": \"...\", \"sources\": [\"chunk-id\"]}], \"notes\": \"optional short note\"}\nPropose 4 to 8 decisions."
+    }
+  ]
+}

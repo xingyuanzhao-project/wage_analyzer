@@ -1,0 +1,62 @@
+{
+  "proxy": {
+    "host": "127.0.0.1",
+    "port": 8787,
+    "defaultOrigin": "http://127.0.0.1:8787",
+    "completePath": "/v1/complete",
+    "allowedOrigins": [
+      "http://localhost:1313",
+      "http://127.0.0.1:1313"
+    ],
+    "allowedOriginPattern": "^https?://(localhost|127\\.0\\.0\\.1)(:\\d+)?$",
+    "openrouterBase": "https://openrouter.ai/api/v1",
+    "siteTitle": "Wage Explorer",
+    "siteUrl": "https://xingyuanzhao-project.github.io/wage_analyzer/"
+  },
+  "outline": {
+    "maxRevisions": 3
+  },
+  "grounding": {
+    "socPattern": "\\b\\d{2}-\\d{4}(?:\\.\\d{2})?\\b",
+    "rejectUnsourcedMoney": true
+  },
+  "labels": {
+    "tabCustom": "Customized Report",
+    "customizeButton": "Customize Job Description",
+    "generateButton": "Generate customized report",
+    "purposeHeading": "What do you want this customized report to do?",
+    "purposeOtherLabel": "I want something else:",
+    "purposeOtherPlaceholder": "Describe what you need in one or two sentences",
+    "purposeContinue": "Continue",
+    "intakeHeading": "A few optional questions",
+    "intakeHint": "Every question is optional. Tick a suggestion or type an answer.",
+    "intakeContinue": "Continue to outline",
+    "intakeSkip": "Skip and continue",
+    "outlineHeading": "Proposed decisions",
+    "outlineHint": "Yes accepts this outline. Regenerate asks for a new list. A change message revises it. After three revisions, you can generate the report.",
+    "outlineAccept": "Yes",
+    "outlineRegenerate": "Regenerate",
+    "outlineChangePlaceholder": "Ask for a change…",
+    "outlineSendChange": "Apply change",
+    "revisionCaption": "Revisions used",
+    "placeholderNoSelection": "Tick one or more roles in Job Explorer, then compile an aggregated job description before customizing.",
+    "placeholderNoCompile": "Compile the aggregated job description, then choose Customize Job Description.",
+    "placeholderStale": "Selection changed since the aggregated report was compiled. Recompile, then choose Customize Job Description.",
+    "placeholderReady": "Choose Customize Job Description to start a guided draft from the compiled roles.",
+    "compileShortcut": "Compile now",
+    "customizeShortcut": "Customize now",
+    "errorPrefix": "Couldn't complete that step.",
+    "chipsError": "Couldn't generate suggestions. You can still type in the fields below.",
+    "retrieveError": "Couldn't build the evidence pack.",
+    "retrieveEmptyRoles": "No compiled O*NET roles are available to retrieve from.",
+    "proxyMissing": "The LLM proxy is not reachable. Start it with python scripts/llm_proxy.py (key in .env) and retry.",
+    "working": "Working…",
+    "workingChips": "Collecting suggested answers…",
+    "workingOutline": "Drafting the outline…",
+    "workingGenerate": "Writing the customized report…",
+    "tryAgain": "Try again",
+    "missingAggregate": "The compiled aggregate is no longer available.",
+    "missingOutlineDecisions": "Outline was missing a decisions list.",
+    "missingReportFields": "Report was missing fields."
+  }
+}

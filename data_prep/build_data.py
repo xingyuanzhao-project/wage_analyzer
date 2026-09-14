@@ -481,6 +481,9 @@ def main() -> None:
     n_alc_areas, n_alc_rows = build_wages("alc")
     n_edc_areas, n_edc_rows = build_wages("edc")
     n_onet_shards, n_onet_socs, n_onet_codes = build_onet(xwalk_map)
+    from build_retrieve_index import build_retrieve_index
+
+    n_ret_occ, n_ret_rel = build_retrieve_index()
 
     print("Data build complete.")
     print(f"  geography rows : {n_geo}")
@@ -489,6 +492,7 @@ def main() -> None:
     print(f"  ALC : {n_alc_rows} rows -> {n_alc_areas} area files")
     print(f"  EDC : {n_edc_rows} rows -> {n_edc_areas} area files")
     print(f"  O*NET : {n_onet_codes} profiles across {n_onet_socs} SOCs -> {n_onet_shards} shard files")
+    print(f"  retrieve index : {n_ret_occ} occupations, {n_ret_rel} related keys")
     print(f"  output dir     : {OUT}")
 
 

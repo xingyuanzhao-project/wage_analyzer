@@ -18,6 +18,13 @@ import {
   aggregateReportToPdfBlob,
   type AggregateEntry,
 } from "./lib/onetView";
+import { loadPrompts, type PromptCatalog } from "./lib/prompts";
+import {
+  activeCustomizeSignature,
+  beginCustomize,
+  renderCustomizePlaceholder,
+  resetCustomize,
+} from "./lib/customizeView";
 import type { YearInfo, WageTable, ResultRow, OnetBundle, OnetHit } from "./lib/types";
 
 const DESC_CLAMP_CHARS = 260;
@@ -176,8 +183,13 @@ let aggregateEl: HTMLElement | null = null;
 let compileBtn: HTMLButtonElement | null = null;
 let compileLabelEl: HTMLElement | null = null;
 let compileCountEl: HTMLElement | null = null;
+let customizeBtn: HTMLButtonElement | null = null;
 let reportTabBadge: HTMLElement | null = null;
-let switchViewFn: ((view: "explorer" | "report") => void) | null = null;
+let switchViewFn: ((view: "explorer" | "report" | "custom") => void) | null = null;
+let currentView: "explorer" | "report" | "custom" = "explorer";
+let compiledEntries: AggregateEntry[] | null = null;
+let customizeEl: HTMLElement | null = null;
+let promptCatalog: PromptCatalog | null = null;
 // Signature of the selection the on-screen report was compiled from (null until
 // the first compile). When it diverges from the live selection, the report is
 // stale and the UI says so rather than silently showing old numbers.
@@ -224,7 +236,10 @@ function renderResults(
   currentKeywords = keywords;
   selected.clear();
   compiledSignature = null;
+  compiledEntries = null;
   compiling = false;
+  currentView = "explorer";
+  resetCustomize();
 
   const activeSeg = els.tableToggle.querySelector<HTMLElement>(".seg.is-active");
   const tableName = (activeSeg?.textContent ?? "").trim();
@@ -232,18 +247,21 @@ function renderResults(
 
   els.results.textContent = "";
 
-  // --- top toolbar: page tabs (Job Explorer | Aggregated report) on the left,
-  //     the Compile action on the far right ---
+  // --- top toolbar: page tabs on the left, Compile + Customize on the right ---
   const tabs = document.createElement("div");
   tabs.className = "view-tabs";
   const tabList = makeEl("div", "view-tabs__list");
   tabList.setAttribute("role", "tablist");
   const explorerTab = makeTab("Job Explorer", true);
   const reportTab = makeTab("Aggregated report", false);
+  const customTab = promptCatalog
+    ? makeTab(promptCatalog.workflow.labels.tabCustom, false)
+    : null;
   reportTabBadge = makeEl("span", "view-tab__badge");
   reportTabBadge.hidden = true;
   reportTab.appendChild(reportTabBadge);
   tabList.append(explorerTab, reportTab);
+  if (customTab) tabList.append(customTab);
 
   compileBtn = document.createElement("button");
   compileBtn.type = "button";
@@ -255,7 +273,20 @@ function renderResults(
   compileBtn.append(compileLabelEl, compileCountEl);
   compileBtn.addEventListener("click", () => void compileReport());
 
-  tabs.append(tabList, compileBtn);
+  customizeBtn = null;
+  if (promptCatalog) {
+    customizeBtn = document.createElement("button");
+    customizeBtn.type = "button";
+    customizeBtn.className = "view-tabs__compile";
+    customizeBtn.disabled = true;
+    customizeBtn.append(makeEl("span", "view-tabs__compile-label", promptCatalog.workflow.labels.customizeButton));
+    customizeBtn.addEventListener("click", () => void startCustomize());
+  }
+
+  const actions = makeEl("div", "view-tabs__actions");
+  actions.append(compileBtn);
+  if (customizeBtn) actions.append(customizeBtn);
+  tabs.append(tabList, actions);
   els.results.appendChild(tabs);
 
   // --- Job Explorer panel: summary bar + result cards ---
@@ -331,21 +362,36 @@ function renderResults(
   reportPanel.appendChild(aggregateEl);
   els.results.appendChild(reportPanel);
 
+  const customPanel = makeEl("div", "view-panel");
+  customPanel.setAttribute("role", "tabpanel");
+  customPanel.hidden = true;
+  customizeEl = document.createElement("section");
+  customizeEl.className = "aggregate";
+  customizeEl.setAttribute("aria-live", "polite");
+  customPanel.appendChild(customizeEl);
+  els.results.appendChild(customPanel);
+
   // Tabs only toggle panel visibility; ticking a card never switches view and
   // never builds the report -- that waits for an explicit Compile.
   switchViewFn = (view) => {
-    const explorer = view === "explorer";
-    explorerTab.classList.toggle("is-active", explorer);
-    reportTab.classList.toggle("is-active", !explorer);
-    explorerTab.setAttribute("aria-selected", explorer ? "true" : "false");
-    reportTab.setAttribute("aria-selected", explorer ? "false" : "true");
-    explorerPanel.hidden = !explorer;
-    reportPanel.hidden = explorer;
+    currentView = view;
+    explorerTab.classList.toggle("is-active", view === "explorer");
+    reportTab.classList.toggle("is-active", view === "report");
+    customTab?.classList.toggle("is-active", view === "custom");
+    explorerTab.setAttribute("aria-selected", view === "explorer" ? "true" : "false");
+    reportTab.setAttribute("aria-selected", view === "report" ? "true" : "false");
+    customTab?.setAttribute("aria-selected", view === "custom" ? "true" : "false");
+    explorerPanel.hidden = view !== "explorer";
+    reportPanel.hidden = view !== "report";
+    customPanel.hidden = view !== "custom";
+    syncProcessButtons();
   };
   explorerTab.addEventListener("click", () => switchViewFn?.("explorer"));
   reportTab.addEventListener("click", () => switchViewFn?.("report"));
+  customTab?.addEventListener("click", () => switchViewFn?.("custom"));
 
   renderReportPlaceholder();
+  void refreshCustomizePlaceholder();
   renderList();
 }
 
@@ -384,6 +430,20 @@ function selectionSignature(): string {
  * selection. Called on every tick -- it updates the count and enabled/stale
  * state but never builds the report (that is Compile's job).
  */
+function syncProcessButtons(): void {
+  compileBtn?.classList.toggle("is-current", compiling || currentView === "report");
+  customizeBtn?.classList.toggle("is-current", currentView === "custom");
+}
+
+function compiledFresh(): boolean {
+  return (
+    compiledSignature !== null &&
+    compiledSignature === selectionSignature() &&
+    selected.size > 0 &&
+    compiledEntries !== null
+  );
+}
+
 function refreshCompileUi(): void {
   const count = selected.size;
   if (compileBtn) compileBtn.disabled = count === 0 || compiling;
@@ -393,10 +453,47 @@ function refreshCompileUi(): void {
   }
   const stale = compiledSignature !== null && compiledSignature !== selectionSignature();
   if (compileBtn) compileBtn.classList.toggle("is-stale", stale && count > 0 && !compiling);
+  if (customizeBtn) customizeBtn.disabled = !compiledFresh() || compiling;
+  syncProcessButtons();
 
   if (compiling) return; // leave the progress bar untouched mid-compile
   if (compiledSignature === null) renderReportPlaceholder();
   else setReportStale(stale);
+  void refreshCustomizePlaceholder();
+}
+
+function customizeGate(): "no-selection" | "no-compile" | "stale" | "ready" {
+  if (selected.size === 0) return "no-selection";
+  if (compiledSignature === null) return "no-compile";
+  if (compiledSignature !== selectionSignature()) return "stale";
+  return "ready";
+}
+
+async function refreshCustomizePlaceholder(): Promise<void> {
+  if (!customizeEl) return;
+  const gate = customizeGate();
+  const live = activeCustomizeSignature();
+  if (gate === "ready" && live === selectionSignature()) return;
+  if (gate !== "ready") resetCustomize();
+  await renderCustomizePlaceholder(customizeEl, gate, {
+    onCompile: () => void compileReport(),
+    onCustomize: () => void startCustomize(),
+  });
+}
+
+async function startCustomize(): Promise<void> {
+  if (!customizeEl || !switchViewFn || !compiledFresh() || !compiledEntries) return;
+  switchViewFn("custom");
+  await beginCustomize({
+    root: customizeEl,
+    year: currentYear,
+    wageLevelLabels: Array.from(els.cardTpl.content.querySelectorAll(".tier__name")).map(
+      (node) => node.textContent ?? "",
+    ),
+    renderTiers,
+    getEntries: () => compiledEntries,
+    getSignature: selectionSignature,
+  });
 }
 
 /** The report panel before any compile: a prompt that reflects how many roles
@@ -524,8 +621,10 @@ async function compileReport(): Promise<void> {
     bundle: bundles[i],
     codes: x.codes,
   }));
+  compiledEntries = entries;
   compiledSignature = signature;
   compiling = false;
+  resetCustomize();
   if (compileLabelEl) compileLabelEl.textContent = "Compile aggregated job description";
 
   aggregateEl.textContent = "";
@@ -958,6 +1057,13 @@ async function init(): Promise<void> {
     yearDd.value = yearsFile.default;
     setFooterNote(yearsFile.default);
     await refreshYear(yearsFile.default);
+    try {
+      promptCatalog = await loadPrompts();
+    } catch (err) {
+      promptCatalog = null;
+      const message = err instanceof Error ? err.message : String(err);
+      els.hint.textContent = `Customize prompts did not load: ${message}`;
+    }
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     renderMessage("error", "Couldn't load data", message);

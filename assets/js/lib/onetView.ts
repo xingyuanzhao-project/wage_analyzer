@@ -266,7 +266,7 @@ export interface AggregateEntry {
 }
 
 /** A distinct O*NET-SOC child role contributing to the pool. */
-interface RoleRef {
+export interface RoleRef {
   code: string;
   title: string;
   profile: OnetProfile;
@@ -277,7 +277,7 @@ type Pooled<T> = T & { sources: string[] };
 
 /** Flatten selected jobs to the child roles ticked on their cards (matched
  *  first), deduped by O*NET code across the whole selection. */
-function collectRoles(entries: AggregateEntry[]): RoleRef[] {
+export function collectRoles(entries: AggregateEntry[]): RoleRef[] {
   const roles: RoleRef[] = [];
   const seen = new Set<string>();
   for (const { row, bundle, codes } of entries) {
@@ -494,7 +494,7 @@ function loadFailureNote(jobTitles: string[], onRetry: () => void): HTMLElement 
  *  sub-roles sit under them as JD contributors -- never as separately-priced
  *  rows. `renderTiers` is injected by the caller: main.ts owns the card template
  *  that the tier labels live in, so the level labels keep a single source. */
-function rolesStrip(
+export function rolesStrip(
   entries: AggregateEntry[],
   onRetry: () => void,
   renderTiers: (row: ResultRow) => HTMLElement,

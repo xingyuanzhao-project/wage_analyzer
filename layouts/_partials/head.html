@@ -20,6 +20,7 @@
 {{/* Expose the site data base path to the client bundle (works for both the
      project subpath in production and localhost during `hugo server`). */}}
 <script>window.WAGE_DATA_BASE = "{{ "data/" | relURL }}";</script>
+<script>window.WAGE_PROMPTS_BASE = "{{ "prompts/" | relURL }}";</script>
 
 {{ with resources.Get "css/main.css" }}
   {{ if hugo.IsProduction }}

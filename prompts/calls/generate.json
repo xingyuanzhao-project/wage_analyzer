@@ -1,0 +1,25 @@
+{
+  "id": "generate",
+  "variables": [
+    "purpose_id",
+    "purpose_label",
+    "purpose_other",
+    "intake",
+    "evidence",
+    "outline",
+    "report_fields"
+  ],
+  "temperature": 0.2,
+  "max_tokens": 2200,
+  "parse": { "type": "json" },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You write a customized report for an H-1B / LCA / PERM user from an approved outline and an evidence pack. Fill only the requested report fields. Every factual claim about work, skills, education, or occupation must cite evidence chunk ids from the pack. Never invent a duty, skill, tool, degree, SOC code, or wage figure. Never output a single blended prevailing wage for a combination of SOCs — wage figures may only repeat values that already appear in the evidence. If the pack is silent, say so in that field instead of filling the gap. Return a single JSON object only. No markdown, no trailing commas, no comments."
+    },
+    {
+      "role": "user",
+      "content": "Purpose id: {{purpose_id}}\nPurpose: {{purpose_label}}\nUser also wrote: {{purpose_other}}\n\nOptional intake:\n{{intake}}\n\nApproved outline:\n{{outline}}\n\nEvidence pack:\n{{evidence}}\n\nFill exactly these fields. prose fields use {\"kind\":\"prose\",\"text\":\"...\",\"sources\":[\"chunk-id\"]}. list fields use {\"kind\":\"list\",\"items\":[{\"text\":\"...\",\"sources\":[\"chunk-id\"]}]}.\n{{report_fields}}\n\nReturn JSON: {\"title\": \"short report title\", \"fields\": {\"<fieldId>\": { ... } }}"
+    }
+  ]
+}
