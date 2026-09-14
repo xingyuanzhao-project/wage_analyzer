@@ -17,6 +17,7 @@ import sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.error import HTTPError, URLError
+from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -210,7 +211,11 @@ class Handler(BaseHTTPRequestHandler):
     def _origin_ok(self) -> str | None:
         origin = self.headers.get("Origin")
         proxy = self.catalog.workflow["proxy"]
-        allowed = proxy["allowedOrigins"]
+        allowed = list(proxy["allowedOrigins"])
+        site = proxy.get("siteUrl") or ""
+        parsed = urlparse(site)
+        if parsed.scheme and parsed.netloc:
+            allowed.append(f"{parsed.scheme}://{parsed.netloc}")
         pattern = proxy.get("allowedOriginPattern")
         if origin and origin in allowed:
             return origin

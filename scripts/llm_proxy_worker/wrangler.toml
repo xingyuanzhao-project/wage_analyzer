@@ -1,0 +1,6 @@
+name = "wage-analyzer-llm"
+main = "src/worker.js"
+compatibility_date = "2026-09-13"
+
+[vars]
+PROMPTS_BASE = "https://raw.githubusercontent.com/xingyuanzhao-project/wage_analyzer/main/prompts/"

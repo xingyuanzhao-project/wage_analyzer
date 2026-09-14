@@ -13,11 +13,17 @@ export interface ModelPolicy {
   preferred: string[];
 }
 
+export interface ProxyOriginRule {
+  pageHostPattern: string;
+  origin: string;
+}
+
 export interface WorkflowProxy {
   host: string;
   port: number;
   defaultOrigin: string;
   completePath: string;
+  origins?: ProxyOriginRule[];
   allowedOrigins: string[];
   allowedOriginPattern?: string;
   openrouterBase: string;

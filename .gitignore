@@ -17,6 +17,8 @@ hugo-server.log
 # Local secrets — never commit
 .env
 .env.local
+.dev.vars
+.wrangler/
 
 # OS cruft
 .DS_Store

@@ -1,5 +1,5 @@
 import { parseModelJson } from "./parseJson";
-import { loadPrompts } from "./prompts";
+import { loadPrompts, type WorkflowProxy } from "./prompts";
 
 export interface LlmResult<T> {
   callId: string;
@@ -8,9 +8,16 @@ export interface LlmResult<T> {
   parsed: T;
 }
 
-function proxyOrigin(defaultOrigin: string): string {
+function proxyOrigin(proxy: WorkflowProxy): string {
   const fromWindow = typeof window !== "undefined" ? window.WAGE_LLM_PROXY : "";
-  return (fromWindow || defaultOrigin).replace(/\/+$/, "");
+  if (fromWindow) return fromWindow.replace(/\/+$/, "");
+  const host = typeof window !== "undefined" ? window.location.hostname : "";
+  for (const row of proxy.origins || []) {
+    if (new RegExp(row.pageHostPattern).test(host)) {
+      return row.origin.replace(/\/+$/, "");
+    }
+  }
+  return proxy.defaultOrigin.replace(/\/+$/, "");
 }
 
 function delay(ms: number): Promise<void> {
@@ -65,7 +72,7 @@ export async function completeCall<T>(
     throw new Error(`${callId} parse.type must be json`);
   }
 
-  const origin = proxyOrigin(catalog.workflow.proxy.defaultOrigin);
+  const origin = proxyOrigin(catalog.workflow.proxy);
   const attempts = 1 + catalog.parse.retries;
   let lastError: Error | null = null;
 
