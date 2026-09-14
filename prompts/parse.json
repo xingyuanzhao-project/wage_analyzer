@@ -1,0 +1,12 @@
+{
+  "retries": 3,
+  "retryDelayMs": 400,
+  "steps": [
+    "trim",
+    "stripFences",
+    "extractBalanced",
+    "repairSmartQuotes",
+    "repairTrailingCommas",
+    "parse"
+  ]
+}

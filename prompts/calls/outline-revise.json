@@ -1,0 +1,28 @@
+{
+  "id": "outline-revise",
+  "variables": [
+    "purpose_id",
+    "purpose_label",
+    "purpose_other",
+    "intake",
+    "evidence",
+    "report_fields",
+    "current_outline",
+    "change_message",
+    "revision_n",
+    "max_revisions"
+  ],
+  "temperature": 0.2,
+  "max_tokens": 1400,
+  "parse": { "type": "json" },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You revise an outline of decisions for a customized job-description report. Stay inside the evidence pack and the user's intake. Cite evidence chunk ids. Do not invent occupations, duties, wages, or requirements. Do not blend SOC wages. Return a single JSON object only. No markdown, no trailing commas, no comments."
+    },
+    {
+      "role": "user",
+      "content": "Purpose id: {{purpose_id}}\nPurpose: {{purpose_label}}\nUser also wrote: {{purpose_other}}\n\nOptional intake:\n{{intake}}\n\nEvidence pack:\n{{evidence}}\n\nReport fields the final document must fill:\n{{report_fields}}\n\nCurrent outline:\n{{current_outline}}\n\nUser change (empty means regenerate a fresh outline with the same bounds):\n{{change_message}}\n\nThis is revision {{revision_n}} of {{max_revisions}}.\n\nReturn JSON: {\"decisions\": [{\"id\": \"d1\", \"title\": \"...\", \"detail\": \"...\", \"sources\": [\"chunk-id\"]}], \"notes\": \"optional short note\"}"
+    }
+  ]
+}

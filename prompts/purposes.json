@@ -1,0 +1,109 @@
+{
+  "otherPurposeId": "something-else",
+  "sharedIntakeFields": [
+    {
+      "id": "wageLevel",
+      "label": "Which OFLC wage level matches your current work?",
+      "kind": "chips",
+      "chipSource": "wage-levels",
+      "help": "Optional. These are the four published levels for the compiled occupations."
+    },
+    {
+      "id": "currentPay",
+      "label": "What is your current pay?",
+      "kind": "text",
+      "placeholder": "Optional. Example: $95,000 per year"
+    },
+    {
+      "id": "duties",
+      "label": "Which duties do you actually perform?",
+      "kind": "chips+text",
+      "chipSource": "model",
+      "placeholder": "Optional. Add any duty the suggestions miss."
+    },
+    {
+      "id": "education",
+      "label": "What education or diploma do you currently hold?",
+      "kind": "chips+text",
+      "chipSource": "model",
+      "placeholder": "Optional. Degree, diploma, or certificate the suggestions miss."
+    },
+    {
+      "id": "skills",
+      "label": "Which skills do you currently use?",
+      "kind": "chips+text",
+      "chipSource": "model",
+      "placeholder": "Optional. A skill the suggestions miss."
+    },
+    {
+      "id": "constraints",
+      "label": "What else should stay in or out of this report?",
+      "kind": "text",
+      "placeholder": "Optional. Anything that must bound the draft."
+    }
+  ],
+  "items": [
+    {
+      "id": "wage-level",
+      "label": "I want to know my correct wage level based on my job description",
+      "reportFields": [
+        { "id": "summary", "title": "Summary", "kind": "prose" },
+        { "id": "wageAssessment", "title": "Wage level assessment", "kind": "prose" },
+        { "id": "dutyFit", "title": "How the compiled duties fit each level", "kind": "list" },
+        { "id": "openQuestions", "title": "What still needs a human decision", "kind": "list" }
+      ]
+    },
+    {
+      "id": "narrow-jd",
+      "label": "I want to narrow down my job description based on my actual work and wage level",
+      "reportFields": [
+        { "id": "summary", "title": "Summary", "kind": "prose" },
+        { "id": "keepDuties", "title": "Duties to keep", "kind": "list" },
+        { "id": "dropDuties", "title": "Duties to drop or mark out of scope", "kind": "list" },
+        { "id": "proposedJd", "title": "Narrowed job description", "kind": "prose" }
+      ]
+    },
+    {
+      "id": "job-posting",
+      "label": "I want to help drafting my job posting",
+      "reportFields": [
+        { "id": "postingTitle", "title": "Posting title", "kind": "prose" },
+        { "id": "summary", "title": "Role summary", "kind": "prose" },
+        { "id": "duties", "title": "Essential duties", "kind": "list" },
+        { "id": "requirements", "title": "Minimum requirements", "kind": "list" },
+        { "id": "preferred", "title": "Preferred qualifications", "kind": "list" }
+      ]
+    },
+    {
+      "id": "soc-defense",
+      "label": "I want to choose or defend the correct SOC (occupation code) for my actual work",
+      "reportFields": [
+        { "id": "summary", "title": "Summary", "kind": "prose" },
+        { "id": "primarySoc", "title": "Best-supported occupation among the compiled roles", "kind": "prose" },
+        { "id": "comparison", "title": "Nearby occupations to weigh", "kind": "list" },
+        { "id": "dutyAlignment", "title": "Duty-to-occupation alignment", "kind": "list" }
+      ]
+    },
+    {
+      "id": "perm-requirements",
+      "label": "I want to set education, experience, and skill requirements I can defend on a PERM or LCA filing",
+      "reportFields": [
+        { "id": "summary", "title": "Summary", "kind": "prose" },
+        { "id": "minimumReqs", "title": "Defensible minimum requirements", "kind": "list" },
+        { "id": "notMinimum", "title": "Items that should stay preferred, not required", "kind": "list" },
+        { "id": "educationNote", "title": "Education and experience note", "kind": "prose" }
+      ]
+    },
+    {
+      "id": "something-else",
+      "label": "I want something else:",
+      "allowsFreeText": true,
+      "reportFields": [
+        { "id": "summary", "title": "Summary", "kind": "prose" },
+        { "id": "duties", "title": "Proposed duties", "kind": "list" },
+        { "id": "requirements", "title": "Proposed requirements", "kind": "list" },
+        { "id": "notes", "title": "Notes for your stated goal", "kind": "prose" }
+      ]
+    }
+  ]
+}

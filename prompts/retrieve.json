@@ -1,0 +1,26 @@
+{
+  "occupationIndexPath": "retrieve/index.json",
+  "topK": 24,
+  "relatedCap": 8,
+  "relatedTiers": ["Primary-Short", "Primary-Long"],
+  "minTokenLength": 3,
+  "stopwords": [
+    "the", "and", "for", "with", "that", "this", "from", "are", "was", "were",
+    "have", "has", "had", "not", "but", "you", "your", "our", "their", "into",
+    "using", "use", "used", "job", "work", "role"
+  ],
+  "maxChunkChars": 280,
+  "queryFieldIds": ["duties", "education", "skills", "constraints", "currentPay", "otherIntent"],
+  "fullCorpusOccupationSearch": {
+    "purposeIds": ["soc-defense", "something-else"],
+    "topOccupations": 5
+  },
+  "chunkers": [
+    { "section": "description", "from": "string", "field": "description" },
+    { "section": "task", "from": "array", "field": "tasks", "textKey": "text" },
+    { "section": "dwa", "from": "array", "field": "dwas" },
+    { "section": "knowledge", "from": "array", "field": "knowledge", "textKey": "name" },
+    { "section": "skill", "from": "array", "field": "essentialSkills", "textKey": "name" },
+    { "section": "jobZone", "from": "object", "field": "jobZone", "textKeys": ["name", "education", "experience"] }
+  ]
+}

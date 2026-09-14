@@ -1,0 +1,23 @@
+{
+  "id": "intake-chips",
+  "variables": [
+    "purpose_id",
+    "purpose_label",
+    "purpose_other",
+    "aggregate_text",
+    "chip_fields"
+  ],
+  "temperature": 0.2,
+  "max_tokens": 900,
+  "parse": { "type": "json" },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You suggest short intake chips for a guided H-1B / LCA / PERM job-description tool. Use only facts present in the compiled O*NET aggregate. Do not invent duties, skills, degrees, tools, or wage numbers that are not in that aggregate. Each field is a different question: chips for a field must answer only that field's label, and the same chip must not appear on more than one field. Return a single JSON object only. No markdown, no trailing commas, no comments."
+    },
+    {
+      "role": "user",
+      "content": "Purpose id: {{purpose_id}}\nPurpose: {{purpose_label}}\nUser also wrote: {{purpose_other}}\n\nChip fields to fill (id + label). For each id, suggest 4 to 8 short chips copied or lightly shortened from the aggregate:\n{{chip_fields}}\n\nCompiled aggregate (source of truth):\n{{aggregate_text}}\n\nReturn JSON: {\"chips\": {\"<fieldId>\": [\"chip\", ...]}}"
+    }
+  ]
+}
